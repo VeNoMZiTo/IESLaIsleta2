@@ -1,6 +1,23 @@
 <?php
 
-Route::redirect('/', '/login');
+Route::get('/', function () {
+    return view('frontend.index');
+});
+Route::get('/consultas', function () {
+    return view('frontend.consultas');
+});
+Route::get('/profesorado', function () {
+    return view('frontend.profesorado');
+});
+Route::get('/noticias', function () {
+    return view('frontend.noticias');
+});
+Route::get('/unoticias', function () {
+    return view('frontend.unoticias');
+});
+Route::post('mail/send-contact', 'MailController@sendContact');
+
+//Route::redirect('/', '/login');
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
 
