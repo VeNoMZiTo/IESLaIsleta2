@@ -1,23 +1,6 @@
 <?php
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
-Route::get('/consultas', function () {
-    return view('frontend.consultas');
-});
-Route::get('/profesorado', function () {
-    return view('frontend.profesorado');
-});
-Route::get('/noticias', function () {
-    return view('frontend.noticias');
-});
-Route::get('/unoticias', function () {
-    return view('frontend.unoticias');
-});
-Route::post('mail/send-contact', 'MailController@sendContact');
-
-//Route::redirect('/', '/login');
+Route::redirect('/', '/login');
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
 
@@ -34,4 +17,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Users
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::resource('users', 'UsersController');
+
+    // Sliders
+    Route::delete('sliders/destroy', 'SliderController@massDestroy')->name('sliders.massDestroy');
+    Route::resource('sliders', 'SliderController');
+
+    // Noticia
+    Route::delete('noticia/destroy', 'NoticiasController@massDestroy')->name('noticia.massDestroy');
+    Route::post('noticia/media', 'NoticiasController@storeMedia')->name('noticia.storeMedia');
+    Route::resource('noticia', 'NoticiasController');
 });
