@@ -25,6 +25,9 @@ class StoreSliderRequest extends FormRequest
             'descripcion' => [
                 'required',
             ],
+            'foto'        => [
+                'required',
+            ],
         ];
     }
 }

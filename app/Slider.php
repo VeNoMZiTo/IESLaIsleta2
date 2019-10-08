@@ -4,12 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\Models\Media;
 
-class Slider extends Model
+class Slider extends Model implements HasMedia
 {
-    use SoftDeletes;
+    use SoftDeletes, HasMediaTrait;
 
     public $table = 'sliders';
+
+    protected $appends = [
+        'foto',
+    ];
 
     protected $dates = [
         'created_at',
@@ -25,4 +32,21 @@ class Slider extends Model
         'deleted_at',
         'descripcion',
     ];
+
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->addMediaConversion('thumb')->width(50)->height(50);
+    }
+
+    public function getFotoAttribute()
+    {
+        $file = $this->getMedia('foto')->last();
+
+        if ($file) {
+            $file->url       = $file->getUrl();
+            $file->thumbnail = $file->getUrl('thumb');
+        }
+
+        return $file;
+    }
 }

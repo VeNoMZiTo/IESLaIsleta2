@@ -35,6 +35,9 @@
                             {{ trans('cruds.slider.fields.boton') }}
                         </th>
                         <th>
+                            {{ trans('cruds.slider.fields.foto') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -56,6 +59,13 @@
                             </td>
                             <td>
                                 {{ $slider->boton ?? '' }}
+                            </td>
+                            <td>
+                                @if($slider->foto)
+                                    <a href="{{ $slider->foto->getUrl() }}" target="_blank">
+                                        <img src="{{ $slider->foto->getUrl('thumb') }}" width="50px" height="50px">
+                                    </a>
+                                @endif
                             </td>
                             <td>
                                 @can('slider_show')
