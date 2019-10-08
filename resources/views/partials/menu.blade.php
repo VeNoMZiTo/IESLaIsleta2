@@ -96,6 +96,18 @@
                         </a>
                     </li>
                 @endcan
+                @can('actividade_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.actividades.index") }}" class="nav-link {{ request()->is('admin/actividades') || request()->is('admin/actividades/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-child">
+
+                            </i>
+                            <p>
+                                <span>{{ trans('cruds.actividade.title') }}</span>
+                            </p>
+                        </a>
+                    </li>
+                @endcan
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                         <p>
