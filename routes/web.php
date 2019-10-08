@@ -27,4 +27,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('noticia/destroy', 'NoticiasController@massDestroy')->name('noticia.massDestroy');
     Route::post('noticia/media', 'NoticiasController@storeMedia')->name('noticia.storeMedia');
     Route::resource('noticia', 'NoticiasController');
+
+    // Actividades
+    Route::delete('actividades/destroy', 'ActividadesController@massDestroy')->name('actividades.massDestroy');
+    Route::post('actividades/media', 'ActividadesController@storeMedia')->name('actividades.storeMedia');
+    Route::resource('actividades', 'ActividadesController');
 });
