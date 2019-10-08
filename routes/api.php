@@ -9,4 +9,11 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Users
     Route::apiResource('users', 'UsersApiController');
+
+    // Sliders
+    Route::apiResource('sliders', 'SliderApiController');
+
+    // Noticia
+    Route::post('noticia/media', 'NoticiasApiController@storeMedia')->name('noticia.storeMedia');
+    Route::apiResource('noticia', 'NoticiasApiController');
 });

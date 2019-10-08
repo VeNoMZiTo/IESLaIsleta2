@@ -72,6 +72,30 @@
                         </ul>
                     </li>
                 @endcan
+                @can('slider_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.sliders.index") }}" class="nav-link {{ request()->is('admin/sliders') || request()->is('admin/sliders/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-images">
+
+                            </i>
+                            <p>
+                                <span>{{ trans('cruds.slider.title') }}</span>
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+                @can('noticium_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.noticia.index") }}" class="nav-link {{ request()->is('admin/noticia') || request()->is('admin/noticia/*') ? 'active' : '' }}">
+                            <i class="fa-fw far fa-newspaper">
+
+                            </i>
+                            <p>
+                                <span>{{ trans('cruds.noticium.title') }}</span>
+                            </p>
+                        </a>
+                    </li>
+                @endcan
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                         <p>
