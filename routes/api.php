@@ -11,6 +11,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     Route::apiResource('users', 'UsersApiController');
 
     // Sliders
+    Route::post('sliders/media', 'SliderApiController@storeMedia')->name('sliders.storeMedia');
     Route::apiResource('sliders', 'SliderApiController');
 
     // Noticia

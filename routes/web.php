@@ -20,6 +20,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Sliders
     Route::delete('sliders/destroy', 'SliderController@massDestroy')->name('sliders.massDestroy');
+    Route::post('sliders/media', 'SliderController@storeMedia')->name('sliders.storeMedia');
     Route::resource('sliders', 'SliderController');
 
     // Noticia

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroySliderRequest;
 use App\Http\Requests\StoreSliderRequest;
 use App\Http\Requests\UpdateSliderRequest;
@@ -13,6 +14,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class SliderController extends Controller
 {
+    use MediaUploadingTrait;
+
     public function index()
     {
         abort_if(Gate::denies('slider_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -33,6 +36,10 @@ class SliderController extends Controller
     {
         $slider = Slider::create($request->all());
 
+        if ($request->input('foto', false)) {
+            $slider->addMedia(storage_path('tmp/uploads/' . $request->input('foto')))->toMediaCollection('foto');
+        }
+
         return redirect()->route('admin.sliders.index');
     }
 
@@ -46,6 +53,14 @@ class SliderController extends Controller
     public function update(UpdateSliderRequest $request, Slider $slider)
     {
         $slider->update($request->all());
+
+        if ($request->input('foto', false)) {
+            if (!$slider->foto || $request->input('foto') !== $slider->foto->file_name) {
+                $slider->addMedia(storage_path('tmp/uploads/' . $request->input('foto')))->toMediaCollection('foto');
+            }
+        } elseif ($slider->foto) {
+            $slider->foto->delete();
+        }
 
         return redirect()->route('admin.sliders.index');
     }

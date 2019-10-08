@@ -42,6 +42,18 @@
                             {{ $slider->boton }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.slider.fields.foto') }}
+                        </th>
+                        <td>
+                            @if($slider->foto)
+                                <a href="{{ $slider->foto->getUrl() }}" target="_blank">
+                                    <img src="{{ $slider->foto->getUrl('thumb') }}" width="50px" height="50px">
+                                </a>
+                            @endif
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">

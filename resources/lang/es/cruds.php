@@ -83,6 +83,8 @@ return [
             'descripcion_helper' => 'Descripción breve para el slider.',
             'boton'              => 'Botón',
             'boton_helper'       => 'Es la URL del botón del slider, si no se pone, no aparecera.',
+            'foto'               => 'Foto',
+            'foto_helper'        => '',
         ],
     ],
     'noticium'       => [
