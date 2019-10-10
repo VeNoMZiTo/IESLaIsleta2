@@ -32,9 +32,6 @@
                             {{ trans('cruds.noticium.fields.subtitulo') }}
                         </th>
                         <th>
-                            {{ trans('cruds.noticium.fields.descripcion') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.noticium.fields.fecha') }}
                         </th>
                         <th>
@@ -62,9 +59,6 @@
                             </td>
                             <td>
                                 {{ $noticium->subtitulo ?? '' }}
-                            </td>
-                            <td>
-                                {{ $noticium->descripcion ?? '' }}
                             </td>
                             <td>
                                 {{ $noticium->fecha ?? '' }}
