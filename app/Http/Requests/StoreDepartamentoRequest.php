@@ -19,7 +19,7 @@ class StoreDepartamentoRequest extends FormRequest
     public function rules()
     {
         return [
-            'departamentos' => [
+            'nombre' => [
                 'required',
             ],
         ];

@@ -26,7 +26,7 @@
                             {{ trans('cruds.departamento.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.departamento.fields.departamentos') }}
+                            {{ trans('cruds.departamento.fields.nombre') }}
                         </th>
                         <th>
                             &nbsp;
@@ -43,7 +43,7 @@
                                 {{ $departamento->id ?? '' }}
                             </td>
                             <td>
-                                {{ $departamento->departamentos ?? '' }}
+                                {{ $departamento->nombre ?? '' }}
                             </td>
                             <td>
                                 @can('departamento_show')

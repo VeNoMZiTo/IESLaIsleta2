@@ -9,16 +9,16 @@
     <div class="card-body">
         <form action="{{ route("admin.departamentos.store") }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="form-group {{ $errors->has('departamentos') ? 'has-error' : '' }}">
-                <label for="departamentos">{{ trans('cruds.departamento.fields.departamentos') }}*</label>
-                <input type="text" id="departamentos" name="departamentos" class="form-control" value="{{ old('departamentos', isset($departamento) ? $departamento->departamentos : '') }}" required>
-                @if($errors->has('departamentos'))
+            <div class="form-group {{ $errors->has('nombre') ? 'has-error' : '' }}">
+                <label for="nombre">{{ trans('cruds.departamento.fields.nombre') }}*</label>
+                <input type="text" id="nombre" name="nombre" class="form-control" value="{{ old('nombre', isset($departamento) ? $departamento->nombre : '') }}" required>
+                @if($errors->has('nombre'))
                     <p class="help-block">
-                        {{ $errors->first('departamentos') }}
+                        {{ $errors->first('nombre') }}
                     </p>
                 @endif
                 <p class="helper-block">
-                    {{ trans('cruds.departamento.fields.departamentos_helper') }}
+                    {{ trans('cruds.departamento.fields.nombre_helper') }}
                 </p>
             </div>
             <div>
