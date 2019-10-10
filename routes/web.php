@@ -1,22 +1,6 @@
 <?php
 
-Route::get('/', 'IndexController@getIndex');
-
-Route::get('/consultas', function () {
-    return view('frontend.consultas');
-});
-Route::get('/profesorado', function () {
-    return view('frontend.profesorado');
-});
-Route::get('/noticias', function () {
-    return view('frontend.noticias');
-});
-Route::get('/unoticias', function () {
-    return view('frontend.unoticias');
-});
-Route::post('mail/send-contact', 'MailController@sendContact');
-
-//Route::redirect('/', '/login');
+Route::redirect('/', '/login');
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
 
@@ -48,4 +32,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('actividades/destroy', 'ActividadesController@massDestroy')->name('actividades.massDestroy');
     Route::post('actividades/media', 'ActividadesController@storeMedia')->name('actividades.storeMedia');
     Route::resource('actividades', 'ActividadesController');
+
+    // Departamentos
+    Route::delete('departamentos/destroy', 'DepartamentosController@massDestroy')->name('departamentos.massDestroy');
+    Route::resource('departamentos', 'DepartamentosController');
 });

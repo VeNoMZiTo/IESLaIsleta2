@@ -108,6 +108,18 @@
                         </a>
                     </li>
                 @endcan
+                @can('departamento_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.departamentos.index") }}" class="nav-link {{ request()->is('admin/departamentos') || request()->is('admin/departamentos/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-server">
+
+                            </i>
+                            <p>
+                                <span>{{ trans('cruds.departamento.title') }}</span>
+                            </p>
+                        </a>
+                    </li>
+                @endcan
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                         <p>
