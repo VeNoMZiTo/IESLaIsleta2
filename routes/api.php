@@ -21,4 +21,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Actividades
     Route::post('actividades/media', 'ActividadesApiController@storeMedia')->name('actividades.storeMedia');
     Route::apiResource('actividades', 'ActividadesApiController');
+
+    // Departamentos
+    Route::apiResource('departamentos', 'DepartamentosApiController');
 });
