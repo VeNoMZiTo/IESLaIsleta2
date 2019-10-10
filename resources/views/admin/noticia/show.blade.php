@@ -36,14 +36,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.noticium.fields.descripcion') }}
-                        </th>
-                        <td>
-                            {{ $noticium->descripcion }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.noticium.fields.fecha') }}
                         </th>
                         <td>
@@ -68,6 +60,14 @@
                                     <img src="{{ $media->getUrl('thumb') }}" width="50px" height="50px">
                                 </a>
                             @endforeach
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.noticium.fields.descripcion') }}
+                        </th>
+                        <td>
+                            {!! $noticium->descripcion !!}
                         </td>
                     </tr>
                 </tbody>

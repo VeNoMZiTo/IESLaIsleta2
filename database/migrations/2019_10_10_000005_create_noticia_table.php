@@ -4,18 +4,22 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActividadesTable extends Migration
+class CreateNoticiaTable extends Migration
 {
     public function up()
     {
-        Schema::create('actividades', function (Blueprint $table) {
+        Schema::create('noticia', function (Blueprint $table) {
             $table->increments('id');
 
             $table->string('titulo');
 
+            $table->string('subtitulo');
+
             $table->date('fecha');
 
             $table->string('autor');
+
+            $table->longText('descripcion');
 
             $table->timestamps();
 

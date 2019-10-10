@@ -59,6 +59,18 @@
                     {{ trans('cruds.actividade.fields.autor_helper') }}
                 </p>
             </div>
+            <div class="form-group {{ $errors->has('descripcion') ? 'has-error' : '' }}">
+                <label for="descripcion">{{ trans('cruds.actividade.fields.descripcion') }}*</label>
+                <textarea id="descripcion" name="descripcion" class="form-control ckeditor">{{ old('descripcion', isset($actividade) ? $actividade->descripcion : '') }}</textarea>
+                @if($errors->has('descripcion'))
+                    <p class="help-block">
+                        {{ $errors->first('descripcion') }}
+                    </p>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.actividade.fields.descripcion_helper') }}
+                </p>
+            </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>

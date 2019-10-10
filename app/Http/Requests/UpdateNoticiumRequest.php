@@ -25,14 +25,14 @@ class UpdateNoticiumRequest extends FormRequest
             'subtitulo'   => [
                 'required',
             ],
-            'descripcion' => [
-                'required',
-            ],
             'fecha'       => [
                 'required',
                 'date_format:' . config('panel.date_format'),
             ],
             'autor'       => [
+                'required',
+            ],
+            'descripcion' => [
                 'required',
             ],
         ];

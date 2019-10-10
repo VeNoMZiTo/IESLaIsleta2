@@ -33,18 +33,6 @@
                     {{ trans('cruds.noticium.fields.subtitulo_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('descripcion') ? 'has-error' : '' }}">
-                <label for="descripcion">{{ trans('cruds.noticium.fields.descripcion') }}*</label>
-                <input type="text" id="descripcion" name="descripcion" class="form-control" value="{{ old('descripcion', isset($noticium) ? $noticium->descripcion : '') }}" required>
-                @if($errors->has('descripcion'))
-                    <p class="help-block">
-                        {{ $errors->first('descripcion') }}
-                    </p>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.noticium.fields.descripcion_helper') }}
-                </p>
-            </div>
             <div class="form-group {{ $errors->has('fecha') ? 'has-error' : '' }}">
                 <label for="fecha">{{ trans('cruds.noticium.fields.fecha') }}*</label>
                 <input type="text" id="fecha" name="fecha" class="form-control date" value="{{ old('fecha', isset($noticium) ? $noticium->fecha : '') }}" required>
@@ -81,6 +69,18 @@
                 @endif
                 <p class="helper-block">
                     {{ trans('cruds.noticium.fields.foto_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('descripcion') ? 'has-error' : '' }}">
+                <label for="descripcion">{{ trans('cruds.noticium.fields.descripcion') }}*</label>
+                <textarea id="descripcion" name="descripcion" class="form-control ckeditor">{{ old('descripcion', isset($noticium) ? $noticium->descripcion : '') }}</textarea>
+                @if($errors->has('descripcion'))
+                    <p class="help-block">
+                        {{ $errors->first('descripcion') }}
+                    </p>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.noticium.fields.descripcion_helper') }}
                 </p>
             </div>
             <div>

@@ -19,17 +19,20 @@ class StoreActividadeRequest extends FormRequest
     public function rules()
     {
         return [
-            'titulo' => [
+            'titulo'      => [
                 'required',
             ],
-            'fecha'  => [
+            'fecha'       => [
                 'required',
                 'date_format:' . config('panel.date_format'),
             ],
-            'foto.*' => [
+            'foto.*'      => [
                 'required',
             ],
-            'autor'  => [
+            'autor'       => [
+                'required',
+            ],
+            'descripcion' => [
                 'required',
             ],
         ];

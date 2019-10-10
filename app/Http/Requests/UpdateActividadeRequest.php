@@ -19,14 +19,17 @@ class UpdateActividadeRequest extends FormRequest
     public function rules()
     {
         return [
-            'titulo' => [
+            'titulo'      => [
                 'required',
             ],
-            'fecha'  => [
+            'fecha'       => [
                 'required',
                 'date_format:' . config('panel.date_format'),
             ],
-            'autor'  => [
+            'autor'       => [
+                'required',
+            ],
+            'descripcion' => [
                 'required',
             ],
         ];
