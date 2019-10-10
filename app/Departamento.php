@@ -18,9 +18,9 @@ class Departamento extends Model
     ];
 
     protected $fillable = [
-        'updated_at',
+        'nombre',
         'created_at',
+        'updated_at',
         'deleted_at',
-        'departamentos',
     ];
 }

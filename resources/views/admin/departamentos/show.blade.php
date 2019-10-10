@@ -20,10 +20,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.departamento.fields.departamentos') }}
+                            {{ trans('cruds.departamento.fields.nombre') }}
                         </th>
                         <td>
-                            {{ $departamento->departamentos }}
+                            {{ $departamento->nombre }}
                         </td>
                     </tr>
                 </tbody>
