@@ -202,6 +202,8 @@
             </div>
             <div class="row blog-row">
                 <div class="col-12 col-sm-6 principal ">
+
+                    @if(isset($noticias[0]))
                     <img src="{{$noticias[0]->foto[0]->getUrl()}}" class="img-fluid u-shadow-v2 fotoprincipal">
                     <div class="overlay-f-principal"></div>
                     <div class=" boxprincipal g-pt-15--md">
@@ -231,6 +233,7 @@
                         </li>
                     </ul>
                     <hr class='separador-principal' style="border-top-color: transparent !important;"/>
+                    @endif
                 </div>
 
 
