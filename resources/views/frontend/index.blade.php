@@ -5,46 +5,6 @@
     <link rel="stylesheet" href="vendor/revolution-slider/revolution/css/settings.css">
     <link rel="stylesheet" href="vendor/revolution-slider/revolution/css/layers.css">
     <link rel="stylesheet" href="vendor/revolution-slider/revolution/css/navigation.css">
-    <style>
-        .tp-tab-desc{
-            width:100%;
-            overflow:hidden;
-            white-space:nowrap;
-            text-overflow: ellipsis;
-        }
-        .actividades-descripcion *, .noticias-descripcion *{
-            display: none;
-        }
-        .actividades-descripcion> p:first-of-type, .noticias-descripcion> p:first-of-type{
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            text-align: justify;
-        }
-        .actividades-descripcion> p:first-of-type{
-            -webkit-line-clamp: 3;
-        }
-        .noticias-descripcion> p:first-of-type{
-            -webkit-line-clamp: 2;
-        }
-        .fotoprincipal{
-            height: 500px;
-            object-fit: cover;
-            border-radius: .25rem;
-            position: relative;
-        }
-        .principal .overlay-f-principal{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.4);
-            border-radius: .25rem;
-
-        }
-    </style>
 @endsection
 @php
 @endphp
@@ -199,46 +159,7 @@
                     <div id="actividades" class="row justify-content-center">
                         @foreach($actividades as $a)
                             @php
-                                /*Colocación de fecha en mes*/
-                            switch ($mes=substr($a->fecha,3,2)){
-                                case '01':
-                                    $mes='Ene';
-                                    break;
-                                case '02':
-                                    $mes='Feb';
-                                    break;
-                                case '03':
-                                    $mes='Mar';
-                                    break;
-                                case '04':
-                                    $mes='Abr';
-                                    break;
-                                case '05':
-                                    $mes='May';
-                                    break;
-                                case '06':
-                                    $mes='Jun';
-                                    break;
-                                case '07':
-                                    $mes='Jul';
-                                    break;
-                                case '08':
-                                    $mes='Ago';
-                                    break;
-                                case '09':
-                                    $mes='Sep';
-                                    break;
-                                case '10':
-                                    $mes='Oct';
-                                    break;
-                                case '11':
-                                    $mes='Nov';
-                                    break;
-                                case '12':
-                                    $mes='Dic';
-                                    break;
-
-                            }
+                            $mes=['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
                             @endphp
                         <div class="col-12 col-md-6 col-xl-3 g-mb-15 news">
                             <!-- Article -->
@@ -248,20 +169,19 @@
                                     <figcaption class="text-uppercase text-center g-line-height-1_2 g-bg-white-opacity-0_8 g-color-gray-dark-v2 g-pos-abs g-top-20 g-px-15 g-py-10">
                                         <strong class="d-block numero">{{substr($a->fecha,0,2)}}</strong>
                                         <hr class="g-brd-gray-dark-v2 my-1">
-                                        <small class="d-block mes">{{$mes}}</small>
+                                        <small class="d-block mes">{{$mes[intval(substr($a->fecha,3,2))]}}</small>
                                     </figcaption>
                                 </figure>
                                 <div class="g-pa-20">
                                     <div class="u-heading-v2-6--bottom g-brd-primary g-mb-20">
                                         <h4 class="h4 u-heading-v2__title g-font-weight-300 g-mb-0">
-                                            <a class="u-link-v5 g-color-main g-color-primary--hover" href="#">{{$a->titulo}}</a>
+                                            <a class="u-link-v5 g-color-main g-color-primary--hover" href="/actividad/{{$a->id}}-{{$a->titulo}}">{{$a->titulo}}</a>
                                         </h4>
                                     </div>
 
                                     <div class="g-font-size-15 actividades-descripcion">
                                         {!! $a->descripcion !!}
                                     </div>
-
                                 </div>
                             </article>
                             <!-- End Article -->
@@ -291,18 +211,18 @@
                             <li class="list-inline-item">{{$noticias[0]->fecha}}</li>
                             <li class="list-inline-item mx-2 redes-title">&#183;</li>
                             <li class="list-inline-item redes-title">
-                                <a class="u-link-v5 g-color-white g-color-primary--hover" href="#noticia-1" data-modal-target="#noticia-1" data-modal-effect="slide">Compartir</a>
+                                <a class="u-link-v5 g-color-white g-color-primary--hover" href="#noticia-{{$noticias[0]->id}}" data-modal-target="#noticia-{{$noticias[0]->id}}" data-modal-effect="slide">Compartir</a>
                             </li>
                         </ul>
                         <h2 class="h2 g-color-black g-font-weight-600 mb-4">
-                            <a class="u-link-v5 g-color-white g-color-primary--hover" href="/unoticias">{{$noticias[0]->titulo}}</a>
+                            <a class="u-link-v5 g-color-white g-color-primary--hover" href="/noticia/{{$noticias[0]->id}}-{{$noticias[0]->titulo}}">{{$noticias[0]->titulo}}</a>
                         </h2>
-                        <a href="/unoticias" class="btn g-bg-primary g-brd-primary--hover g-color-white btn-lg">Leer más</a>
+                        <a href="/noticia/{{$noticias[0]->id}}-{{$noticias[0]->titulo}}" class="btn g-bg-primary g-brd-primary--hover g-color-white btn-lg">Leer más</a>
                     </div>
                     <hr class='p-0 my-1 redes-principal'/>
                     <ul class="list-inline mb-0 redes-principal">
                         <li class="list-inline-item g-mr-15">
-                            <a class='d-flex align-items-center u-link-v5 g-color-gray-dark-v3 g-color-primary--hover' href="#noticia-1" data-modal-target="#noticia-1" data-modal-effect="slide">
+                            <a class='d-flex align-items-center u-link-v5 g-color-gray-dark-v3 g-color-primary--hover' href="#noticia-{{$noticias[0]->id}}" data-modal-target="#noticia-{{$noticias[0]->id}}" data-modal-effect="slide">
                                 <span class="u-icon-v3 u-icon-size--sm g-bg-facebook g-bg-gray-light-v5  rounded-circle">
                                     <i class="icon-share"></i>
                                 </span>
@@ -347,6 +267,7 @@
                        }
                      }]'>
                     @foreach($noticias as $n)
+                        @if(!$loop->first)
                         <div class="js-slide g-px-15 row fotos g-my-20">
                             <div class="col-12 col-lg-6">
                                 <img src="{{$n->foto[0]->getUrl()}}" class="img-fluid u-shadow-v2 rounded">
@@ -359,7 +280,7 @@
                                         <li class="list-inline-item">{{$n->fecha}}</li>
                                     </ul>
                                     <h4 class="h4 g-color-black g-font-weight-600 mb-4">
-                                        <a class="u-link-v5 g-color-black g-color-primary--hover" href="/unoticias">{{$n->titulo}}</a>
+                                        <a class="u-link-v5 g-color-black g-color-primary--hover" href="/noticia/{{$n->id}}-{{$n->titulo}}">{{$n->titulo}}</a>
                                     </h4>
                                     <div class="noticias-descripcion">
                                         {!! $n->descripcion !!}
@@ -367,7 +288,7 @@
                                     <hr class='p-0 my-1'/>
                                     <ul class="list-inline mb-0">
                                         <li class="list-inline-item g-mr-15 ">
-                                            <a class='d-flex align-items-center u-link-v5 g-color-gray-dark-v3 g-color-primary--hover' href="#noticia-1" data-modal-target="#noticia-1" data-modal-effect="slide">
+                                            <a class='d-flex align-items-center u-link-v5 g-color-gray-dark-v3 g-color-primary--hover' href="#noticia-{{$n->id}}" data-modal-target="#noticia-{{$n->id}}" data-modal-effect="slide">
                                             <span class="u-icon-v3 u-icon-size--sm g-bg-facebook g-bg-gray-light-v5  rounded-circle">
                                                 <i class="icon-share"></i>
                                             </span>
@@ -378,6 +299,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                     @endforeach
                 </div>
             </div>
@@ -444,13 +366,58 @@
 
         </ul>
     </div>
+    @foreach($noticias as $n)
 
+    <div id="noticia-{{$n->id}}" class="text-left g-max-width-600 g-bg-white g-overflow-y-auto g-pa-20" style="display: none;">
+        <button type="button" class="close" onclick="Custombox.modal.close();">
+            <i class="hs-icon hs-icon-close"></i>
+        </button>
+        <div class="u-heading-v2-6--bottom g-mb-40">
+            <h2 class="u-heading-v2__title g-mb-10">Comparte la Noticia</h2>
+            <h4 class="g-font-weight-200">{{$n->titulo}}</h4>
+        </div>
+        <ul class="u-list-inline">
+            <li class="list-inline-item g-mb-10 fb-share-button" data-href="{{$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"}}noticia/{{$n->id}}-{{$n->titulo}}" data-layout="button" data-size="small">
+                <a target='_blank' class="fb-xfbml-parse-ignore u-tags-v1 g-color-facebook g-brd-around g-brd-gray-light-v3 g-brd-facebook--hover g-bg-blue-opacity-0_1 g-bg-facebook--hover g-color-white--hover g-rounded-50 g-py-4 g-px-15" href="https://www.facebook.com/sharer/sharer.php?u={{$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"}}noticia/{{$n->id}}-{{$n->titulo}}">
+                    <i class="fa fa-facebook mr-1"></i>
+                    Facebook
+                </a>
+            </li>
+            <li class="list-inline-item g-mb-10">
+                <a class="u-tags-v1 g-color-twitter g-brd-around g-brd-gray-light-v3 g-brd-twitter--hover g-bg-blue-opacity-0_1 g-bg-twitter--hover g-color-white--hover g-rounded-50 g-py-4 g-px-15" href="#">
+                    <i class="fa fa-twitter mr-1"></i>
+                    Twitter
+                </a>
+            </li>
+            <li class="list-inline-item g-mb-10">
+                <a class="u-tags-v1 g-color-pink g-brd-around g-brd-gray-light-v3 g-brd-pink--hover g-bg-pink--hover g-color-white--hover g-rounded-50 g-py-4 g-px-15" href="#">
+                    <i class="fa fa-envelope mr-1"></i>
+                    Correo
+                </a>
+            </li>
+        </ul>
+        <hr class="w-50 g-my-15">
+        <label>Dirección URL de la noticia:</label>
+        <div class="input-group g-brd-primary--focus">
+            <input id='urlnoticia' class="form-control form-control-md rounded-0" type="text" value="{{$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"}}noticia/{{$n->id}}-{{$n->titulo}}">
+            <div class="input-group-append box-copy">
+                <span class="input-group-text rounded-0 copy"><i class="fa fa-copy"></i></span>
+            </div>
+        </div>
+    </div>
+    @endforeach
 @endsection
 @section('js')
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 <script>
-    $(document).on('click','#slide-1687-layer-5',function () {
-        console.log($('.tp-revslider-slidesli').attr('data-title'));
-    });
+
     // initialization of carousel
     var tpj = jQuery;
     var revapi486;

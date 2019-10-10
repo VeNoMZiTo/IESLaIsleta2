@@ -9,41 +9,90 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-
+    <!-- Facebook-->
+    <meta property="og:url"           content="https://www.your-domain.com/your-page.html" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Your Website Title" />
+    <meta property="og:description"   content="Your description" />
+    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
     <!-- Favicon -->
-    <link rel="shortcut icon" href="img/newlogos/png/icon.png" sizes="16x16">
+    <link rel="shortcut icon" href="/img/newlogos/png/icon.png" sizes="16x16">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <!-- CSS Global Compulsory -->
-    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
     <!-- CSS Global Icons -->
-    <link rel="stylesheet" href="vendor/icon-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendor/icon-line/css/simple-line-icons.css">
-    <link rel="stylesheet" href="vendor/icon-etlinefont/style.css">
-    <link rel="stylesheet" href="vendor/icon-line-pro/style.css">
-    <link rel="stylesheet" href="vendor/icon-hs/style.css">
-    <link rel="stylesheet" href="vendor/animate.css">
-    <link rel="stylesheet" href="vendor/dzsparallaxer/dzsparallaxer.css">
-    <link rel="stylesheet" href="vendor/dzsparallaxer/dzsscroller/scroller.css">
-    <link rel="stylesheet" href="vendor/dzsparallaxer/advancedscroller/plugin.css">
-    <link rel="stylesheet" href="vendor/slick-carousel/slick/slick.css">
-    <link rel="stylesheet" href="vendor/fancybox/jquery.fancybox.css">
-    <link rel="stylesheet" href="vendor/hs-bg-video/hs-bg-video.css">
-    <link rel="stylesheet" href="vendor/hs-megamenu/src/hs.megamenu.css">
-    <link rel="stylesheet" href="vendor/hamburgers/hamburgers.min.css">
-    <link rel="stylesheet" href="vendor/custombox/custombox.min.css">
+    <link rel="stylesheet" href="/vendor/icon-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/icon-line/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/vendor/icon-etlinefont/style.css">
+    <link rel="stylesheet" href="/vendor/icon-line-pro/style.css">
+    <link rel="stylesheet" href="/vendor/icon-hs/style.css">
+    <link rel="stylesheet" href="/vendor/animate.css">
+    <link rel="stylesheet" href="/vendor/dzsparallaxer/dzsparallaxer.css">
+    <link rel="stylesheet" href="/vendor/dzsparallaxer/dzsscroller/scroller.css">
+    <link rel="stylesheet" href="/vendor/dzsparallaxer/advancedscroller/plugin.css">
+    <link rel="stylesheet" href="/vendor/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" href="/vendor/hs-bg-video/hs-bg-video.css">
+    <link rel="stylesheet" href="/vendor/hs-megamenu/src/hs.megamenu.css">
+    <link rel="stylesheet" href="/vendor/hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" href="/vendor/custombox/custombox.min.css">
     <!-- CSS Unify -->
-    <link rel="stylesheet" href="css/unify-core.css">
-    <link rel="stylesheet" href="css/unify-components.css">
-    <link rel="stylesheet" href="css/unify-globals.css">
-    <link rel="stylesheet" href="css/spectrum.css">
+    <link rel="stylesheet" href="/css/unify-core.css">
+    <link rel="stylesheet" href="/css/unify-components.css">
+    <link rel="stylesheet" href="/css/unify-globals.css">
+    <link rel="stylesheet" href="/css/spectrum.css">
     <!-- CSS Customization -->
-    <link rel="stylesheet" href="css/custom-2.css">
-    <link rel="stylesheet" href="css/customperf.css">
+    <link rel="stylesheet" href="/css/custom-2.css">
+    <link rel="stylesheet" href="/css/customperf.css">
     @section('css')
     @show
     <style>
+        .js-fancybox img{
+            object-fit: cover;
+        }
+        .pagination__item img{
+            height: 300px;
+            object-fit: cover;
+        }
+        .tp-tab-desc{
+            width:100%;
+            overflow:hidden;
+            white-space:nowrap;
+            text-overflow: ellipsis;
+        }
+        .actividades-descripcion *, .noticias-descripcion *{
+            display: none;
+        }
+        .actividades-descripcion> p:first-of-type, .noticias-descripcion> p:first-of-type{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: justify;
+        }
+        .actividades-descripcion> p:first-of-type{
+            -webkit-line-clamp: 3;
+        }
+        .noticias-descripcion> p:first-of-type{
+            -webkit-line-clamp: 2;
+        }
+        .fotoprincipal{
+            height: 500px;
+            object-fit: cover;
+            border-radius: .25rem;
+            position: relative;
+        }
+        .principal .overlay-f-principal{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            border-radius: .25rem;
 
+        }
     </style>
 </head>
 
@@ -66,6 +115,7 @@
 {{--        </div>--}}
 {{--    </div>--}}
 </div>
+
 <main id='mainpage' class="bg-white" >
     <header id="js-header" class="u-header u-header--sticky-top u-header--toggle-section u-header--change-appearance"
             data-header-fix-moment="100"
@@ -122,8 +172,8 @@
                     <!-- Logo -->
                     <span id="logosnavbar"  class="navbar-brand w-100 "
                           data-type="static">
-                            <a id='box-logotop' href='/' class=""><img id="logotop" src="img/newlogos/png/Asset%202.png"  class="img-fluid d-block" alt="Logo" ></a>
-                            <a href='https://www.gobiernodecanarias.org/educacion/web/' target="_blank"><img id="logotop2" src="img/logoinst/gobcanarias.jpg" class="img-fluid"   alt="Logo" ></a>
+                            <a id='box-logotop' href='/' class=""><img id="logotop" src="/img/newlogos/png/Asset%202.png"  class="img-fluid d-block" alt="Logo" ></a>
+                            <a href='https://www.gobiernodecanarias.org/educacion/web/' target="_blank"><img id="logotop2" src="/img/logoinst/gobcanarias.jpg" class="img-fluid"   alt="Logo" ></a>
                     </span>
                     <!-- End Logo -->
                 </div>
@@ -131,7 +181,7 @@
                     <div id='box-topnarvbarbox' class="row mx-0 u-header__section u-header__section--hidden u-header__section--dark" >
                         <div class="col-4 col-3-1500 offset-1-1500 g-brd-right g-brd-gray-light-v2 topnavbarbox">
                             <a href="https://www.gobiernodecanarias.net/educacion/loginportal/" class="topnavbarbox h-100 w-100" target="_blank">
-                                <img class="u-icon-sliding--hover" src="img/logoinst/intranet.JPG" width="40" height="40">
+                                <img class="u-icon-sliding--hover" src="/img/logoinst/intranet.JPG" width="40" height="40">
                                 <div class="g-pa-10--lg g-hidden-sm-down">
                                     <strong><span class="text-uppercase g-font-size-16">Portal Docente</span></strong>
                                 </div>
@@ -139,7 +189,7 @@
                         </div>
                         <div class="col-4 col-3-1500 g-brd-right g-brd-gray-light-v2 topnavbarbox">
                             <a href="https://www.gobiernodecanarias.org/educacion/9/PEKWEB/Ekade/Account/LogOn?ReturnUrl=%2Feducacion%2FPEKWEB%2FEkade%2F" class="topnavbarbox h-100 w-100" target="_blank">
-                                <img class="u-icon-sliding--hover" src="img/logoinst/pincelekade.png" width="40" height="40">
+                                <img class="u-icon-sliding--hover" src="/img/logoinst/pincelekade.png" width="40" height="40">
                                 <div class="g-pa-10--lg g-hidden-sm-down">
                                     <strong><span class="text-uppercase g-font-size-16">Pincel Ekade</span></strong>
                                 </div>
@@ -147,7 +197,7 @@
                         </div>
                         <div class="col-4 col-3-1500 topnavbarbox ">
                             <a href="https://www3.gobiernodecanarias.org/medusa/evagd/laspalmas/login/index.php" class="topnavbarbox h-100 w-100" target="_blank">
-                                <img src="img/logoinst/EVAGD.png" width="50" height="50" >
+                                <img src="/img/logoinst/EVAGD.png" width="50" height="50" >
                                 <div class="g-pa-10--lg g-hidden-sm-down">
                                     <strong><span class="text-uppercase g-font-size-16">Moodle</span></strong>
                                 </div>
@@ -221,23 +271,9 @@
                                                     <!-- Submenu -->
                                                     <ul class="hs-sub-menu list-unstyled " id="nav-submenu-1" aria-labelledby="nav-link-1">
                                                         <li>
-                                                            <a href="#">Administración de Empresas</a>
-                                                            <a href="#">Biología y Geología</a>
-                                                            <a href="#">Dibujo</a>
-                                                            <a href="#">Economía</a>
-                                                            <a href="#">Educación Física</a>
-                                                            <a href="#">Filosofía</a>
-                                                            <a href="#">Física y Química</a>
-                                                            <a href="#">Francés</a>
-                                                            <a href="#">Geografía e Historia</a>
-                                                            <a href="#">Griego</a>
-                                                            <a href="#">Inglés</a>
-                                                            <a href="#">Lengua Castellana y Literatura</a>
-                                                            <a href="#">Matemáticas</a>
-                                                            <a href="#">Música</a>
-                                                            <a href="#">Orientación</a>
-                                                            <a href="#">Religión</a>
-                                                            <a href="#">Tecnología</a>
+{{--                                                            @foreach($departamentos as $d)--}}
+{{--                                                            <a href="#">{{$d->nombre}}</a>--}}
+{{--                                                            @endforeach--}}
                                                         </li>
 
                                                     </ul>
@@ -362,7 +398,7 @@
                     <div class="row">
                         <!-- Footer Content -->
                         <div class="col-lg-3 col-md-6 g-mb-40 g-mb-0--lg text-center">
-                            <img src="img/newlogos/png/Asset%201_Negativo.png" alt="Logo">
+                            <img src="/img/newlogos/png/Asset%201_Negativo.png" alt="Logo">
                         </div>
                         <!-- End Footer Content -->
 
@@ -515,108 +551,63 @@
             </footer>
             <!-- End Copyright Footer -->
         </div>
-
 </main>
-<div id="noticia-1" class="text-left g-max-width-600 g-bg-white g-overflow-y-auto g-pa-20" style="display: none;">
-    <button type="button" class="close" onclick="Custombox.modal.close();">
-        <i class="hs-icon hs-icon-close"></i>
-    </button>
-    <div class="u-heading-v2-6--bottom g-mb-40">
-        <h2 class="u-heading-v2__title g-mb-10">Comparte la Noticia</h2>
-        <h4 class="g-font-weight-200">Título de la noticia</h4>
-    </div>
-    <ul class="u-list-inline">
-        <li class="list-inline-item g-mb-10">
-            <a class="u-tags-v1 g-color-facebook g-brd-around g-brd-gray-light-v3 g-brd-facebook--hover g-bg-blue-opacity-0_1 g-bg-facebook--hover g-color-white--hover g-rounded-50 g-py-4 g-px-15" href="#">
-                <i class="fa fa-facebook mr-1"></i>
-                Facebook
-            </a>
-        </li>
-        <li class="list-inline-item g-mb-10">
-            <a class="u-tags-v1 g-color-twitter g-brd-around g-brd-gray-light-v3 g-brd-twitter--hover g-bg-blue-opacity-0_1 g-bg-twitter--hover g-color-white--hover g-rounded-50 g-py-4 g-px-15" href="#">
-                <i class="fa fa-twitter mr-1"></i>
-                Twitter
-            </a>
-        </li>
-        <li class="list-inline-item g-mb-10">
-            <a class="u-tags-v1 g-color-pink g-brd-around g-brd-gray-light-v3 g-brd-pink--hover g-bg-pink--hover g-color-white--hover g-rounded-50 g-py-4 g-px-15" href="#">
-                <i class="fa fa-envelope mr-1"></i>
-                Correo
-            </a>
-        </li>
-    </ul>
-    <hr class="w-50 g-my-15">
-    <label>Dirección URL de la noticia:</label>
-    <div class="input-group g-brd-primary--focus">
-        <input id='urlnoticia' class="form-control form-control-md rounded-0" type="text" value="https://ies.adrianrm.com/#noticia-1">
-        <div class="input-group-append box-copy">
-            <span class="input-group-text rounded-0 copy"><i class="fa fa-copy"></i></span>
-        </div>
-    </div>
-</div>
+<div id="fb-root"></div>
 <!-- JS Global Compulsory -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/jquery-migrate/jquery-migrate.min.js"></script>
-<script src="vendor/popper.min.js"></script>
-<script src="vendor/bootstrap/bootstrap.min.js"></script>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+<script src="/vendor/popper.min.js"></script>
+<script src="/vendor/bootstrap/bootstrap.min.js"></script>
 
 
 <!-- JS Implementing Plugins -->
-<script src="vendor/appear.js"></script>
-<script src="vendor/slick-carousel/slick/slick.js"></script>
-<script src="vendor/hs-megamenu/src/hs.megamenu.js"></script>
-<script src="vendor/dzsparallaxer/dzsparallaxer.js"></script>
-<script src="vendor/dzsparallaxer/dzsscroller/scroller.js"></script>
-<script src="vendor/dzsparallaxer/advancedscroller/plugin.js"></script>
-<script src="vendor/hs-bg-video/hs-bg-video.js"></script>
-<script src="vendor/hs-bg-video/vendor/player.min.js"></script>
-<script src="vendor/fancybox/jquery.fancybox.js"></script>
-<script src="vendor/spectrum/spectrum.js"></script>
-<script src="vendor/spectrum/jquery.slidereveal.min.js"></script>
-<script src="vendor/custombox/custombox.min.js"></script>
+<script src="/vendor/appear.js"></script>
+<script src="/vendor/slick-carousel/slick/slick.js"></script>
+<script src="/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+<script src="/vendor/dzsparallaxer/dzsparallaxer.js"></script>
+<script src="/vendor/dzsparallaxer/dzsscroller/scroller.js"></script>
+<script src="/vendor/dzsparallaxer/advancedscroller/plugin.js"></script>
+<script src="/vendor/hs-bg-video/hs-bg-video.js"></script>
+<script src="/vendor/hs-bg-video/vendor/player.min.js"></script>
+<script src="/vendor/fancybox/jquery.fancybox.js"></script>
+<script src="/vendor/spectrum/spectrum.js"></script>
+<script src="/vendor/spectrum/jquery.slidereveal.min.js"></script>
+<script src="/vendor/custombox/custombox.min.js"></script>
 
 <!-- JS Unify -->
-<script src="js/hs.core.js"></script>
-<script src="js/components/hs.header.js"></script>
-<script src="js/helpers/hs.hamburgers.js"></script>
-<script src="js/components/hs.tabs.js"></script>
-<script src="js/helpers/hs.height-calc.js"></script>
-<script src="js/components/hs.onscroll-animation.js"></script>
-<script src="js/helpers/hs.bg-video.js"></script>
-<script src="js/components/hs.popup.js"></script>
-<script src="js/components/hs.carousel.js"></script>
-<script src="js/components/hs.go-to.js"></script>
-<script src="js/components/hs.modal-window.js"></script>
+<script src="/js/hs.core.js"></script>
+<script src="/js/components/hs.header.js"></script>
+<script src="/js/helpers/hs.hamburgers.js"></script>
+<script src="/js/components/hs.tabs.js"></script>
+<script src="/js/helpers/hs.height-calc.js"></script>
+<script src="/js/components/hs.onscroll-animation.js"></script>
+<script src="/js/helpers/hs.bg-video.js"></script>
+<script src="/js/components/hs.popup.js"></script>
+<script src="/js/components/hs.carousel.js"></script>
+<script src="/js/components/hs.go-to.js"></script>
+<script src="/js/components/hs.modal-window.js"></script>
 
 <!-- JS Revolution Slider -->
-<script src="vendor/revolution-slider/revolution/js/jquery.themepunch.tools.min.js"></script>
-<script src="vendor/revolution-slider/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="/vendor/revolution-slider/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="/vendor/revolution-slider/revolution/js/jquery.themepunch.revolution.min.js"></script>
 
-<script src="vendor/revolution-slider/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-<script src="vendor/revolution-slider/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-<script src="vendor/revolution-slider/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-<script src="vendor/revolution-slider/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-<script src="vendor/revolution-slider/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-<script src="vendor/revolution-slider/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-<script src="vendor/revolution-slider/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-<script src="vendor/revolution-slider/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-<script src="vendor/revolution-slider/revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script src="/vendor/revolution-slider/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<script src="/vendor/revolution-slider/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+<script src="/vendor/revolution-slider/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="/vendor/revolution-slider/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="/vendor/revolution-slider/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+<script src="/vendor/revolution-slider/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script src="/vendor/revolution-slider/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<script src="/vendor/revolution-slider/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="/vendor/revolution-slider/revolution/js/extensions/revolution.extension.video.min.js"></script>
 <!-- JS Customization -->
-<script src="js/custom.js"></script>
-<!--Clipboard-->
-<script src="js/clipboard.min.js"></script>
+<script src="/js/custom.js"></script>
 @section('js')
 @show
 
 <!-- JS Plugins Init. -->
 
 <script>
-    /*Clipboard de noticias*/
-    var clipboard = new ClipboardJS('.box-copy', {
-        target: function() {
-            return document.getElementById('urlnoticia');
-        }
-    });
 
     /*Responsive del navbar - CSS también*/
     $('#mainpage').css({'padding-top':$('#js-header').height()+'px'});
