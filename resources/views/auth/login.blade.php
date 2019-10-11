@@ -124,7 +124,6 @@
                                                 </div>
                                                 Recordarme en este equipo
                                             </label>
-                                            <a class="g-font-size-12 g-color-secundario g-color-secundario--hover" href="{{ route('password.request') }}">¿Has olvidado la contraseña?</a>
                                         </div>
 
                                     </div>
@@ -133,6 +132,9 @@
                                 <div class="mb-4">
                                     <button type="submit" class="btn btn-block g-bg-primary rounded g-py-15 g-font-size-20 g-color-white g-color-primary--hover g-bg-white--hover g-brd-primary--hover u-shadow-v1-5 g-box-shadow-none--hover">Entrar</button>
                                 </div>
+                                <footer class="text-center">
+                                    <a class="g-font-size-12 g-color-secundario g-color-secundario--hover" href="{{ route('password.request') }}">¿Has olvidado la contraseña?</a>
+                                </footer>
                             </form>
                             <!-- End Form -->
                         </div>
