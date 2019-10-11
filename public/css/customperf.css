@@ -6,14 +6,15 @@ body{
     transition:.2s;
 }
 .g-color-secundario--hover:hover{
-    color:rgba(29, 136, 115,0.6) !important;
+    color:rgba(29, 136, 115,0.8) !important;
 }
 .g-bg-secundario{
     background: #1d8873;
     transition:.2s;
 }
 .g-bg-secundario--hover:hover{
-    color:rgba(29, 136, 115,0.6) !important;
+    background:rgba(29, 136, 115,0.8) !important;
+    border-color:#1d8873;
 }
 .g-box-shadow-none--hover:hover{
     box-shadow: none;

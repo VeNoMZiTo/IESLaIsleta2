@@ -1,6 +1,9 @@
 <?php
 Route::get('/', 'IndexController@getIndex');
 
+Route::get('/nodisponible', function () {
+    return view('frontend.nodisponible');
+});
 Route::get('/consultas', function () {
     return view('frontend.consultas');
 });
