@@ -466,16 +466,16 @@ a:hover {
   Highlight Color
 ------------------------------------*/
 ::-moz-selection {
-    background-color: #1d8873;
+    background-color: #6fbaeb;
 }
 ::selection {
-    background-color: #1d8873;
+    background-color: #6fbaeb;
 }
 .g-bg-primary ::-moz-selection {
-    color: #1d8873;
+    color: #6fbaeb;
 }
 .g-bg-primary ::selection {
-    color: #1d8873;
+    color: #6fbaeb;
 }
 /*------------------------------------
   Buttons

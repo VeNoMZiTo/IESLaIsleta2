@@ -1,6 +1,23 @@
 body{
     overflow: visible !important;
 }
+.g-color-secundario{
+    color:#1d8873;
+    transition:.2s;
+}
+.g-color-secundario--hover:hover{
+    color:rgba(29, 136, 115,0.6) !important;
+}
+.g-bg-secundario{
+    background: #1d8873;
+    transition:.2s;
+}
+.g-bg-secundario--hover:hover{
+    color:rgba(29, 136, 115,0.6) !important;
+}
+.g-box-shadow-none--hover:hover{
+    box-shadow: none;
+}
 /*Slider*/
 #rev_slider_486_1_wrapper {
     background-color: #fff;
@@ -337,6 +354,84 @@ nav{
 .g-color-enlacenavbar{
     color:#5c87b2;
 }
+
+.js-fancybox img{
+    object-fit: cover;
+}
+.pagination__item img{
+    height: 300px;
+    object-fit: cover;
+}
+.tp-tab-desc{
+    width:100%;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+.actividades-descripcion *, .noticias-descripcion *{
+    display: none;
+}
+.actividades-descripcion> p:first-of-type, .noticias-descripcion> p:first-of-type{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+}
+.actividades-descripcion> p:first-of-type{
+    -webkit-line-clamp: 3;
+}
+.noticias-descripcion> p:first-of-type{
+    -webkit-line-clamp: 2;
+}
+.fotoprincipal{
+    height: 500px;
+    object-fit: cover;
+    border-radius: .25rem;
+    position: relative;
+}
+.principal .overlay-f-principal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    border-radius: .25rem;
+
+}
+#logopc{
+    width: 400px;
+    max-width: 100%;
+    overflow: visible;
+}
+/*Animación del logo IES La Isleta*/
+.path-general{
+    fill:rgba(255,255,255,1);
+    stroke-dasharray: 1800;
+    opacity: 10;
+    animation: laterales 5s linear;
+}
+.luces{
+    fill:rgba(255,255,255,1);
+    stroke-dasharray: 1800;
+    opacity: 0;
+    animation: laterales 3s 3s linear infinite;
+}
+@keyframes laterales{
+    0%{
+        fill:rgba(255,255,255,1);
+        opacity: 0;
+        stroke-dashoffset: 1800;
+    }
+    90%{
+        opacity: 10;
+        fill:rgba(255,255,255,0);
+    }
+    100%{
+        stroke-dashoffset: 1500;
+    }
+}
 @media only screen and (min-width: 1501px) {
     .offset-1-1500{
         margin-left: 8.333333%;
@@ -350,12 +445,12 @@ nav{
 
 }
 @media only screen and (min-width: 1240px) {
-    #s-slider {
+    .s-slider {
         height: 500px;
     }
 }
 @media only screen and (min-width: 1024px) and (max-width: 1239px) {
-    #s-slider {
+    .s-slider {
         height: 450px;
     }
 }
@@ -371,7 +466,7 @@ nav{
 
 }
 @media only screen and (min-width: 778px) and (max-width: 1023px) {
-    #s-slider {
+    .s-slider{
         height: 400px;
     }
 }
@@ -436,7 +531,7 @@ nav{
     .redes-principal{
         display:block;
     }
-    .redes-title{
+    .redes-title, .overlay-f-principal{
         display:none;
     }
 }
@@ -457,10 +552,17 @@ nav{
     #rev_slider_486_1_wrapper{
         top:-5px
     }
+    #topnavbarfirst .container{
+        max-width: 100%;
+        padding: 0 40px;
+    }
+    #topnavbarfirst strong span{
+        font-size:11px !important;
+    }
 }
 @media only screen and (max-width: 768px){
-    #s-slider {
-        height: 350px;
+    .s-slider {
+        height: 375px;
     }
 }
 @media only screen and (max-width: 600px) {
@@ -513,6 +615,12 @@ nav{
     .slick-list{
         max-height: initial !important;
     }
+    .s-slider {
+        height: 350px;
+    }
+    #topnavbarfirst .container{
+        padding: 0 20px;
+    }
 }
 @media only screen and (max-width: 575px) {
     .boxprincipal ul{
@@ -520,6 +628,12 @@ nav{
     }
     .boxprincipal a{
         color:#000 !important;
+    }
+    .s-slider {
+        height: 300px;
+    }
+    .item-consultas{
+        border-right:1px solid;
     }
 }
 @media only screen and (max-width: 500px) {
@@ -531,7 +645,18 @@ nav{
     #logotop2{
         max-width: 30%;
     }
-
+    .s-slider {
+        height: 275px;
+    }
+    #topnavbarfirst .container{
+        padding: 0 10px;
+    }
 
 }
 
+@media only screen and (max-width: 360px) {
+    #topnavbarfirst strong span{
+        font-size:10px !important;
+    }
+
+}

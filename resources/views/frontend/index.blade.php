@@ -9,7 +9,7 @@
 @php
 @endphp
 @section('slider')
-    <section id="s-slider">
+    <section class="s-slider">
         <div id="rev_slider_486_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container u-shadow-v1-5"
              data-alias="news-gallery36"
              data-source="gallery">
@@ -201,7 +201,7 @@
                 </div>
             </div>
             <div class="row blog-row">
-                <div class="col-12 col-sm-6 principal ">
+                <div class="col-12 col-md-6 principal ">
 
                     @if(isset($noticias[0]))
                     <img src="{{$noticias[0]->foto[0]->getUrl()}}" class="img-fluid u-shadow-v2 fotoprincipal">
@@ -237,7 +237,7 @@
                 </div>
 
 
-                <div class="js-carousel  col-12 col-sm-6"
+                <div class="js-carousel col-12 col-md-6"
                      data-infinite="true"
                      data-slides-show="2"
                      data-slides-scroll="1"
@@ -533,6 +533,7 @@
             $('.tp-tab-title').eq(x).text($('.tp-revslider-slidesli').eq(x).attr('data-title'));
             $('.tp-tab-desc').eq(x).text($('.tp-revslider-slidesli').eq(x).attr('data-description'));
         }
+        $('.s-slider').removeClass('s-slider');
     });
 
 </script>

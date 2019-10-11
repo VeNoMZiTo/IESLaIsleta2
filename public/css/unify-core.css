@@ -17,12 +17,12 @@ body {
   background-color: #fff; }
 
 a {
-  color: #72c02c;
+  color: #6fbaeb;
   outline: none; }
 
 a:focus,
 a:hover {
-  color: #66ab27; }
+  color: #6fbaeb; }
 
 .nav-link {
   color: #555; }
@@ -57,16 +57,16 @@ h1, h2, h3, h4, h5, h6 {
 ------------------------------------*/
 ::-moz-selection {
   color: #fff;
-  background-color: #72c02c; }
+  background-color: #6fbaeb; }
 
 ::selection {
   color: #fff;
-  background-color: #72c02c; }
+  background-color: #6fbaeb; }
 
 .g-bg-primary ::-moz-selection {
-  color: #72c02c;
+  color: #6fbaeb;
   background-color: #fff; }
 
 .g-bg-primary ::selection {
-  color: #72c02c;
+  color: #6fbaeb;
   background-color: #fff; }

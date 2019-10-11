@@ -20,6 +20,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
+    <!--Estilo del login-->
+    <link rel="stylesheet" href="/css/unify-core.css">
+    <link rel="stylesheet" href="/css/unify-components.css">
+    <link rel="stylesheet" href="/css/unify-globals.css">
+    <link rel="stylesheet" href="/css/customperf.css">
     @yield('styles')
 </head>
 
