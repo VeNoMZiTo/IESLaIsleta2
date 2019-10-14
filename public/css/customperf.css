@@ -328,26 +328,24 @@ nav{
 }
 
 #box-logotop{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
 }
 #logotop{
     max-width: 60%;
 }
 #logotop2{
-    max-width: 30%;
+    max-width: 25%;
 }
 #navbar-responsive{
     /*height: 190px;*/
 }
 #box-topnarvbarbox{
-    height: 50%;
+    height: calc(100% - 50px);
     background: #eee;
 }
-#zona-logos{
+.zona-logos{
     box-shadow: 10px 0px 10px -6px rgba(0, 0, 0, 0.3);
-    z-index: 99999999;
+    z-index: 9000;
 }
 #mainpage{
     padding-top: 240px;
@@ -402,8 +400,15 @@ nav{
 
 }
 #logopc{
-    width: 400px;
-    max-width: 100%;
+    width: 225px;
+    overflow: visible;
+    transition: .3s ease;
+}
+.noactivelogo #logopc{
+    transition-delay: .3s;
+}
+.activelogo #logopc{
+    width: 175px;
     overflow: visible;
 }
 /*Animación del logo IES La Isleta*/
@@ -418,6 +423,12 @@ nav{
     stroke-dasharray: 1800;
     opacity: 0;
     animation: laterales 3s 3s linear infinite;
+}
+.navbar .u-sub-menu-v1 .hs-has-sub-menu .hs-has-sub-menu > a::after {
+    right: 5px;
+}
+.zona-logos-responsive{
+    display: none;
 }
 @keyframes laterales{
     0%{
@@ -456,10 +467,15 @@ nav{
     }
 }
 @media only screen and (min-width: 993px){
-    #navBar li a{
+    #navBar li a, #navBar .hs-sub-menu li a{
         display: flex;
         align-items: center;
         height: 100%;
+
+    }
+    #navBar .hs-sub-menu li a{
+        color: #777;
+        padding: 0.42857rem 1.78571rem;
     }
     .h-100-992{
         height: 100%;
@@ -489,7 +505,13 @@ nav{
 
 }
 @media only screen and (max-width: 1500px) {
-    #zona-logos, #zona-contenido{
+    .zona-logos-responsive{
+        display: block;
+    }
+    .zona-logo-pc{
+        display: none;
+    }
+    .zona-logos, #zona-contenido{
         -ms-flex: 0 0 100%;
         flex: 0 0 100%;
         max-width: 100%;
@@ -520,7 +542,7 @@ nav{
     #box-topnarvbarbox{
         height: 70px;
     }
-    #zona-logos{
+    .zona-logos{
         z-index: 1;
     }
     #mainpage{
@@ -541,9 +563,7 @@ nav{
         max-width: 100% !important;
         padding:0;
     }
-    #box-navBar *{
-        font-size:14px !important;
-    }
+
 
 }
 @media only screen and (max-width: 992px){
@@ -655,7 +675,7 @@ nav{
 
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 380px) {
     #topnavbarfirst strong span{
         font-size:10px !important;
     }
