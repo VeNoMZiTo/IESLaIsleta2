@@ -48,6 +48,9 @@
     @section('css')
     @show
     <style>
+        .g-height-60{
+            height: 60px;
+        }
     </style>
 </head>
 
@@ -303,9 +306,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 px-0 g-z-index-9999">
-                    <div class="u-header__section u-header__section--light g-bg-isleta g-transition-0_4 u-shadow-v1-5 h-100-992 w-100" data-header-fix-moment-exclude="" data-header-fix-moment-classes=" u-shadow-v18 g-py-0">
-                            <nav class="js-mega-menu navbar navbar-expand-lg h-100-992" >
+                <div class="col-12 px-0 g-z-index-9999 g-height-60">
+                    <div class="u-header__section u-header__section--light g-bg-isleta g-transition-0_4 u-shadow-v1-5 h-100-992 w-100 h-100" data-header-fix-moment-exclude="" data-header-fix-moment-classes=" u-shadow-v18 g-py-0">
+                            <nav class="js-mega-menu navbar navbar-expand-lg h-100" >
                                 <div id='box-navBar' class="container h-100-992">
                                     <!-- Responsive Toggle Button -->
                                     <button class="navbar-toggler navbar-toggler-right btn g-line-height-1 g-brd-none g-pa-0 ml-auto" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
@@ -708,13 +711,11 @@
 <!-- JS Plugins Init. -->
 
 <script>
-
     /*Responsive del navbar - CSS también*/
     $('#mainpage').css({'padding-top':$('#js-header').height()+'px'});
     $(window).resize( function () {
         $('#mainpage').css({'padding-top':$('#js-header').height()+'px'});
     });
-
     $(window).scroll(function(){
         if($(window).width()<992 && $(window).scrollTop()>100){
             $('#box-topnarvbarbox').slideUp(500,'linear');
@@ -723,6 +724,7 @@
         }
     });
     $(document).on('ready', function () {
+
         $('.navbar-toggler ').click(function(){
             if($(this).attr('aria-expanded')=='false'){
                 $('#navBar').addClass('activeshow');
