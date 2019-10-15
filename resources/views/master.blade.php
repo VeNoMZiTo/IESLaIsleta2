@@ -553,6 +553,12 @@
                                             <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
                                         </h4>
                                     </li>
+                                    <li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">
+                                        <h4 class="h6 g-pr-20 mb-0">
+                                            <a class=" g-color-white g-color-white--hover" href="/consultas">Buzón de Sugerencias</a>
+                                            <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
+                                        </h4>
+                                    </li>
 
                                 </ul>
                             </nav>
@@ -835,61 +841,6 @@
         }, 200);
     });
 
-    $(document).ready(function () {
-        var chooseColor;
-        $('#box-slider').delay(500).show(500);
-        $('.handle').click(function(){
-            console.log($('#slider-color').css('box-shadow'));
-            if($('#slider-color').css('box-shadow') =='none'){
-                setTimeout(function(){$('#slider-color').css({'box-shadow':'10px 0 15px 10px #585858'});},300);
-            }else{
-                $('#slider-color').css('box-shadow','none');
-            }
-
-        });
-        $('#slider-color').slideReveal({
-            trigger: $(".handle"),
-            push: false,
-            position:"right"
-        });
-        $("#custom").spectrum({
-            color: "#499bea",
-            preferredFormat: "rgb",
-            showInput: true,
-            showPalette: true,
-            palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]],
-            chooseText: "Cambiar",
-            cancelText: "Atras",
-            showAlpha: true,
-            showInitial: true,
-            allowEmpty:true,
-            appendTo:"#slider-color",
-            palette: [
-                ["#000","#444","#666","#999","#ccc","#eee","#f3f3f3","#fff"],
-                ["#f00","#f90","#ff0","#0f0","#0ff","#00f","#90f","#f0f"],
-                ["#f4cccc","#fce5cd","#fff2cc","#d9ead3","#d0e0e3","#cfe2f3","#d9d2e9","#ead1dc"],
-                ["#ea9999","#f9cb9c","#ffe599","#b6d7a8","#a2c4c9","#9fc5e8","#b4a7d6","#d5a6bd"],
-                ["#e06666","#f6b26b","#ffd966","#93c47d","#76a5af","#6fa8dc","#8e7cc3","#c27ba0"],
-                ["#c00","#e69138","#f1c232","#6aa84f","#45818e","#3d85c6","#674ea7","#a64d79"],
-                ["#900","#b45f06","#bf9000","#38761d","#134f5c","#0b5394","#351c75","#741b47"],
-                ["#600","#783f04","#7f6000","#274e13","#0c343d","#073763","#20124d","#4c1130"]
-            ],
-            move: function(color) {
-                console.log(color.toRgbString());
-                $('.g-bg-isleta').css({'background':color.toRgbString()});
-                chooseColor= color.toRgbString().replace("rgb", "").replace("a", "").replace("(","").replace(")","");
-                chooseColor= chooseColor.split(",");
-                if(chooseColor[2]>200){
-                    $('.navbar .u-main-nav-v5 .nav-link, .footer2, .footer2 h4 .g-color-white').attr({'style':'color:black !important'});
-                }else{
-                    $('.navbar .u-main-nav-v5 .nav-link, .footer2, .footer2 h4 .g-color-white').css({'color':'#f5f5f5'});
-                }
-
-            }
-        });
-
-
-    });
 
 </script>
 </body>

@@ -397,7 +397,7 @@ nav{
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 500px;
     background: rgba(0,0,0,0.4);
     border-radius: .25rem;
 
@@ -414,6 +414,7 @@ nav{
     width: 175px;
     overflow: visible;
 }
+
 /*Animación del logo IES La Isleta*/
 .path-general{
     fill:rgba(255,255,255,1);
@@ -582,6 +583,12 @@ nav{
     .redes-title, .overlay-f-principal{
         display:none;
     }
+    .boxprincipal ul{
+        color:#777 !important;
+    }
+    .boxprincipal a{
+        color:#000 !important;
+    }
 }
 @media only screen and (max-width: 1200px) {
     #box-navBar{
@@ -638,10 +645,21 @@ nav{
     #topnavbarfirst strong span{
         font-size:11px !important;
     }
+    .activelogo{
+        margin-top:51px;
+        box-shadow: none;
+    }
+    #topnavbarfirst{
+        display: none;
+    }
 }
 @media only screen and (max-width: 768px){
     .s-slider {
         height: 375px;
+    }
+    .js-slide img{
+        height: 250px;
+        object-fit: cover;
     }
 
 }
@@ -701,14 +719,10 @@ nav{
     #topnavbarfirst .container{
         padding: 0 20px;
     }
+
 }
 @media only screen and (max-width: 575px) {
-    .boxprincipal ul{
-        color:#777 !important;
-    }
-    .boxprincipal a{
-        color:#000 !important;
-    }
+
     .s-slider {
         height: 300px;
     }
