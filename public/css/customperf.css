@@ -370,12 +370,15 @@ nav{
 .actividades-descripcion *, .noticias-descripcion *{
     display: none;
 }
-.actividades-descripcion> p:first-of-type, .noticias-descripcion> p:first-of-type{
+.actividades-descripcion> p:first-of-type, .noticias-descripcion> p:first-of-type, .js-slide h4 a{
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: justify;
+}
+.js-slide h4 a{
+    -webkit-line-clamp: 2;
 }
 .actividades-descripcion> p:first-of-type{
     -webkit-line-clamp: 3;
