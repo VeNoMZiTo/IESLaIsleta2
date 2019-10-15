@@ -1,8 +1,5 @@
 @extends('master')
-@section('css')
-@endsection
-@section('content')
-    @php
+@php
     if(isset($noticia)){
         $mediador=$noticia;
         $image=$mediador->foto;
@@ -10,8 +7,18 @@
         $mediador=$actividad;
         $image=$mediador->foto;
     }
+@endphp
+@section('meta')
+<!-- Facebook-->
+    <meta property="og:url"           content="ies.adrianrm.com" />
+    <meta property="og:title"         content="Ies La Isleta" />
+    <meta property="og:description"   content={{$mediador->titulo}} />
+    <meta property="og:image"         content={{$image[0]->getUrl()}}/>
+@endsection
+@section('css')
+@endsection
+@section('content')
 
-    @endphp
 <section id='zona-noticia' class="container g-py-100 ">
     <div class="row g-mb-40">
         <!-- Carousel Images -->

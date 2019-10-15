@@ -9,11 +9,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <!-- Facebook-->
-    <meta property="og:url"           content="ies.adrianrm.com" />
-    <meta property="og:title"         content="Ies La Isleta" />
-    <meta property="og:description"   content="Noticias" />
-    <meta property="og:image"         content="/img/newlogos/png/icon.png"/>
+    @section('meta')
+    @show
+gi
     <!-- Favicon -->
     <link rel="shortcut icon" href="/img/newlogos/png/icon.png" sizes="16x16">
     <!-- Google Fonts -->
