@@ -272,9 +272,7 @@
                                     </g>
                                 </svg>
                             </a>
-                            <a href='https://www.gobiernodecanarias.org/educacion/web/' target="_blank">
-                                <img id="logotop2" src="/img/logoinst/gobcanarias.jpg" class="img-fluid"   alt="Logo" >
-                            </a>
+
                     </span>
                         <!-- End Logo -->
                     </div>
@@ -570,37 +568,37 @@
                             <div class="u-heading-v2-3--bottom g-brd-white-opacity-0_8 g-mb-20">
                                 <h2 class="u-heading-v2__title h6 text-uppercase mb-0">LOGOTIPO ESTATAL, EUROPEO..</h2>
                             </div>
-                            <ul class="u-list-inline d-flex flex-wrap g-mr-minus-15 ">
-                                <li class="list-inline-item g-mr-15 g-mb-15">
-                                    <a href="#">
-                                        <img class="g-width-70 g-height-70" src="" alt="Image Description">
+                            <ul class="u-list-inline d-flex flex-wrap justify-content-center">
+                                <li class="list-inline-item g-mx-10 g-mb-15">
+                                    <a href="https://www.gobiernodecanarias.org/principal/" target="_blank">
+                                        <img class="g-width-100 g-height-50" src="/img/logoinst/gobcanariasvertical.png" alt="Gobierno de Canarias">
                                     </a>
                                 </li>
-                                <li class="list-inline-item g-mr-15 g-mb-15">
-                                    <a href="#">
-                                        <img class="g-width-70 g-height-70" src="" alt="Image Description">
-                                    </a>
-                                </li>
-                                <li class="list-inline-item g-mr-15 g-mb-15">
-                                    <a href="#">
-                                        <img class="g-width-70 g-height-70" src="" alt="Image Description">
-                                    </a>
-                                </li>
-                                <li class="list-inline-item g-mr-15 g-mb-15">
-                                    <a href="#">
-                                        <img class="g-width-70 g-height-70" src="" alt="Image Description">
-                                    </a>
-                                </li>
-                                <li class="list-inline-item g-mr-15 g-mb-15">
-                                    <a href="#">
-                                        <img class="g-width-70 g-height-70" src="" alt="Image Description">
-                                    </a>
-                                </li>
-                                <li class="list-inline-item g-mr-15 g-mb-15">
-                                    <a href="#">
-                                        <img class="g-width-70 g-height-70" src="" alt="Image Description">
-                                    </a>
-                                </li>
+{{--                                <li class="list-inline-item g-mx-10 g-mb-15">--}}
+{{--                                    <a href="" target="_blank">--}}
+{{--                                        <img class="g-width-100 g-height-50" src="" alt="">--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li class="list-inline-item g-mx-10 g-mb-15">--}}
+{{--                                    <a href="" target="_blank">--}}
+{{--                                        <img class="g-width-100 g-height-50" src="" alt="">--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li class="list-inline-item g-mx-10 g-mb-15">--}}
+{{--                                    <a href="" target="_blank">--}}
+{{--                                        <img class="g-width-100 g-height-50" src="" alt="">--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li class="list-inline-item g-mx-10 g-mb-15">--}}
+{{--                                    <a href="" target="_blank">--}}
+{{--                                        <img class="g-width-100 g-height-50" src="" alt="">--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li class="list-inline-item g-mx-10 g-mb-15">--}}
+{{--                                    <a href="" target="_blank">--}}
+{{--                                        <img class="g-width-100 g-height-50" src="" alt="">--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
                             </ul>
                         </div>
                         <!-- End Footer Content -->

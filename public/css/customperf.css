@@ -648,6 +648,7 @@ nav{
     .activelogo{
         margin-top:51px;
         box-shadow: none;
+        padding: 10px 0;
     }
     #topnavbarfirst{
         display: none;
