@@ -10,11 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Facebook-->
-    <meta property="og:url"           content="https://www.your-domain.com/your-page.html" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Your Website Title" />
-    <meta property="og:description"   content="Your description" />
-    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
+    <meta property="og:url"           content="ies.adrianrm.com" />
+    <meta property="og:title"         content="Esto es un titulo" />
+    <meta property="og:description"   content="Esto va a hacer una descripción" />
+    <meta property="og:image"         content="/img/newlogos/png/icon.png"/>
     <!-- Favicon -->
     <link rel="shortcut icon" href="/img/newlogos/png/icon.png" sizes="16x16">
     <!-- Google Fonts -->
@@ -307,7 +306,7 @@
                     </div>
                 </div>
                 <div class="col-12 px-0 g-z-index-9999 g-height-60">
-                    <div class="u-header__section u-header__section--light g-bg-isleta g-transition-0_4 u-shadow-v1-5 h-100-992 w-100 h-100" data-header-fix-moment-exclude="" data-header-fix-moment-classes=" u-shadow-v18 g-py-0">
+                    <div class="u-header__section u-header__section--light g-bg-isleta g-transition-0_4 u-shadow-v1-5 w-100 h-100" data-header-fix-moment-exclude="" data-header-fix-moment-classes=" u-shadow-v18 g-py-0">
                             <nav class="js-mega-menu navbar navbar-expand-lg h-100" >
                                 <div id='box-navBar' class="container h-100-992">
                                     <!-- Responsive Toggle Button -->
