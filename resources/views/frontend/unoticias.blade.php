@@ -12,8 +12,8 @@
 <!-- Facebook-->
     <meta property="og:url"           content="ies.adrianrm.com" />
     <meta property="og:title"         content="Ies La Isleta" />
-    <meta property="og:description"   content={{$mediador->titulo}} />
-    <meta property="og:image"         content={{$image[0]->getUrl()}}/>
+    <meta property="og:description"   content="{{$mediador->titulo}}" />
+    <meta property="og:image"         content="{{$image[0]->getUrl()}}"/>
 @endsection
 @section('css')
 @endsection
