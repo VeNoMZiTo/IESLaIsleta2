@@ -23,8 +23,8 @@
                 </p>
             </div>
             <div class="form-group {{ $errors->has('subtitulo') ? 'has-error' : '' }}">
-                <label for="subtitulo">{{ trans('cruds.noticium.fields.subtitulo') }}*</label>
-                <input type="text" id="subtitulo" name="subtitulo" class="form-control" value="{{ old('subtitulo', isset($noticium) ? $noticium->subtitulo : '') }}" required>
+                <label for="subtitulo">{{ trans('cruds.noticium.fields.subtitulo') }}</label>
+                <input type="text" id="subtitulo" name="subtitulo" class="form-control" value="{{ old('subtitulo', isset($noticium) ? $noticium->subtitulo : '') }}">
                 @if($errors->has('subtitulo'))
                     <p class="help-block">
                         {{ $errors->first('subtitulo') }}

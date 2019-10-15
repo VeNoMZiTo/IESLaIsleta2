@@ -22,9 +22,6 @@ class StoreNoticiumRequest extends FormRequest
             'titulo'      => [
                 'required',
             ],
-            'subtitulo'   => [
-                'required',
-            ],
             'fecha'       => [
                 'required',
                 'date_format:' . config('panel.date_format'),

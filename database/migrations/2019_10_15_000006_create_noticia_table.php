@@ -13,7 +13,7 @@ class CreateNoticiaTable extends Migration
 
             $table->string('titulo');
 
-            $table->string('subtitulo');
+            $table->string('subtitulo')->nullable();
 
             $table->date('fecha');
 
