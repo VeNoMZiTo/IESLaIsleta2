@@ -11,8 +11,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Facebook-->
     <meta property="og:url"           content="ies.adrianrm.com" />
-    <meta property="og:title"         content="Esto es un titulo" />
-    <meta property="og:description"   content="Esto va a hacer una descripción" />
+    <meta property="og:title"         content="Ies La Isleta" />
+    <meta property="og:description"   content="Noticias" />
     <meta property="og:image"         content="/img/newlogos/png/icon.png"/>
     <!-- Favicon -->
     <link rel="shortcut icon" href="/img/newlogos/png/icon.png" sizes="16x16">
