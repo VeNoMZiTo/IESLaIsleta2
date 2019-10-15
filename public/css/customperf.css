@@ -430,6 +430,7 @@ nav{
 .zona-logos-responsive, .logoGobiernoResponsive{
     display: none;
 }
+
 @keyframes laterales{
     0%{
         fill:rgba(255,255,255,1);
@@ -497,9 +498,16 @@ nav{
     }
 }
 
+
 @media only screen and (min-width: 1240px) {
     .s-slider {
         height: 500px;
+    }
+}
+@media only screen and (min-width: 769px) {
+    .js-slide img{
+        height: 165px;
+        object-fit: cover;
     }
 }
 @media only screen and (min-width: 1024px) and (max-width: 1239px) {
@@ -632,6 +640,7 @@ nav{
     .s-slider {
         height: 375px;
     }
+
 }
 @media only screen and (max-width: 600px) {
     .fotos .col-sm-6{
