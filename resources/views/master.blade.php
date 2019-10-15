@@ -156,7 +156,7 @@
                 <div id='zona-contenido' class="col-12 col-lg-9 px-0 ">
                     <div id="topnavbarfirst" class="u-header__section u-header__section--hidden u-header__section--dark" >
                         <div class="container-fluid">
-                            <div class="row  align-items-center justify-content-md-end text-uppercase g-color-white g-font-size-13 " style="height: 50px">
+                            <div class="row align-items-center justify-content-md-end text-uppercase g-color-white g-font-size-13 " style="height: 50px">
                                 <div class="col-sm-4  col-md-3 g-hidden-xs-down g-brd-right--sm g-brd-gray-light-v4 topnavbarbox h-100" >
                                     <a id="anews" href="#news" class="d-flex align-items-center justify-content-center h-100 w-100">
                                         <span class="fa fa-newspaper-o mt-1 g-font-size-18 g-mr-5"></span>
@@ -184,7 +184,7 @@
                                         <span class="circle"></span>
                                     </a>
                                 </div>
-                                <div class="col-6 col-sm-4 col-md-3  col-xl-2 g-px-15">
+                                <div class="col-6 col-sm-4 col-md-3 col-3-1500-max col-xl-2 g-px-15">
                                     <ul class="list-inline mb-0 g-pa-5--lg">
                                         <li class="list-inline-item g-valign-middle g-mx-3">
                                             <a class="d-block u-icon-v3 u-icon-size--sm g-color-white g-rounded-3 g-bg-facebook g-color-white--hover  g-opacity-1--hover u-icon-sliding--hover " href="#" ><i class="fa fa-facebook g-font-size-default"></i></a>
@@ -272,12 +272,19 @@
                                     </g>
                                 </svg>
                             </a>
-                            <a href='https://www.gobiernodecanarias.org/educacion/web/' target="_blank"><img id="logotop2" src="/img/logoinst/gobcanarias.jpg" class="img-fluid"   alt="Logo" ></a>
+                            <a href='https://www.gobiernodecanarias.org/educacion/web/' target="_blank">
+                                <img id="logotop2" src="/img/logoinst/gobcanarias.jpg" class="img-fluid"   alt="Logo" >
+                            </a>
                     </span>
                         <!-- End Logo -->
                     </div>
                     <div id='box-topnarvbarbox' class="row mx-0 u-header__section u-header__section--hidden u-header__section--dark" >
-                        <div class="col-4 col-3-1500 offset-1-1500 g-brd-right g-brd-gray-light-v2 topnavbarbox">
+                        <div class="g-brd-right g-brd-gray-light-v2 topnavbarbox g-bg-white logoGobiernoResponsive">
+                            <a href="https://www.gobiernodecanarias.org/educacion/web/" class="topnavbarbox h-100 w-100" target="_blank">
+                                <img id="" src="/img/logoinst/gobcanarias.jpg" class="img-fluid g-width-120"   alt="Logo" >
+                            </a>
+                        </div>
+                        <div class="col-4 col-3-1500-max col-3-1500 offset-1-1500 g-brd-right g-brd-gray-light-v2 topnavbarbox">
                             <a href="https://www.gobiernodecanarias.net/educacion/loginportal/" class="topnavbarbox h-100 w-100" target="_blank">
                                 <img class="u-icon-sliding--hover" src="/img/logoinst/intranet.JPG" width="40" height="40">
                                 <div class="g-pa-10--lg g-hidden-sm-down">
@@ -285,7 +292,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-4 col-3-1500 g-brd-right g-brd-gray-light-v2 topnavbarbox">
+                        <div class="col-4 col-3-1500-max col-3-1500 g-brd-right g-brd-gray-light-v2 topnavbarbox">
                             <a href="https://www.gobiernodecanarias.org/educacion/9/PEKWEB/Ekade/Account/LogOn?ReturnUrl=%2Feducacion%2FPEKWEB%2FEkade%2F" class="topnavbarbox h-100 w-100" target="_blank">
                                 <img class="u-icon-sliding--hover" src="/img/logoinst/pincelekade.png" width="40" height="40">
                                 <div class="g-pa-10--lg g-hidden-sm-down">
@@ -293,7 +300,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-4 col-3-1500 topnavbarbox ">
+                        <div class="col-4 col-3-1500-max col-3-1500 topnavbarbox ">
                             <a href="https://www3.gobiernodecanarias.org/medusa/evagd/laspalmas/login/index.php" class="topnavbarbox h-100 w-100" target="_blank">
                                 <img src="/img/logoinst/EVAGD.png" width="50" height="50" >
                                 <div class="g-pa-10--lg g-hidden-sm-down">

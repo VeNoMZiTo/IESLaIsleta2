@@ -427,7 +427,7 @@ nav{
 .navbar .u-sub-menu-v1 .hs-has-sub-menu .hs-has-sub-menu > a::after {
     right: 5px;
 }
-.zona-logos-responsive{
+.zona-logos-responsive, .logoGobiernoResponsive{
     display: none;
 }
 @keyframes laterales{
@@ -456,6 +456,47 @@ nav{
 
 
 }
+@media only screen and (max-width: 1500px) and (min-width: 992px) {
+    .col-3-1500-max{
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    #box-topnarvbarbox{
+        justify-content: space-around;
+    }
+    .logoGobiernoResponsive{
+        display: flex;
+        box-shadow: 10px 0px 10px -6px rgba(0, 0, 0, 0.3);
+        margin-left:-30px;
+    }
+    #logotop2{
+        display: none;
+    }
+    #topnavbarfirst{
+        border-bottom-left-radius: .75rem;
+        transition: .2s;
+    }
+
+    .zona-logos {
+        box-shadow: none;
+    }
+    #topnavbarfirst:hover{
+        box-shadow: 0 0 20px 0 rgba(0,0,0,0.2);
+    }
+}
+@media only screen and (max-width: 1250px) and (min-width: 992px) {
+    #box-topnarvbarbox .topnavbarbox span, #topnavbarfirst .topnavbarbox span{
+        font-size:12px !important;
+    }
+    #topnavbarfirst .topnavbarbox .g-pa-10--lg{
+        padding: 0 !important;
+    }
+    #box-topnarvbarbox .topnavbarbox{
+        padding: 0 !important;
+    }
+}
+
 @media only screen and (min-width: 1240px) {
     .s-slider {
         height: 500px;
@@ -504,7 +545,42 @@ nav{
     }
 
 }
+
 @media only screen and (max-width: 1500px) {
+    #zona-contenido #topnavbarfirst .container-fluid .row{
+        justify-content: inherit !important;
+    }
+    #navbar-responsive{
+        height: auto;
+    }
+    #box-topnarvbarbox{
+        height: calc(100% - 50px);
+    }
+    .zona-logos{
+        z-index: 1;
+    }
+    #mainpage{
+        padding-top: 285px;
+    }
+
+}
+@media only screen and (max-width: 1280px) {
+    .redes-principal{
+        display:block;
+    }
+    .redes-title, .overlay-f-principal{
+        display:none;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    #box-navBar{
+        max-width: 100% !important;
+        padding:0;
+    }
+
+
+}
+@media only screen and (max-width: 992px){
     .zona-logos-responsive{
         display: block;
     }
@@ -534,39 +610,10 @@ nav{
         justify-content: start;
         align-items: center;
         max-width: 20%;
-
-    }
-    #navbar-responsive{
-        height: auto;
     }
     #box-topnarvbarbox{
         height: 70px;
     }
-    .zona-logos{
-        z-index: 1;
-    }
-    #mainpage{
-        padding-top: 285px;
-    }
-
-}
-@media only screen and (max-width: 1280px) {
-    .redes-principal{
-        display:block;
-    }
-    .redes-title, .overlay-f-principal{
-        display:none;
-    }
-}
-@media only screen and (max-width: 1200px) {
-    #box-navBar{
-        max-width: 100% !important;
-        padding:0;
-    }
-
-
-}
-@media only screen and (max-width: 992px){
     #mainpage{
         padding-top: 275px;
     }
