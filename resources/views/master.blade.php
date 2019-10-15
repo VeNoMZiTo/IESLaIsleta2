@@ -11,7 +11,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     @section('meta')
     @show
-gi
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="/img/newlogos/png/icon.png" sizes="16x16">
     <!-- Google Fonts -->
