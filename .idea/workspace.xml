@@ -4,9 +4,6 @@
     <list default="true" id="f0f9d890-cdf8-4d84-907a-e2c0d84695a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/customperf.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/customperf.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/noticias.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/noticias.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/css/customperf.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="371" selection-start-line="371" selection-end-line="371" />
+            <state relative-caret-position="457">
+              <caret line="372" column="31" selection-start-line="372" selection-start-column="31" selection-end-line="372" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -49,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/frontend/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="381" column="98" selection-start-line="381" selection-start-column="98" selection-end-line="381" selection-end-column="98" />
+            <state relative-caret-position="184">
+              <caret line="384" column="28" lean-forward="true" selection-start-line="384" selection-start-column="28" selection-end-line="384" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -131,11 +128,11 @@
         <option value="$PROJECT_DIR$/resources/views/frontend/unoticias.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/customperf.css" />
         <option value="$PROJECT_DIR$/resources/views/master.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/noticias.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/index.blade.php" />
+        <option value="$PROJECT_DIR$/public/css/customperf.css" />
       </list>
     </option>
   </component>
@@ -256,7 +253,7 @@
       <path value="$PROJECT_DIR$/vendor/spatie/temporary-directory" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="302" />
     <option name="y" value="-8" />
     <option name="width" value="1440" />
@@ -426,18 +423,18 @@
       <workItem from="1571054787625" duration="5860000" />
       <workItem from="1571061482771" duration="642000" />
       <workItem from="1571134824265" duration="5890000" />
-      <workItem from="1571210414056" duration="2454000" />
+      <workItem from="1571210414056" duration="2834000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57923000" />
+    <option name="totallyTimeSpent" value="58303000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17857143" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17857143" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -678,13 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/customperf.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="371" selection-start-line="371" selection-end-line="371" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="704">
@@ -709,6 +699,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="384" column="28" lean-forward="true" selection-start-line="384" selection-start-column="28" selection-end-line="384" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/frontend/noticias.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="770">
@@ -716,10 +713,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/public/css/customperf.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="381" column="98" selection-start-line="381" selection-start-column="98" selection-end-line="381" selection-end-column="98" />
+        <state relative-caret-position="457">
+          <caret line="372" column="31" selection-start-line="372" selection-start-column="31" selection-end-line="372" selection-end-column="31" />
         </state>
       </provider>
     </entry>

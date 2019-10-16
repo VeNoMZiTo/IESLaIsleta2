@@ -362,7 +362,7 @@ nav{
 .actividades-descripcion *, .noticias-descripcion *{
     display: none;
 }
-.actividades-descripcion> p:first-of-type, .noticias-descripcion> p:first-of-type, .js-slide h4 a, #blog-noticias article h2, #blog-noticias article p{
+.actividades-descripcion> p:first-of-type, .noticias-descripcion> p:first-of-type, .js-slide h4 a, #blog-noticias article h2, #blog-noticias .noticias-descripcion> p:first-of-type{
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -370,7 +370,7 @@ nav{
     text-align: justify;
 }
 
-.js-slide h4 a, #blog-noticias article p{
+.js-slide h4 a, #blog-noticias .noticias-descripcion> p:first-of-type{
     -webkit-line-clamp: 2;
 }
 .actividades-descripcion> p:first-of-type{
