@@ -566,7 +566,7 @@
                         <!-- Footer Content -->
                         <div class="col-lg-3 col-md-6 g-mb-40 g-mb-0--lg">
                             <div class="u-heading-v2-3--bottom g-brd-white-opacity-0_8 g-mb-20">
-                                <h2 class="u-heading-v2__title h6 text-uppercase mb-0">LOGOTIPO ESTATAL, EUROPEO..</h2>
+                                <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Instituciones</h2>
                             </div>
                             <ul class="u-list-inline d-flex flex-wrap justify-content-center">
                                 <li class="list-inline-item g-mx-10 g-mb-15">
@@ -717,7 +717,14 @@
 @show
 
 <!-- JS Plugins Init. -->
-
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 <script>
     /*Responsive del navbar - CSS también*/
     $('#mainpage').css({'padding-top':$('#js-header').height()+'px'});

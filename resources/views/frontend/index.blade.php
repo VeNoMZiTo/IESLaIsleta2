@@ -282,7 +282,7 @@
                                         <li class="list-inline-item mx-2">&#183;</li>
                                         <li class="list-inline-item">{{$n->fecha}}</li>
                                     </ul>
-                                    <h4 class="h4 g-color-black g-font-weight-600 mb-4">
+                                    <h4 class="h6 g-color-black g-font-weight-600 mb-4">
                                         <a class="u-link-v5 g-color-black g-color-primary--hover" href="/noticia/{{$n->id}}-{{$n->titulo}}">{{$n->titulo}}</a>
                                     </h4>
                                     <div class="noticias-descripcion">
@@ -370,7 +370,6 @@
         </ul>
     </div>
     @foreach($noticias as $n)
-
     <div id="noticia-{{$n->id}}" class="text-left g-max-width-600 g-bg-white g-overflow-y-auto g-pa-20" style="display: none;">
         <button type="button" class="close" onclick="Custombox.modal.close();">
             <i class="hs-icon hs-icon-close"></i>
@@ -411,14 +410,7 @@
     @endforeach
 @endsection
 @section('js')
-<script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
+
 <script>
 
     // initialization of carousel
