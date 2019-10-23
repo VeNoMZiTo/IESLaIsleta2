@@ -1,41 +1,38 @@
 @extends('layouts.admin')
 @section('content')
-@can('equipo_docente_create')
+@can('archivo_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.equipo-docentes.create") }}">
-                {{ trans('global.add') }} {{ trans('cruds.equipoDocente.title_singular') }}
+            <a class="btn btn-success" href="{{ route("admin.archivos.create") }}">
+                {{ trans('global.add') }} {{ trans('cruds.archivo.title_singular') }}
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.equipoDocente.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.archivo.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-EquipoDocente">
+            <table class=" table table-bordered table-striped table-hover datatable datatable-Archivo">
                 <thead>
                     <tr>
                         <th width="10">
 
                         </th>
                         <th>
-                            {{ trans('cruds.equipoDocente.fields.id') }}
+                            {{ trans('cruds.archivo.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.equipoDocente.fields.profesores') }}
+                            {{ trans('cruds.archivo.fields.docentes') }}
                         </th>
                         <th>
-                            {{ trans('cruds.equipoDocente.fields.cargo') }}
+                            {{ trans('cruds.archivo.fields.directiva') }}
                         </th>
                         <th>
-                            {{ trans('cruds.equipoDocente.fields.email') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.equipoDocente.fields.departamento') }}
+                            {{ trans('cruds.archivo.fields.tutoria') }}
                         </th>
                         <th>
                             &nbsp;
@@ -43,41 +40,50 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($equipoDocentes as $key => $equipoDocente)
-                        <tr data-entry-id="{{ $equipoDocente->id }}">
+                    @foreach($archivos as $key => $archivo)
+                        <tr data-entry-id="{{ $archivo->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $equipoDocente->id ?? '' }}
+                                {{ $archivo->id ?? '' }}
                             </td>
                             <td>
-                                {{ $equipoDocente->profesores ?? '' }}
+                                @if($archivo->docentes)
+                                    <a href="{{ $archivo->docentes->getUrl() }}" target="_blank">
+                                        {{ trans('global.view_file') }}
+                                    </a>
+                                @endif
                             </td>
                             <td>
-                                {{ $equipoDocente->cargo ?? '' }}
+                                @if($archivo->directiva)
+                                    <a href="{{ $archivo->directiva->getUrl() }}" target="_blank">
+                                        {{ trans('global.view_file') }}
+                                    </a>
+                                @endif
                             </td>
                             <td>
-                                {{ $equipoDocente->email ?? '' }}
+                                @if($archivo->tutoria)
+                                    <a href="{{ $archivo->tutoria->getUrl() }}" target="_blank">
+                                        {{ trans('global.view_file') }}
+                                    </a>
+                                @endif
                             </td>
                             <td>
-                                {{ $equipoDocente->departamento->nombre ?? '' }}
-                            </td>
-                            <td>
-                                @can('equipo_docente_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.equipo-docentes.show', $equipoDocente->id) }}">
+                                @can('archivo_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.archivos.show', $archivo->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
-                                @can('equipo_docente_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.equipo-docentes.edit', $equipoDocente->id) }}">
+                                @can('archivo_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.archivos.edit', $archivo->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
-                                @can('equipo_docente_delete')
-                                    <form action="{{ route('admin.equipo-docentes.destroy', $equipoDocente->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('archivo_delete')
+                                    <form action="{{ route('admin.archivos.destroy', $archivo->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -99,11 +105,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('equipo_docente_delete')
+@can('archivo_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.equipo-docentes.massDestroy') }}",
+    url: "{{ route('admin.archivos.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -133,7 +139,7 @@
     order: [[ 1, 'desc' ]],
     pageLength: 25,
   });
-  $('.datatable-EquipoDocente:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  $('.datatable-Archivo:not(.ajaxTable)').DataTable({ buttons: dtButtons })
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
         $($.fn.dataTable.tables(true)).DataTable()
             .columns.adjust();

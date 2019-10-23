@@ -52,14 +52,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.tutorium.fields.departamento') }}
-                        </th>
-                        <td>
-                            {{ $tutorium->departamento->nombre ?? '' }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.tutorium.fields.email') }}
                         </th>
                         <td>
@@ -72,6 +64,14 @@
                         </th>
                         <td>
                             {{ $tutorium->hora_atencion }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.tutorium.fields.departamento') }}
+                        </th>
+                        <td>
+                            {{ $tutorium->departamento->nombre ?? '' }}
                         </td>
                     </tr>
                 </tbody>

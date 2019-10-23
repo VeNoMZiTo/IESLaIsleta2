@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.equipoDocente.title') }}
+        {{ trans('global.show') }} {{ trans('cruds.archivo.title') }}
     </div>
 
     <div class="card-body">
@@ -12,42 +12,34 @@
                 <tbody>
                     <tr>
                         <th>
-                            {{ trans('cruds.equipoDocente.fields.id') }}
+                            {{ trans('cruds.archivo.fields.id') }}
                         </th>
                         <td>
-                            {{ $equipoDocente->id }}
+                            {{ $archivo->id }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.equipoDocente.fields.profesores') }}
+                            {{ trans('cruds.archivo.fields.docentes') }}
                         </th>
                         <td>
-                            {{ $equipoDocente->profesores }}
+                            {{ $archivo->docentes }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.equipoDocente.fields.cargo') }}
+                            {{ trans('cruds.archivo.fields.directiva') }}
                         </th>
                         <td>
-                            {{ $equipoDocente->cargo }}
+                            {{ $archivo->directiva }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.equipoDocente.fields.email') }}
+                            {{ trans('cruds.archivo.fields.tutoria') }}
                         </th>
                         <td>
-                            {{ $equipoDocente->email }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.equipoDocente.fields.departamento') }}
-                        </th>
-                        <td>
-                            {{ $equipoDocente->departamento->nombre ?? '' }}
+                            {{ $archivo->tutoria }}
                         </td>
                     </tr>
                 </tbody>

@@ -44,18 +44,18 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.equipoDirectivo.fields.departamento') }}
-                        </th>
-                        <td>
-                            {{ $equipoDirectivo->departamento->nombre ?? '' }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.equipoDirectivo.fields.email') }}
                         </th>
                         <td>
                             {{ $equipoDirectivo->email }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.equipoDirectivo.fields.departamento') }}
+                        </th>
+                        <td>
+                            {{ $equipoDirectivo->departamento->nombre ?? '' }}
                         </td>
                     </tr>
                 </tbody>

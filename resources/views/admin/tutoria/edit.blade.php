@@ -58,19 +58,6 @@
                     {{ trans('cruds.tutorium.fields.abreviatura_departamento_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('departamento_id') ? 'has-error' : '' }}">
-                <label for="departamento">{{ trans('cruds.tutorium.fields.departamento') }}*</label>
-                <select name="departamento_id" id="departamento" class="form-control select2" required>
-                    @foreach($departamentos as $id => $departamento)
-                        <option value="{{ $id }}" {{ (isset($tutorium) && $tutorium->departamento ? $tutorium->departamento->id : old('departamento_id')) == $id ? 'selected' : '' }}>{{ $departamento }}</option>
-                    @endforeach
-                </select>
-                @if($errors->has('departamento_id'))
-                    <p class="help-block">
-                        {{ $errors->first('departamento_id') }}
-                    </p>
-                @endif
-            </div>
             <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                 <label for="email">{{ trans('cruds.tutorium.fields.email') }}*</label>
                 <input type="text" id="email" name="email" class="form-control" value="{{ old('email', isset($tutorium) ? $tutorium->email : '') }}" required>
@@ -94,6 +81,19 @@
                 <p class="helper-block">
                     {{ trans('cruds.tutorium.fields.hora_atencion_helper') }}
                 </p>
+            </div>
+            <div class="form-group {{ $errors->has('departamento_id') ? 'has-error' : '' }}">
+                <label for="departamento">{{ trans('cruds.tutorium.fields.departamento') }}*</label>
+                <select name="departamento_id" id="departamento" class="form-control select2" required>
+                    @foreach($departamentos as $id => $departamento)
+                        <option value="{{ $id }}" {{ (isset($tutorium) && $tutorium->departamento ? $tutorium->departamento->id : old('departamento_id')) == $id ? 'selected' : '' }}>{{ $departamento }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('departamento_id'))
+                    <p class="help-block">
+                        {{ $errors->first('departamento_id') }}
+                    </p>
+                @endif
             </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">

@@ -9,19 +9,6 @@
     <div class="card-body">
         <form action="{{ route("admin.equipo-docentes.store") }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="form-group {{ $errors->has('departamento_id') ? 'has-error' : '' }}">
-                <label for="departamento">{{ trans('cruds.equipoDocente.fields.departamento') }}*</label>
-                <select name="departamento_id" id="departamento" class="form-control select2" required>
-                    @foreach($departamentos as $id => $departamento)
-                        <option value="{{ $id }}" {{ (isset($equipoDocente) && $equipoDocente->departamento ? $equipoDocente->departamento->id : old('departamento_id')) == $id ? 'selected' : '' }}>{{ $departamento }}</option>
-                    @endforeach
-                </select>
-                @if($errors->has('departamento_id'))
-                    <p class="help-block">
-                        {{ $errors->first('departamento_id') }}
-                    </p>
-                @endif
-            </div>
             <div class="form-group {{ $errors->has('profesores') ? 'has-error' : '' }}">
                 <label for="profesores">{{ trans('cruds.equipoDocente.fields.profesores') }}*</label>
                 <input type="text" id="profesores" name="profesores" class="form-control" value="{{ old('profesores', isset($equipoDocente) ? $equipoDocente->profesores : '') }}" required>
@@ -57,6 +44,19 @@
                 <p class="helper-block">
                     {{ trans('cruds.equipoDocente.fields.email_helper') }}
                 </p>
+            </div>
+            <div class="form-group {{ $errors->has('departamento_id') ? 'has-error' : '' }}">
+                <label for="departamento">{{ trans('cruds.equipoDocente.fields.departamento') }}*</label>
+                <select name="departamento_id" id="departamento" class="form-control select2" required>
+                    @foreach($departamentos as $id => $departamento)
+                        <option value="{{ $id }}" {{ (isset($equipoDocente) && $equipoDocente->departamento ? $equipoDocente->departamento->id : old('departamento_id')) == $id ? 'selected' : '' }}>{{ $departamento }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('departamento_id'))
+                    <p class="help-block">
+                        {{ $errors->first('departamento_id') }}
+                    </p>
+                @endif
             </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">

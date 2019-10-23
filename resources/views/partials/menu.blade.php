@@ -156,6 +156,18 @@
                         </a>
                     </li>
                 @endcan
+                @can('archivo_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.archivos.index") }}" class="nav-link {{ request()->is('admin/archivos') || request()->is('admin/archivos/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-file-pdf">
+
+                            </i>
+                            <p>
+                                <span>{{ trans('cruds.archivo.title') }}</span>
+                            </p>
+                        </a>
+                    </li>
+                @endcan
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                         <p>

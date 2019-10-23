@@ -38,13 +38,13 @@
                             {{ trans('cruds.tutorium.fields.abreviatura_departamento') }}
                         </th>
                         <th>
-                            {{ trans('cruds.tutorium.fields.departamento') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.tutorium.fields.email') }}
                         </th>
                         <th>
                             {{ trans('cruds.tutorium.fields.hora_atencion') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.tutorium.fields.departamento') }}
                         </th>
                         <th>
                             &nbsp;
@@ -73,13 +73,13 @@
                                 {{ $tutorium->abreviatura_departamento ?? '' }}
                             </td>
                             <td>
-                                {{ $tutorium->departamento->nombre ?? '' }}
-                            </td>
-                            <td>
                                 {{ $tutorium->email ?? '' }}
                             </td>
                             <td>
                                 {{ $tutorium->hora_atencion ?? '' }}
+                            </td>
+                            <td>
+                                {{ $tutorium->departamento->nombre ?? '' }}
                             </td>
                             <td>
                                 @can('tutorium_show')
