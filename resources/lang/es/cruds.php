@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'userManagement' => [
+    'userManagement'  => [
         'title'          => 'Gestión de usuarios',
         'title_singular' => 'Gestión de usuarios',
     ],
-    'permission'     => [
+    'permission'      => [
         'title'          => 'Permisos',
         'title_singular' => 'Permisos',
         'fields'         => [
@@ -21,7 +21,7 @@ return [
             'deleted_at_helper' => '',
         ],
     ],
-    'role'           => [
+    'role'            => [
         'title'          => 'Roles',
         'title_singular' => 'Rol',
         'fields'         => [
@@ -39,7 +39,7 @@ return [
             'deleted_at_helper'  => '',
         ],
     ],
-    'user'           => [
+    'user'            => [
         'title'          => 'Usuarios',
         'title_singular' => 'Usuario',
         'fields'         => [
@@ -65,7 +65,7 @@ return [
             'deleted_at_helper'        => '',
         ],
     ],
-    'slider'         => [
+    'slider'          => [
         'title'          => 'Slider',
         'title_singular' => 'Slider',
         'fields'         => [
@@ -87,7 +87,7 @@ return [
             'foto_helper'        => '',
         ],
     ],
-    'noticium'       => [
+    'noticium'        => [
         'title'          => 'Noticias',
         'title_singular' => 'Noticia',
         'fields'         => [
@@ -113,7 +113,7 @@ return [
             'descripcion_helper' => '',
         ],
     ],
-    'actividade'     => [
+    'actividade'      => [
         'title'          => 'Actividades',
         'title_singular' => 'Actividade',
         'fields'         => [
@@ -137,7 +137,7 @@ return [
             'descripcion_helper' => 'Descripción de la actividad',
         ],
     ],
-    'departamento'   => [
+    'departamento'    => [
         'title'          => 'Departamentos',
         'title_singular' => 'Departamento',
         'fields'         => [
@@ -151,6 +151,82 @@ return [
             'deleted_at_helper' => '',
             'nombre'            => 'Nombre',
             'nombre_helper'     => '',
+        ],
+    ],
+    'equipoDirectivo' => [
+        'title'          => 'Equipo Directivo',
+        'title_singular' => 'Equipo Directivo',
+        'fields'         => [
+            'id'                  => 'ID',
+            'id_helper'           => '',
+            'cargo'               => 'Cargo',
+            'cargo_helper'        => '',
+            'nombre'              => 'Nombre',
+            'nombre_helper'       => '',
+            'departamento'        => 'Departamento',
+            'departamento_helper' => '',
+            'email'               => 'Email',
+            'email_helper'        => '',
+            'created_at'          => 'Created at',
+            'created_at_helper'   => '',
+            'updated_at'          => 'Updated at',
+            'updated_at_helper'   => '',
+            'deleted_at'          => 'Deleted at',
+            'deleted_at_helper'   => '',
+            'imprimir'            => 'Imprimir',
+            'imprimir_helper'     => 'Puede reducir el peso del archivo comprimiéndolo.',
+        ],
+    ],
+    'equipoDocente'   => [
+        'title'          => 'Equipo Docente',
+        'title_singular' => 'Equipo Docente',
+        'fields'         => [
+            'id'                  => 'ID',
+            'id_helper'           => '',
+            'departamento'        => 'Departamento',
+            'departamento_helper' => '',
+            'profesores'          => 'Profesor/a',
+            'profesores_helper'   => '',
+            'cargo'               => 'Cargo',
+            'cargo_helper'        => '',
+            'email'               => 'Email',
+            'email_helper'        => '',
+            'created_at'          => 'Created at',
+            'created_at_helper'   => '',
+            'updated_at'          => 'Updated at',
+            'updated_at_helper'   => '',
+            'deleted_at'          => 'Deleted at',
+            'deleted_at_helper'   => '',
+            'imprimir'            => 'Imprimir',
+            'imprimir_helper'     => 'Puede reducir el peso del archivo comprimiéndolo.',
+        ],
+    ],
+    'tutorium'        => [
+        'title'          => 'Tutorías',
+        'title_singular' => 'Tutoría',
+        'fields'         => [
+            'id'                   => 'ID',
+            'id_helper'            => '',
+            'nivel'                => 'Nivel',
+            'nivel_helper'         => '',
+            'grupo'                => 'Grupo',
+            'grupo_helper'         => '',
+            'tutor'                => 'Tutor/tutora',
+            'tutor_helper'         => '',
+            'departamento'         => 'Departamento',
+            'departamento_helper'  => '',
+            'email'                => 'Email',
+            'email_helper'         => '',
+            'hora_atencion'        => 'Hora de Atención',
+            'hora_atencion_helper' => '',
+            'created_at'           => 'Created at',
+            'created_at_helper'    => '',
+            'updated_at'           => 'Updated at',
+            'updated_at_helper'    => '',
+            'deleted_at'           => 'Deleted at',
+            'deleted_at_helper'    => '',
+            'imprimir'             => 'Imprimir',
+            'imprimir_helper'      => 'Puede reducir el peso del archivo comprimiéndolo.',
         ],
     ],
 ];
