@@ -19,16 +19,14 @@ class UpdateEquipoDocenteRequest extends FormRequest
     public function rules()
     {
         return [
-            'departamento' => [
+            'departamento_id' => [
+                'required',
+                'integer',
+            ],
+            'profesores'      => [
                 'required',
             ],
-            'profesores'   => [
-                'required',
-            ],
-            'cargo'        => [
-                'required',
-            ],
-            'email'        => [
+            'email'           => [
                 'required',
             ],
         ];

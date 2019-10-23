@@ -23,7 +23,7 @@
                             {{ trans('cruds.equipoDocente.fields.departamento') }}
                         </th>
                         <td>
-                            {{ $equipoDocente->departamento }}
+                            {{ $equipoDocente->departamento->nombre ?? '' }}
                         </td>
                     </tr>
                     <tr>
@@ -48,14 +48,6 @@
                         </th>
                         <td>
                             {{ $equipoDocente->email }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.equipoDocente.fields.imprimir') }}
-                        </th>
-                        <td>
-                            {{ $equipoDocente->imprimir }}
                         </td>
                     </tr>
                 </tbody>

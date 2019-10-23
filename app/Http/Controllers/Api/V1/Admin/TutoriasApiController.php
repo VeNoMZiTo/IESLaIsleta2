@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\V1\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\StoreTutoriumRequest;
 use App\Http\Requests\UpdateTutoriumRequest;
 use App\Http\Resources\Admin\TutoriumResource;
@@ -14,22 +13,16 @@ use Symfony\Component\HttpFoundation\Response;
 
 class TutoriasApiController extends Controller
 {
-    use MediaUploadingTrait;
-
     public function index()
     {
         abort_if(Gate::denies('tutorium_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new TutoriumResource(Tutorium::all());
+        return new TutoriumResource(Tutorium::with(['departamento'])->get());
     }
 
     public function store(StoreTutoriumRequest $request)
     {
         $tutorium = Tutorium::create($request->all());
-
-        if ($request->input('imprimir', false)) {
-            $tutorium->addMedia(storage_path('tmp/uploads/' . $request->input('imprimir')))->toMediaCollection('imprimir');
-        }
 
         return (new TutoriumResource($tutorium))
             ->response()
@@ -40,20 +33,12 @@ class TutoriasApiController extends Controller
     {
         abort_if(Gate::denies('tutorium_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new TutoriumResource($tutorium);
+        return new TutoriumResource($tutorium->load(['departamento']));
     }
 
     public function update(UpdateTutoriumRequest $request, Tutorium $tutorium)
     {
         $tutorium->update($request->all());
-
-        if ($request->input('imprimir', false)) {
-            if (!$tutorium->imprimir || $request->input('imprimir') !== $tutorium->imprimir->file_name) {
-                $tutorium->addMedia(storage_path('tmp/uploads/' . $request->input('imprimir')))->toMediaCollection('imprimir');
-            }
-        } elseif ($tutorium->imprimir) {
-            $tutorium->imprimir->delete();
-        }
 
         return (new TutoriumResource($tutorium))
             ->response()

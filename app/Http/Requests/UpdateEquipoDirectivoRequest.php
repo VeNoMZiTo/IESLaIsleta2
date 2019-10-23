@@ -19,16 +19,20 @@ class UpdateEquipoDirectivoRequest extends FormRequest
     public function rules()
     {
         return [
-            'cargo'        => [
+            'cargo'                    => [
                 'required',
             ],
-            'nombre'       => [
+            'nombre'                   => [
                 'required',
             ],
-            'departamento' => [
+            'abreviatura_departamento' => [
                 'required',
             ],
-            'email'        => [
+            'departamento_id'          => [
+                'required',
+                'integer',
+            ],
+            'email'                    => [
                 'required',
             ],
         ];

@@ -35,6 +35,9 @@
                             {{ trans('cruds.tutorium.fields.tutor') }}
                         </th>
                         <th>
+                            {{ trans('cruds.tutorium.fields.abreviatura_departamento') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.tutorium.fields.departamento') }}
                         </th>
                         <th>
@@ -42,9 +45,6 @@
                         </th>
                         <th>
                             {{ trans('cruds.tutorium.fields.hora_atencion') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.tutorium.fields.imprimir') }}
                         </th>
                         <th>
                             &nbsp;
@@ -70,20 +70,16 @@
                                 {{ $tutorium->tutor ?? '' }}
                             </td>
                             <td>
-                                {{ $tutorium->departamento ?? '' }}
+                                {{ $tutorium->abreviatura_departamento ?? '' }}
+                            </td>
+                            <td>
+                                {{ $tutorium->departamento->nombre ?? '' }}
                             </td>
                             <td>
                                 {{ $tutorium->email ?? '' }}
                             </td>
                             <td>
                                 {{ $tutorium->hora_atencion ?? '' }}
-                            </td>
-                            <td>
-                                @if($tutorium->imprimir)
-                                    <a href="{{ $tutorium->imprimir->getUrl() }}" target="_blank">
-                                        {{ trans('global.view_file') }}
-                                    </a>
-                                @endif
                             </td>
                             <td>
                                 @can('tutorium_show')

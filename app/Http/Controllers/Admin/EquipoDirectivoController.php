@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Departamento;
 use App\EquipoDirectivo;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyEquipoDirectivoRequest;
 use App\Http\Requests\StoreEquipoDirectivoRequest;
 use App\Http\Requests\UpdateEquipoDirectivoRequest;
@@ -14,8 +14,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EquipoDirectivoController extends Controller
 {
-    use MediaUploadingTrait;
-
     public function index()
     {
         abort_if(Gate::denies('equipo_directivo_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -29,16 +27,14 @@ class EquipoDirectivoController extends Controller
     {
         abort_if(Gate::denies('equipo_directivo_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.equipoDirectivos.create');
+        $departamentos = Departamento::all()->pluck('nombre', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        return view('admin.equipoDirectivos.create', compact('departamentos'));
     }
 
     public function store(StoreEquipoDirectivoRequest $request)
     {
         $equipoDirectivo = EquipoDirectivo::create($request->all());
-
-        if ($request->input('imprimir', false)) {
-            $equipoDirectivo->addMedia(storage_path('tmp/uploads/' . $request->input('imprimir')))->toMediaCollection('imprimir');
-        }
 
         return redirect()->route('admin.equipo-directivos.index');
     }
@@ -47,20 +43,16 @@ class EquipoDirectivoController extends Controller
     {
         abort_if(Gate::denies('equipo_directivo_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.equipoDirectivos.edit', compact('equipoDirectivo'));
+        $departamentos = Departamento::all()->pluck('nombre', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $equipoDirectivo->load('departamento');
+
+        return view('admin.equipoDirectivos.edit', compact('departamentos', 'equipoDirectivo'));
     }
 
     public function update(UpdateEquipoDirectivoRequest $request, EquipoDirectivo $equipoDirectivo)
     {
         $equipoDirectivo->update($request->all());
-
-        if ($request->input('imprimir', false)) {
-            if (!$equipoDirectivo->imprimir || $request->input('imprimir') !== $equipoDirectivo->imprimir->file_name) {
-                $equipoDirectivo->addMedia(storage_path('tmp/uploads/' . $request->input('imprimir')))->toMediaCollection('imprimir');
-            }
-        } elseif ($equipoDirectivo->imprimir) {
-            $equipoDirectivo->imprimir->delete();
-        }
 
         return redirect()->route('admin.equipo-directivos.index');
     }
@@ -68,6 +60,8 @@ class EquipoDirectivoController extends Controller
     public function show(EquipoDirectivo $equipoDirectivo)
     {
         abort_if(Gate::denies('equipo_directivo_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $equipoDirectivo->load('departamento');
 
         return view('admin.equipoDirectivos.show', compact('equipoDirectivo'));
     }

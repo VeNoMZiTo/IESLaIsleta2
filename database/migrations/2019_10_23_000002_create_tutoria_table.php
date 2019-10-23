@@ -4,20 +4,24 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEquipoDirectivosTable extends Migration
+class CreateTutoriaTable extends Migration
 {
     public function up()
     {
-        Schema::create('equipo_directivos', function (Blueprint $table) {
+        Schema::create('tutoria', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('cargo');
+            $table->string('nivel');
 
-            $table->string('nombre');
+            $table->string('grupo');
 
-            $table->string('departamento');
+            $table->string('tutor');
 
             $table->string('email');
+
+            $table->string('hora_atencion');
+
+            $table->string('abreviatura_departamento');
 
             $table->timestamps();
 
