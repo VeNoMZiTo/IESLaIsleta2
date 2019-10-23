@@ -1,6 +1,31 @@
 <?php
 
-Route::redirect('/', '/login');
+
+Route::get('/', 'IndexController@getIndex');
+
+Route::get('/nodisponible', function () {
+    return view('frontend.nodisponible');
+});
+Route::get('/equipo-directivo', function () {
+    return view('frontend.eqdirectivo');
+});
+Route::get('/equipo-docente', function () {
+    return view('frontend.eqdocente');
+});
+Route::get('/tutorias', function () {
+    return view('frontend.tutorias');
+});
+Route::get('/consultas', function () {
+    return view('frontend.consultas');
+});
+Route::get('/profesorado', function () {
+    return view('frontend.profesorado');
+});
+Route::get('/noticias', 'IndexController@getRepertorioNoticias');
+Route::get('/noticia/{id}-{titulo}','IndexController@getNoticia');
+Route::get('/actividad/{id}-{titulo}','IndexController@getActividad');
+Route::post('mail/send-contact', 'MailController@sendContact');
+//Route::redirect('/', '/login');
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
 
@@ -36,19 +61,4 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Departamentos
     Route::delete('departamentos/destroy', 'DepartamentosController@massDestroy')->name('departamentos.massDestroy');
     Route::resource('departamentos', 'DepartamentosController');
-
-    // Equipo Directivos
-    Route::delete('equipo-directivos/destroy', 'EquipoDirectivoController@massDestroy')->name('equipo-directivos.massDestroy');
-    Route::post('equipo-directivos/media', 'EquipoDirectivoController@storeMedia')->name('equipo-directivos.storeMedia');
-    Route::resource('equipo-directivos', 'EquipoDirectivoController');
-
-    // Equipo Docentes
-    Route::delete('equipo-docentes/destroy', 'EquipoDocenteController@massDestroy')->name('equipo-docentes.massDestroy');
-    Route::post('equipo-docentes/media', 'EquipoDocenteController@storeMedia')->name('equipo-docentes.storeMedia');
-    Route::resource('equipo-docentes', 'EquipoDocenteController');
-
-    // Tutoria
-    Route::delete('tutoria/destroy', 'TutoriasController@massDestroy')->name('tutoria.massDestroy');
-    Route::post('tutoria/media', 'TutoriasController@storeMedia')->name('tutoria.storeMedia');
-    Route::resource('tutoria', 'TutoriasController');
 });
