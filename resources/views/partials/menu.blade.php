@@ -120,6 +120,42 @@
                         </a>
                     </li>
                 @endcan
+                @can('equipo_directivo_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.equipo-directivos.index") }}" class="nav-link {{ request()->is('admin/equipo-directivos') || request()->is('admin/equipo-directivos/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-users">
+
+                            </i>
+                            <p>
+                                <span>{{ trans('cruds.equipoDirectivo.title') }}</span>
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+                @can('equipo_docente_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.equipo-docentes.index") }}" class="nav-link {{ request()->is('admin/equipo-docentes') || request()->is('admin/equipo-docentes/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-user-graduate">
+
+                            </i>
+                            <p>
+                                <span>{{ trans('cruds.equipoDocente.title') }}</span>
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+                @can('tutorium_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.tutoria.index") }}" class="nav-link {{ request()->is('admin/tutoria') || request()->is('admin/tutoria/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-address-book">
+
+                            </i>
+                            <p>
+                                <span>{{ trans('cruds.tutorium.title') }}</span>
+                            </p>
+                        </a>
+                    </li>
+                @endcan
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                         <p>
