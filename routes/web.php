@@ -2,8 +2,18 @@
 
 
 Route::get('/', 'IndexController@getIndex');
+
 Route::get('/nodisponible', function () {
     return view('frontend.nodisponible');
+});
+Route::get('/equipo-directivo', function () {
+    return view('frontend.eqdirectivo');
+});
+Route::get('/equipo-docente', function () {
+    return view('frontend.eqdocente');
+});
+Route::get('/tutorias', function () {
+    return view('frontend.tutorias');
 });
 Route::get('/consultas', function () {
     return view('frontend.consultas');

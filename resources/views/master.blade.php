@@ -3,7 +3,7 @@
 
 <head>
     <!-- Title -->
-    <title>IES La Isleta @yield('title')</title>
+    <title>@yield('title') | IES La Isleta </title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
@@ -187,13 +187,13 @@
                                 <div class="col-6 col-sm-4 col-md-3 col-3-1500-max col-xl-2 g-px-15">
                                     <ul class="list-inline mb-0 g-pa-5--lg">
                                         <li class="list-inline-item g-valign-middle g-mx-3">
-                                            <a class="d-block u-icon-v3 u-icon-size--sm g-color-white g-rounded-3 g-bg-facebook g-color-white--hover  g-opacity-1--hover u-icon-sliding--hover " href="#" ><i class="fa fa-facebook g-font-size-default"></i></a>
+                                            <a class="d-block u-icon-v3 u-icon-size--sm g-color-white g-rounded-3 g-bg-facebook g-color-white--hover  g-opacity-1--hover u-icon-sliding--hover " href="https://www.facebook.com/ies.laisleta.98" target="_blank"><i class="fa fa-facebook g-font-size-default"></i></a>
                                         </li>
                                         <li class="list-inline-item g-valign-middle g-mx-3">
-                                            <a class="d-block u-icon-v3 u-icon-size--sm   g-color-white g-rounded-3 g-bg-twitter g-color-white--hover g-opacity-1--hover u-icon-sliding--hover " href="#"><i class="fa fa-twitter g-font-size-default"></i></a>
+                                            <a class="d-block u-icon-v3 u-icon-size--sm   g-color-white g-rounded-3 g-bg-twitter g-color-white--hover g-opacity-1--hover u-icon-sliding--hover " href="https://twitter.com/IESLaIsleta" target="_blank"><i class="fa fa-twitter g-font-size-default"></i></a>
                                         </li>
                                         <li class="list-inline-item g-valign-middle g-mx-3">
-                                            <a class="d-block u-icon-v3 u-icon-size--sm  g-color-white g-rounded-3 instagramcolor g-color-white--hover  g-opacity-1--hover u-icon-sliding--hover " href="#" ><i class="fa fa-instagram g-font-size-default"></i></a>
+                                            <a class="d-block u-icon-v3 u-icon-size--sm  g-color-white g-rounded-3 instagramcolor g-color-white--hover  g-opacity-1--hover u-icon-sliding--hover " href="https://www.instagram.com/ieslaisleta/" target="_blank"><i class="fa fa-instagram g-font-size-default"></i></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -311,7 +311,7 @@
                 <div class="col-12 px-0 g-z-index-9999 g-height-60">
                     <div class="u-header__section u-header__section--light g-bg-isleta g-transition-0_4 u-shadow-v1-5 w-100 h-100" data-header-fix-moment-exclude="" data-header-fix-moment-classes=" u-shadow-v18 g-py-0">
                             <nav class="js-mega-menu navbar navbar-expand-lg h-100" >
-                                <div id='box-navBar' class="container h-100-992">
+                                <div id='box-navBar' class="container h-100-992 px-0">
                                     <!-- Responsive Toggle Button -->
                                     <button class="navbar-toggler navbar-toggler-right btn g-line-height-1 g-brd-none g-pa-0 ml-auto" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
                                         <span class="hamburger hamburger--slider">
@@ -340,10 +340,10 @@
                                                         <a href="/nodisponible">Presentación</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">Equipo directivo</a>
+                                                        <a href="/equipo-directivo">Equipo directivo</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">Equipo docente</a>
+                                                        <a href="/equipo-docente">Equipo docente</a>
                                                     </li>
                                                     <li>
                                                         <a href="/nodisponible">Consejo escolar</a>
@@ -400,6 +400,30 @@
                                                     <li>
                                                         <a href="/nodisponible">Proyectos del centro</a>
                                                     </li>
+                                                    <li class="dropdown-item hs-has-sub-menu">
+                                                        <a id="nav-link-2" class="nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-2">APP Pincel Alumnado y Familias
+                                                        </a>
+                                                        <!-- Submenu (level 2) -->
+                                                        <ul class="hs-sub-menu list-unstyled g-brd-top g-brd-primary g-brd-top-2 g-min-width-200 g-my-2 animated" id="nav-submenu-2" aria-labelledby="nav-link-2" style="display: none;">
+                                                            <li class="dropdown-item">
+                                                                <a class="nav-link" href="/nodisponible">Acceso</a>
+                                                            </li>
+                                                            <li class="dropdown-item">
+                                                                <a class="nav-link" href="/nodisponible">Cómo crear una cuenta</a>
+                                                            </li>
+                                                            <hr class='mb-2'/>
+                                                            <li>
+                                                                <div class='row appmovil m-0'>
+                                                                    <div class='col-12 p-0 text-center g-font-weight-600 g-color-enlacenavbar'>
+                                                                        App Pincel Ekade
+                                                                    </div>
+                                                                </div>
+                                                                <a href="https://play.google.com/store/apps/details?id=org.gobiernodecanarias.ceu.appfamilias&hl=es_419" target='_blank' class="a-android d-inline-block text-center g-height-60 d-inline-flex align-items-center justify-content-center"><i class="fa fa-android g-font-size-30 r"></i></a>
+                                                                <a href="https://apps.apple.com/es/app/pincel-alumnado-y-familias/id1334684375" target='_blank' class="a-apple d-inline-block text-center g-height-60 d-inline-flex align-items-center justify-content-center"><i class="fa fa-apple g-font-size-30"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                        <!-- End Submenu (level 2) -->
+                                                    </li>
                                                     <li>
                                                         <a href="/nodisponible">Actividades extraescolares y complementarias</a>
                                                     </li>
@@ -416,18 +440,18 @@
                                                 <!-- End Submenu -->
                                             </li>
                                             <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-20--xl g-mb-5 g-mb-0--lg">
-                                                <a href="#" class="nav-link g-font-size-16--lg g-font-size-15" id="nav-link-1" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-1">Familia
+                                                <a href="#" class="nav-link g-font-size-16--lg g-font-size-15" id="nav-link-1" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-1">Familias
                                                 </a>
                                                 <!-- Submenu -->
                                                 <ul class="hs-sub-menu list-unstyled " id="nav-submenu-1" aria-labelledby="nav-link-1">
                                                     <li>
-                                                        <a href="/nodisponible">Tutorías</a>
+                                                        <a href="/tutorias">Tutorías</a>
                                                     </li>
                                                     <li>
                                                         <a href="/nodisponible">Calendario de visitas</a>
                                                     </li>
                                                     <li class="dropdown-item hs-has-sub-menu">
-                                                        <a id="nav-link-2" class="nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-2">Pincel Ekade Familias y Alumnos
+                                                        <a id="nav-link-2" class="nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-2">APP Pincel Alumnado y Familias
                                                         </a>
                                                         <!-- Submenu (level 2) -->
                                                         <ul class="hs-sub-menu list-unstyled g-brd-top g-brd-primary g-brd-top-2 g-min-width-200 g-my-2 animated" id="nav-submenu-2" aria-labelledby="nav-link-2" style="display: none;">

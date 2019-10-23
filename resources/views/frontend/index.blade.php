@@ -1,4 +1,5 @@
 @extends('master')
+@section('title','Inicio')
 @section('css')
     <!-- Revolution Slider -->
     <link rel="stylesheet" href="vendor/revolution-slider/revolution/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
@@ -351,18 +352,18 @@
         <!-- Social Links -->
         <ul class="row no-gutters list-inline g-mb-0">
             <li class="col list-inline-item g-mr-0">
-                <a class="d-block g-color-white-opacity-0_8 g-bg-twitter g-color-white--hover g-opacity-1--hover g-font-size-16 text-center g-transition-0_2 g-pa-15" href="#">
+                <a class="d-block g-color-white-opacity-0_8 g-bg-twitter g-color-white--hover g-opacity-1--hover g-font-size-16 text-center g-transition-0_2 g-pa-15" href="https://twitter.com/IESLaIsleta" target="_blank">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
 
             <li class="col list-inline-item g-mr-0">
-                <a class="d-block g-color-white-opacity-0_8 g-bg-facebook g-color-white--hover g-opacity-1--hover g-font-size-16 text-center g-transition-0_2 g-pa-15" href="#">
+                <a class="d-block g-color-white-opacity-0_8 g-bg-facebook g-color-white--hover g-opacity-1--hover g-font-size-16 text-center g-transition-0_2 g-pa-15" href="https://www.facebook.com/ies.laisleta.98" target="_blank">
                     <i class="fa fa-facebook"></i>
                 </a>
             </li>
             <li class="col list-inline-item g-mr-0">
-                <a class="d-block g-color-white-opacity-0_8 instagramcolor g-color-white--hover g-opacity-1--hover g-font-size-16 text-center g-transition-0_2 g-pa-15" href="#">
+                <a class="d-block g-color-white-opacity-0_8 instagramcolor g-color-white--hover g-opacity-1--hover g-font-size-16 text-center g-transition-0_2 g-pa-15" href="https://www.instagram.com/ieslaisleta/" target="_blank">
                     <i class="fa fa-instagram"></i>
                 </a>
             </li>

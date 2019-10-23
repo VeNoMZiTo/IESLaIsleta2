@@ -427,7 +427,172 @@ nav{
 .zona-logos-responsive, .logoGobiernoResponsive{
     display: none;
 }
+/*Equipo Directivo, Tutorias, Libros y Equipo Docente*/
+.container-tabla {
+    width: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 33px 30px;
+}
+.tabla {
+    background-color: #fff;
+    border-radius:.25rem;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,.2);
+}
+td p{
+    margin:0;
+}
+table {
+    width: 100%;
+}
 
+th, td {
+    font-weight: unset;
+    padding-right: 10px;
+    text-align: center;
+}
+/*Equipo Directivo*/
+.ver1 .column1 {
+    width: 13%;
+    padding-left: 40px;
+}
+
+.ver1 .column2 {
+    width: 33%;
+}
+
+.ver1 .column3 {
+    width: 10%;
+}
+
+.ver1 .column4 {
+    width: 29%;
+}
+
+.ver1 .column5 {
+    width: 15%;
+}
+/*Equipo Docente*/
+.ver2 .column1 {
+    width: 15%;
+    padding-left: 40px;
+}
+
+.ver2 .column2 {
+    width: 35%;
+}
+
+.ver2 .column3 {
+    width: 15%;
+}
+
+.ver2 .column4 {
+    width: 35%;
+}
+/*Tutorías*/
+.ver3 .column1 {
+    width: 10%;
+    padding-left: 20px;
+}
+
+.ver3 .column2 {
+    width: 10%;
+}
+
+.ver3 .column3 {
+    width: 25%;
+}
+
+.ver3 .column4 {
+    width: 10%;
+}
+.ver3 .column5 {
+    width: 25%;
+}
+.ver3 .column6 {
+    width: 20%;
+}
+.tabla-head th {
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.tabla-body td {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+.tabla {
+    position: relative;
+}
+
+.tabla-head {
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.tabla {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+}
+
+.tabla th {
+    font-family: Lato-Bold;
+    font-size: 20px;
+    color: #fff;
+    line-height: 1.4;
+}
+
+.tabla td {
+    font-family: Lato-Regular;
+    font-size: 18px;
+    color: rgba(0,0,0,.8);
+    line-height: 1.4;
+}
+
+.tabla.ver1 .tabla-body tr:nth-child(even) {
+    background-color: #f8f6ff;
+}
+.panel{
+    position: absolute;
+    width: 100%;
+    height: 35px;
+    top:30px;
+    font-size: 30px;
+    color:#1d8873;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition:.5s;
+
+}
+.panel li{
+    display: inline-block;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.panel li *{
+    transition: .2s;
+}
+.objetos-panel{
+    border:1px solid #1d8873;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    padding: 7px 10px;
+    background: rgba(0,0,0,.05);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,.2);
+}
+/*Efectos de la tabla*/
+tr.body *, tr.body{
+    transition: .5s;
+}
+#mainpage:hover .panel{
+    top:-30px;
+
+}
 @keyframes laterales{
     0%{
         fill:rgba(255,255,255,1);
@@ -494,8 +659,6 @@ nav{
         padding: 0 !important;
     }
 }
-
-
 @media only screen and (min-width: 1240px) {
     .s-slider {
         height: 500px;
@@ -550,7 +713,6 @@ nav{
     }
 
 }
-
 @media only screen and (max-width: 1500px) {
     #zona-contenido #topnavbarfirst .container-fluid .row{
         justify-content: inherit !important;
@@ -655,7 +817,57 @@ nav{
         height: 250px;
         object-fit: cover;
     }
+    table, .columnas{
+        width: 100% !important;
+        padding-left: 0 !important;
+    }
 
+    .tabla td {
+        font-size: 18px;
+    }
+    .tabla-head {
+        height: 60px;
+        background: #1d8873;
+    }
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr { border: 1px solid rgba(0,0,0,0.1); }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        width: 48%;
+        height: 100%;
+        white-space: nowrap;
+        display: inline-block;
+        /* Label the data */
+        content: attr(data-column);
+        color: #000;
+        font-weight: bold;
+    }
+    td p{
+        display: inline-block;
+        width: 50%;
+    }
+    .panel{
+        justify-content: center;
+    }
 }
 @media only screen and (max-width: 600px) {
     .fotos .col-sm-6{
