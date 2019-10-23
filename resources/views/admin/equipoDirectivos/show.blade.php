@@ -36,10 +36,18 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.equipoDirectivo.fields.abreviatura_departamento') }}
+                        </th>
+                        <td>
+                            {{ $equipoDirectivo->abreviatura_departamento }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.equipoDirectivo.fields.departamento') }}
                         </th>
                         <td>
-                            {{ $equipoDirectivo->departamento }}
+                            {{ $equipoDirectivo->departamento->nombre ?? '' }}
                         </td>
                     </tr>
                     <tr>
@@ -48,14 +56,6 @@
                         </th>
                         <td>
                             {{ $equipoDirectivo->email }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.equipoDirectivo.fields.imprimir') }}
-                        </th>
-                        <td>
-                            {{ $equipoDirectivo->imprimir }}
                         </td>
                     </tr>
                 </tbody>

@@ -23,4 +23,19 @@ class Departamento extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function equipoDirectivos()
+    {
+        return $this->hasMany(EquipoDirectivo::class, 'departamento_id', 'id');
+    }
+
+    public function equipoDocentes()
+    {
+        return $this->hasMany(EquipoDocente::class, 'departamento_id', 'id');
+    }
+
+    public function tutoria()
+    {
+        return $this->hasMany(Tutorium::class, 'departamento_id', 'id');
+    }
 }

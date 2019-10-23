@@ -4,19 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\Models\Media;
 
-class Tutorium extends Model implements HasMedia
+class Tutorium extends Model
 {
-    use SoftDeletes, HasMediaTrait;
+    use SoftDeletes;
 
     public $table = 'tutoria';
-
-    protected $appends = [
-        'imprimir',
-    ];
 
     protected $dates = [
         'created_at',
@@ -32,17 +25,13 @@ class Tutorium extends Model implements HasMedia
         'created_at',
         'updated_at',
         'deleted_at',
-        'departamento',
         'hora_atencion',
+        'departamento_id',
+        'abreviatura_departamento',
     ];
 
-    public function registerMediaConversions(Media $media = null)
+    public function departamento()
     {
-        $this->addMediaConversion('thumb')->width(50)->height(50);
-    }
-
-    public function getImprimirAttribute()
-    {
-        return $this->getMedia('imprimir')->last();
+        return $this->belongsTo(Departamento::class, 'departamento_id');
     }
 }

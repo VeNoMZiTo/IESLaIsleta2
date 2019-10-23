@@ -38,9 +38,6 @@
                             {{ trans('cruds.equipoDocente.fields.email') }}
                         </th>
                         <th>
-                            {{ trans('cruds.equipoDocente.fields.imprimir') }}
-                        </th>
-                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -55,7 +52,7 @@
                                 {{ $equipoDocente->id ?? '' }}
                             </td>
                             <td>
-                                {{ $equipoDocente->departamento ?? '' }}
+                                {{ $equipoDocente->departamento->nombre ?? '' }}
                             </td>
                             <td>
                                 {{ $equipoDocente->profesores ?? '' }}
@@ -65,13 +62,6 @@
                             </td>
                             <td>
                                 {{ $equipoDocente->email ?? '' }}
-                            </td>
-                            <td>
-                                @if($equipoDocente->imprimir)
-                                    <a href="{{ $equipoDocente->imprimir->getUrl() }}" target="_blank">
-                                        {{ trans('global.view_file') }}
-                                    </a>
-                                @endif
                             </td>
                             <td>
                                 @can('equipo_docente_show')

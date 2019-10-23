@@ -32,13 +32,13 @@
                             {{ trans('cruds.equipoDirectivo.fields.nombre') }}
                         </th>
                         <th>
+                            {{ trans('cruds.equipoDirectivo.fields.abreviatura_departamento') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.equipoDirectivo.fields.departamento') }}
                         </th>
                         <th>
                             {{ trans('cruds.equipoDirectivo.fields.email') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.equipoDirectivo.fields.imprimir') }}
                         </th>
                         <th>
                             &nbsp;
@@ -61,17 +61,13 @@
                                 {{ $equipoDirectivo->nombre ?? '' }}
                             </td>
                             <td>
-                                {{ $equipoDirectivo->departamento ?? '' }}
+                                {{ $equipoDirectivo->abreviatura_departamento ?? '' }}
+                            </td>
+                            <td>
+                                {{ $equipoDirectivo->departamento->nombre ?? '' }}
                             </td>
                             <td>
                                 {{ $equipoDirectivo->email ?? '' }}
-                            </td>
-                            <td>
-                                @if($equipoDirectivo->imprimir)
-                                    <a href="{{ $equipoDirectivo->imprimir->getUrl() }}" target="_blank">
-                                        {{ trans('global.view_file') }}
-                                    </a>
-                                @endif
                             </td>
                             <td>
                                 @can('equipo_directivo_show')

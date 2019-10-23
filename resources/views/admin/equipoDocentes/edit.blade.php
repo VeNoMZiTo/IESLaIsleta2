@@ -10,17 +10,18 @@
         <form action="{{ route("admin.equipo-docentes.update", [$equipoDocente->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div class="form-group {{ $errors->has('departamento') ? 'has-error' : '' }}">
+            <div class="form-group {{ $errors->has('departamento_id') ? 'has-error' : '' }}">
                 <label for="departamento">{{ trans('cruds.equipoDocente.fields.departamento') }}*</label>
-                <input type="text" id="departamento" name="departamento" class="form-control" value="{{ old('departamento', isset($equipoDocente) ? $equipoDocente->departamento : '') }}" required>
-                @if($errors->has('departamento'))
+                <select name="departamento_id" id="departamento" class="form-control select2" required>
+                    @foreach($departamentos as $id => $departamento)
+                        <option value="{{ $id }}" {{ (isset($equipoDocente) && $equipoDocente->departamento ? $equipoDocente->departamento->id : old('departamento_id')) == $id ? 'selected' : '' }}>{{ $departamento }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('departamento_id'))
                     <p class="help-block">
-                        {{ $errors->first('departamento') }}
+                        {{ $errors->first('departamento_id') }}
                     </p>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.equipoDocente.fields.departamento_helper') }}
-                </p>
             </div>
             <div class="form-group {{ $errors->has('profesores') ? 'has-error' : '' }}">
                 <label for="profesores">{{ trans('cruds.equipoDocente.fields.profesores') }}*</label>
@@ -35,8 +36,8 @@
                 </p>
             </div>
             <div class="form-group {{ $errors->has('cargo') ? 'has-error' : '' }}">
-                <label for="cargo">{{ trans('cruds.equipoDocente.fields.cargo') }}*</label>
-                <input type="text" id="cargo" name="cargo" class="form-control" value="{{ old('cargo', isset($equipoDocente) ? $equipoDocente->cargo : '') }}" required>
+                <label for="cargo">{{ trans('cruds.equipoDocente.fields.cargo') }}</label>
+                <input type="text" id="cargo" name="cargo" class="form-control" value="{{ old('cargo', isset($equipoDocente) ? $equipoDocente->cargo : '') }}">
                 @if($errors->has('cargo'))
                     <p class="help-block">
                         {{ $errors->first('cargo') }}
@@ -58,20 +59,6 @@
                     {{ trans('cruds.equipoDocente.fields.email_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('imprimir') ? 'has-error' : '' }}">
-                <label for="imprimir">{{ trans('cruds.equipoDocente.fields.imprimir') }}</label>
-                <div class="needsclick dropzone" id="imprimir-dropzone">
-
-                </div>
-                @if($errors->has('imprimir'))
-                    <p class="help-block">
-                        {{ $errors->first('imprimir') }}
-                    </p>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.equipoDocente.fields.imprimir_helper') }}
-                </p>
-            </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>
@@ -81,56 +68,3 @@
     </div>
 </div>
 @endsection
-
-@section('scripts')
-<script>
-    Dropzone.options.imprimirDropzone = {
-    url: '{{ route('admin.equipo-docentes.storeMedia') }}',
-    maxFilesize: 2, // MB
-    maxFiles: 1,
-    addRemoveLinks: true,
-    headers: {
-      'X-CSRF-TOKEN': "{{ csrf_token() }}"
-    },
-    params: {
-      size: 2
-    },
-    success: function (file, response) {
-      $('form').find('input[name="imprimir"]').remove()
-      $('form').append('<input type="hidden" name="imprimir" value="' + response.name + '">')
-    },
-    removedfile: function (file) {
-      file.previewElement.remove()
-      if (file.status !== 'error') {
-        $('form').find('input[name="imprimir"]').remove()
-        this.options.maxFiles = this.options.maxFiles + 1
-      }
-    },
-    init: function () {
-@if(isset($equipoDocente) && $equipoDocente->imprimir)
-      var file = {!! json_encode($equipoDocente->imprimir) !!}
-          this.options.addedfile.call(this, file)
-      file.previewElement.classList.add('dz-complete')
-      $('form').append('<input type="hidden" name="imprimir" value="' + file.file_name + '">')
-      this.options.maxFiles = this.options.maxFiles - 1
-@endif
-    },
-     error: function (file, response) {
-         if ($.type(response) === 'string') {
-             var message = response //dropzone sends it's own error messages in string
-         } else {
-             var message = response.errors.file
-         }
-         file.previewElement.classList.add('dz-error')
-         _ref = file.previewElement.querySelectorAll('[data-dz-errormessage]')
-         _results = []
-         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-             node = _ref[_i]
-             _results.push(node.textContent = message)
-         }
-
-         return _results
-     }
-}
-</script>
-@stop

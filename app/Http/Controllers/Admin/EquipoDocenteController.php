@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Departamento;
 use App\EquipoDocente;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyEquipoDocenteRequest;
 use App\Http\Requests\StoreEquipoDocenteRequest;
 use App\Http\Requests\UpdateEquipoDocenteRequest;
@@ -14,8 +14,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EquipoDocenteController extends Controller
 {
-    use MediaUploadingTrait;
-
     public function index()
     {
         abort_if(Gate::denies('equipo_docente_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -29,16 +27,14 @@ class EquipoDocenteController extends Controller
     {
         abort_if(Gate::denies('equipo_docente_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.equipoDocentes.create');
+        $departamentos = Departamento::all()->pluck('nombre', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        return view('admin.equipoDocentes.create', compact('departamentos'));
     }
 
     public function store(StoreEquipoDocenteRequest $request)
     {
         $equipoDocente = EquipoDocente::create($request->all());
-
-        if ($request->input('imprimir', false)) {
-            $equipoDocente->addMedia(storage_path('tmp/uploads/' . $request->input('imprimir')))->toMediaCollection('imprimir');
-        }
 
         return redirect()->route('admin.equipo-docentes.index');
     }
@@ -47,20 +43,16 @@ class EquipoDocenteController extends Controller
     {
         abort_if(Gate::denies('equipo_docente_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.equipoDocentes.edit', compact('equipoDocente'));
+        $departamentos = Departamento::all()->pluck('nombre', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $equipoDocente->load('departamento');
+
+        return view('admin.equipoDocentes.edit', compact('departamentos', 'equipoDocente'));
     }
 
     public function update(UpdateEquipoDocenteRequest $request, EquipoDocente $equipoDocente)
     {
         $equipoDocente->update($request->all());
-
-        if ($request->input('imprimir', false)) {
-            if (!$equipoDocente->imprimir || $request->input('imprimir') !== $equipoDocente->imprimir->file_name) {
-                $equipoDocente->addMedia(storage_path('tmp/uploads/' . $request->input('imprimir')))->toMediaCollection('imprimir');
-            }
-        } elseif ($equipoDocente->imprimir) {
-            $equipoDocente->imprimir->delete();
-        }
 
         return redirect()->route('admin.equipo-docentes.index');
     }
@@ -68,6 +60,8 @@ class EquipoDocenteController extends Controller
     public function show(EquipoDocente $equipoDocente)
     {
         abort_if(Gate::denies('equipo_docente_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $equipoDocente->load('departamento');
 
         return view('admin.equipoDocentes.show', compact('equipoDocente'));
     }

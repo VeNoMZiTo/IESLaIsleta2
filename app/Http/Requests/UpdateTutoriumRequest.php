@@ -19,22 +19,26 @@ class UpdateTutoriumRequest extends FormRequest
     public function rules()
     {
         return [
-            'nivel'         => [
+            'nivel'                    => [
                 'required',
             ],
-            'grupo'         => [
+            'grupo'                    => [
                 'required',
             ],
-            'tutor'         => [
+            'tutor'                    => [
                 'required',
             ],
-            'departamento'  => [
+            'abreviatura_departamento' => [
                 'required',
             ],
-            'email'         => [
+            'departamento_id'          => [
+                'required',
+                'integer',
+            ],
+            'email'                    => [
                 'required',
             ],
-            'hora_atencion' => [
+            'hora_atencion'            => [
                 'required',
             ],
         ];

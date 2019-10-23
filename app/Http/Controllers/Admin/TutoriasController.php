@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Departamento;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyTutoriumRequest;
 use App\Http\Requests\StoreTutoriumRequest;
 use App\Http\Requests\UpdateTutoriumRequest;
@@ -14,8 +14,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class TutoriasController extends Controller
 {
-    use MediaUploadingTrait;
-
     public function index()
     {
         abort_if(Gate::denies('tutorium_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -29,16 +27,14 @@ class TutoriasController extends Controller
     {
         abort_if(Gate::denies('tutorium_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.tutoria.create');
+        $departamentos = Departamento::all()->pluck('nombre', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        return view('admin.tutoria.create', compact('departamentos'));
     }
 
     public function store(StoreTutoriumRequest $request)
     {
         $tutorium = Tutorium::create($request->all());
-
-        if ($request->input('imprimir', false)) {
-            $tutorium->addMedia(storage_path('tmp/uploads/' . $request->input('imprimir')))->toMediaCollection('imprimir');
-        }
 
         return redirect()->route('admin.tutoria.index');
     }
@@ -47,20 +43,16 @@ class TutoriasController extends Controller
     {
         abort_if(Gate::denies('tutorium_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.tutoria.edit', compact('tutorium'));
+        $departamentos = Departamento::all()->pluck('nombre', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $tutorium->load('departamento');
+
+        return view('admin.tutoria.edit', compact('departamentos', 'tutorium'));
     }
 
     public function update(UpdateTutoriumRequest $request, Tutorium $tutorium)
     {
         $tutorium->update($request->all());
-
-        if ($request->input('imprimir', false)) {
-            if (!$tutorium->imprimir || $request->input('imprimir') !== $tutorium->imprimir->file_name) {
-                $tutorium->addMedia(storage_path('tmp/uploads/' . $request->input('imprimir')))->toMediaCollection('imprimir');
-            }
-        } elseif ($tutorium->imprimir) {
-            $tutorium->imprimir->delete();
-        }
 
         return redirect()->route('admin.tutoria.index');
     }
@@ -68,6 +60,8 @@ class TutoriasController extends Controller
     public function show(Tutorium $tutorium)
     {
         abort_if(Gate::denies('tutorium_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $tutorium->load('departamento');
 
         return view('admin.tutoria.show', compact('tutorium'));
     }
