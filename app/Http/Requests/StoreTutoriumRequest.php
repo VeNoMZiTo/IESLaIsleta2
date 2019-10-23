@@ -31,15 +31,15 @@ class StoreTutoriumRequest extends FormRequest
             'abreviatura_departamento' => [
                 'required',
             ],
-            'departamento_id'          => [
-                'required',
-                'integer',
-            ],
             'email'                    => [
                 'required',
             ],
             'hora_atencion'            => [
                 'required',
+            ],
+            'departamento_id'          => [
+                'required',
+                'integer',
             ],
         ];
     }

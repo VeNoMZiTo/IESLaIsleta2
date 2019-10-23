@@ -11,7 +11,7 @@ class AddRelationshipFieldsToTutoriaTable extends Migration
         Schema::table('tutoria', function (Blueprint $table) {
             $table->unsignedInteger('departamento_id');
 
-            $table->foreign('departamento_id', 'departamento_fk_506572')->references('id')->on('departamentos');
+            $table->foreign('departamento_id', 'departamento_fk_507726')->references('id')->on('departamentos');
         });
     }
 }

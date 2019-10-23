@@ -46,6 +46,18 @@
                     {{ trans('cruds.equipoDirectivo.fields.abreviatura_departamento_helper') }}
                 </p>
             </div>
+            <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
+                <label for="email">{{ trans('cruds.equipoDirectivo.fields.email') }}*</label>
+                <input type="email" id="email" name="email" class="form-control" value="{{ old('email', isset($equipoDirectivo) ? $equipoDirectivo->email : '') }}" required>
+                @if($errors->has('email'))
+                    <p class="help-block">
+                        {{ $errors->first('email') }}
+                    </p>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.equipoDirectivo.fields.email_helper') }}
+                </p>
+            </div>
             <div class="form-group {{ $errors->has('departamento_id') ? 'has-error' : '' }}">
                 <label for="departamento">{{ trans('cruds.equipoDirectivo.fields.departamento') }}*</label>
                 <select name="departamento_id" id="departamento" class="form-control select2" required>
@@ -58,18 +70,6 @@
                         {{ $errors->first('departamento_id') }}
                     </p>
                 @endif
-            </div>
-            <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                <label for="email">{{ trans('cruds.equipoDirectivo.fields.email') }}*</label>
-                <input type="email" id="email" name="email" class="form-control" value="{{ old('email', isset($equipoDirectivo) ? $equipoDirectivo->email : '') }}" required>
-                @if($errors->has('email'))
-                    <p class="help-block">
-                        {{ $errors->first('email') }}
-                    </p>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.equipoDirectivo.fields.email_helper') }}
-                </p>
             </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">

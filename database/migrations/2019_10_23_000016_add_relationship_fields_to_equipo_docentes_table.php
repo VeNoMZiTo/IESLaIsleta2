@@ -11,7 +11,7 @@ class AddRelationshipFieldsToEquipoDocentesTable extends Migration
         Schema::table('equipo_docentes', function (Blueprint $table) {
             $table->unsignedInteger('departamento_id');
 
-            $table->foreign('departamento_id', 'departamento_fk_506571')->references('id')->on('departamentos');
+            $table->foreign('departamento_id', 'departamento_fk_507704')->references('id')->on('departamentos');
         });
     }
 }

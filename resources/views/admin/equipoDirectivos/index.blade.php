@@ -35,10 +35,10 @@
                             {{ trans('cruds.equipoDirectivo.fields.abreviatura_departamento') }}
                         </th>
                         <th>
-                            {{ trans('cruds.equipoDirectivo.fields.departamento') }}
+                            {{ trans('cruds.equipoDirectivo.fields.email') }}
                         </th>
                         <th>
-                            {{ trans('cruds.equipoDirectivo.fields.email') }}
+                            {{ trans('cruds.equipoDirectivo.fields.departamento') }}
                         </th>
                         <th>
                             &nbsp;
@@ -64,10 +64,10 @@
                                 {{ $equipoDirectivo->abreviatura_departamento ?? '' }}
                             </td>
                             <td>
-                                {{ $equipoDirectivo->departamento->nombre ?? '' }}
+                                {{ $equipoDirectivo->email ?? '' }}
                             </td>
                             <td>
-                                {{ $equipoDirectivo->email ?? '' }}
+                                {{ $equipoDirectivo->departamento->nombre ?? '' }}
                             </td>
                             <td>
                                 @can('equipo_directivo_show')

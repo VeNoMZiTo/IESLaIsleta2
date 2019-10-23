@@ -28,12 +28,12 @@ class UpdateEquipoDirectivoRequest extends FormRequest
             'abreviatura_departamento' => [
                 'required',
             ],
+            'email'                    => [
+                'required',
+            ],
             'departamento_id'          => [
                 'required',
                 'integer',
-            ],
-            'email'                    => [
-                'required',
             ],
         ];
     }

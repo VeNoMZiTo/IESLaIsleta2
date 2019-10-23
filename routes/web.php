@@ -1,27 +1,6 @@
 <?php
 
-
-Route::get('/', 'IndexController@getIndex');
-Route::get('/equipo-directivo','TablasController@getEqDirectivo');
-Route::get('/equipo-docente','TablasController@getEqDocente');
-
-Route::get('/nodisponible', function () {
-    return view('frontend.nodisponible');
-});
-Route::get('/tutorias', function () {
-    return view('frontend.tutorias');
-});
-Route::get('/consultas', function () {
-    return view('frontend.consultas');
-});
-Route::get('/profesorado', function () {
-    return view('frontend.profesorado');
-});
-Route::get('/noticias', 'IndexController@getRepertorioNoticias');
-Route::get('/noticia/{id}-{titulo}','IndexController@getNoticia');
-Route::get('/actividad/{id}-{titulo}','IndexController@getActividad');
-Route::post('mail/send-contact', 'MailController@sendContact');
-//Route::redirect('/', '/login');
+Route::redirect('/', '/login');
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
 
@@ -69,4 +48,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Tutoria
     Route::delete('tutoria/destroy', 'TutoriasController@massDestroy')->name('tutoria.massDestroy');
     Route::resource('tutoria', 'TutoriasController');
+
+    // Archivos
+    Route::delete('archivos/destroy', 'ArchivosController@massDestroy')->name('archivos.massDestroy');
+    Route::post('archivos/media', 'ArchivosController@storeMedia')->name('archivos.storeMedia');
+    Route::resource('archivos', 'ArchivosController');
 });
