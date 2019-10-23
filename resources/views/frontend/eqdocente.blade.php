@@ -5,6 +5,9 @@
     <link rel="stylesheet" type="text/css" href="/vendor/tooltipster-master/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-shadow.min.css"/>
 @endsection
 @section('content')
+{{--    @php--}}
+{{--    dd(count($departamentos[1]->equipoDocentes))--}}
+{{--    @endphp--}}
     <section class="container">
         <div class="g-py-100">
             <div class="row justify-content-center g-mb-70">
@@ -43,108 +46,79 @@
                                 </thead>
                             </table>
                         </div>
+                        <style>
+                        </style>
                         <div class="tabla-body js-pscroll">
                             <table>
                                 <tbody>
-                                <tr class="row100 body">
-                                    <td data-column="Departamento" class="columnas column1" rowspan="2">
-                                        <p>
-                                            Like a butterfly
-                                        </p>
-                                    </td>
-                                    <td data-column="Profesor/a" class="columnas column2">
-                                        <p>
-                                            Boxing
-                                        </p>
-                                    </td>
+                                <!--Se cambia el color desde php, ya que la estructura es una tabla y es menos versatil en html js para configurar y anidar elementos-->
+                                @php
+                                $color='gris';
+                                @endphp
+                                @foreach($departamentos as $key=>$dep)
+                                    <!-- Hace un recorrido por todos los departamentos para saber si hay equipoDocente y evaluar si tiene una persona o más -->
+                                    @if(count($dep->equipoDocentes)>1)
+                                        @php
+                                        if($color=='gris'){$color='blanco';}else{$color='gris';};
+                                        @endphp
+                                        <!--Dibuja el departamento, y se da valor al tamaño del row en función de las personas que estan en el departamento-->
+                                        <tr class="row100 body {{$color}}">
+                                            <td data-column="Departamento" class="columnas column1" rowspan="{{count($dep->equipoDocentes)+1}}">
+                                                <p>
+                                                    {{$dep->nombre}}
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <!--Dibuja todas las personas que hay en el departamento-->
+                                        @foreach($dep->equipoDocentes as $equipo)
+                                            <tr class="body-contenido {{$color}}">
+                                                <td data-column="Profesor/a" class="columnas column2">
+                                                    <p>
+                                                        {{$equipo->profesores}}
+                                                    </p>
+                                                </td>
 
-                                    <td data-column="Cargo" class="columnas column3">
-                                        <p>
-                                            ING
-                                        </p>
-                                    </td>
-                                    <td data-column="Correo Electrónico" class="columnas column4">
-                                        <p>
-                                            Aaron Chapman
-                                        </p>
-                                    </td>
+                                                <td data-column="Cargo" class="columnas column3">
+                                                    <p>
+                                                        {{$equipo->cargo}}
+                                                    </p>
+                                                </td>
+                                                <td data-column="Correo Electrónico" class="columnas column4">
+                                                    <p>
+                                                        {{$equipo->email}}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @elseif(count($dep->equipoDocentes)==1)
+                                        @php
+                                            if($color=='gris'){$color='blanco';}else{$color='gris';};
+                                        @endphp
+                                        <tr class="row100 body {{$color}}">
+                                            <td data-column="Departamento" class="columnas column1" rowspan="1">
+                                                <p>
+                                                    {{$dep->nombre}}
+                                                </p>
+                                            </td>
+                                            <td data-column="Profesor/a" class="columnas column2">
+                                                <p>
+                                                    {{$dep->equipoDocentes[0]->profesores}}
+                                                </p>
+                                            </td>
 
-                                </tr>
-                                <tr>
-                                    <td data-column="Nombre" class="columnas column2">
-                                        <p>
-                                            Boxing
-                                        </p>
-                                    </td>
-                                    <td data-column="Departamento" class="columnas column3">
-                                        <p>
-                                            ING
-                                        </p>
-                                    </td>
-                                    <td data-column="Correo Electrónico" class="columnas column4">
-                                        <p>
-                                            Aaron Chapman
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr class="row100 body">
-                                    <td data-column="Cargo" class="columnas column1" rowspan="3">
-                                        <p>
-                                            Like a butterfly
-                                        </p>
-                                    </td>
-                                    <td data-column="Nombre" class="columnas column2">
-                                        <p>
-                                            Boxing
-                                        </p>
-                                    </td>
-
-                                    <td data-column="Departamento" class="columnas column3">
-                                        <p>
-                                            ING
-                                        </p>
-                                    </td>
-                                    <td data-column="Correo Electrónico" class="columnas column4">
-                                        <p>
-                                            Aaron Chapman
-                                        </p>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td data-column="Nombre" class="columnas column2">
-                                        <p>
-                                            Boxing
-                                        </p>
-                                    </td>
-                                    <td data-column="Departamento" class="columnas column3">
-                                        <p>
-                                            ING
-                                        </p>
-                                    </td>
-                                    <td data-column="Correo Electrónico" class="columnas column4">
-                                        <p>
-                                            Aaron Chapman
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td data-column="Nombre" class="columnas column2">
-                                        <p>
-                                            Boxing
-                                        </p>
-                                    </td>
-                                    <td data-column="Departamento" class="columnas column3">
-                                        <p>
-                                            ING
-                                        </p>
-                                    </td>
-                                    <td data-column="Correo Electrónico" class="columnas column4">
-                                        <p>
-                                            Aaron Chapman
-                                        </p>
-                                    </td>
-                                </tr>
+                                            <td data-column="Cargo" class="columnas column3">
+                                                <p>
+                                                    {{$dep->equipoDocentes[0]->cargo}}
+                                                </p>
+                                            </td>
+                                            <td data-column="Correo Electrónico" class="columnas column4">
+                                                <p>
+                                                    {{$dep->equipoDocentes[0]->email}}
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    @endif
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

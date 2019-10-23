@@ -5,6 +5,8 @@
     <link rel="stylesheet" type="text/css" href="/vendor/tooltipster-master/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-shadow.min.css"/>
 @endsection
 @section('content')
+    @php
+    @endphp
     <section class="container">
         <div class="g-py-100">
             <div class="row justify-content-center g-mb-70">
@@ -47,25 +49,26 @@
                         <div class="tabla-body js-pscroll">
                             <table>
                                 <tbody>
+                                @foreach($directivo as $eq)
                                 <tr class="row100 body">
                                     <td data-column="Cargo" class="columnas column1">
                                         <p>
-                                            Like a butterfly
+                                            {{$eq->cargo}}
                                         </p>
                                     </td>
                                     <td data-column="Nombre" class="columnas column2">
                                         <p>
-                                            Boxing
+                                            {{$eq->nombre}}
                                         </p>
                                     </td>
-                                    <td data-column="Departamento" class="columnas column3 tooltipster" title="Inglés">
+                                    <td data-column="Departamento" class="columnas column3 tooltipster text-uppercase" title="{{$eq->departamento->nombre}}">
                                         <p>
-                                            ING
+                                            {{$eq->abreviatura_departamento}}
                                         </p>
                                     </td>
                                     <td data-column="Correo Electrónico" class="columnas column4">
                                         <p>
-                                            Aaron Chapman
+                                            {{$eq->email}}
                                         </p>
                                     </td>
                                     <td data-column="Hora de Atención" class="columnas column5">
@@ -74,88 +77,7 @@
                                         </p>
                                     </td>
                                 </tr>
-
-                                <tr class="row100 body">
-                                    <td data-column="Cargo" class="columnas column1">
-                                        <p>
-                                            Like a butterfly
-                                        </p>
-                                    </td>
-                                    <td data-column="Nombre" class="columnas column2">
-                                        <p>
-                                            Boxing
-                                        </p>
-                                    </td>
-                                    <td data-column="Departamento" class="columnas column3 tooltipster" title="Inglés">
-                                        <p>
-                                            ING
-                                        </p>
-                                    </td>
-                                    <td data-column="Correo Electrónico" class="columnas column4">
-                                        <p>
-                                            Aaron Chapman
-                                        </p>
-                                    </td>
-                                    <td data-column="Hora de Atención" class="columnas column5">
-                                        <p>
-                                            10
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr class="row100 body">
-                                    <td data-column="Cargo" class="columnas column1">
-                                        <p>
-                                            Like a butterfly
-                                        </p>
-                                    </td>
-                                    <td data-column="Nombre" class="columnas column2">
-                                        <p>
-                                            Boxing
-                                        </p>
-                                    </td>
-                                    <td data-column="Departamento" class="columnas column3 tooltipster" title="Inglés">
-                                        <p>
-                                            ING
-                                        </p>
-                                    </td>
-                                    <td data-column="Correo Electrónico" class="columnas column4">
-                                        <p>
-                                            Aaron Chapman
-                                        </p>
-                                    </td>
-                                    <td data-column="Hora de Atención" class="columnas column5">
-                                        <p>
-                                            10
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr class="row100 body">
-                                    <td data-column="Cargo" class="columnas column1">
-                                        <p>
-                                            Like a butterfly
-                                        </p>
-                                    </td>
-                                    <td data-column="Nombre" class="columnas column2">
-                                        <p>
-                                            Boxing
-                                        </p>
-                                    </td>
-                                    <td data-column="Departamento" class="columnas column3 tooltipster" title="Inglés">
-                                        <p>
-                                            ING
-                                        </p>
-                                    </td>
-                                    <td data-column="Correo Electrónico" class="columnas column4">
-                                        <p>
-                                            Aaron Chapman
-                                        </p>
-                                    </td>
-                                    <td data-column="Hora de Atención" class="columnas column5">
-                                        <p>
-                                            10
-                                        </p>
-                                    </td>
-                                </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -182,7 +104,6 @@
             $('.tooltipster').tooltipster({
                 theme: 'tooltipster-shadow'
             });
-
         });
     </script>
 @endsection

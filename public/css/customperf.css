@@ -591,7 +591,12 @@ tr.body *, tr.body{
 }
 #mainpage:hover .panel{
     top:-30px;
-
+}
+.ver2 tbody .gris{
+    background: #f8f6ff;
+}
+.ver2 tbody .blanco{
+    background: white;
 }
 @keyframes laterales{
     0%{
