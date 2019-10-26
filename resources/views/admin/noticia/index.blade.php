@@ -41,6 +41,9 @@
                             {{ trans('cruds.noticium.fields.foto') }}
                         </th>
                         <th>
+                            {{ trans('cruds.noticium.fields.archivos') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -71,6 +74,15 @@
                                     @foreach($noticium->foto as $key => $media)
                                         <a href="{{ $media->getUrl() }}" target="_blank">
                                             <img src="{{ $media->getUrl('thumb') }}" width="50px" height="50px">
+                                        </a>
+                                    @endforeach
+                                @endif
+                            </td>
+                            <td>
+                                @if($noticium->archivos)
+                                    @foreach($noticium->archivos as $key => $media)
+                                        <a href="{{ $media->getUrl() }}" target="_blank">
+                                            {{ trans('global.view_file') }}
                                         </a>
                                     @endforeach
                                 @endif

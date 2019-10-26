@@ -1,26 +1,14 @@
 <?php
 
+Route::redirect('/', '/login');
+Route::get('/home', function () {
+    if (session('status')) {
+        return redirect()->route('admin.home')->with('status', session('status'));
+    }
 
-Route::get('/', 'IndexController@getIndex');
-Route::get('/equipo-directivo','TablasController@getEqDirectivo');
-Route::get('/equipo-docente','TablasController@getEqDocente');
-Route::get('/tutorias','TablasController@getTutoria');
+    return redirect()->route('admin.home');
+});
 
-Route::get('/nodisponible', function () {
-    return view('frontend.nodisponible');
-});
-Route::get('/consultas', function () {
-    return view('frontend.consultas');
-});
-Route::get('/profesorado', function () {
-    return view('frontend.profesorado');
-});
-Route::get('/noticias', 'IndexController@getRepertorioNoticias');
-Route::get('/noticia/{id}-{titulo}','IndexController@getNoticia');
-Route::get('/actividad/{id}-{titulo}','IndexController@getActividad');
-Route::post('mail/send-contact', 'MailController@sendContact');
-//Route::redirect('/', '/login');
-Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {

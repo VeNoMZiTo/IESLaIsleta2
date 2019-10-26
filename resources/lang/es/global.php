@@ -28,6 +28,7 @@ return [
     'register'                             => 'Registrarse',
     'remember_me'                          => 'Recuérdeme',
     'reset_password'                       => 'Restablecer contraseña',
+    'send_password'                        => 'Send Password Reset Link',
     'save'                                 => 'Guardar',
     'search'                               => 'Búsqueda',
     'searching'                            => 'Buscando',

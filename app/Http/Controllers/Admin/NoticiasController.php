@@ -40,6 +40,10 @@ class NoticiasController extends Controller
             $noticium->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('foto');
         }
 
+        foreach ($request->input('archivos', []) as $file) {
+            $noticium->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('archivos');
+        }
+
         return redirect()->route('admin.noticia.index');
     }
 
@@ -67,6 +71,22 @@ class NoticiasController extends Controller
         foreach ($request->input('foto', []) as $file) {
             if (count($media) === 0 || !in_array($file, $media)) {
                 $noticium->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('foto');
+            }
+        }
+
+        if (count($noticium->archivos) > 0) {
+            foreach ($noticium->archivos as $media) {
+                if (!in_array($media->file_name, $request->input('archivos', []))) {
+                    $media->delete();
+                }
+            }
+        }
+
+        $media = $noticium->archivos->pluck('file_name')->toArray();
+
+        foreach ($request->input('archivos', []) as $file) {
+            if (count($media) === 0 || !in_array($file, $media)) {
+                $noticium->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('archivos');
             }
         }
 
