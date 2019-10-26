@@ -17,6 +17,7 @@ class Noticium extends Model implements HasMedia
 
     protected $appends = [
         'foto',
+        'archivos',
     ];
 
     protected $dates = [
@@ -61,5 +62,10 @@ class Noticium extends Model implements HasMedia
         });
 
         return $files;
+    }
+
+    public function getArchivosAttribute()
+    {
+        return $this->getMedia('archivos');
     }
 }

@@ -31,6 +31,10 @@ class NoticiasApiController extends Controller
             $noticium->addMedia(storage_path('tmp/uploads/' . $request->input('foto')))->toMediaCollection('foto');
         }
 
+        if ($request->input('archivos', false)) {
+            $noticium->addMedia(storage_path('tmp/uploads/' . $request->input('archivos')))->toMediaCollection('archivos');
+        }
+
         return (new NoticiumResource($noticium))
             ->response()
             ->setStatusCode(Response::HTTP_CREATED);
@@ -53,6 +57,14 @@ class NoticiasApiController extends Controller
             }
         } elseif ($noticium->foto) {
             $noticium->foto->delete();
+        }
+
+        if ($request->input('archivos', false)) {
+            if (!$noticium->archivos || $request->input('archivos') !== $noticium->archivos->file_name) {
+                $noticium->addMedia(storage_path('tmp/uploads/' . $request->input('archivos')))->toMediaCollection('archivos');
+            }
+        } elseif ($noticium->archivos) {
+            $noticium->archivos->delete();
         }
 
         return (new NoticiumResource($noticium))

@@ -111,6 +111,8 @@ return [
             'deleted_at_helper'  => '',
             'descripcion'        => 'Descripción',
             'descripcion_helper' => '',
+            'archivos'           => 'Archivos',
+            'archivos_helper'    => 'Si el archivo pesa mucho puede intentar comprimirlo.',
         ],
     ],
     'actividade'      => [
@@ -228,8 +230,8 @@ return [
         ],
     ],
     'archivo'         => [
-        'title'          => 'Archivos para Descargar/Imprimir',
-        'title_singular' => 'Archivos para Descargar/Imprimir',
+        'title'          => 'Descargar/Imprimir',
+        'title_singular' => 'Descargar/Imprimir',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => '',
