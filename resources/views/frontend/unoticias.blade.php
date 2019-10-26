@@ -42,6 +42,13 @@
                     {!! $mediador->descripcion !!}
                 </div>
             </div>
+            <ul class="list-unstyled g-color-gray-dark-v4 mb-0 g-pt-20">
+                <li class="d-flex g-mb-10 g-font-weight-600 g-color-primary">
+                    <a href="#" download>
+                        <i class="fa fa-file g-mt-5 g-mr-10"></i>Included Over 2000+ UI Components
+                    </a>
+                </li>
+            </ul>
 
         </div>
 

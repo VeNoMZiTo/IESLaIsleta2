@@ -75,9 +75,9 @@
                              data-y="['top','top','top','top']"
                              data-hoffset="['50','50','50','30']"
                              data-voffset="['165','135','105','130']"
-                             data-fontsize="['35','35','35','35']"
+                             data-fontsize="['35','30','30','30']"
                              data-lineheight="['55','55','55','35']"
-                             data-width="['1200','600','600','420']"
+                             data-width="['850','500','500','420']"
                              data-height="none"
                              data-whitespace="normal"
                              data-type="text"
@@ -162,7 +162,7 @@
                             @php
                             $mes=['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
                             @endphp
-                        <div class="col-12 col-md-6 col-xl-3 g-mb-15 news">
+                        <div class="col-12 col-lg-6 col-xl-3 g-mb-15 news">
                             <!-- Article -->
                             <article class="g-brd-around g-brd-gray-light-v4 g-pa-5 u-shadow-v4" >
                                 <figure class="g-pos-rel">
@@ -202,7 +202,7 @@
                 </div>
             </div>
             <div class="row blog-row">
-                <div class="col-12 col-md-6 principal ">
+                <div class="col-12 col-lg-6 principal ">
 
                     @if(isset($noticias[0]))
                     <img src="{{$noticias[0]->foto[0]->getUrl()}}" class="img-fluid u-shadow-v2 fotoprincipal">
@@ -238,7 +238,7 @@
                 </div>
 
 
-                <div class="js-carousel col-12 col-md-6"
+                <div class="js-carousel col-12 col-lg-6"
                      data-infinite="true"
                      data-slides-show="2"
                      data-slides-scroll="1"

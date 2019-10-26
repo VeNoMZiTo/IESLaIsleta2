@@ -5,8 +5,6 @@
     <link rel="stylesheet" type="text/css" href="/vendor/tooltipster-master/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-shadow.min.css"/>
 @endsection
 @section('content')
-    @php
-    @endphp
     <section class="container">
         <div class="g-py-100">
             <div class="row justify-content-center g-mb-70">
@@ -22,16 +20,18 @@
             </div>
             <div class="row">
                 <div class="col-12 px-0">
+                    @if($descargar)
                     <div class="panel">
                         <ul class="list-unstyled objetos-panel">
                             <li>
-                                <a class="download tooltipster" title="Descargar" href="/pdf/prueba.pdf" download><i class="fa fa-download"></i></a>
+                                <a class="download tooltipster" title="Descargar" href="{{$descargar->getUrl()}}" download><i class="fa fa-download"></i></a>
                             </li>
                             <li>
-                                <a class="downloand-print tooltipster" title="Imprimir" href="/pdf/prueba.pdf"><i class="fa fa-print"></i></a>
+                                <a class="downloand-print tooltipster" title="Imprimir" href="{{$descargar->getUrl()}}"><i class="fa fa-print"></i></a>
                             </li>
                         </ul>
                     </div>
+                    @endif
                     <div class="tabla ver1 m-b-110">
                         <div class="tabla-head">
                             <table>

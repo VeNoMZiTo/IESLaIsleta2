@@ -553,7 +553,7 @@ th, td {
     line-height: 1.4;
 }
 
-.tabla.ver1 .tabla-body tr:nth-child(even) {
+.tabla.ver1 .tabla-body tr:nth-child(even), .tabla.ver3 .tabla-body tr:nth-child(even) {
     background-color: #f8f6ff;
 }
 .panel{
@@ -669,7 +669,7 @@ tr.body *, tr.body{
         height: 500px;
     }
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 992px) {
     .js-slide img{
         height: 165px;
         object-fit: cover;
@@ -813,15 +813,20 @@ tr.body *, tr.body{
     #topnavbarfirst{
         display: none;
     }
+    .js-slide img{
+        height: 250px;
+        object-fit: cover;
+    }
+    .fotoprincipal{
+        height:350px;
+        width: 100%;
+    }
 }
 @media only screen and (max-width: 768px){
     .s-slider {
         height: 375px;
     }
-    .js-slide img{
-        height: 250px;
-        object-fit: cover;
-    }
+
     table, .columnas{
         width: 100% !important;
         padding-left: 0 !important;

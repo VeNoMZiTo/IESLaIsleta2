@@ -5,9 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/vendor/tooltipster-master/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-shadow.min.css"/>
 @endsection
 @section('content')
-{{--    @php--}}
-{{--    dd(count($departamentos[1]->equipoDocentes))--}}
-{{--    @endphp--}}
+
     <section class="container">
         <div class="g-py-100">
             <div class="row justify-content-center g-mb-70">
@@ -23,16 +21,18 @@
             </div>
             <div class="row">
                 <div class="col-12 px-0">
+                    @if($descargar)
                     <div class="panel">
                         <ul class="list-unstyled objetos-panel">
                             <li>
-                                <a class="download tooltipster" title="Descargar" href="/pdf/prueba.pdf" download><i class="fa fa-download"></i></a>
+                                <a class="download tooltipster" title="Descargar" href="{{$descargar->getUrl()}}" download><i class="fa fa-download"></i></a>
                             </li>
                             <li>
-                                <a class="downloand-print tooltipster" title="Imprimir" href="/pdf/prueba.pdf"><i class="fa fa-print"></i></a>
+                                <a class="downloand-print tooltipster" title="Imprimir" href="{{$descargar->getUrl()}}"><i class="fa fa-print"></i></a>
                             </li>
                         </ul>
                     </div>
+                    @endif
                     <div class="tabla ver2 m-b-110">
                         <div class="tabla-head">
                             <table>
@@ -51,17 +51,14 @@
                         <div class="tabla-body js-pscroll">
                             <table>
                                 <tbody>
-                                <!--Se cambia el color desde php, ya que la estructura es una tabla y es menos versatil en html js para configurar y anidar elementos-->
                                 @php
                                 $color='gris';
                                 @endphp
                                 @foreach($departamentos as $key=>$dep)
-                                    <!-- Hace un recorrido por todos los departamentos para saber si hay equipoDocente y evaluar si tiene una persona o más -->
                                     @if(count($dep->equipoDocentes)>1)
                                         @php
                                         if($color=='gris'){$color='blanco';}else{$color='gris';};
                                         @endphp
-                                        <!--Dibuja el departamento, y se da valor al tamaño del row en función de las personas que estan en el departamento-->
                                         <tr class="row100 body {{$color}}">
                                             <td data-column="Departamento" class="columnas column1" rowspan="{{count($dep->equipoDocentes)+1}}">
                                                 <p>
@@ -69,7 +66,6 @@
                                                 </p>
                                             </td>
                                         </tr>
-                                        <!--Dibuja todas las personas que hay en el departamento-->
                                         @foreach($dep->equipoDocentes as $equipo)
                                             <tr class="body-contenido {{$color}}">
                                                 <td data-column="Profesor/a" class="columnas column2">
