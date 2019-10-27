@@ -31,6 +31,10 @@ class ActividadesApiController extends Controller
             $actividade->addMedia(storage_path('tmp/uploads/' . $request->input('foto')))->toMediaCollection('foto');
         }
 
+        if ($request->input('archivos', false)) {
+            $actividade->addMedia(storage_path('tmp/uploads/' . $request->input('archivos')))->toMediaCollection('archivos');
+        }
+
         return (new ActividadeResource($actividade))
             ->response()
             ->setStatusCode(Response::HTTP_CREATED);
@@ -53,6 +57,14 @@ class ActividadesApiController extends Controller
             }
         } elseif ($actividade->foto) {
             $actividade->foto->delete();
+        }
+
+        if ($request->input('archivos', false)) {
+            if (!$actividade->archivos || $request->input('archivos') !== $actividade->archivos->file_name) {
+                $actividade->addMedia(storage_path('tmp/uploads/' . $request->input('archivos')))->toMediaCollection('archivos');
+            }
+        } elseif ($actividade->archivos) {
+            $actividade->archivos->delete();
         }
 
         return (new ActividadeResource($actividade))

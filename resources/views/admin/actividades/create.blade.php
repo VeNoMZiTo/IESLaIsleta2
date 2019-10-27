@@ -71,6 +71,20 @@
                     {{ trans('cruds.actividade.fields.descripcion_helper') }}
                 </p>
             </div>
+            <div class="form-group {{ $errors->has('archivos') ? 'has-error' : '' }}">
+                <label for="archivos">{{ trans('cruds.actividade.fields.archivos') }}</label>
+                <div class="needsclick dropzone" id="archivos-dropzone">
+
+                </div>
+                @if($errors->has('archivos'))
+                    <p class="help-block">
+                        {{ $errors->first('archivos') }}
+                    </p>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.actividade.fields.archivos_helper') }}
+                </p>
+            </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>
@@ -121,6 +135,62 @@ Dropzone.options.fotoDropzone = {
           file.previewElement.classList.add('dz-complete')
           $('form').append('<input type="hidden" name="foto[]" value="' + file.file_name + '">')
         }
+@endif
+    },
+     error: function (file, response) {
+         if ($.type(response) === 'string') {
+             var message = response //dropzone sends it's own error messages in string
+         } else {
+             var message = response.errors.file
+         }
+         file.previewElement.classList.add('dz-error')
+         _ref = file.previewElement.querySelectorAll('[data-dz-errormessage]')
+         _results = []
+         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+             node = _ref[_i]
+             _results.push(node.textContent = message)
+         }
+
+         return _results
+     }
+}
+</script>
+<script>
+    var uploadedArchivosMap = {}
+Dropzone.options.archivosDropzone = {
+    url: '{{ route('admin.actividades.storeMedia') }}',
+    maxFilesize: 2, // MB
+    addRemoveLinks: true,
+    headers: {
+      'X-CSRF-TOKEN': "{{ csrf_token() }}"
+    },
+    params: {
+      size: 2
+    },
+    success: function (file, response) {
+      $('form').append('<input type="hidden" name="archivos[]" value="' + response.name + '">')
+      uploadedArchivosMap[file.name] = response.name
+    },
+    removedfile: function (file) {
+      file.previewElement.remove()
+      var name = ''
+      if (typeof file.file_name !== 'undefined') {
+        name = file.file_name
+      } else {
+        name = uploadedArchivosMap[file.name]
+      }
+      $('form').find('input[name="archivos[]"][value="' + name + '"]').remove()
+    },
+    init: function () {
+@if(isset($actividade) && $actividade->archivos)
+          var files =
+            {!! json_encode($actividade->archivos) !!}
+              for (var i in files) {
+              var file = files[i]
+              this.options.addedfile.call(this, file)
+              file.previewElement.classList.add('dz-complete')
+              $('form').append('<input type="hidden" name="archivos[]" value="' + file.file_name + '">')
+            }
 @endif
     },
      error: function (file, response) {

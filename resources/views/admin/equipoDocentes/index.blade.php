@@ -38,6 +38,9 @@
                             {{ trans('cruds.equipoDocente.fields.departamento') }}
                         </th>
                         <th>
+                            {{ trans('cruds.equipoDocente.fields.descarga') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -62,6 +65,13 @@
                             </td>
                             <td>
                                 {{ $equipoDocente->departamento->nombre ?? '' }}
+                            </td>
+                            <td>
+                                @if($equipoDocente->descarga)
+                                    <a href="{{ $equipoDocente->descarga->getUrl() }}" target="_blank">
+                                        {{ trans('global.view_file') }}
+                                    </a>
+                                @endif
                             </td>
                             <td>
                                 @can('equipo_docente_show')

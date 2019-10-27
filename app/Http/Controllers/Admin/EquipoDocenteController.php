@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Departamento;
 use App\EquipoDocente;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyEquipoDocenteRequest;
 use App\Http\Requests\StoreEquipoDocenteRequest;
 use App\Http\Requests\UpdateEquipoDocenteRequest;
@@ -14,6 +15,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EquipoDocenteController extends Controller
 {
+    use MediaUploadingTrait;
+
     public function index()
     {
         abort_if(Gate::denies('equipo_docente_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -36,6 +39,10 @@ class EquipoDocenteController extends Controller
     {
         $equipoDocente = EquipoDocente::create($request->all());
 
+        if ($request->input('descarga', false)) {
+            $equipoDocente->addMedia(storage_path('tmp/uploads/' . $request->input('descarga')))->toMediaCollection('descarga');
+        }
+
         return redirect()->route('admin.equipo-docentes.index');
     }
 
@@ -53,6 +60,14 @@ class EquipoDocenteController extends Controller
     public function update(UpdateEquipoDocenteRequest $request, EquipoDocente $equipoDocente)
     {
         $equipoDocente->update($request->all());
+
+        if ($request->input('descarga', false)) {
+            if (!$equipoDocente->descarga || $request->input('descarga') !== $equipoDocente->descarga->file_name) {
+                $equipoDocente->addMedia(storage_path('tmp/uploads/' . $request->input('descarga')))->toMediaCollection('descarga');
+            }
+        } elseif ($equipoDocente->descarga) {
+            $equipoDocente->descarga->delete();
+        }
 
         return redirect()->route('admin.equipo-docentes.index');
     }
