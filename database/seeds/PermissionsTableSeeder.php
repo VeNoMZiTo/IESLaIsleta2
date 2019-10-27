@@ -212,26 +212,6 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => '51',
                 'title' => 'tutorium_access',
             ],
-            [
-                'id'    => '52',
-                'title' => 'archivo_create',
-            ],
-            [
-                'id'    => '53',
-                'title' => 'archivo_edit',
-            ],
-            [
-                'id'    => '54',
-                'title' => 'archivo_show',
-            ],
-            [
-                'id'    => '55',
-                'title' => 'archivo_delete',
-            ],
-            [
-                'id'    => '56',
-                'title' => 'archivo_access',
-            ],
         ];
 
         Permission::insert($permissions);
