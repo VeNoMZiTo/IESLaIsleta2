@@ -58,9 +58,4 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('tutoria/destroy', 'TutoriasController@massDestroy')->name('tutoria.massDestroy');
     Route::post('tutoria/media', 'TutoriasController@storeMedia')->name('tutoria.storeMedia');
     Route::resource('tutoria', 'TutoriasController');
-
-    // Archivos
-    Route::delete('archivos/destroy', 'ArchivosController@massDestroy')->name('archivos.massDestroy');
-    Route::post('archivos/media', 'ArchivosController@storeMedia')->name('archivos.storeMedia');
-    Route::resource('archivos', 'ArchivosController');
 });

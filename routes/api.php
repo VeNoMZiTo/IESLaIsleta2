@@ -36,8 +36,4 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Tutoria
     Route::post('tutoria/media', 'TutoriasApiController@storeMedia')->name('tutoria.storeMedia');
     Route::apiResource('tutoria', 'TutoriasApiController');
-
-    // Archivos
-    Route::post('archivos/media', 'ArchivosApiController@storeMedia')->name('archivos.storeMedia');
-    Route::apiResource('archivos', 'ArchivosApiController');
 });
