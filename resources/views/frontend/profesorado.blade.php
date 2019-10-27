@@ -1,4 +1,5 @@
 @extends('master')
+@section('title','Profesorado')
 @section('css')
 @endsection
 @section('content')

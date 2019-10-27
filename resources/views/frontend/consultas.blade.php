@@ -1,4 +1,5 @@
 @extends('master')
+@section('title','Buzón de Sugerencias')
 @section('css')
 @endsection
 @section('content')

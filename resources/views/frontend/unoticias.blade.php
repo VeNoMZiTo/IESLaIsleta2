@@ -8,6 +8,7 @@
         $image=$mediador->foto;
     }
 @endphp
+@section('title',$mediador->titulo)
 @section('meta')
 <!-- Facebook-->
     <meta property="og:url"           content="ies.adrianrm.com" />
@@ -18,7 +19,8 @@
 @section('css')
 @endsection
 @section('content')
-
+    @php
+    @endphp
 <section id='zona-noticia' class="container g-py-100 ">
     <div class="row g-mb-40">
         <!-- Carousel Images -->
@@ -42,14 +44,23 @@
                     {!! $mediador->descripcion !!}
                 </div>
             </div>
+            <div class="u-heading-v3-1 g-mt-60">
+                <h3 class="h5 u-heading-v3__title g-brd-primary">Archivos para descargar</h3>
+            </div>
+            @if($mediador->archivos)
             <ul class="list-unstyled g-color-gray-dark-v4 mb-0 g-pt-20">
+                @foreach($mediador->archivos as $a)
+                    @php
+                    $title=explode('_',$a->getUrl());
+                    @endphp
                 <li class="d-flex g-mb-10 g-font-weight-600 g-color-primary">
-                    <a href="#" download>
-                        <i class="fa fa-file g-mt-5 g-mr-10"></i>Included Over 2000+ UI Components
+                    <a href="{{$a->getUrl()}}" download>
+                        <i class="fa fa-file g-mt-5 g-mr-10"></i>{{$title[1]}}
                     </a>
                 </li>
+                @endforeach
             </ul>
-
+            @endif
         </div>
 
         <div class="col-md-4 g-mb-30">

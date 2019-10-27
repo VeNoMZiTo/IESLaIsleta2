@@ -1,4 +1,5 @@
 @extends('master')
+@section('title','Noticias')
 @section('css')
 @endsection
 @section('content')
