@@ -156,6 +156,18 @@
                         </a>
                     </li>
                 @endcan
+                @can('descargar_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.descargars.index") }}" class="nav-link {{ request()->is('admin/descargars') || request()->is('admin/descargars/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-file-pdf">
+
+                            </i>
+                            <p>
+                                <span>{{ trans('cruds.descargar.title') }}</span>
+                            </p>
+                        </a>
+                    </li>
+                @endcan
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                         <p>
