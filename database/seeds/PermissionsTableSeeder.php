@@ -212,6 +212,26 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => '51',
                 'title' => 'tutorium_access',
             ],
+            [
+                'id'    => '52',
+                'title' => 'descargar_create',
+            ],
+            [
+                'id'    => '53',
+                'title' => 'descargar_edit',
+            ],
+            [
+                'id'    => '54',
+                'title' => 'descargar_show',
+            ],
+            [
+                'id'    => '55',
+                'title' => 'descargar_delete',
+            ],
+            [
+                'id'    => '56',
+                'title' => 'descargar_access',
+            ],
         ];
 
         Permission::insert($permissions);
