@@ -38,6 +38,9 @@
                             {{ trans('cruds.actividade.fields.autor') }}
                         </th>
                         <th>
+                            {{ trans('cruds.actividade.fields.archivos') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -68,6 +71,15 @@
                             </td>
                             <td>
                                 {{ $actividade->autor ?? '' }}
+                            </td>
+                            <td>
+                                @if($actividade->archivos)
+                                    @foreach($actividade->archivos as $key => $media)
+                                        <a href="{{ $media->getUrl() }}" target="_blank">
+                                            {{ trans('global.view_file') }}
+                                        </a>
+                                    @endforeach
+                                @endif
                             </td>
                             <td>
                                 @can('actividade_show')

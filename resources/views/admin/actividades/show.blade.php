@@ -62,6 +62,14 @@
                             {!! $actividade->descripcion !!}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.actividade.fields.archivos') }}
+                        </th>
+                        <td>
+                            {{ $actividade->archivos }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">

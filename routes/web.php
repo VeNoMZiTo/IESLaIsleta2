@@ -1,24 +1,6 @@
 <?php
 
-Route::get('/', 'IndexController@getIndex');
-Route::get('/equipo-directivo','TablasController@getEqDirectivo');
-Route::get('/equipo-docente','TablasController@getEqDocente');
-Route::get('/tutorias','TablasController@getTutoria');
-
-Route::get('/nodisponible', function () {
-    return view('frontend.nodisponible');
-});
-Route::get('/consultas', function () {
-    return view('frontend.consultas');
-});
-Route::get('/profesorado', function () {
-    return view('frontend.profesorado');
-});
-Route::get('/noticias', 'IndexController@getRepertorioNoticias');
-Route::get('/noticia/{id}-{titulo}','IndexController@getNoticia');
-Route::get('/actividad/{id}-{titulo}','IndexController@getActividad');
-Route::post('mail/send-contact', 'MailController@sendContact');
-//Route::redirect('/', '/login');
+Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
@@ -64,14 +46,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Equipo Directivos
     Route::delete('equipo-directivos/destroy', 'EquipoDirectivoController@massDestroy')->name('equipo-directivos.massDestroy');
+    Route::post('equipo-directivos/media', 'EquipoDirectivoController@storeMedia')->name('equipo-directivos.storeMedia');
     Route::resource('equipo-directivos', 'EquipoDirectivoController');
 
     // Equipo Docentes
     Route::delete('equipo-docentes/destroy', 'EquipoDocenteController@massDestroy')->name('equipo-docentes.massDestroy');
+    Route::post('equipo-docentes/media', 'EquipoDocenteController@storeMedia')->name('equipo-docentes.storeMedia');
     Route::resource('equipo-docentes', 'EquipoDocenteController');
 
     // Tutoria
     Route::delete('tutoria/destroy', 'TutoriasController@massDestroy')->name('tutoria.massDestroy');
+    Route::post('tutoria/media', 'TutoriasController@storeMedia')->name('tutoria.storeMedia');
     Route::resource('tutoria', 'TutoriasController');
 
     // Archivos

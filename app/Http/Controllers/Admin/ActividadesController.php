@@ -40,6 +40,10 @@ class ActividadesController extends Controller
             $actividade->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('foto');
         }
 
+        foreach ($request->input('archivos', []) as $file) {
+            $actividade->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('archivos');
+        }
+
         return redirect()->route('admin.actividades.index');
     }
 
@@ -67,6 +71,22 @@ class ActividadesController extends Controller
         foreach ($request->input('foto', []) as $file) {
             if (count($media) === 0 || !in_array($file, $media)) {
                 $actividade->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('foto');
+            }
+        }
+
+        if (count($actividade->archivos) > 0) {
+            foreach ($actividade->archivos as $media) {
+                if (!in_array($media->file_name, $request->input('archivos', []))) {
+                    $media->delete();
+                }
+            }
+        }
+
+        $media = $actividade->archivos->pluck('file_name')->toArray();
+
+        foreach ($request->input('archivos', []) as $file) {
+            if (count($media) === 0 || !in_array($file, $media)) {
+                $actividade->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('archivos');
             }
         }
 

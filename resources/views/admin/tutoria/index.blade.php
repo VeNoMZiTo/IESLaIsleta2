@@ -47,6 +47,9 @@
                             {{ trans('cruds.tutorium.fields.departamento') }}
                         </th>
                         <th>
+                            {{ trans('cruds.tutorium.fields.descarga') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -80,6 +83,13 @@
                             </td>
                             <td>
                                 {{ $tutorium->departamento->nombre ?? '' }}
+                            </td>
+                            <td>
+                                @if($tutorium->descarga)
+                                    <a href="{{ $tutorium->descarga->getUrl() }}" target="_blank">
+                                        {{ trans('global.view_file') }}
+                                    </a>
+                                @endif
                             </td>
                             <td>
                                 @can('tutorium_show')

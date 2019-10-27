@@ -58,7 +58,7 @@
                 </p>
             </div>
             <div class="form-group {{ $errors->has('foto') ? 'has-error' : '' }}">
-                <label for="foto">{{ trans('cruds.noticium.fields.foto') }}</label>
+                <label for="foto">{{ trans('cruds.noticium.fields.foto') }}*</label>
                 <div class="needsclick dropzone" id="foto-dropzone">
 
                 </div>

@@ -29,6 +29,9 @@ class StoreNoticiumRequest extends FormRequest
             'autor'       => [
                 'required',
             ],
+            'foto.*'      => [
+                'required',
+            ],
             'descripcion' => [
                 'required',
             ],

@@ -74,6 +74,14 @@
                             {{ $tutorium->departamento->nombre ?? '' }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.tutorium.fields.descarga') }}
+                        </th>
+                        <td>
+                            {{ $tutorium->descarga }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">

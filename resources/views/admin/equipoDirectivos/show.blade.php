@@ -58,6 +58,14 @@
                             {{ $equipoDirectivo->departamento->nombre ?? '' }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.equipoDirectivo.fields.descargar') }}
+                        </th>
+                        <td>
+                            {{ $equipoDirectivo->descargar }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">
