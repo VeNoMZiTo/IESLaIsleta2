@@ -21,14 +21,14 @@
             </div>
             <div class="row">
                 <div class="col-12 px-0">
-                    @if($descargar)
+                    @if($descargar->docente)
                     <div class="panel">
                         <ul class="list-unstyled objetos-panel">
                             <li>
-                                <a class="download tooltipster" title="Descargar" href="{{$descargar->docentes->getUrl()}}" download><i class="fa fa-download"></i></a>
+                                <a class="download tooltipster" title="Descargar" href="{{$descargar->docente->getUrl()}}" download><i class="fa fa-download"></i></a>
                             </li>
                             <li>
-                                <a class="downloand-print tooltipster" title="Imprimir" href="{{$descargar->docentes->getUrl()}}"><i class="fa fa-print"></i></a>
+                                <a class="downloand-print tooltipster" title="Imprimir" href="{{$descargar->docente->getUrl()}}"><i class="fa fa-print"></i></a>
                             </li>
                         </ul>
                     </div>
