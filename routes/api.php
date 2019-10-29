@@ -26,15 +26,12 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     Route::apiResource('departamentos', 'DepartamentosApiController');
 
     // Equipo Directivos
-    Route::post('equipo-directivos/media', 'EquipoDirectivoApiController@storeMedia')->name('equipo-directivos.storeMedia');
     Route::apiResource('equipo-directivos', 'EquipoDirectivoApiController');
 
     // Equipo Docentes
-    Route::post('equipo-docentes/media', 'EquipoDocenteApiController@storeMedia')->name('equipo-docentes.storeMedia');
     Route::apiResource('equipo-docentes', 'EquipoDocenteApiController');
 
     // Tutoria
-    Route::post('tutoria/media', 'TutoriasApiController@storeMedia')->name('tutoria.storeMedia');
     Route::apiResource('tutoria', 'TutoriasApiController');
 
     // Descargars

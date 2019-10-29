@@ -41,9 +41,6 @@
                             {{ trans('cruds.equipoDirectivo.fields.departamento') }}
                         </th>
                         <th>
-                            {{ trans('cruds.equipoDirectivo.fields.descargar') }}
-                        </th>
-                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -71,13 +68,6 @@
                             </td>
                             <td>
                                 {{ $equipoDirectivo->departamento->nombre ?? '' }}
-                            </td>
-                            <td>
-                                @if($equipoDirectivo->descargar)
-                                    <a href="{{ $equipoDirectivo->descargar->getUrl() }}" target="_blank">
-                                        {{ trans('global.view_file') }}
-                                    </a>
-                                @endif
                             </td>
                             <td>
                                 @can('equipo_directivo_show')

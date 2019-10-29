@@ -179,8 +179,6 @@ return [
             'abreviatura_departamento_helper' => '',
             'departamento'                    => 'Departamento',
             'departamento_helper'             => '',
-            'descargar'                       => 'Descargar',
-            'descargar_helper'                => 'Si el archivo pesa mucho puede intentar comprimirlo.',
         ],
     ],
     'equipoDocente'   => [
@@ -203,8 +201,6 @@ return [
             'deleted_at_helper'   => '',
             'departamento'        => 'Departamento',
             'departamento_helper' => '',
-            'descarga'            => 'Descarga',
-            'descarga_helper'     => 'Si el archivo pesa mucho puede intentar comprimirlo.',
         ],
     ],
     'tutorium'        => [
@@ -233,8 +229,6 @@ return [
             'abreviatura_departamento_helper' => '',
             'departamento'                    => 'Departamento',
             'departamento_helper'             => '',
-            'descarga'                        => 'Descarga',
-            'descarga_helper'                 => 'Si el archivo pesa mucho puede intentar comprimirlo.',
         ],
     ],
     'descargar'       => [
