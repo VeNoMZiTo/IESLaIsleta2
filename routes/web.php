@@ -6,6 +6,9 @@ Route::get('/tutorias','TablasController@getTutoria');
 Route::get('/nodisponible', function () {
     return view('frontend.nodisponible');
 });
+Route::get('/calendario-escolar', function () {
+    return view('frontend.calendarioescolar');
+});
 Route::get('/consultas', function () {
     return view('frontend.consultas');
 });
