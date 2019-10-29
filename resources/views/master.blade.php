@@ -352,7 +352,7 @@
                                                         <a href="/nodisponible">Oferta educativa</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">Calendario escolar</a>
+                                                        <a href="/calendario-escolar">Calendario escolar</a>
                                                     </li>
                                                     <li>
                                                         <a href="/nodisponible">Documentos institucionales</a>
