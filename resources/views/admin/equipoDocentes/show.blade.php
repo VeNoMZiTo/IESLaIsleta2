@@ -50,14 +50,6 @@
                             {{ $equipoDocente->departamento->nombre ?? '' }}
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.equipoDocente.fields.descarga') }}
-                        </th>
-                        <td>
-                            {{ $equipoDocente->descarga }}
-                        </td>
-                    </tr>
                 </tbody>
             </table>
             <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">

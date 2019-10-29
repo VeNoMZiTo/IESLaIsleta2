@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\V1\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\StoreTutoriumRequest;
 use App\Http\Requests\UpdateTutoriumRequest;
 use App\Http\Resources\Admin\TutoriumResource;
@@ -14,8 +13,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class TutoriasApiController extends Controller
 {
-    use MediaUploadingTrait;
-
     public function index()
     {
         abort_if(Gate::denies('tutorium_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -26,10 +23,6 @@ class TutoriasApiController extends Controller
     public function store(StoreTutoriumRequest $request)
     {
         $tutorium = Tutorium::create($request->all());
-
-        if ($request->input('descarga', false)) {
-            $tutorium->addMedia(storage_path('tmp/uploads/' . $request->input('descarga')))->toMediaCollection('descarga');
-        }
 
         return (new TutoriumResource($tutorium))
             ->response()
@@ -46,14 +39,6 @@ class TutoriasApiController extends Controller
     public function update(UpdateTutoriumRequest $request, Tutorium $tutorium)
     {
         $tutorium->update($request->all());
-
-        if ($request->input('descarga', false)) {
-            if (!$tutorium->descarga || $request->input('descarga') !== $tutorium->descarga->file_name) {
-                $tutorium->addMedia(storage_path('tmp/uploads/' . $request->input('descarga')))->toMediaCollection('descarga');
-            }
-        } elseif ($tutorium->descarga) {
-            $tutorium->descarga->delete();
-        }
 
         return (new TutoriumResource($tutorium))
             ->response()
