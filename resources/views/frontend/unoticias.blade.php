@@ -44,10 +44,10 @@
                     {!! $mediador->descripcion !!}
                 </div>
             </div>
+            @if($mediador->archivos)
             <div class="u-heading-v3-1 g-mt-60">
                 <h3 class="h5 u-heading-v3__title g-brd-primary">Archivos para descargar</h3>
             </div>
-            @if($mediador->archivos)
             <ul class="list-unstyled g-color-gray-dark-v4 mb-0 g-pt-20">
                 @foreach($mediador->archivos as $a)
                     @php

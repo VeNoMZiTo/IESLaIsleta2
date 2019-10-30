@@ -362,7 +362,7 @@ nav{
 .actividades-descripcion *, .noticias-descripcion *{
     display: none;
 }
-.actividades-descripcion> p:first-of-type, .noticias-descripcion> p:first-of-type, .js-slide h4 a, #blog-noticias article h2, #blog-noticias .noticias-descripcion> p:first-of-type{
+.actividades-descripcion> p:first-of-type, .noticias-descripcion> p:first-of-type, .js-slide h4 a, #blog-noticias article h2, #blog-noticias .noticias-descripcion> p:first-of-type, .actividades-titulo{
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -370,7 +370,7 @@ nav{
     text-align: justify;
 }
 
-.js-slide h4 a, #blog-noticias .noticias-descripcion> p:first-of-type{
+.js-slide h4 a, #blog-noticias .noticias-descripcion> p:first-of-type, .actividades-titulo{
     -webkit-line-clamp: 2;
 }
 .actividades-descripcion> p:first-of-type{
@@ -946,6 +946,7 @@ tr.body *, tr.body{
         border-right:1px solid;
     }
 }
+
 @media only screen and (max-width: 500px) {
     #box-logotop{
         display: flex;
@@ -963,7 +964,16 @@ tr.body *, tr.body{
     }
 
 }
-
+@media only screen and (max-width: 450px) {
+    .caja-texto{
+        display: block !important;
+    }
+    .caja-texto label{
+        width: 100%;
+        margin-top: 10px !important;
+        margin-bottom: 20px !important;
+    }
+}
 @media only screen and (max-width: 380px) {
     #topnavbarfirst strong span{
         font-size:10px !important;

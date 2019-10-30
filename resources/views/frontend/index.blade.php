@@ -176,7 +176,7 @@
                                 <div class="g-pa-20">
                                     <div class="u-heading-v2-6--bottom g-brd-primary g-mb-20">
                                         <h4 class="h4 u-heading-v2__title g-font-weight-300 g-mb-0">
-                                            <a class="u-link-v5 g-color-main g-color-primary--hover" href="/actividad/{{$a->id}}-{{$a->titulo}}">{{$a->titulo}}</a>
+                                            <a class="u-link-v5 g-color-main g-color-primary--hover actividades-titulo" href="/actividad/{{$a->id}}-{{$a->titulo}}">{{$a->titulo}}</a>
                                         </h4>
                                     </div>
 
