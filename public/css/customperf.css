@@ -222,6 +222,7 @@ nav{
 }
 #actividades .news article{
     background:white;
+    height: 100%;
 }
 #actividades .news article img{
     border-radius: 0.25rem;
@@ -610,6 +611,11 @@ tr.body *, tr.body{
     }
     100%{
         stroke-dashoffset: 1500;
+    }
+}
+@media only screen and (max-width: 1600px) and (min-width: 1200px){
+    #actividades{
+        width: 100%;
     }
 }
 @media only screen and (min-width: 1501px) {

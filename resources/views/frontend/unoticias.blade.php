@@ -16,11 +16,8 @@
     <meta property="og:description"   content="{{$mediador->titulo}}" />
     <meta property="og:image"         content="{{$image[0]->getUrl()}}"/>
 @endsection
-@section('css')
-@endsection
 @section('content')
-    @php
-    @endphp
+
 <section id='zona-noticia' class="container g-py-100 ">
     <div class="row g-mb-40">
         <!-- Carousel Images -->
@@ -44,7 +41,7 @@
                     {!! $mediador->descripcion !!}
                 </div>
             </div>
-            @if($mediador->archivos)
+            @if(count($mediador->archivos)!=0)
             <div class="u-heading-v3-1 g-mt-60">
                 <h3 class="h5 u-heading-v3__title g-brd-primary">Archivos para descargar</h3>
             </div>
