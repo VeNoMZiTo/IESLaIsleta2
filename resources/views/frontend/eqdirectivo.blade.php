@@ -5,8 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/vendor/tooltipster-master/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-shadow.min.css"/>
 @endsection
 @section('content')
-    @php
-    @endphp
+
     <section class="container">
         <div class="g-py-100">
             <div class="row justify-content-center g-mb-70">
@@ -43,7 +42,7 @@
                                     <th class="columnas column2">Nombre</th>
                                     <th class="columnas column3">Departamento</th>
                                     <th class="columnas column4">Correo Electrónico</th>
-                                    <th class="columnas column5">Hora de Atención</th>
+                                    <th class="columnas column5">Contactar</th>
                                 </tr>
                                 </thead>
                             </table>
@@ -74,9 +73,12 @@
                                         </p>
                                     </td>
                                     <td data-column="Hora de Atención" class="columnas column5">
-                                        <p>
+                                        @php
+                                            $nombre=explode('@',$eq->email);
+                                        @endphp
+                                        <a href="/contactar/{{$nombre[0]}}">
                                             Solicitar cita
-                                        </p>
+                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach

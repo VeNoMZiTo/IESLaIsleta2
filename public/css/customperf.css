@@ -555,7 +555,7 @@ th, td {
 }
 
 .tabla.ver1 .tabla-body tr:nth-child(even), .tabla.ver3 .tabla-body tr:nth-child(even) {
-    background-color: #f8f6ff;
+    background-color: lightgray;
 }
 .panel{
     position: absolute;

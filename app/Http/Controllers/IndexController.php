@@ -25,20 +25,66 @@ class IndexController extends Controller
     }
     public function getNoticia(Request $request, $id){
         $noticia = Noticium::find($id);
+        $departamentos = Departamento::all();
         return view('frontend.unoticias',array(
-            'noticia' => $noticia
+            'noticia' => $noticia,
+            'departamentos' => $departamentos
         ));
     }
     public function getActividad(Request $request, $id){
         $actividad = Actividade::find($id);
+        $departamentos = Departamento::all();
         return view('frontend.unoticias',array(
-            'actividad' => $actividad
+            'actividad' => $actividad,
+            'departamentos' => $departamentos
+
         ));
     }
     public function getRepertorioNoticias(){
         $noticias = Noticium::all();
+        $departamentos = Departamento::all();
         return view('frontend.noticias',array(
-            'noticias' => $noticias
+            'noticias' => $noticias,
+            'departamentos' => $departamentos
+
+        ));
+    }
+    public function getDepartamentos(Request $request){
+        $departamentos = Departamento::all();
+        $destinatarioConsultas=false;
+        switch ($request->path()){
+            case 'nodisponible':
+                $url='frontend.nodisponible';
+                break;
+            case 'profesorado':
+                $url='frontend.profesorado';
+                break;
+            case 'consultas':
+                $url='frontend.consultas';
+                break;
+            case 'calendario-escolar':
+                $url='frontend.calendarioescolar';
+                break;
+            case 'oferta-educativa':
+                $url='frontend.ofertaeducativa';
+                break;
+            case 'departamentos':
+                $url='frontend.departamentos';
+                break;
+        }
+        return view($url,array(
+            'departamentos' => $departamentos,
+            'destinatarioConsultas' =>$destinatarioConsultas
+
+        ));
+    }
+    public function getConsultas(Request $request, $id){
+        $departamentos = Departamento::all();
+        $destinatarioConsultas = $id;
+        return view('frontend.consultas',array(
+            'departamentos' => $departamentos,
+            'destinatarioConsultas' => $destinatarioConsultas
+
         ));
     }
 

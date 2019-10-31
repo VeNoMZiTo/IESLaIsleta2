@@ -3,18 +3,14 @@ Route::get('/', 'IndexController@getIndex');
 Route::get('/equipo-directivo','TablasController@getEqDirectivo');
 Route::get('/equipo-docente','TablasController@getEqDocente');
 Route::get('/tutorias','TablasController@getTutoria');
-Route::get('/nodisponible', function () {
-    return view('frontend.nodisponible');
-});
-Route::get('/calendario-escolar', function () {
-    return view('frontend.calendarioescolar');
-});
-Route::get('/consultas', function () {
-    return view('frontend.consultas');
-});
-Route::get('/profesorado', function () {
-    return view('frontend.profesorado');
-});
+Route::get('/nodisponible', 'IndexController@getDepartamentos');
+Route::get('/calendario-escolar', 'IndexController@getDepartamentos');
+Route::get('/consultas', 'IndexController@getDepartamentos');
+Route::get('/contactar/{id}', 'IndexController@getConsultas');
+Route::get('/profesorado', 'IndexController@getDepartamentos');
+Route::get('/oferta-educativa', 'IndexController@getDepartamentos');
+Route::get('/departamentos', 'IndexController@getDepartamentos');
+
 Route::get('/noticias', 'IndexController@getRepertorioNoticias');
 Route::get('/noticia/{id}-{titulo}','IndexController@getNoticia');
 Route::get('/actividad/{id}-{titulo}','IndexController@getActividad');

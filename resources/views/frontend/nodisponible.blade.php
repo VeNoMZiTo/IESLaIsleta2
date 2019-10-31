@@ -28,6 +28,7 @@
 </head>
 
 <body>
+
 <main class="g-min-height-100vh g-flex-centered g-bg-size-cover g-bg-cover g-bg-black-opacity-0_2--after g-pa-15" style="background-image: url(/img/nodisponible/fondo.jpg);">
     <div class="text-center g-flex-centered-item g-z-index-1 g-color-white">
         <h1 class="display-3 g-mb-30">Esta sección se encuentra en construcción</h1>

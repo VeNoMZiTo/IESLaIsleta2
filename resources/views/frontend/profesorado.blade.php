@@ -8,7 +8,7 @@
             <div class='row text-center g-mb-30'>
                 <div class="text-center col-12">
                     <h2 class="h1 g-color-black g-font-weight-700 text-uppercase mb-4">Plataformas</h2>
-                    <div class="d-inline-block g-width-70 g-height-2 g-bg-black mb-4"></div>
+                    <div class="d-inline-block g-width-70 g-height-2 g-bg-primary mb-4"></div>
                 </div>
             </div>
             <div class='row text-center g-mb-30'>

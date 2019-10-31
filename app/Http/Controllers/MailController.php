@@ -19,8 +19,14 @@ class MailController extends Controller
         $objDemo->mensaje = $request->input('mensaje');
         $objDemo->asunto = "Consulta";
         $objDemo->vista = 'email.contact';
+        $tipo=$request->input('tipo');
+        if($tipo){
+            $correo=$tipo.'@ieslaisleta.net';
+        }else{
+            $correo='info@ieslaisleta.net';
+        }
         try{
-            Mail::to("jonathanlujan7@gmail.com")
+            Mail::to($correo)
                 ->send(new SendEmail($objDemo));
             return 'OK';
         }catch(\Exception $e){

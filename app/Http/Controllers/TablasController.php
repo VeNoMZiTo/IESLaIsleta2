@@ -16,9 +16,11 @@ class TablasController extends Controller
     public function getEqDirectivo(){
         $directivo = EquipoDirectivo::all();
         $descargar = Descargar::all()->first();
+        $departamentos = Departamento::all();
         return view('frontend.eqdirectivo',array(
             'directivo' => $directivo,
-            'descargar' => $descargar
+            'descargar' => $descargar,
+            'departamentos' => $departamentos
         ));
     }
     public function getEqDocente(){
@@ -34,9 +36,11 @@ class TablasController extends Controller
     public function getTutoria(){
         $tutoria = Tutorium::with('departamento')->get();
         $descargar = Descargar::all()->first();
+        $departamentos = Departamento::all();
         return view('frontend.tutorias',array(
             'tutoria' => $tutoria,
-            'descargar' => $descargar
+            'descargar' => $descargar,
+            'departamentos' => $departamentos
         ));
     }
 }

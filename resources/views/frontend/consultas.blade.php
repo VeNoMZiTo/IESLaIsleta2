@@ -9,7 +9,11 @@
                 <div class="col-lg-7">
                     <!-- Heading -->
                     <div class="text-center">
+                        @if(!$destinatarioConsultas)
                         <h2 class="h1 g-color-black g-font-weight-700 mb-4">Consultas</h2>
+                        @else
+                        <h2 class="h1 g-color-black g-font-weight-700 mb-4">Consulta a {{$destinatarioConsultas}}</h2>
+                        @endif
                         <div class="d-inline-block g-width-70 g-height-2 g-bg-black mb-4 g-bg-primary"></div>
 {{--                        <p class="g-font-size-18 mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad dolorum ipsum laboriosam libero magnam maiores nemo quod similique voluptatibus!</p>--}}
                     </div>
@@ -104,7 +108,8 @@
         var vnumberform = new RegExp(/^[9|8|7|6]{1}([\d]{2}[-]*){3}[\d]{2}$/);
         var ferror =['#e_name','#e_surname','#e_email','#e_phone','#e_message','#e_lopd'];
         var nombre, apellidos, email, mensaje, telefono;
-
+        var tipo='{{$destinatarioConsultas}}';
+        console.log(tipo);
         function valoresform(){
             nombre = $('#nombre').val().toLowerCase().trim();
             apellidos = $('#apellidos').val().toLowerCase().trim();
@@ -189,14 +194,15 @@
                 $('.errores').hide();
                 $.ajax({
                     type: 'POST',
-                    url: 'mail/send-contact',
+                    url: '/mail/send-contact',
                     data: {
                         "_token": "{{ csrf_token() }}",
                         nombre:nombre,
                         apellidos:apellidos,
                         email: email,
                         telefono:telefono,
-                        mensaje: mensaje
+                        mensaje: mensaje,
+                        tipo:tipo
                     },
                     success: function(data){
                         if(data == 'OK'){

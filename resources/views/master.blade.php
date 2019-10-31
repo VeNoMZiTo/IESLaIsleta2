@@ -48,6 +48,13 @@
         .g-height-60{
             height: 60px;
         }
+        .g-pa-100-30{
+            padding:100px 30px !important;
+        }
+        .departamento-seccion img{
+            object-fit: cover;
+            height: 100%;
+        }
     </style>
 </head>
 
@@ -349,7 +356,7 @@
                                                         <a href="/nodisponible">Consejo escolar</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">Oferta educativa</a>
+                                                        <a href="/oferta-educativa">Oferta educativa</a>
                                                     </li>
                                                     <li>
                                                         <a href="/calendario-escolar">Calendario escolar</a>
@@ -374,9 +381,9 @@
                                                 <!-- Submenu -->
                                                 <ul class="hs-sub-menu list-unstyled " id="nav-submenu-1" aria-labelledby="nav-link-1">
                                                     <li>
-                                                        {{--                                                            @foreach($departamentos as $d)--}}
-                                                        {{--                                                            <a href="#">{{$d->nombre}}</a>--}}
-                                                        {{--                                                            @endforeach--}}
+                                                        @foreach($departamentos as $d)
+                                                        <a href="/departamentos">{{$d->nombre}}</a>
+                                                        @endforeach
                                                     </li>
 
                                                 </ul>
@@ -434,7 +441,7 @@
                                                                 Antiguo Alumando
                                                             </div>
                                                         </div>
-                                                        <a href="/nodisponible" target='_blank' class="a-facebook d-inline-block text-center g-height-60 d-inline-flex align-items-center justify-content-center w-100"><i class="fa fa-facebook-official g-font-size-40 "></i></a>
+                                                        <a href="https://www.facebook.com/groups/408495920083376/" target='_blank' class="a-facebook d-inline-block text-center g-height-60 d-inline-flex align-items-center justify-content-center w-100"><i class="fa fa-facebook-official g-font-size-40 "></i></a>
                                                     </li>
                                                 </ul>
                                                 <!-- End Submenu -->
