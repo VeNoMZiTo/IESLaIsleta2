@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0f9d890-cdf8-4d84-907a-e2c0d84695a3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/eqdocente.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/eqdocente.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/eqdirectivo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/eqdirectivo.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/tutorias.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/tutorias.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,11 +40,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/frontend/eqdocente.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
               <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/frontend/tutorias.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="74" column="34" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/frontend/eqdirectivo.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="528">
+              <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -138,8 +157,6 @@
         <option value="$PROJECT_DIR$/resources/views/frontend/consultas.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/profesorado.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/TablasController.php" />
-        <option value="$PROJECT_DIR$/resources/views/frontend/tutorias.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/frontend/eqdirectivo.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/master.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/calendarioescolar.blade.php" />
@@ -154,6 +171,8 @@
         <option value="$PROJECT_DIR$/public/css/customperf.css" />
         <option value="$PROJECT_DIR$/resources/views/frontend/unoticias.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/eqdocente.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/tutorias.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/eqdirectivo.blade.php" />
       </list>
     </option>
   </component>
@@ -436,12 +455,12 @@
       <workItem from="1572281993439" duration="7588000" />
       <workItem from="1572312792194" duration="259000" />
       <workItem from="1572405520495" duration="3671000" />
-      <workItem from="1572505339292" duration="275000" />
+      <workItem from="1572505339292" duration="352000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113540000" />
+    <option name="totallyTimeSpent" value="113617000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -667,20 +686,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Archivo.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/admin/archivos/create.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/eqdirectivo.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/tutorias.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="831">
-          <caret line="86" column="52" selection-start-line="86" selection-start-column="52" selection-end-line="86" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../keepsailing/resources/views/layouts/app.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -822,6 +827,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/tutorias.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="74" column="34" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/eqdirectivo.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
         </state>
       </provider>
     </entry>

@@ -22,7 +22,7 @@
             </div>
             <div class="row">
                 <div class="col-12 px-0">
-                    @if($descargar->directiva)
+                    @if($descargar)
                     <div class="panel">
                         <ul class="list-unstyled objetos-panel">
                             <li>
