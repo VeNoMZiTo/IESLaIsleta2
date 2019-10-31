@@ -65,7 +65,7 @@
                         <option value="" disabled selected>Selecciona un curso</option>
                         <option value="todos" class="all-select">Todos</option>
                         @foreach($tutoria as $curso)
-                        <option value="{{$curso->grupo}}">{{$curso->nivel}} - {{$curso->grupo}}</option>
+                        <option value="{{$curso->nivel}} {{$curso->grupo}}">{{$curso->nivel}} - {{$curso->grupo}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -157,19 +157,20 @@
         })();
         $(document).ready(function() {
             $(document).on('click','.cs-options ul li', function () {
-               var valor=$(this).attr('data-value');
+               var grupo=$(this).attr('data-value').split(' ');
+               var nivel=grupo[1];
+               grupo=grupo[0];
+               console.log(grupo);
                $('li[data-value=todos]').delay(1000).show(100);
-               if(valor!='todos'){
-                   console.log("w");
+               if(grupo!='todos'){
                    for(var x=1; x<$('.column2').length; x++){
-                       if($('.column2').eq(x).children().text().trim()==valor){
+                       if($('.column2').eq(x).children().text().trim()==nivel && $('.column2').eq(x).siblings('.column1').children().text().trim()==grupo){
                            $('.column2').eq(x).parent('.row100').show();
                        }else{
                            $('.column2').eq(x).parent('.row100').hide();
                        }
                    }
                }else{
-                   console.log("s");
                    $('.column2').parent('.row100').show();
                }
 
