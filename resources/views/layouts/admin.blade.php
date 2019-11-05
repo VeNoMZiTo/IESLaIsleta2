@@ -7,10 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ trans('panel.site_title') }}</title>
+    <title>Administrador | {{ trans('panel.site_title') }}</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/newlogos/png/icon.png" sizes="16x16">
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="{{ asset('css/adminltev3.css') }}" rel="stylesheet" />
-{{--    <link href="{{ asset('css/adminv3/adminlte.min.css') }}" rel="stylesheet" />--}}
+{{--    <link href="{{ asset('css/adminltev3.css') }}" rel="stylesheet" />--}}
+    <link href="{{ asset('css/adminv3/adminlte.min.css') }}" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" rel="stylesheet" />
@@ -24,9 +27,9 @@
     @yield('styles')
 </head>
 
-<body class="sidebar-mini layout-fixed" style="height: auto;">
+<body class="sidebar-mini layout-fixed text-sm" style="height: auto;">
     <div class="wrapper">
-        <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+        <nav class="main-header navbar navbar-expand border-bottom bg-navy navbar-dark">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -38,9 +41,7 @@
             @if(count(config('panel.available_languages', [])) > 1)
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link" data-toggle="dropdown" href="#">
-                            {{ strtoupper(app()->getLocale()) }}
-                        </a>
+
                         <div class="dropdown-menu dropdown-menu-right">
                             @foreach(config('panel.available_languages') as $langLocale => $langName)
                                 <a class="dropdown-item" href="{{ url()->current() }}?change_language={{ $langLocale }}">{{ strtoupper($langLocale) }} ({{ $langName }})</a>
