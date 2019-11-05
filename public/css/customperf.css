@@ -669,6 +669,10 @@ tr.body *, tr.body{
     #box-topnarvbarbox .topnavbarbox{
         padding: 0 !important;
     }
+    .pincelekade-enlaces a{
+        margin-right: 10px;
+        margin-left: 10px;
+    }
 }
 @media only screen and (min-width: 1240px) {
     .s-slider {
@@ -967,6 +971,13 @@ tr.body *, tr.body{
     }
     #topnavbarfirst .container{
         padding: 0 10px;
+    }
+    .pincelekade-enlaces{
+        display: initial !important;
+    }
+    .pincelekade-enlaces a{
+        margin-top: 10px;
+        display: block;
     }
 
 }

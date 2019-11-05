@@ -413,10 +413,10 @@
                                                         <!-- Submenu (level 2) -->
                                                         <ul class="hs-sub-menu list-unstyled g-brd-top g-brd-primary g-brd-top-2 g-min-width-200 g-my-2 animated" id="nav-submenu-2" aria-labelledby="nav-link-2" style="display: none;">
                                                             <li class="dropdown-item">
-                                                                <a class="nav-link" href="/nodisponible">Acceso</a>
+                                                                <a class="nav-link" href="https://www.gobiernodecanarias.org/educacion/9/PEKWEB/Ekade/Account/LogOn?ReturnUrl=%2Feducacion%2FPEKWEB%2FEkade%2F">Acceso</a>
                                                             </li>
                                                             <li class="dropdown-item">
-                                                                <a class="nav-link" href="/nodisponible">Cómo crear una cuenta</a>
+                                                                <a class="nav-link" href="/pincel-ekade">Cómo crear una cuenta</a>
                                                             </li>
                                                             <hr class='mb-2'/>
                                                             <li>
@@ -463,10 +463,10 @@
                                                         <!-- Submenu (level 2) -->
                                                         <ul class="hs-sub-menu list-unstyled g-brd-top g-brd-primary g-brd-top-2 g-min-width-200 g-my-2 animated" id="nav-submenu-2" aria-labelledby="nav-link-2" style="display: none;">
                                                             <li class="dropdown-item">
-                                                                <a class="nav-link" href="/nodisponible">Acceso</a>
+                                                                <a class="nav-link" href="https://www.gobiernodecanarias.org/educacion/9/PEKWEB/Ekade/Account/LogOn?ReturnUrl=%2Feducacion%2FPEKWEB%2FEkade%2F">Acceso</a>
                                                             </li>
                                                             <li class="dropdown-item">
-                                                                <a class="nav-link" href="/nodisponible">Cómo crear una cuenta</a>
+                                                                <a class="nav-link" href="/pincel-ekade">Cómo crear una cuenta</a>
                                                             </li>
                                                             <hr class='mb-2'/>
                                                             <li>

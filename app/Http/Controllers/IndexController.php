@@ -71,6 +71,9 @@ class IndexController extends Controller
             case 'departamentos':
                 $url='frontend.departamentos';
                 break;
+            case 'pincel-ekade':
+                $url='frontend.pincelekade';
+                break;
         }
         return view($url,array(
             'departamentos' => $departamentos,
