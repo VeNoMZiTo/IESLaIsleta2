@@ -72,7 +72,7 @@ return [
     'amount'                               => 'Cantidad',
     'answer'                               => 'Respuesta',
     'app_csv_file_to_import'               => 'Archivo CSV a importar',
-    'app_csvImport'                        => 'Importe CSV',
+    'app_csvImport'                        => 'Importar CSV',
     'app_file_contains_header_row'         => 'Archivo contiene fila de encabezado?',
     'app_import_data'                      => 'Importar datos',
     'app_imported_rows_to_table'           => 'Se importaron :rows filas a la tabla :table',

@@ -17,7 +17,7 @@ class DepartamentosApiController extends Controller
     {
         abort_if(Gate::denies('departamento_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new DepartamentoResource(Departamento::all());
+        return new DepartamentoResource(Departamento::with(['team'])->get());
     }
 
     public function store(StoreDepartamentoRequest $request)
@@ -33,7 +33,7 @@ class DepartamentosApiController extends Controller
     {
         abort_if(Gate::denies('departamento_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new DepartamentoResource($departamento);
+        return new DepartamentoResource($departamento->load(['team']));
     }
 
     public function update(UpdateDepartamentoRequest $request, Departamento $departamento)

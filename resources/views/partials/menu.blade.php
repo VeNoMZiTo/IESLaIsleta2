@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4" style="min-height: 917px;">
     <!-- Brand Logo -->
-    <a href="/" class="brand-link">
-        <img src="/img/newlogos/svg/horizontal_negro.svg" alt="IES La Isleta" class="img-circle" style="border-radius: 0;">
+    <a href="#" class="brand-link">
+        <span class="brand-text font-weight-light">{{ trans('panel.site_title') }}</span>
     </a>
 
     <!-- Sidebar -->
@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 @can('user_management_access')
-                    <li class="nav-item has-treeview {{ request()->is('admin/permissions*') ? 'menu-open' : '' }} {{ request()->is('admin/roles*') ? 'menu-open' : '' }} {{ request()->is('admin/users*') ? 'menu-open' : '' }}">
+                    <li class="nav-item has-treeview {{ request()->is('admin/permissions*') ? 'menu-open' : '' }} {{ request()->is('admin/roles*') ? 'menu-open' : '' }} {{ request()->is('admin/users*') ? 'menu-open' : '' }} {{ request()->is('admin/teams*') ? 'menu-open' : '' }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa-fw fas fa-users">
 
@@ -65,6 +65,18 @@
                                         </i>
                                         <p>
                                             <span>{{ trans('cruds.user.title') }}</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('team_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.teams.index") }}" class="nav-link {{ request()->is('admin/teams') || request()->is('admin/teams/*') ? 'active' : '' }}">
+                                        <i class="fa-fw fas fa-users">
+
+                                        </i>
+                                        <p>
+                                            <span>{{ trans('cruds.team.title') }}</span>
                                         </p>
                                     </a>
                                 </li>
@@ -164,6 +176,18 @@
                             </i>
                             <p>
                                 <span>{{ trans('cruds.descargar.title') }}</span>
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+                @can('calendario_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.calendarios.index") }}" class="nav-link {{ request()->is('admin/calendarios') || request()->is('admin/calendarios/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-calendar-alt">
+
+                            </i>
+                            <p>
+                                <span>{{ trans('cruds.calendario.title') }}</span>
                             </p>
                         </a>
                     </li>

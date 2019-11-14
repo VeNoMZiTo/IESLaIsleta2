@@ -37,4 +37,10 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Descargars
     Route::post('descargars/media', 'DescargarApiController@storeMedia')->name('descargars.storeMedia');
     Route::apiResource('descargars', 'DescargarApiController');
+
+    // Teams
+    Route::apiResource('teams', 'TeamApiController');
+
+    // Calendarios
+    Route::apiResource('calendarios', 'CalendarioApiController');
 });
