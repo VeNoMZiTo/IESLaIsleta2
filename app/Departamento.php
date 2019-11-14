@@ -2,12 +2,13 @@
 
 namespace App;
 
+use App\Traits\MultiTenantModelTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Departamento extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, MultiTenantModelTrait;
 
     public $table = 'departamentos';
 
@@ -19,6 +20,7 @@ class Departamento extends Model
 
     protected $fillable = [
         'nombre',
+        'team_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -37,5 +39,10 @@ class Departamento extends Model
     public function tutoria()
     {
         return $this->hasMany(Tutorium::class, 'departamento_id', 'id');
+    }
+
+    public function team()
+    {
+        return $this->belongsTo(Team::class, 'team_id');
     }
 }

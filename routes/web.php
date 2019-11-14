@@ -1,22 +1,6 @@
 <?php
-Route::get('/', 'IndexController@getIndex');
-Route::get('/equipo-directivo','TablasController@getEqDirectivo');
-Route::get('/equipo-docente','TablasController@getEqDocente');
-Route::get('/tutorias','TablasController@getTutoria');
-Route::get('/nodisponible', 'IndexController@getDepartamentos');
-Route::get('/calendario-escolar', 'IndexController@getDepartamentos');
-Route::get('/consultas', 'IndexController@getDepartamentos');
-Route::get('/pincel-ekade', 'IndexController@getDepartamentos');
-Route::get('/contactar/{id}', 'IndexController@getConsultas');
-Route::get('/profesorado', 'IndexController@getDepartamentos');
-Route::get('/oferta-educativa', 'IndexController@getDepartamentos');
-Route::get('/departamentos', 'IndexController@getDepartamentos');
-Route::get('/noticias', 'IndexController@getRepertorioNoticias');
-Route::get('/noticia/{id}-{titulo}','IndexController@getNoticia');
-Route::get('/actividad/{id}-{titulo}','IndexController@getActividad');
 
-Route::post('mail/send-contact', 'MailController@sendContact');
-
+Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
@@ -76,4 +60,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('descargars/destroy', 'DescargarController@massDestroy')->name('descargars.massDestroy');
     Route::post('descargars/media', 'DescargarController@storeMedia')->name('descargars.storeMedia');
     Route::resource('descargars', 'DescargarController');
+
+    // Teams
+    Route::delete('teams/destroy', 'TeamController@massDestroy')->name('teams.massDestroy');
+    Route::resource('teams', 'TeamController');
+
+    // Calendarios
+    Route::delete('calendarios/destroy', 'CalendarioController@massDestroy')->name('calendarios.massDestroy');
+    Route::resource('calendarios', 'CalendarioController');
 });

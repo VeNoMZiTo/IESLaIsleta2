@@ -232,6 +232,46 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => '56',
                 'title' => 'descargar_access',
             ],
+            [
+                'id'    => '57',
+                'title' => 'team_create',
+            ],
+            [
+                'id'    => '58',
+                'title' => 'team_edit',
+            ],
+            [
+                'id'    => '59',
+                'title' => 'team_show',
+            ],
+            [
+                'id'    => '60',
+                'title' => 'team_delete',
+            ],
+            [
+                'id'    => '61',
+                'title' => 'team_access',
+            ],
+            [
+                'id'    => '62',
+                'title' => 'calendario_create',
+            ],
+            [
+                'id'    => '63',
+                'title' => 'calendario_edit',
+            ],
+            [
+                'id'    => '64',
+                'title' => 'calendario_show',
+            ],
+            [
+                'id'    => '65',
+                'title' => 'calendario_delete',
+            ],
+            [
+                'id'    => '66',
+                'title' => 'calendario_access',
+            ],
         ];
 
         Permission::insert($permissions);

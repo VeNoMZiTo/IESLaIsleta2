@@ -40,6 +40,8 @@ class DepartamentosController extends Controller
     {
         abort_if(Gate::denies('departamento_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $departamento->load('team');
+
         return view('admin.departamentos.edit', compact('departamento'));
     }
 
@@ -53,6 +55,8 @@ class DepartamentosController extends Controller
     public function show(Departamento $departamento)
     {
         abort_if(Gate::denies('departamento_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $departamento->load('team');
 
         return view('admin.departamentos.show', compact('departamento'));
     }
