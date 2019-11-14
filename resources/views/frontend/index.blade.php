@@ -308,7 +308,7 @@
                 </div>
             </div>
             <div class="u-divider u-divider-solid g-my-80 text-center u-divider-linear-gradient--primary">
-                <a href='/noticias' class='u-link-v5 a-noticias'><i class="u-divider__icon g-bg-primary g-color-white w-auto position-relative p-3 rounded g-bg-white--hover g-color-primary--hover g-brd-primary--hover g-brd-transparent g-transition-0_2">Antiguas Noticias</i></a>
+                <a href='/noticias' class='u-link-v5 a-noticias'><i class="u-divider__icon g-bg-primary g-color-white w-auto position-relative p-3 rounded g-bg-white--hover g-color-primary--hover g-brd-primary--hover g-brd-transparent g-transition-0_2">Anteriores Noticias</i></a>
             </div>
         </div>
     </section>

@@ -20,6 +20,12 @@ body{
 .g-box-shadow-none--hover:hover{
     box-shadow: none;
 }
+.g-brd-secondary{
+    border-color:#090950;
+}
+.g-bg-secondary{
+    background:#090950 !important;
+}
 .shadow-img{
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
@@ -299,25 +305,25 @@ nav{
 .a-noticias i{
     border:1px solid;
 }
-.active, .u-pagination-v1__item{
+#blog-noticias .active, .u-pagination-v1__item{
     border-radius:50%;
 }
 .u-pagination-v1__item{
     border-color:#bbb;
 }
-.active:hover, .active:focus, .u-pagination-v1__item:hover {
+#blog-noticias .active:hover, .active:focus, .u-pagination-v1__item:hover {
     border-color: #1d8873;
 }
-.active {
+#blog-noticias .active {
     background-color: #1d8873;
 }
-.active:hover{
+#blog-noticias .active:hover{
     background-color: rgba(29,136,115,0.8);
 }
-.active:hover a, .active:focus a{
+#blog-noticias .active:hover a, .active:focus a{
     color:white;
 }
-.active a{
+#blog-noticias .active a{
     color:white;
     border-color: transparent;
 }
@@ -443,14 +449,14 @@ nav{
     border-radius:.25rem;
     box-shadow: 0 0 20px 0 rgba(0,0,0,.2);
 }
-td p{
+.tabla td p{
     margin:0;
 }
-table {
+.tabla table {
     width: 100%;
 }
 
-th, td {
+.tabla th, td {
     font-weight: unset;
     padding-right: 10px;
     text-align: center;
@@ -557,7 +563,7 @@ th, td {
 .tabla.ver1 .tabla-body tr:nth-child(even), .tabla.ver3 .tabla-body tr:nth-child(even) {
     background-color: lightgray;
 }
-.panel{
+.panel-descarga{
     position: absolute;
     width: 100%;
     height: 35px;
@@ -568,14 +574,13 @@ th, td {
     align-items: center;
     justify-content: flex-end;
     transition:.5s;
-
 }
-.panel li{
+.panel-descarga li{
     display: inline-block;
     margin: 0 10px;
     cursor: pointer;
 }
-.panel li *{
+.panel-descarga li *{
     transition: .2s;
 }
 .objetos-panel{
@@ -590,7 +595,7 @@ th, td {
 tr.body *, tr.body{
     transition: .5s;
 }
-#mainpage:hover .panel{
+#mainpage:hover .panel-descarga{
     top:-30px;
 }
 .ver2 tbody .gris{
@@ -837,7 +842,7 @@ tr.body *, tr.body{
         height: 375px;
     }
 
-    table, .columnas{
+    .tabla table, .columnas{
         width: 100% !important;
         padding-left: 0 !important;
     }
@@ -850,20 +855,20 @@ tr.body *, tr.body{
         background: #1d8873;
     }
     /* Force table to not be like tables anymore */
-    table, thead, tbody, th, td, tr {
+    .tabla table, .tabla thead, .tabla tbody, .tabla th, .tabla td, .tabla tr {
         display: block;
     }
 
     /* Hide table headers (but not display: none;, for accessibility) */
-    thead tr {
+    .tabla thead tr {
         position: absolute;
         top: -9999px;
         left: -9999px;
     }
 
-    tr { border: 1px solid rgba(0,0,0,0.1); }
+    .tabla tr { border: 1px solid rgba(0,0,0,0.1); }
 
-    td {
+    .tabla td {
         /* Behave  like a "row" */
         border: none;
         border-bottom: 1px solid #eee;
@@ -871,7 +876,7 @@ tr.body *, tr.body{
         padding-left: 50%;
     }
 
-    td:before {
+    .tabla td:before {
         width: 48%;
         height: 100%;
         white-space: nowrap;
@@ -881,11 +886,11 @@ tr.body *, tr.body{
         color: #000;
         font-weight: bold;
     }
-    td p{
+    .tabla td p{
         display: inline-block;
         width: 50%;
     }
-    .panel{
+    .panel-descarga{
         justify-content: center;
     }
 }

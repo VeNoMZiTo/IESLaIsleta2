@@ -73,7 +73,7 @@
             <div class="row">
                 <div class="col-12 px-0">
                     @if($descargar)
-                    <div class="panel">
+                    <div class="panel-descarga">
                         <ul class="list-unstyled objetos-panel">
                             <li>
                                 <a class="download tooltipster" title="Descargar" href="{{$descargar->tutoria->getUrl()}}" download><i class="fa fa-download"></i></a>
