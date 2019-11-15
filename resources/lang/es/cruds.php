@@ -291,4 +291,38 @@ return [
             'deleted_at_helper' => '',
         ],
     ],
+    'inicio'          => [
+        'title'          => 'Inicio',
+        'title_singular' => 'Inicio',
+    ],
+    'centro'          => [
+        'title'          => 'Centro',
+        'title_singular' => 'Centro',
+    ],
+    'familium'        => [
+        'title'          => 'Familias',
+        'title_singular' => 'Familia',
+    ],
+    'secretarium'     => [
+        'title'          => 'Secretaría',
+        'title_singular' => 'Secretaría',
+    ],
+    'impreso'         => [
+        'title'          => 'Impresos',
+        'title_singular' => 'Impreso',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'nombre'            => 'Nombre',
+            'nombre_helper'     => '',
+            'archivo'           => 'Archivo',
+            'archivo_helper'    => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+        ],
+    ],
 ];

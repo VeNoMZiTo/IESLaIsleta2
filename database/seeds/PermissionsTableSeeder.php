@@ -272,6 +272,42 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => '66',
                 'title' => 'calendario_access',
             ],
+            [
+                'id'    => '67',
+                'title' => 'inicio_access',
+            ],
+            [
+                'id'    => '68',
+                'title' => 'centro_access',
+            ],
+            [
+                'id'    => '69',
+                'title' => 'familium_access',
+            ],
+            [
+                'id'    => '70',
+                'title' => 'secretarium_access',
+            ],
+            [
+                'id'    => '71',
+                'title' => 'impreso_create',
+            ],
+            [
+                'id'    => '72',
+                'title' => 'impreso_edit',
+            ],
+            [
+                'id'    => '73',
+                'title' => 'impreso_show',
+            ],
+            [
+                'id'    => '74',
+                'title' => 'impreso_delete',
+            ],
+            [
+                'id'    => '75',
+                'title' => 'impreso_access',
+            ],
         ];
 
         Permission::insert($permissions);

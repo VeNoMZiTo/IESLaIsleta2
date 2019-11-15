@@ -1,41 +1,35 @@
 @extends('layouts.admin')
 @section('content')
-@can('slider_create')
+@can('impreso_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.sliders.create") }}">
-                {{ trans('global.add') }} {{ trans('cruds.slider.title_singular') }}
+            <a class="btn btn-success" href="{{ route("admin.impresos.create") }}">
+                {{ trans('global.add') }} {{ trans('cruds.impreso.title_singular') }}
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.slider.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.impreso.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-Slider">
+            <table class=" table table-bordered table-striped table-hover datatable datatable-Impreso">
                 <thead>
                     <tr>
                         <th width="10">
 
                         </th>
                         <th>
-                            {{ trans('cruds.slider.fields.id') }}
+                            {{ trans('cruds.impreso.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.slider.fields.titulo') }}
+                            {{ trans('cruds.impreso.fields.nombre') }}
                         </th>
                         <th>
-                            {{ trans('cruds.slider.fields.descripcion') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.slider.fields.boton') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.slider.fields.foto') }}
+                            {{ trans('cruds.impreso.fields.archivo') }}
                         </th>
                         <th>
                             &nbsp;
@@ -43,45 +37,41 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($sliders as $key => $slider)
-                        <tr data-entry-id="{{ $slider->id }}">
+                    @foreach($impresos as $key => $impreso)
+                        <tr data-entry-id="{{ $impreso->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $slider->id ?? '' }}
+                                {{ $impreso->id ?? '' }}
                             </td>
                             <td>
-                                {{ $slider->titulo ?? '' }}
+                                {{ $impreso->nombre ?? '' }}
                             </td>
                             <td>
-                                {{ $slider->descripcion ?? '' }}
-                            </td>
-                            <td>
-                                {{ $slider->boton ?? '' }}
-                            </td>
-                            <td>
-                                @if($slider->foto)
-                                    <a href="{{ $slider->foto->getUrl() }}" target="_blank">
-                                        <img src="{{ $slider->foto->getUrl('thumb') }}" width="50px" height="50px">
-                                    </a>
+                                @if($impreso->archivo)
+                                    @foreach($impreso->archivo as $key => $media)
+                                        <a href="{{ $media->getUrl() }}" target="_blank">
+                                            {{ trans('global.view_file') }}
+                                        </a>
+                                    @endforeach
                                 @endif
                             </td>
                             <td>
-                                @can('slider_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.sliders.show', $slider->id) }}">
+                                @can('impreso_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.impresos.show', $impreso->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
-                                @can('slider_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.sliders.edit', $slider->id) }}">
+                                @can('impreso_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.impresos.edit', $impreso->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
-                                @can('slider_delete')
-                                    <form action="{{ route('admin.sliders.destroy', $slider->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('impreso_delete')
+                                    <form action="{{ route('admin.impresos.destroy', $impreso->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -103,11 +93,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('slider_delete')
+@can('impreso_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.sliders.massDestroy') }}",
+    url: "{{ route('admin.impresos.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -134,10 +124,10 @@
 @endcan
 
   $.extend(true, $.fn.dataTable.defaults, {
-    order: [[ 1, 'asc' ]],
+    order: [[ 1, 'desc' ]],
     pageLength: 25,
   });
-  $('.datatable-Slider:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  $('.datatable-Impreso:not(.ajaxTable)').DataTable({ buttons: dtButtons })
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
         $($.fn.dataTable.tables(true)).DataTable()
             .columns.adjust();
