@@ -59,6 +59,12 @@ class IndexController extends Controller
             case 'profesorado':
                 $url='frontend.profesorado';
                 break;
+            case 'impresos':
+                $url='frontend.impresos';
+                break;
+            case 'certificados':
+                $url='frontend.certificados';
+                break;
             case 'consultas':
                 $url='frontend.consultas';
                 break;

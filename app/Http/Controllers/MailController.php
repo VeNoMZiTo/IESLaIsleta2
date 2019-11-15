@@ -34,5 +34,25 @@ class MailController extends Controller
         }
 
     }
+    public function sendCertificado(Request $request)
+    {
+        $objDemo = new \stdClass();
+        $objDemo->nombre = $request->input('nombre');
+        $objDemo->apellidos = $request->input('apellidos');
+        $objDemo->telefono = $request->input('telefono');
+        $objDemo->dni = $request->input('dni');
+        $objDemo->email = $request->input('email');
+        $objDemo->certificado = $request->input('certificado');
+        $objDemo->asunto = "Solicitud de Certificado";
+        $objDemo->vista = 'email.certificado';
+        try{
+            Mail::to('jonathanlujan7@gmail.com')
+                ->send(new SendEmail($objDemo));
+            return 'OK';
+        }catch(\Exception $e){
+            return 'FAIL';
+        }
+
+    }
 
 }

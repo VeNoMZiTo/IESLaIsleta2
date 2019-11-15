@@ -26,6 +26,12 @@ body{
 .g-bg-secondary{
     background:#090950 !important;
 }
+.g-bg-thrid{
+    background:rgba(73, 155, 234,1) !important;
+}
+.g-cursor-info{
+    cursor: help;
+}
 .shadow-img{
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
@@ -297,7 +303,8 @@ nav{
     display:none;
 }
 /*Noticias*/
-#news .u-divider-linear-gradient--primary{
+
+#news .u-divider-linear-gradient--primary, .u-divider-linear-gradient--primary{
     background-image: linear-gradient(to right, transparent, #1d8873 , transparent);
     height: 1px;
     border:0;

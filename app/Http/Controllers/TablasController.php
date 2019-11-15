@@ -7,6 +7,7 @@ use App\EquipoDocente;
 use App\Departamento;
 use App\Tutorium;
 use App\Descargar;
+use App\Calendario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -40,6 +41,14 @@ class TablasController extends Controller
         return view('frontend.tutorias',array(
             'tutoria' => $tutoria,
             'descargar' => $descargar,
+            'departamentos' => $departamentos
+        ));
+    }
+    public function getCalendario(){
+        $calendario = Calendario::all();
+        $departamentos = Departamento::all();
+        return view('frontend.calendarioescolar',array(
+            'calendario' => $calendario,
             'departamentos' => $departamentos
         ));
     }

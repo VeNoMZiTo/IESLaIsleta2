@@ -3,6 +3,7 @@
 @php
 $dia= date('j');
 $mes= date('M');
+$prueba =explode("-",$calendario[0]->fecha);
 @endphp
 @section('css')
     <link rel="stylesheet" type="text/css" href="/vendor/tooltipster-master/css/tooltipster.bundle.min.css"/>
@@ -49,7 +50,7 @@ $mes= date('M');
         {
             display: none;
         }
-        .calendar2{
+        .calendar2, .calendar-header{
             display: none;
         }
         .calendar .month-container{
@@ -68,7 +69,7 @@ $mes= date('M');
         }
         .month tr td:nth-child(6), .month tr td:nth-child(7){
             background: lightcoral;
-            color: rgba(0,0,0,.9);
+            color: #555;
         }
         .month tr td:nth-child(6).disabled, .month tr td:nth-child(7).disabled{
             background: transparent;
@@ -82,7 +83,46 @@ $mes= date('M');
             border: 1px solid black;
             color: white;
         }
-
+        .leyenda{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cajacubo{
+            font-size: 14px;
+            padding:0 20px;
+        }
+        .cubo{
+            width: 30px;
+            height: 30px;
+            border-radius: .25rem;
+            box-shadow: 0 0 20px 0 rgba(0,0,0,.2);
+            margin: 0 auto;
+        }
+        .festivo{
+            background: lightcoral;
+            border: 1px solid darkred;
+        }
+        .dia-actual{
+            background: rgba(9, 9, 80,0.9);
+            border:1px solid black;
+        }
+        .libre{
+            background: lightblue;
+            border: 1px solid royalblue;
+        }
+        .padres{
+            color:red;
+            font-weight: bold;
+        }
+        .singular{
+            background: lightgreen;
+            border: 1px solid darkgreen;
+        }
+        .evaluacion{
+            background: #e4ccb8;
+            border: 1px solid burlywood;
+        }
         @media only screen and (min-width: 1200px) {
             .g-order-1--xl{
                 order:1;
@@ -119,13 +159,35 @@ $mes= date('M');
                 <div class="col-lg-12">
                     <!-- Heading -->
                     <div class="text-center">
-                        <h2 class="h1 g-color-black g-font-weight-700 mb-4">Calendario Escolar</h2>
+                        <h2 class="h1 g-color-black mb-4">Calendario Escolar</h2>
                         <div class="d-inline-block g-width-70 g-height-2 g-bg-black mb-4 g-bg-primary"></div>
                         {{--                        <p class="g-font-size-18 mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad dolorum ipsum laboriosam libero magnam maiores nemo quod similique voluptatibus!</p>--}}
                     </div>
                     <!-- End Heading -->
                 </div>
+
                 <div class="col-12 col-xl-8 g-order-2 g-order-1--xl">
+                    <h2 class="h3 g-color-gray-dark-v2 g-font-weight-700 mb-4 text-center">2019 - 2020</h2>
+                    <div class="leyenda">
+                        <div class="cajacubo">
+                            <div class="cubo festivo"></div> Días no lectivos
+                        </div>
+                        <div class="cajacubo">
+                            <div class="cubo libre"></div> Días de libre disposición
+                        </div>
+                        <div class="cajacubo">
+                            <div class="cubo evaluacion"></div> Evaluaciones
+                        </div>
+                        <div class="cajacubo">
+                            <div class="cubo padres d-flex align-items-center justify-content-center">1</div> Visita de padres
+                        </div>
+                        <div class="cajacubo">
+                            <div class="cubo singular"></div> Fecha singulares
+                        </div>
+                        <div class="cajacubo">
+                            <div class="cubo dia-actual"></div> Hoy
+                        </div>
+                    </div>
                     <div class="calendar calendar2019"></div>
                     <div class="calendar2 calendar2020"></div>
                 </div>
@@ -173,22 +235,17 @@ $mes= date('M');
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <th class="fecha">10</th>
-                                            <td class="evento">Presentaciones de la ESO y Bachillerato.</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="fecha">11</th>
-                                            <td class="evento">Inicio de las clases para todos los niveles.</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="fecha">18</th>
-                                            <td class="evento">Reunión de familias 1ºESO y 1ºBachillerato (en horario de tarde).</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="fecha">27</th>
-                                            <td class="evento">Convivencia general del centro.</td>
-                                        </tr>
+                                            @foreach($calendario as $d)
+                                                @php
+                                                    $fecha=explode("-",$d->fecha);
+                                                @endphp
+                                                @if($fecha[1]==9)
+                                                    <tr>
+                                                        <th class="fecha">{{$fecha[0]}}</th>
+                                                        <td class="evento">{{$d->tema}}</td>
+                                                    </tr>
+                                                @endif
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -202,18 +259,17 @@ $mes= date('M');
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <th class="fecha">14</th>
-                                            <td class="evento">Atención a familias en horario de tarde (información inicial).</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="fecha">30</th>
-                                            <td class="evento">Atención a familias con cita previa.</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="fecha">31</th>
-                                            <td class="evento">Fiesta de Finaos o Halloween (Finaween).</td>
-                                        </tr>
+                                            @foreach($calendario as $d)
+                                                @php
+                                                    $fecha=explode("-",$d->fecha);
+                                                @endphp
+                                                @if($fecha[1]==10)
+                                                    <tr>
+                                                        <th class="fecha">{{$fecha[0]}}</th>
+                                                        <td class="evento">{{$d->tema}}</td>
+                                                    </tr>
+                                                @endif
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -227,14 +283,17 @@ $mes= date('M');
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <th class="fecha">4</th>
-                                            <td class="evento">Día de libre disposición.</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="fecha">19</th>
-                                            <td class="evento">Atención a familias en horario de tarde (con cita previa).</td>
-                                        </tr>
+                                            @foreach($calendario as $d)
+                                                @php
+                                                    $fecha=explode("-",$d->fecha);
+                                                @endphp
+                                                @if($fecha[1]==11)
+                                                    <tr>
+                                                        <th class="fecha">{{$fecha[0]}}</th>
+                                                        <td class="evento">{{$d->tema}}</td>
+                                                    </tr>
+                                                @endif
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -248,14 +307,17 @@ $mes= date('M');
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <th class="fecha">11</th>
-                                            <td class="evento">Entrega de notas y atención a familias en horario de tarde.</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="fecha">20</th>
-                                            <td class="evento">Gala solidaria </td>
-                                        </tr>
+                                        @foreach($calendario as $d)
+                                            @php
+                                                $fecha=explode("-",$d->fecha);
+                                            @endphp
+                                            @if($fecha[1]==12)
+                                                <tr>
+                                                    <th class="fecha">{{$fecha[0]}}</th>
+                                                    <td class="evento">{{$d->tema}}</td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -278,10 +340,21 @@ $mes= date('M');
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th class="fecha">16</th>
-                                                <td class="evento">Atención a familias en horario de tarde con cita previa.</td>
-                                            </tr>
+                                        @foreach($calendario as $d)
+                                            @php
+                                                $fecha=explode("-",$d->fecha);
+                                            @endphp
+                                            @if($fecha[1]==1)
+                                                <tr>
+                                                    <th class="fecha">{{$fecha[0]}}</th>
+                                                    <td class="evento">{{$d->tema}}</td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
+                                        <tr>
+                                            <th class="fecha">16</th>
+                                            <td class="evento">Atención a familias en horario de tarde con cita previa.</td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -295,6 +368,17 @@ $mes= date('M');
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($calendario as $d)
+                                            @php
+                                                $fecha=explode("-",$d->fecha);
+                                            @endphp
+                                            @if($fecha[1]==2)
+                                                <tr>
+                                                    <th class="fecha">{{$fecha[0]}}</th>
+                                                    <td class="evento">{{$d->tema}}</td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
                                             <tr>
                                                 <th class="fecha">11</th>
                                                 <td class="evento">Atención a familias en horario de tarde.</td>
@@ -320,6 +404,17 @@ $mes= date('M');
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($calendario as $d)
+                                            @php
+                                                $fecha=explode("-",$d->fecha);
+                                            @endphp
+                                            @if($fecha[1]==3)
+                                                <tr>
+                                                    <th class="fecha">{{$fecha[0]}}</th>
+                                                    <td class="evento">{{$d->tema}}</td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
                                             <tr>
                                                 <th class="fecha">4</th>
                                                 <td class="evento">Atención a familias con cita previa en horario de tarde.</td>
@@ -353,18 +448,17 @@ $mes= date('M');
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th class="fecha">2 y 3</th>
-                                                <td class="evento">Jornadas Culturales</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="fecha">23</th>
-                                                <td class="evento">Atención a familias en horario de tarde con cita previa.</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="fecha">23</th>
-                                                <td class="evento">Encuentro de Secundaria – Día del libro.</td>
-                                            </tr>
+                                        @foreach($calendario as $d)
+                                            @php
+                                                $fecha=explode("-",$d->fecha);
+                                            @endphp
+                                            @if($fecha[1]==4)
+                                                <tr>
+                                                    <th class="fecha">{{$fecha[0]}}</th>
+                                                    <td class="evento">{{$d->tema}}</td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -378,24 +472,17 @@ $mes= date('M');
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th class="fecha">4</th>
-                                                <td class="evento">Día de libre disposición.</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="fecha">21</th>
-                                                <td class="evento">Finalización de las clases de 2º de Bachillerato. Entrega de Notas de 2º de Bachillerato.
-                                                    <br>Visita de padres y madres en horario de tarde.
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th class="fecha">22</th>
-                                                <td class="evento">Orla 2º de Bachillerato. (Opción alternativa: 19 de junio).</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="fecha">29</th>
-                                                <td class="evento">Celebración del Día de Canarias.</td>
-                                            </tr>
+                                        @foreach($calendario as $d)
+                                            @php
+                                                $fecha=explode("-",$d->fecha);
+                                            @endphp
+                                            @if($fecha[1]==5)
+                                                <tr>
+                                                    <th class="fecha">{{$fecha[0]}}</th>
+                                                    <td class="evento">{{$d->tema}}</td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -409,22 +496,17 @@ $mes= date('M');
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th class="fecha">17</th>
-                                                <td class="evento">Publicación notas 2º Bachillerato. Convocatoria extraordinaria.</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="fecha">18</th>
-                                                <td class="evento">Orla 4o ESO.</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="fecha">19</th>
-                                                <td class="evento">Fin de las clases de ESO y 1º Bachillerato.</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="fecha">25</th>
-                                                <td class="evento">Entrega de notas.</td>
-                                            </tr>
+                                        @foreach($calendario as $d)
+                                            @php
+                                                $fecha=explode("-",$d->fecha);
+                                            @endphp
+                                            @if($fecha[1]==6)
+                                                <tr>
+                                                    <th class="fecha">{{$fecha[0]}}</th>
+                                                    <td class="evento">{{$d->tema}}</td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -470,24 +552,19 @@ $mes= date('M');
                     }
                 },
                 dataSource: [
-                    {
-                        nombre: 'Evaluación',
-                        tema:'Evaluaciones',
-                        startDate: new Date(currentYear, 8, 2),
-                        endDate: new Date(currentYear, 8, 6)
-                    },
-                    {
-                        nombre: 'Evaluación',
-                        tema:'Evaluaciones',
-                        startDate: new Date(currentYear, 9, 7),
-                        endDate: new Date(currentYear, 9, 9)
-                    },
-                    {
-                        nombre: 'Evaluación',
-                        tema:'Evaluaciones',
-                        startDate: new Date(currentYear, 11, 2),
-                        endDate: new Date(currentYear, 11, 4)
-                    },
+                    @foreach($calendario as $a)
+                        @php
+                        $fecha=explode("-",$a->fecha);
+                        @endphp
+                        @if($fecha[2]=='2019')
+                            {
+                                nombre:'{{$a->tipo}}',
+                                tema:'{{$a->tema}}',
+                                startDate: new Date(currentYear, {{$fecha[1] - 1}}, {{$fecha[0]}}),
+                                endDate: new Date(currentYear, {{$fecha[1]  - 1}}, {{$fecha[0]}})
+                            },
+                        @endif
+                    @endforeach
                     {
                         nombre: 'Festivo',
                         tema:'Día no lectivo',
@@ -511,72 +588,6 @@ $mes= date('M');
                         tema:'Día no lectivo',
                         startDate: new Date(currentYear, 11, 23),
                         endDate: new Date(currentYear, 11, 31)
-                    },
-                    {
-                        nombre: 'Padres',
-                        tema:'Visita de Padres',
-                        startDate: new Date(currentYear, 8, 10),
-                        endDate: new Date(currentYear, 8, 10)
-                    },
-                    {
-                        nombre: 'Padres',
-                        tema:'Reunión de Familias 1ºEso y 1ºBachillerato (en horario de tarde)',
-                        startDate: new Date(currentYear, 8, 18),
-                        endDate: new Date(currentYear, 8, 18)
-                    },
-                    {
-                        nombre: 'Padres',
-                        tema:'Atención a familias en horario de tarde (información inicial)',
-                        startDate: new Date(currentYear, 9, 14),
-                        endDate: new Date(currentYear, 9, 14)
-                    },
-                    {
-                        nombre: 'Padres',
-                        tema:'Atención a familias con cita previa',
-                        startDate: new Date(currentYear, 9, 30),
-                        endDate: new Date(currentYear, 9, 30)
-                    },
-                    {
-                        nombre: 'Padres',
-                        tema:'Atención a familias en horario de tarde (con cita previa)',
-                        startDate: new Date(currentYear, 10, 19),
-                        endDate: new Date(currentYear, 10, 19)
-                    },
-                    {
-                        nombre: 'Padres',
-                        tema:'Entrega de notas y atención a familias en horario de tarde',
-                        startDate: new Date(currentYear, 11, 11),
-                        endDate: new Date(currentYear, 11, 11)
-                    },
-                    {
-                        nombre: 'Singular',
-                        tema:'Inicio de las clases para todos los niveles',
-                        startDate: new Date(currentYear, 8, 11),
-                        endDate: new Date(currentYear, 8, 11)
-                    },
-                    {
-                        nombre: 'Singular',
-                        tema:'Convivencia general del centro',
-                        startDate: new Date(currentYear, 8, 27),
-                        endDate: new Date(currentYear, 8, 27)
-                    },
-                    {
-                        nombre: 'Singular',
-                        tema:'Fiesta de Finaos o Halloween (Finaween)',
-                        startDate: new Date(currentYear, 9, 31),
-                        endDate: new Date(currentYear, 9, 31)
-                    },
-                    {
-                        nombre: 'Singular',
-                        tema:'Gala Solidaria',
-                        startDate: new Date(currentYear, 11, 20),
-                        endDate: new Date(currentYear, 11, 20)
-                    },
-                    {
-                        nombre: 'Libre',
-                        tema:'Día de libre disposición ',
-                        startDate: new Date(currentYear, 10, 4),
-                        endDate: new Date(currentYear, 10, 4)
                     }
                 ]
 
@@ -606,48 +617,19 @@ $mes= date('M');
                     }
                 },
                 dataSource: [
-                    {
-                        nombre: 'Evaluación',
-                        tema:'Evaluaciones',
-                        startDate: new Date(currentNextYear, 1, 3),
-                        endDate: new Date(currentNextYear, 1, 4)
-                    },
-                    {
-                        nombre: 'Evaluación',
-                        tema:'Evaluaciones',
-                        startDate: new Date(currentNextYear, 2, 16),
-                        endDate: new Date(currentNextYear, 2, 18)
-                    },
-                    {
-                        nombre: 'Evaluación',
-                        tema:'Evaluaciones',
-                        startDate: new Date(currentNextYear, 4, 12),
-                        endDate: new Date(currentNextYear, 4, 12)
-                    },
-                    {
-                        nombre: 'Evaluación',
-                        tema:'Evaluaciones',
-                        startDate: new Date(currentNextYear, 4, 19),
-                        endDate: new Date(currentNextYear, 4, 19)
-                    },
-                    {
-                        nombre: 'Evaluación',
-                        tema:'Evaluaciones',
-                        startDate: new Date(currentNextYear, 5, 9),
-                        endDate: new Date(currentNextYear, 5, 9)
-                    },
-                    {
-                        nombre: 'Evaluación',
-                        tema:'Evaluaciones',
-                        startDate: new Date(currentNextYear, 5, 15),
-                        endDate: new Date(currentNextYear, 5, 16)
-                    },
-                    {
-                        nombre: 'Evaluación',
-                        tema:'Evaluaciones',
-                        startDate: new Date(currentNextYear, 5, 22),
-                        endDate: new Date(currentNextYear, 5, 22)
-                    },
+                    @foreach($calendario as $a)
+                    @php
+                        $fecha=explode("-",$a->fecha);
+                    @endphp
+                    @if($fecha[2]=='2020')
+                        {
+                            nombre:'{{$a->tipo}}',
+                            tema:'{{$a->tema}}',
+                            startDate: new Date(currentNextYear, {{$fecha[1] - 1}}, {{$fecha[0]}}),
+                            endDate: new Date(currentNextYear, {{$fecha[1]  - 1}}, {{$fecha[0]}})
+                        },
+                    @endif
+                    @endforeach
                     {
                         nombre: 'Festivo',
                         tema:'Día no lectivo',
@@ -677,108 +659,6 @@ $mes= date('M');
                         tema:'Día no lectivo',
                         startDate: new Date(currentNextYear, 5, 24),
                         endDate: new Date(currentNextYear, 5, 24)
-                    },
-                    {
-                        nombre: 'Padres',
-                        tema:'Atención a familias en horario de tarde con cita previa',
-                        startDate: new Date(currentNextYear, 0, 16),
-                        endDate: new Date(currentNextYear, 0, 16)
-                    },
-                    {
-                        nombre: 'Padres',
-                        tema:'Atención a familias en horario de tarde',
-                        startDate: new Date(currentNextYear, 1, 11),
-                        endDate: new Date(currentNextYear, 1, 11)
-                    },
-                    {
-                        nombre: 'Padres',
-                        tema:'Atención a familias en horario de tarde con cita previa',
-                        startDate: new Date(currentNextYear, 2, 4),
-                        endDate: new Date(currentNextYear, 2, 4)
-                    },
-                    {
-                        nombre: 'Padres',
-                        tema:'Entrega de notas y visita de padres/madres en horario de tarde',
-                        startDate: new Date(currentNextYear, 2, 23),
-                        endDate: new Date(currentNextYear, 2, 23)
-                    },
-                    {
-                        nombre: 'Padres',
-                        tema:'Atención a familias en horario de tarde con cita previa',
-                        startDate: new Date(currentNextYear, 3, 22),
-                        endDate: new Date(currentNextYear, 3, 22)
-                    },
-                    {
-                        nombre: 'Padres',
-                        tema:'Finalización de las clases de 2º de Bachillerato. Entrega de Notas de 2º de Bachillerato. Visita de padres y madres en horario de tarde',
-                        startDate: new Date(currentNextYear, 4, 21),
-                        endDate: new Date(currentNextYear, 4, 21)
-                    },				{
-                        nombre: 'Padres',
-                        tema:'Publicación notas 2º Bachillerato. Convocatoria extraordinaria. \n',
-                        startDate: new Date(currentNextYear, 5, 17),
-                        endDate: new Date(currentNextYear, 5, 17)
-                    },
-                    {
-                        nombre: 'Padres',
-                        tema:'Entrega de notas',
-                        startDate: new Date(currentNextYear, 5, 25),
-                        endDate: new Date(currentNextYear, 5, 25)
-                    },
-
-                    {
-                        nombre: 'Singular',
-                        tema:'Jornadas Culturales',
-                        startDate: new Date(currentNextYear, 3, 2),
-                        endDate: new Date(currentNextYear, 3, 3)
-                    },
-                    {
-                        nombre: 'Singular',
-                        tema:'Fiesta de carnaval',
-                        startDate: new Date(currentNextYear, 1, 21),
-                        endDate: new Date(currentNextYear, 1, 21)
-                    },
-                    {
-                        nombre: 'Singular',
-                        tema:'Encuentro de Secundaria - Día del Libro',
-                        startDate: new Date(currentNextYear, 3, 23),
-                        endDate: new Date(currentNextYear, 3, 23)
-                    },
-                    {
-                        nombre: 'Singular',
-                        tema:'Orla 2º de Bachillerato. (Opción alternativa: 19 de junio)',
-                        startDate: new Date(currentNextYear, 4, 22),
-                        endDate: new Date(currentNextYear, 4, 22)
-                    },
-                    {
-                        nombre: 'Singular',
-                        tema:'Celebración del Día de Canarias',
-                        startDate: new Date(currentNextYear, 4, 29),
-                        endDate: new Date(currentNextYear, 4, 29)
-                    },
-                    {
-                        nombre: 'Singular',
-                        tema:'Orla 4º ESO',
-                        startDate: new Date(currentNextYear, 5, 18),
-                        endDate: new Date(currentNextYear, 5, 18)
-                    },
-                    {
-                        nombre: 'Libre',
-                        tema:'Día de libre disposición',
-                        startDate: new Date(currentNextYear, 1, 24),
-                        endDate: new Date(currentNextYear, 1, 24)
-                    },
-                    {
-                        nombre: 'Libre',
-                        tema:'Día de libre disposición',
-                        startDate: new Date(currentNextYear, 1, 26),
-                        endDate: new Date(currentNextYear, 1, 26)
-                    },
-                    {
-                        nombre: 'Libre',
-                        tema:'Día de libre disposición',
-                        startDate: new Date(currentNextYear, 4, 4),
-                        endDate: new Date(currentNextYear, 4, 4)
                     }
                 ]
             });

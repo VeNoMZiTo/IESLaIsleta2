@@ -501,10 +501,10 @@
                                                         <a href="/nodisponible">Información</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">Solicitud de certificados</a>
+                                                        <a href="/certificados">Solicitud de certificados</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">Impresos</a>
+                                                        <a href="/impresos">Impresos</a>
                                                     </li>
 
                                                 </ul>
