@@ -84,40 +84,106 @@
                         </ul>
                     </li>
                 @endcan
-                @can('slider_access')
-                    <li class="nav-item">
-                        <a href="{{ route("admin.sliders.index") }}" class="nav-link {{ request()->is('admin/sliders') || request()->is('admin/sliders/*') ? 'active' : '' }}">
-                            <i class="fa-fw fas fa-images">
+                @can('inicio_access')
+                    <li class="nav-item has-treeview {{ request()->is('admin/sliders*') ? 'menu-open' : '' }} {{ request()->is('admin/noticia*') ? 'menu-open' : '' }} {{ request()->is('admin/actividades*') ? 'menu-open' : '' }}">
+                        <a class="nav-link nav-dropdown-toggle" href="#">
+                            <i class="fa-fw fas fa-feather-alt">
 
                             </i>
                             <p>
-                                <span>{{ trans('cruds.slider.title') }}</span>
+                                <span>{{ trans('cruds.inicio.title') }}</span>
+                                <i class="right fa fa-fw fa-angle-left"></i>
                             </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            @can('slider_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.sliders.index") }}" class="nav-link {{ request()->is('admin/sliders') || request()->is('admin/sliders/*') ? 'active' : '' }}">
+                                        <i class="fa-fw fas fa-images">
+
+                                        </i>
+                                        <p>
+                                            <span>{{ trans('cruds.slider.title') }}</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('noticium_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.noticia.index") }}" class="nav-link {{ request()->is('admin/noticia') || request()->is('admin/noticia/*') ? 'active' : '' }}">
+                                        <i class="fa-fw far fa-newspaper">
+
+                                        </i>
+                                        <p>
+                                            <span>{{ trans('cruds.noticium.title') }}</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('actividade_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.actividades.index") }}" class="nav-link {{ request()->is('admin/actividades') || request()->is('admin/actividades/*') ? 'active' : '' }}">
+                                        <i class="fa-fw fas fa-child">
+
+                                        </i>
+                                        <p>
+                                            <span>{{ trans('cruds.actividade.title') }}</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
                     </li>
                 @endcan
-                @can('noticium_access')
-                    <li class="nav-item">
-                        <a href="{{ route("admin.noticia.index") }}" class="nav-link {{ request()->is('admin/noticia') || request()->is('admin/noticia/*') ? 'active' : '' }}">
-                            <i class="fa-fw far fa-newspaper">
+                @can('centro_access')
+                    <li class="nav-item has-treeview {{ request()->is('admin/calendarios*') ? 'menu-open' : '' }} {{ request()->is('admin/equipo-directivos*') ? 'menu-open' : '' }} {{ request()->is('admin/equipo-docentes*') ? 'menu-open' : '' }}">
+                        <a class="nav-link nav-dropdown-toggle" href="#">
+                            <i class="fa-fw fas fa-graduation-cap">
 
                             </i>
                             <p>
-                                <span>{{ trans('cruds.noticium.title') }}</span>
+                                <span>{{ trans('cruds.centro.title') }}</span>
+                                <i class="right fa fa-fw fa-angle-left"></i>
                             </p>
                         </a>
-                    </li>
-                @endcan
-                @can('actividade_access')
-                    <li class="nav-item">
-                        <a href="{{ route("admin.actividades.index") }}" class="nav-link {{ request()->is('admin/actividades') || request()->is('admin/actividades/*') ? 'active' : '' }}">
-                            <i class="fa-fw fas fa-child">
+                        <ul class="nav nav-treeview">
+                            @can('calendario_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.calendarios.index") }}" class="nav-link {{ request()->is('admin/calendarios') || request()->is('admin/calendarios/*') ? 'active' : '' }}">
+                                        <i class="fa-fw fas fa-calendar-alt">
 
-                            </i>
-                            <p>
-                                <span>{{ trans('cruds.actividade.title') }}</span>
-                            </p>
-                        </a>
+                                        </i>
+                                        <p>
+                                            <span>{{ trans('cruds.calendario.title') }}</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('equipo_directivo_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.equipo-directivos.index") }}" class="nav-link {{ request()->is('admin/equipo-directivos') || request()->is('admin/equipo-directivos/*') ? 'active' : '' }}">
+                                        <i class="fa-fw fas fa-users">
+
+                                        </i>
+                                        <p>
+                                            <span>{{ trans('cruds.equipoDirectivo.title') }}</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('equipo_docente_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.equipo-docentes.index") }}" class="nav-link {{ request()->is('admin/equipo-docentes') || request()->is('admin/equipo-docentes/*') ? 'active' : '' }}">
+                                        <i class="fa-fw fas fa-user-graduate">
+
+                                        </i>
+                                        <p>
+                                            <span>{{ trans('cruds.equipoDocente.title') }}</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
                     </li>
                 @endcan
                 @can('departamento_access')
@@ -132,40 +198,31 @@
                         </a>
                     </li>
                 @endcan
-                @can('equipo_directivo_access')
-                    <li class="nav-item">
-                        <a href="{{ route("admin.equipo-directivos.index") }}" class="nav-link {{ request()->is('admin/equipo-directivos') || request()->is('admin/equipo-directivos/*') ? 'active' : '' }}">
+                @can('familium_access')
+                    <li class="nav-item has-treeview {{ request()->is('admin/tutoria*') ? 'menu-open' : '' }}">
+                        <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa-fw fas fa-users">
 
                             </i>
                             <p>
-                                <span>{{ trans('cruds.equipoDirectivo.title') }}</span>
+                                <span>{{ trans('cruds.familium.title') }}</span>
+                                <i class="right fa fa-fw fa-angle-left"></i>
                             </p>
                         </a>
-                    </li>
-                @endcan
-                @can('equipo_docente_access')
-                    <li class="nav-item">
-                        <a href="{{ route("admin.equipo-docentes.index") }}" class="nav-link {{ request()->is('admin/equipo-docentes') || request()->is('admin/equipo-docentes/*') ? 'active' : '' }}">
-                            <i class="fa-fw fas fa-user-graduate">
+                        <ul class="nav nav-treeview">
+                            @can('tutorium_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.tutoria.index") }}" class="nav-link {{ request()->is('admin/tutoria') || request()->is('admin/tutoria/*') ? 'active' : '' }}">
+                                        <i class="fa-fw fas fa-address-book">
 
-                            </i>
-                            <p>
-                                <span>{{ trans('cruds.equipoDocente.title') }}</span>
-                            </p>
-                        </a>
-                    </li>
-                @endcan
-                @can('tutorium_access')
-                    <li class="nav-item">
-                        <a href="{{ route("admin.tutoria.index") }}" class="nav-link {{ request()->is('admin/tutoria') || request()->is('admin/tutoria/*') ? 'active' : '' }}">
-                            <i class="fa-fw fas fa-address-book">
-
-                            </i>
-                            <p>
-                                <span>{{ trans('cruds.tutorium.title') }}</span>
-                            </p>
-                        </a>
+                                        </i>
+                                        <p>
+                                            <span>{{ trans('cruds.tutorium.title') }}</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
                     </li>
                 @endcan
                 @can('descargar_access')
@@ -180,14 +237,14 @@
                         </a>
                     </li>
                 @endcan
-                @can('calendario_access')
+                @can('impreso_access')
                     <li class="nav-item">
-                        <a href="{{ route("admin.calendarios.index") }}" class="nav-link {{ request()->is('admin/calendarios') || request()->is('admin/calendarios/*') ? 'active' : '' }}">
-                            <i class="fa-fw fas fa-calendar-alt">
+                        <a href="{{ route("admin.impresos.index") }}" class="nav-link {{ request()->is('admin/impresos') || request()->is('admin/impresos/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-copy">
 
                             </i>
                             <p>
-                                <span>{{ trans('cruds.calendario.title') }}</span>
+                                <span>{{ trans('cruds.impreso.title') }}</span>
                             </p>
                         </a>
                     </li>

@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hola@unbyteochobits.com'),
-        'name' => env('MAIL_FROM_NAME', 'hola@unbyteochobits.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
     /*
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME','hola@unbyteochobits.com'),
+    'username' => env('MAIL_USERNAME'),
 
-    'password' => env('MAIL_PASSWORD','lqt+8w8dU9S4'),
+    'password' => env('MAIL_PASSWORD'),
 
     /*
     |--------------------------------------------------------------------------
