@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="/vendor/selectanimate/css/cs-skin-underline.css" />
 @endsection
 @section('content')
+    @php
+    @endphp
     <section class="container">
         <div class="g-py-100">
             <div class="row justify-content-center g-mb-70">

@@ -57,6 +57,9 @@
     </style>
 @endsection
 @section('content')
+    @php
+    dd($horario)
+    @endphp
     <section class="container">
         <div class="g-py-100">
             <div class="row justify-content-center g-mb-70">
@@ -96,12 +99,12 @@
                             <table>
                                 <tbody>
                                     <tr class="row100 body">
-                                        <td data-column="hora" class="columnas column1" rowspan="2">
+                                        <td data-column="hora" class="columnas column1">
                                             <p>
                                                 8:00 - 8:55
                                             </p>
                                         </td>
-                                        <td data-column="lunes" class="columnas column2" rowspan="2">
+                                        <td data-column="lunes" class="columnas column2" >
                                             <div class="dos-clases">
                                                 <div class="verdeclaro">
                                                     CulturaCi.
@@ -111,28 +114,26 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td data-column="martes" class="columnas column3 celeste" rowspan="2">
+                                        <td data-column="martes" class="columnas column3 celeste">
                                             <p>
                                                 Filosofía
                                             </p>
                                         </td>
-                                        <td data-column="miercoles" class="columnas column4 naranja" rowspan="2">
+                                        <td data-column="miercoles" class="columnas column4 naranja">
                                             <p>
                                                 Fís. y Quí.
                                             </p>
                                         </td>
-                                        <td data-column="jueves" class="columnas column5 naranja" rowspan="2">
+                                        <td data-column="jueves" class="columnas column5 naranja">
                                             <p>
                                                 Fís. y Quí.
                                             </p>
                                         </td>
-                                        <td data-column="viernes" class="columnas column6 celeste" rowspan="2">
+                                        <td data-column="viernes" class="columnas column6 celeste">
                                             <p>
                                                 Filosofía
                                             </p>
                                         </td>
-                                    </tr>
-                                    <tr class="row100 body">
                                     </tr>
                                     <tr class="row100 body">
                                         <td data-column="hora" class="columnas column1">

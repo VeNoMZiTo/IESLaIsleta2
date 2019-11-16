@@ -84,9 +84,6 @@ class IndexController extends Controller
             case 'oferta-educativa':
                 $url='frontend.ofertaeducativa';
                 break;
-            case 'horario-de-grupos':
-                $url='frontend.horariodegrupos';
-                break;
             case 'departamentos':
                 $url='frontend.departamentos';
                 break;

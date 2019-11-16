@@ -8,6 +8,7 @@ use App\Departamento;
 use App\Tutorium;
 use App\Descargar;
 use App\Calendario;
+use App\Horario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -49,6 +50,14 @@ class TablasController extends Controller
         $departamentos = Departamento::all();
         return view('frontend.calendarioescolar',array(
             'calendario' => $calendario,
+            'departamentos' => $departamentos
+        ));
+    }
+    public function getHorario(){
+        $horario = Horario::all();
+        $departamentos = Departamento::all();
+        return view('frontend.horariodegrupos',array(
+            'horario' => $horario,
             'departamentos' => $departamentos
         ));
     }
