@@ -17,7 +17,7 @@ class GruposApiController extends Controller
     {
         abort_if(Gate::denies('grupo_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new GrupoResource(Grupo::all());
+        return new GrupoResource(Grupo::with(['curso'])->get());
     }
 
     public function store(StoreGrupoRequest $request)
@@ -33,7 +33,7 @@ class GruposApiController extends Controller
     {
         abort_if(Gate::denies('grupo_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new GrupoResource($grupo);
+        return new GrupoResource($grupo->load(['curso']));
     }
 
     public function update(UpdateGrupoRequest $request, Grupo $grupo)

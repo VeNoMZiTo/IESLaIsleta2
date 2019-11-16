@@ -61,7 +61,7 @@
                                 {{ App\Horario::DIA_SELECT[$horario->dia] ?? '' }}
                             </td>
                             <td>
-                                {{ $horario->curso->curso ?? '' }}
+                                {{ $horario->curso ?? '' }}
                             </td>
                             <td>
                                 {{ $horario->asignatura ?? '' }}

@@ -39,7 +39,7 @@
                             {{ trans('cruds.horario.fields.curso') }}
                         </th>
                         <td>
-                            {{ $horario->curso->curso ?? '' }}
+                            {{ $horario->curso }}
                         </td>
                     </tr>
                     <tr>
