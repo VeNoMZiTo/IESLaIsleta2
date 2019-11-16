@@ -21,6 +21,7 @@ class UpdateGrupoRequest extends FormRequest
         return [
             'curso' => [
                 'required',
+                'unique:grupos,curso,' . request()->route('grupo')->id,
             ],
         ];
     }

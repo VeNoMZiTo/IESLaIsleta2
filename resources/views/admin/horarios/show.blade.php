@@ -36,14 +36,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.horario.fields.curso') }}
-                        </th>
-                        <td>
-                            {{ $horario->curso }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.horario.fields.asignatura') }}
                         </th>
                         <td>
@@ -56,6 +48,14 @@
                         </th>
                         <td>
                             {{ $horario->color }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.horario.fields.curso') }}
+                        </th>
+                        <td>
+                            {{ $horario->curso->curso ?? '' }}
                         </td>
                     </tr>
                 </tbody>

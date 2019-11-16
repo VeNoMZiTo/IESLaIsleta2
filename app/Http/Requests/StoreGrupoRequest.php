@@ -21,6 +21,7 @@ class StoreGrupoRequest extends FormRequest
         return [
             'curso' => [
                 'required',
+                'unique:grupos',
             ],
         ];
     }
