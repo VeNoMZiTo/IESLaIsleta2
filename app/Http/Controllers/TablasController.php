@@ -9,6 +9,7 @@ use App\Tutorium;
 use App\Descargar;
 use App\Calendario;
 use App\Horario;
+use App\Grupo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -54,7 +55,7 @@ class TablasController extends Controller
         ));
     }
     public function getHorario(){
-        $horario = Horario::all();
+        $horario = Horario::firstOrFail()->where('curso', 'ESO 1ºA')->get();
         $departamentos = Departamento::all();
         return view('frontend.horariodegrupos',array(
             'horario' => $horario,
