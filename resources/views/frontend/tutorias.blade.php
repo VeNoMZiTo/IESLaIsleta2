@@ -6,44 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/vendor/selectanimate/css/cs-select.css" />
     <link rel="stylesheet" type="text/css" href="/vendor/selectanimate/css/cs-skin-elastic.css" />
     <link rel="stylesheet" type="text/css" href="/vendor/selectanimate/css/cs-skin-underline.css" />
-    <style>
-        .cs-skin-underline > span {
-            border-color:#1d8873;
-        }
-        .cs-skin-underline > span::after {
-            color:#1d8873;
-        }
-        .cs-skin-underline .cs-options, .cs-active .cs-options{
-            background: white;
-        }
-        .cs-active .cs-options, .cs-options ul li:first-child{
-            box-shadow: 0 0 20px 0 rgba(0,0,0,.2);
-        }
-        .cs-options{
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-        }
-        .cs-options ul li{
-            display: inline-block;
-            width: 50%;
-            text-align: center;
-        }
-        .cs-options ul li span{
-            transition: .2s;
-        }
-        .cs-options ul li:hover span{
-            background: rgba(29,136,115,0.8) !important;
-            color:white !important;
-        }
-        .cs-skin-underline ul span::before {
-            display: none;
-        }
-        .cs-options ul li:first-child{
-            width: 100%;
-            border-bottom:2px solid #1d8873;
-            display: none;
-        }
-    </style>
 @endsection
 @section('content')
     <section class="container">
@@ -52,7 +14,7 @@
                 <div class="col-lg-12">
                     <!-- Heading -->
                     <div class="text-center">
-                        <h2 class="h1 g-color-black g-font-weight-700 mb-4">Tutorías</h2>
+                        <h2 class="h1 g-color-black mb-4">Tutorías</h2>
                         <div class="d-inline-block g-width-70 g-height-2 g-bg-black mb-4 g-bg-primary"></div>
                         {{--                        <p class="g-font-size-18 mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad dolorum ipsum laboriosam libero magnam maiores nemo quod similique voluptatibus!</p>--}}
                     </div>

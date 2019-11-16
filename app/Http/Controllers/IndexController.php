@@ -6,6 +6,7 @@ use App\Noticium;
 use App\Slider;
 use App\Actividade;
 use App\Departamento;
+use App\Impreso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -49,6 +50,15 @@ class IndexController extends Controller
 
         ));
     }
+    public function getImpreso(){
+        $impreso = Impreso::all();
+        $departamentos = Departamento::all();
+        return view('frontend.impresos',array(
+            'impreso' => $impreso,
+            'departamentos' => $departamentos
+
+        ));
+    }
     public function getDepartamentos(Request $request){
         $departamentos = Departamento::all();
         $destinatarioConsultas=false;
@@ -59,20 +69,23 @@ class IndexController extends Controller
             case 'profesorado':
                 $url='frontend.profesorado';
                 break;
-            case 'impresos':
-                $url='frontend.impresos';
-                break;
             case 'certificados':
                 $url='frontend.certificados';
                 break;
             case 'consultas':
                 $url='frontend.consultas';
                 break;
+            case 'junta-de-delegados':
+                $url='frontend.juntadelegados';
+                break;
             case 'calendario-escolar':
                 $url='frontend.calendarioescolar';
                 break;
             case 'oferta-educativa':
                 $url='frontend.ofertaeducativa';
+                break;
+            case 'horario-de-grupos':
+                $url='frontend.horariodegrupos';
                 break;
             case 'departamentos':
                 $url='frontend.departamentos';
@@ -87,6 +100,7 @@ class IndexController extends Controller
 
         ));
     }
+
     public function getConsultas(Request $request, $id){
         $departamentos = Departamento::all();
         $destinatarioConsultas = $id;

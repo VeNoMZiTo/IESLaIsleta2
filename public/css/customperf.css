@@ -453,7 +453,6 @@ nav{
 }
 .tabla {
     background-color: #fff;
-    border-radius:.25rem;
     box-shadow: 0 0 20px 0 rgba(0,0,0,.2);
 }
 .tabla td p{
@@ -465,7 +464,6 @@ nav{
 
 .tabla th, td {
     font-weight: unset;
-    padding-right: 10px;
     text-align: center;
 }
 /*Equipo Directivo*/
@@ -610,6 +608,42 @@ tr.body *, tr.body{
 }
 .ver2 tbody .blanco{
     background: white;
+}
+.cs-skin-underline > span {
+    border-color:#1d8873;
+}
+.cs-skin-underline > span::after {
+    color:#1d8873;
+}
+.cs-skin-underline .cs-options, .cs-active .cs-options{
+    background: white;
+}
+.cs-active .cs-options, .cs-options ul li:first-child{
+    box-shadow: 0 0 20px 0 rgba(0,0,0,.2);
+}
+.cs-options{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.cs-options ul li{
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+}
+.cs-options ul li span{
+    transition: .2s;
+}
+.cs-options ul li:hover span{
+    background: rgba(29,136,115,0.8) !important;
+    color:white !important;
+}
+.cs-skin-underline ul span::before {
+    display: none;
+}
+.cs-options ul li:first-child{
+    width: 100%;
+    border-bottom:2px solid #1d8873;
+    display: none;
 }
 @keyframes laterales{
     0%{

@@ -41,9 +41,9 @@
     <link rel="stylesheet" href="/css/spectrum.css">
     <!-- CSS Customization -->
     <link rel="stylesheet" href="/css/custom-2.css">
-    <link rel="stylesheet" href="/css/customperf.css">
     @section('css')
     @show
+    <link rel="stylesheet" href="/css/customperf.css">
     <style>
         .g-height-60{
             height: 60px;
@@ -396,10 +396,10 @@
                                                 <!-- Submenu -->
                                                 <ul class="hs-sub-menu list-unstyled " id="nav-submenu-1" aria-labelledby="nav-link-1">
                                                     <li>
-                                                        <a href="/nodisponible">Junta de delegados</a>
+                                                        <a href="/junta-de-delegados">Junta de delegados</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">Horario de grupos</a>
+                                                        <a href="/horario-de-grupos">Horario de grupos</a>
                                                     </li>
                                                     <li>
                                                         <a href="/nodisponible">Redes educativas</a>
