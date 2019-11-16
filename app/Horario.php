@@ -19,9 +19,9 @@ class Horario extends Model
 
     protected $fillable = [
         'dia',
+        'curso',
         'color',
         'horario',
-        'curso_id',
         'asignatura',
         'created_at',
         'updated_at',
@@ -44,9 +44,4 @@ class Horario extends Model
         'quinta'  => '12:10 - 13:05',
         'sexta'   => '13:05 - 14:00',
     ];
-
-    public function curso()
-    {
-        return $this->belongsTo(Grupo::class, 'curso_id');
-    }
 }

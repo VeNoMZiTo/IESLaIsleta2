@@ -17,7 +17,7 @@ class HorarioApiController extends Controller
     {
         abort_if(Gate::denies('horario_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new HorarioResource(Horario::with(['curso'])->get());
+        return new HorarioResource(Horario::all());
     }
 
     public function store(StoreHorarioRequest $request)
@@ -33,7 +33,7 @@ class HorarioApiController extends Controller
     {
         abort_if(Gate::denies('horario_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new HorarioResource($horario->load(['curso']));
+        return new HorarioResource($horario);
     }
 
     public function update(UpdateHorarioRequest $request, Horario $horario)

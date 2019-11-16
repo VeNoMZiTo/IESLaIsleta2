@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Grupo;
 use App\Horario;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyHorarioRequest;
@@ -27,9 +26,7 @@ class HorarioController extends Controller
     {
         abort_if(Gate::denies('horario_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $cursos = Grupo::all()->pluck('curso', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        return view('admin.horarios.create', compact('cursos'));
+        return view('admin.horarios.create');
     }
 
     public function store(StoreHorarioRequest $request)
@@ -43,11 +40,7 @@ class HorarioController extends Controller
     {
         abort_if(Gate::denies('horario_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $cursos = Grupo::all()->pluck('curso', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $horario->load('curso');
-
-        return view('admin.horarios.edit', compact('cursos', 'horario'));
+        return view('admin.horarios.edit', compact('horario'));
     }
 
     public function update(UpdateHorarioRequest $request, Horario $horario)
@@ -60,8 +53,6 @@ class HorarioController extends Controller
     public function show(Horario $horario)
     {
         abort_if(Gate::denies('horario_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $horario->load('curso');
 
         return view('admin.horarios.show', compact('horario'));
     }

@@ -40,6 +40,8 @@ class GruposController extends Controller
     {
         abort_if(Gate::denies('grupo_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $grupo->load('curso');
+
         return view('admin.grupos.edit', compact('grupo'));
     }
 
@@ -53,6 +55,8 @@ class GruposController extends Controller
     public function show(Grupo $grupo)
     {
         abort_if(Gate::denies('grupo_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $grupo->load('curso');
 
         return view('admin.grupos.show', compact('grupo'));
     }
