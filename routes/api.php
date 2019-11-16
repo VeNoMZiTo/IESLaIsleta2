@@ -50,4 +50,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Horarios
     Route::apiResource('horarios', 'HorarioApiController');
+
+    // Grupos
+    Route::apiResource('grupos', 'GruposApiController');
 });

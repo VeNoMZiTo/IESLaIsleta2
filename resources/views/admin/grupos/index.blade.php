@@ -1,44 +1,32 @@
 @extends('layouts.admin')
 @section('content')
-@can('horario_create')
+@can('grupo_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.horarios.create") }}">
-                {{ trans('global.add') }} {{ trans('cruds.horario.title_singular') }}
+            <a class="btn btn-success" href="{{ route("admin.grupos.create") }}">
+                {{ trans('global.add') }} {{ trans('cruds.grupo.title_singular') }}
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.horario.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.grupo.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-Horario">
+            <table class=" table table-bordered table-striped table-hover datatable datatable-Grupo">
                 <thead>
                     <tr>
                         <th width="10">
 
                         </th>
                         <th>
-                            {{ trans('cruds.horario.fields.id') }}
+                            {{ trans('cruds.grupo.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.horario.fields.horario') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.horario.fields.dia') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.horario.fields.curso') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.horario.fields.asignatura') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.horario.fields.color') }}
+                            {{ trans('cruds.grupo.fields.curso') }}
                         </th>
                         <th>
                             &nbsp;
@@ -46,44 +34,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($horarios as $key => $horario)
-                        <tr data-entry-id="{{ $horario->id }}">
+                    @foreach($grupos as $key => $grupo)
+                        <tr data-entry-id="{{ $grupo->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $horario->id ?? '' }}
+                                {{ $grupo->id ?? '' }}
                             </td>
                             <td>
-                                {{ App\Horario::HORARIO_SELECT[$horario->horario] ?? '' }}
+                                {{ $grupo->curso ?? '' }}
                             </td>
                             <td>
-                                {{ App\Horario::DIA_SELECT[$horario->dia] ?? '' }}
-                            </td>
-                            <td>
-                                {{ $horario->curso->curso ?? '' }}
-                            </td>
-                            <td>
-                                {{ $horario->asignatura ?? '' }}
-                            </td>
-                            <td>
-                                {{ $horario->color ?? '' }}
-                            </td>
-                            <td>
-                                @can('horario_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.horarios.show', $horario->id) }}">
+                                @can('grupo_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.grupos.show', $grupo->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
-                                @can('horario_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.horarios.edit', $horario->id) }}">
+                                @can('grupo_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.grupos.edit', $grupo->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
-                                @can('horario_delete')
-                                    <form action="{{ route('admin.horarios.destroy', $horario->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('grupo_delete')
+                                    <form action="{{ route('admin.grupos.destroy', $grupo->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -105,11 +81,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('horario_delete')
+@can('grupo_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.horarios.massDestroy') }}",
+    url: "{{ route('admin.grupos.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -139,7 +115,7 @@
     order: [[ 1, 'desc' ]],
     pageLength: 25,
   });
-  $('.datatable-Horario:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  $('.datatable-Grupo:not(.ajaxTable)').DataTable({ buttons: dtButtons })
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
         $($.fn.dataTable.tables(true)).DataTable()
             .columns.adjust();

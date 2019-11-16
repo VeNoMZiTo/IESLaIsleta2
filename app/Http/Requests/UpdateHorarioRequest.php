@@ -25,10 +25,14 @@ class UpdateHorarioRequest extends FormRequest
             'dia'        => [
                 'required',
             ],
-            'curso'      => [
+            'curso_id'   => [
                 'required',
+                'integer',
             ],
             'asignatura' => [
+                'required',
+            ],
+            'color'      => [
                 'required',
             ],
         ];

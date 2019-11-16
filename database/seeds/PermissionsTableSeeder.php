@@ -332,6 +332,26 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => '81',
                 'title' => 'horario_access',
             ],
+            [
+                'id'    => '82',
+                'title' => 'grupo_create',
+            ],
+            [
+                'id'    => '83',
+                'title' => 'grupo_edit',
+            ],
+            [
+                'id'    => '84',
+                'title' => 'grupo_show',
+            ],
+            [
+                'id'    => '85',
+                'title' => 'grupo_delete',
+            ],
+            [
+                'id'    => '86',
+                'title' => 'grupo_access',
+            ],
         ];
 
         Permission::insert($permissions);
