@@ -249,6 +249,33 @@
                         </a>
                     </li>
                 @endcan
+                @can('alumnado_access')
+                    <li class="nav-item has-treeview {{ request()->is('admin/horarios*') ? 'menu-open' : '' }}">
+                        <a class="nav-link nav-dropdown-toggle" href="#">
+                            <i class="fa-fw fas fa-user-edit">
+
+                            </i>
+                            <p>
+                                <span>{{ trans('cruds.alumnado.title') }}</span>
+                                <i class="right fa fa-fw fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            @can('horario_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.horarios.index") }}" class="nav-link {{ request()->is('admin/horarios') || request()->is('admin/horarios/*') ? 'active' : '' }}">
+                                        <i class="fa-fw far fa-clock">
+
+                                        </i>
+                                        <p>
+                                            <span>{{ trans('cruds.horario.title') }}</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcan
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                         <p>
