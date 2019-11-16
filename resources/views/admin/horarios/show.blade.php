@@ -39,7 +39,7 @@
                             {{ trans('cruds.horario.fields.curso') }}
                         </th>
                         <td>
-                            {{ App\Horario::CURSO_SELECT[$horario->curso] ?? '' }}
+                            {{ $horario->curso->curso ?? '' }}
                         </td>
                     </tr>
                     <tr>
@@ -48,6 +48,14 @@
                         </th>
                         <td>
                             {{ $horario->asignatura }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.horario.fields.color') }}
+                        </th>
+                        <td>
+                            {{ $horario->color }}
                         </td>
                     </tr>
                 </tbody>

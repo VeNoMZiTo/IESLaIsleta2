@@ -250,7 +250,7 @@
                     </li>
                 @endcan
                 @can('alumnado_access')
-                    <li class="nav-item has-treeview {{ request()->is('admin/horarios*') ? 'menu-open' : '' }}">
+                    <li class="nav-item has-treeview {{ request()->is('admin/horarios*') ? 'menu-open' : '' }} {{ request()->is('admin/grupos*') ? 'menu-open' : '' }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa-fw fas fa-user-edit">
 
@@ -269,6 +269,18 @@
                                         </i>
                                         <p>
                                             <span>{{ trans('cruds.horario.title') }}</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('grupo_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.grupos.index") }}" class="nav-link {{ request()->is('admin/grupos') || request()->is('admin/grupos/*') ? 'active' : '' }}">
+                                        <i class="fa-fw fas fa-align-justify">
+
+                                        </i>
+                                        <p>
+                                            <span>{{ trans('cruds.grupo.title') }}</span>
                                         </p>
                                     </a>
                                 </li>

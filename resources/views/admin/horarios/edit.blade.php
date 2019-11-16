@@ -38,17 +38,16 @@
                     </p>
                 @endif
             </div>
-            <div class="form-group {{ $errors->has('curso') ? 'has-error' : '' }}">
+            <div class="form-group {{ $errors->has('curso_id') ? 'has-error' : '' }}">
                 <label for="curso">{{ trans('cruds.horario.fields.curso') }}*</label>
-                <select id="curso" name="curso" class="form-control" required>
-                    <option value="" disabled {{ old('curso', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
-                    @foreach(App\Horario::CURSO_SELECT as $key => $label)
-                        <option value="{{ $key }}" {{ old('curso', $horario->curso) === (string)$key ? 'selected' : '' }}>{{ $label }}</option>
+                <select name="curso_id" id="curso" class="form-control select2" required>
+                    @foreach($cursos as $id => $curso)
+                        <option value="{{ $id }}" {{ (isset($horario) && $horario->curso ? $horario->curso->id : old('curso_id')) == $id ? 'selected' : '' }}>{{ $curso }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('curso'))
+                @if($errors->has('curso_id'))
                     <p class="help-block">
-                        {{ $errors->first('curso') }}
+                        {{ $errors->first('curso_id') }}
                     </p>
                 @endif
             </div>
@@ -62,6 +61,18 @@
                 @endif
                 <p class="helper-block">
                     {{ trans('cruds.horario.fields.asignatura_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('color') ? 'has-error' : '' }}">
+                <label for="color">{{ trans('cruds.horario.fields.color') }}*</label>
+                <input type="text" id="color" name="color" class="form-control" value="{{ old('color', isset($horario) ? $horario->color : '') }}" required>
+                @if($errors->has('color'))
+                    <p class="help-block">
+                        {{ $errors->first('color') }}
+                    </p>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.horario.fields.color_helper') }}
                 </p>
             </div>
             <div>
