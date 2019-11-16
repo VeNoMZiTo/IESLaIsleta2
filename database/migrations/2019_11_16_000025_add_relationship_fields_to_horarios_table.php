@@ -11,7 +11,7 @@ class AddRelationshipFieldsToHorariosTable extends Migration
         Schema::table('horarios', function (Blueprint $table) {
             $table->unsignedInteger('curso_id');
 
-            $table->foreign('curso_id', 'curso_fk_611544')->references('id')->on('grupos');
+            $table->foreign('curso_id', 'curso_fk_611545')->references('id')->on('grupos');
         });
     }
 }
