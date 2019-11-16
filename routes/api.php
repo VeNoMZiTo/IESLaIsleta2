@@ -47,4 +47,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Impresos
     Route::post('impresos/media', 'ImpresosApiController@storeMedia')->name('impresos.storeMedia');
     Route::apiResource('impresos', 'ImpresosApiController');
+
+    // Horarios
+    Route::apiResource('horarios', 'HorarioApiController');
 });

@@ -1,33 +1,6 @@
 <?php
-Route::get('/', 'IndexController@getIndex');
 
-Route::get('/equipo-directivo','TablasController@getEqDirectivo');
-Route::get('/equipo-docente','TablasController@getEqDocente');
-Route::get('/tutorias','TablasController@getTutoria');
-Route::get('/calendario-escolar', 'TablasController@getCalendario');
-Route::get('/nodisponible', 'IndexController@getDepartamentos');
-Route::get('/consultas', 'IndexController@getDepartamentos');
-Route::get('/pincel-ekade', 'IndexController@getDepartamentos');
-Route::get('/contactar/{id}', 'IndexController@getConsultas');
-Route::get('/profesorado', 'IndexController@getDepartamentos');
-Route::get('/oferta-educativa', 'IndexController@getDepartamentos');
-Route::get('/departamentos', 'IndexController@getDepartamentos');
-Route::get('/noticias', 'IndexController@getRepertorioNoticias');
-Route::get('/noticia/{id}-{titulo}','IndexController@getNoticia');
-Route::get('/actividad/{id}-{titulo}','IndexController@getActividad');
-
-/*Alumnado*/
-Route::get('/junta-de-delegados', 'IndexController@getDepartamentos');
-Route::get('/horario-de-grupos', 'IndexController@getDepartamentos');
-
-/*Secretaría*/
-Route::get('/impresos', 'IndexController@getImpreso');
-Route::get('/certificados', 'IndexController@getDepartamentos');
-Route::post('mail/send-contact', 'MailController@sendCertificado');
-
-/*Correos del Apartado de Buzón de Sugerencias*/
-Route::post('mail/send-contact', 'MailController@sendContact');
-
+Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
@@ -100,4 +73,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('impresos/destroy', 'ImpresosController@massDestroy')->name('impresos.massDestroy');
     Route::post('impresos/media', 'ImpresosController@storeMedia')->name('impresos.storeMedia');
     Route::resource('impresos', 'ImpresosController');
+
+    // Horarios
+    Route::delete('horarios/destroy', 'HorarioController@massDestroy')->name('horarios.massDestroy');
+    Route::resource('horarios', 'HorarioController');
 });
