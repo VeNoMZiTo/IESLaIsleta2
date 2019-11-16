@@ -11,6 +11,8 @@ class CreateGruposTable extends Migration
         Schema::create('grupos', function (Blueprint $table) {
             $table->increments('id');
 
+            $table->string('curso')->unique();
+
             $table->timestamps();
 
             $table->softDeletes();

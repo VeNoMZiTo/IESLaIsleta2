@@ -32,13 +32,13 @@
                             {{ trans('cruds.horario.fields.dia') }}
                         </th>
                         <th>
-                            {{ trans('cruds.horario.fields.curso') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.horario.fields.asignatura') }}
                         </th>
                         <th>
                             {{ trans('cruds.horario.fields.color') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.horario.fields.curso') }}
                         </th>
                         <th>
                             &nbsp;
@@ -61,13 +61,13 @@
                                 {{ App\Horario::DIA_SELECT[$horario->dia] ?? '' }}
                             </td>
                             <td>
-                                {{ $horario->curso ?? '' }}
-                            </td>
-                            <td>
                                 {{ $horario->asignatura ?? '' }}
                             </td>
                             <td>
                                 {{ $horario->color ?? '' }}
+                            </td>
+                            <td>
+                                {{ $horario->curso->curso ?? '' }}
                             </td>
                             <td>
                                 @can('horario_show')

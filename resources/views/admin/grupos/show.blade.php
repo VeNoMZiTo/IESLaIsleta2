@@ -23,7 +23,7 @@
                             {{ trans('cruds.grupo.fields.curso') }}
                         </th>
                         <td>
-                            {{ $grupo->curso-> ?? '' }}
+                            {{ $grupo->curso }}
                         </td>
                     </tr>
                 </tbody>

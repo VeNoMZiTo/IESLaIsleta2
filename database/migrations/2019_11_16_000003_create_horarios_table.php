@@ -19,8 +19,6 @@ class CreateHorariosTable extends Migration
 
             $table->string('color');
 
-            $table->string('curso');
-
             $table->timestamps();
 
             $table->softDeletes();

@@ -18,19 +18,14 @@ class Grupo extends Model
     ];
 
     protected $fillable = [
-        'curso_id',
+        'curso',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
 
-    public function grupos()
+    public function horarios()
     {
-        return $this->hasMany(Grupo::class, 'curso_id', 'id');
-    }
-
-    public function curso()
-    {
-        return $this->belongsTo(Grupo::class, 'curso_id');
+        return $this->hasMany(Horario::class, 'curso_id', 'id');
     }
 }

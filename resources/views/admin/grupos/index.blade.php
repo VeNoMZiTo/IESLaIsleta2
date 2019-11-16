@@ -43,7 +43,7 @@
                                 {{ $grupo->id ?? '' }}
                             </td>
                             <td>
-                                {{ $grupo->curso-> ?? '' }}
+                                {{ $grupo->curso ?? '' }}
                             </td>
                             <td>
                                 @can('grupo_show')

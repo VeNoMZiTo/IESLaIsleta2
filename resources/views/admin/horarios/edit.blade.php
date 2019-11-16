@@ -38,18 +38,6 @@
                     </p>
                 @endif
             </div>
-            <div class="form-group {{ $errors->has('curso') ? 'has-error' : '' }}">
-                <label for="curso">{{ trans('cruds.horario.fields.curso') }}*</label>
-                <input type="text" id="curso" name="curso" class="form-control" value="{{ old('curso', isset($horario) ? $horario->curso : '') }}" required>
-                @if($errors->has('curso'))
-                    <p class="help-block">
-                        {{ $errors->first('curso') }}
-                    </p>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.horario.fields.curso_helper') }}
-                </p>
-            </div>
             <div class="form-group {{ $errors->has('asignatura') ? 'has-error' : '' }}">
                 <label for="asignatura">{{ trans('cruds.horario.fields.asignatura') }}*</label>
                 <input type="text" id="asignatura" name="asignatura" class="form-control" value="{{ old('asignatura', isset($horario) ? $horario->asignatura : '') }}" required>
@@ -73,6 +61,19 @@
                 <p class="helper-block">
                     {{ trans('cruds.horario.fields.color_helper') }}
                 </p>
+            </div>
+            <div class="form-group {{ $errors->has('curso_id') ? 'has-error' : '' }}">
+                <label for="curso">{{ trans('cruds.horario.fields.curso') }}*</label>
+                <select name="curso_id" id="curso" class="form-control select2" required>
+                    @foreach($cursos as $id => $curso)
+                        <option value="{{ $id }}" {{ (isset($horario) && $horario->curso ? $horario->curso->id : old('curso_id')) == $id ? 'selected' : '' }}>{{ $curso }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('curso_id'))
+                    <p class="help-block">
+                        {{ $errors->first('curso_id') }}
+                    </p>
+                @endif
             </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
