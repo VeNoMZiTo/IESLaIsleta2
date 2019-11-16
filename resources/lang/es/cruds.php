@@ -350,7 +350,7 @@ return [
             'color'             => 'Color',
             'color_helper'      => 'Seleccione un color de los que estan abajo.',
             'curso'             => 'Curso',
-            'curso_helper'      => 'Introduzca el curso. Ej: ESO 1ºA, BAC 1ºA, . . . .',
+            'curso_helper'      => '',
         ],
     ],
     'grupo'           => [
@@ -366,7 +366,7 @@ return [
             'deleted_at'        => 'Deleted at',
             'deleted_at_helper' => '',
             'curso'             => 'Curso',
-            'curso_helper'      => 'Introduzca el curso. Ej: ESO 1ºA, BAC 1ºA, . . . .',
+            'curso_helper'      => '',
         ],
     ],
 ];
