@@ -54,11 +54,21 @@ class TablasController extends Controller
             'departamentos' => $departamentos
         ));
     }
-    public function getHorario(){
-        $horario = Horario::firstOrFail()->where('curso', 'ESO 1ºA')->get();
+    public function getHorario(Request $request, $id){
+        $grupos = Grupo::all();
+        $horario = Horario::firstOrFail()->where('curso_id',$id)->get();
+        $departamentos = Departamento::all();
+        return view('frontend.grupo',array(
+            'grupos' =>$grupos,
+            'horario' => $horario,
+            'departamentos' => $departamentos
+        ));
+    }
+    public function getGrupo(){
+        $grupos = Grupo::all();
         $departamentos = Departamento::all();
         return view('frontend.horariodegrupos',array(
-            'horario' => $horario,
+            'grupos' =>$grupos,
             'departamentos' => $departamentos
         ));
     }

@@ -4,46 +4,103 @@
     <link rel="stylesheet" type="text/css" href="/vendor/-master/css/.bundle.min.css"/>
     <link rel="stylesheet" type="text/css" href="/vendor/-master/css/plugins//sideTip/themes/-sideTip-shadow.min.css"/>
     <style>
-        /*Tablas*/
-        .horarios .column1{
-            width: 10%;
+        /*Menú*/
+        .button {
+            float: left;
+            min-width: 150px;
+            display: block;
+            margin: 1em;
+            padding: 1em 2em;
+            border: none;
+            background: none;
+            color: inherit;
+            vertical-align: middle;
+            position: relative;
+            z-index: 1;
+            -webkit-backface-visibility: hidden;
+            -moz-osx-font-smoothing: grayscale;
+
         }
-        .horarios .column2{
-            width: 18%;
+        .button:focus {
+            outline: none;
         }
-        .horarios .column3{
-            width: 18%;
+        .button > span {
+            vertical-align: middle;
         }
-        .horarios .column4{
-            width: 18%;
+        .button--menu {
+            margin: 1em 2em;
+            -webkit-transition: color 0.3s;
+            transition: color 0.3s;
+            -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+            transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+            color:white;
+            border-radius: .25rem;
+            font-size: 16px;
+            box-shadow: 0 0 20px 0 rgba(0,0,0,.2);
+
         }
-        .horarios .column5{
-            width: 18%;
+        .button--menu.button--inverted {
+            color: #1d8873;
         }
-        .horarios .column6{
-            width: 18%;
+        .button--menu::before,
+        .button--menu::after {
+            content: '';
+            position: absolute;
+            border-radius: inherit;
+            background: #1d8873;
+            z-index: -1;
         }
-        .verdeclaro{
-            background: #c1ffe8;
+        .button--menu::before {
+            top: -4px;
+            bottom: -4px;
+            left: -4px;
+            right: -4px;
+            opacity: 0.4;
+            -webkit-transform: scale3d(0.7, 1, 1);
+            transform: scale3d(0.7, 1, 1);
+            -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+            transition: transform 0.3s, opacity 0.3s;
         }
-        .azulclaro{
-            background:#c2e8ff;
+        .button--menu::after {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-transform: scale3d(1.1, 1, 1);
+            transform: scale3d(1.1, 1, 1);
+            -webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+            transition: transform 0.3s, background-color 0.3s;
         }
-        .celeste{
-            background: #c1fffe;
+        .button--menu::before,
+        .button--menu::after {
+            -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+            transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
         }
-        .naranja{
-            background: #fed8c1;
+        .button--menu.button--inverted::before,
+        .button--menu.button--inverted::after {
+            background: white;
         }
-        .horarios .tabla-body td{
-            padding:0;
+        .button--menu:hover {
+            color: #1d8873;
         }
-        .horarios .tabla-body .dos-clases div , .horarios .tabla-body p{
-            padding: 16px 0;
+        .button--menu:hover::before {
+            opacity: 1;
         }
-        .horarios td{
-            border: 1px solid rgba(0,0,0,.4);
+        .button--menu:hover::after {
+            background-color: white;
         }
+        .button--menu.button--inverted:hover::after {
+            background-color: white;
+        }
+        .button--menu:hover::after,
+        .button--menu:hover::before {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+        }
+        .titulo-horario:after{
+            border-top-width: 2px;
+        }
+
         @media only screen and (max-width:768px){
             .horarios .tabla-body div {
                 display: inline-block;
@@ -57,251 +114,88 @@
     </style>
 @endsection
 @section('content')
-    @php
-    dd($horario)
-    @endphp
+
     <section class="container">
         <div class="g-py-100">
-            <div class="row justify-content-center g-mb-70">
+            <div class="row justify-content-center g-mb-50">
                 <div class="col-lg-12">
                     <!-- Heading -->
-                    <div class="text-center">
-                        <h2 class="h1 g-color-black mb-4">Horario de luness</h2>
-                        <div class="d-inline-block g-width-70 g-height-2 g-bg-black mb-4 g-bg-primary"></div>
-                        {{--                        <p class="g-font-size-18 mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad dolorum ipsum laboriosam libero magnam maiores nemo quod similique voluptatibus!</p>--}}
+                    <div class="u-heading-v2-6--bottom g-brd-primary g-mb-20 text-center titulo-horario">
+                        <h2 class="h1 u-heading-v2__title g-mb-10 g-color-black ">Horario de Grupo</h2>
+                        <h4 class="g-font-weight-200">¿De qué curso eres?</h4>
                     </div>
                     <!-- End Heading -->
                 </div>
             </div>
-            <div class="row g-mb-30">
-                <div class="col-12 text-center px-0">
-                    ¿De que curso eres?
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 px-0">
-                    <div class="tabla horarios m-b-110">
-                        <div class="tabla-head">
-                            <table>
-                                <thead>
-                                <tr class="row100 head g-bg-primary">
-                                    <th class="columnas column1">Hora</th>
-                                    <th class="columnas column2">Lunes</th>
-                                    <th class="columnas column3">Martes</th>
-                                    <th class="columnas column4">Miércoles</th>
-                                    <th class="columnas column5">Jueves</th>
-                                    <th class="columnas column6">Viernes</th>
-                                </tr>
-                                </thead>
-                            </table>
+            <div class="row g-mb-30 justify-content-center">
+
+                <div class="content col-12">
+                    <div class="row ">
+                        <div class="text-center text-uppercase u-heading-v6-2 g-mb-20 col-12">
+                            <h2 class="h3 u-heading-v6__title">Educación Secundaria Obligatoria (ESO)</h2>
                         </div>
-                        <div class="tabla-body js-pscroll">
-                            <table>
-                                <tbody>
-                                    <tr class="row100 body">
-                                        <td data-column="hora" class="columnas column1">
-                                            <p>
-                                                8:00 - 8:55
-                                            </p>
-                                        </td>
-                                        <td data-column="lunes" class="columnas column2" >
-                                            <div class="dos-clases">
-                                                <div class="verdeclaro">
-                                                    CulturaCi.
-                                                </div>
-                                                <div class="azulclaro">
-                                                    SLE-Fra.I
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td data-column="martes" class="columnas column3 celeste">
-                                            <p>
-                                                Filosofía
-                                            </p>
-                                        </td>
-                                        <td data-column="miercoles" class="columnas column4 naranja">
-                                            <p>
-                                                Fís. y Quí.
-                                            </p>
-                                        </td>
-                                        <td data-column="jueves" class="columnas column5 naranja">
-                                            <p>
-                                                Fís. y Quí.
-                                            </p>
-                                        </td>
-                                        <td data-column="viernes" class="columnas column6 celeste">
-                                            <p>
-                                                Filosofía
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr class="row100 body">
-                                        <td data-column="hora" class="columnas column1">
-                                            <p>
-                                                8:55 - 9:50
-                                            </p>
-                                        </td>
-                                        <td data-column="lunes" class="columnas column2">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="martes" class="columnas column3">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="miercoles" class="columnas column4">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="jueves" class="columnas column5">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="viernes" class="columnas column6">
-                                            <p>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr class="row100 body">
-                                        <td data-column="hora" class="columnas column1">
-                                            <p>
-                                                9:50 - 10:45
-                                            </p>
-                                        </td>
-                                        <td data-column="lunes" class="columnas column2">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="martes" class="columnas column3">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="miercoles" class="columnas column4">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="jueves" class="columnas column5">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="viernes" class="columnas column6">
-                                            <p>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr class="row100 body">
-                                        <td data-column="hora" class="columnas column1">
-                                            <p>
-                                                10:45 - 11:15
-                                            </p>
-                                        </td>
-                                        <td data-column="lunes" class="columnas column2">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="martes" class="columnas column3">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="miercoles" class="columnas column4">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="jueves" class="columnas column5">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="viernes" class="columnas column6">
-                                            <p>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr class="row100 body">
-                                        <td data-column="hora" class="columnas column1">
-                                            <p>
-                                                11:15 - 12:10
-                                            </p>
-                                        </td>
-                                        <td data-column="lunes" class="columnas column2">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="martes" class="columnas column3">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="miercoles" class="columnas column4 " >
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="jueves" class="columnas column5">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="viernes" class="columnas column6">
-                                            <p>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr class="row100 body">
-                                        <td data-column="hora" class="columnas column1">
-                                            <p>
-                                                12:10 - 13:05
-                                            </p>
-                                        </td>
-                                        <td data-column="lunes" class="columnas column2">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="martes" class="columnas column3">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="miercoles" class="columnas column4 " >
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="jueves" class="columnas column5">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="viernes" class="columnas column6">
-                                            <p>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr class="row100 body">
-                                        <td data-column="hora" class="columnas column1">
-                                            <p>
-                                                13:05 - 14:00
-                                            </p>
-                                        </td>
-                                        <td data-column="lunes" class="columnas column2">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="martes" class="columnas column3">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="miercoles" class="columnas column4 " >
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="jueves" class="columnas column5">
-                                            <p>
-                                            </p>
-                                        </td>
-                                        <td data-column="viernes" class="columnas column6">
-                                            <p>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        @php
+                            $separador;
+                            $nivel = [];
+                            foreach($grupos as $g){
+                                $separador=preg_split("/[\s,]+/", $g->curso);
+                                if(!in_array($separador[1], $nivel)){
+                                    array_push($nivel, $separador[1]);
+                                }
+                            }
+                        @endphp
+                        <div class="box col-12 d-flex justify-content-center">
+                            @foreach($grupos as $g)
+                                @if(strstr($g->curso,'1') && strstr($g,$nivel[0]))
+                                    <a class="button button--menu button--round-s button--text-thick" href="/horario-de-grupos/grupo/{{$g->id}}">{{$g->curso}}</a>
+                                @endif
+                            @endforeach
+                        </div>
+                        <div class="box col-12 d-flex justify-content-center">
+                            @foreach($grupos as $g)
+                                @if(strstr($g->curso,'2') && strstr($g,$nivel[0]))
+                                    <a class="button button--menu button--round-s button--text-thick">{{$g->curso}}</a>
+                                @endif
+                            @endforeach
+                        </div>
+                        <div class="box col-12 d-flex justify-content-center">
+                            @foreach($grupos as $g)
+                                @if(strstr($g->curso,'3') && strstr($g,$nivel[0]))
+                                    <a class="button button--menu button--round-s button--text-thick">{{$g->curso}}</a>
+                                @endif
+                            @endforeach
+                        </div>
+                        <div class="box col-12 d-flex justify-content-center">
+                            @foreach($grupos as $g)
+                                @if(strstr($g->curso,'4') && strstr($g,$nivel[0]))
+                                    <a class="button button--menu button--round-s button--text-thick">{{$g->curso}}</a>
+                                @endif
+                            @endforeach
+                        </div>
+                        <div class="text-center text-uppercase u-heading-v6-2 g-my-20 col-12">
+                            <h2 class="h3 u-heading-v6__title">Bachillerato</h2>
+                        </div>
+                        <div class="box col-12 d-flex justify-content-center">
+                            <div class="box col-12 d-flex justify-content-center">
+                                @foreach($grupos as $g)
+                                    @if(strstr($g->curso,'1') && strstr($g,$nivel[1]))
+                                        <a class="button button--menu button--round-s button--text-thick">{{$g->curso}}</a>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="box col-12 d-flex justify-content-center">
+                            <div class="box col-12 d-flex justify-content-center">
+                                @foreach($grupos as $g)
+                                    @if(strstr($g->curso,'2') && strstr($g,$nivel[1]))
+                                        <a class="button button--menu button--round-s button--text-thick">{{$g->curso}}</a>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
