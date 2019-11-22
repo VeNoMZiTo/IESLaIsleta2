@@ -237,18 +237,6 @@
                         </a>
                     </li>
                 @endcan
-                @can('impreso_access')
-                    <li class="nav-item">
-                        <a href="{{ route("admin.impresos.index") }}" class="nav-link {{ request()->is('admin/impresos') || request()->is('admin/impresos/*') ? 'active' : '' }}">
-                            <i class="fa-fw fas fa-copy">
-
-                            </i>
-                            <p>
-                                <span>{{ trans('cruds.impreso.title') }}</span>
-                            </p>
-                        </a>
-                    </li>
-                @endcan
                 @can('alumnado_access')
                     <li class="nav-item has-treeview {{ request()->is('admin/horarios*') ? 'menu-open' : '' }} {{ request()->is('admin/grupos*') ? 'menu-open' : '' }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
@@ -281,6 +269,33 @@
                                         </i>
                                         <p>
                                             <span>{{ trans('cruds.grupo.title') }}</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcan
+                @can('secretarium_access')
+                    <li class="nav-item has-treeview {{ request()->is('admin/impresos*') ? 'menu-open' : '' }}">
+                        <a class="nav-link nav-dropdown-toggle" href="#">
+                            <i class="fa-fw far fa-list-alt">
+
+                            </i>
+                            <p>
+                                <span>{{ trans('cruds.secretarium.title') }}</span>
+                                <i class="right fa fa-fw fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            @can('impreso_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.impresos.index") }}" class="nav-link {{ request()->is('admin/impresos') || request()->is('admin/impresos/*') ? 'active' : '' }}">
+                                        <i class="fa-fw fas fa-copy">
+
+                                        </i>
+                                        <p>
+                                            <span>{{ trans('cruds.impreso.title') }}</span>
                                         </p>
                                     </a>
                                 </li>
