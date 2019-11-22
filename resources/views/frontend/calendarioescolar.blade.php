@@ -3,157 +3,14 @@
 @php
 $dia= date('j');
 $mes= date('M');
-$prueba =explode("-",$calendario[0]->fecha);
 @endphp
 @section('css')
     <link rel="stylesheet" type="text/css" href="/vendor/tooltipster-master/css/tooltipster.bundle.min.css"/>
     <link rel="stylesheet" type="text/css" href="/vendor/tooltipster-master/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min.css"/>
     <link rel="stylesheet" href="/vendor/calendar/bootstrap-year-calendar.min.css">
-    <style>
-        .fecha{
-            width: 15%;
-            text-align: left;
-            padding-left: 15px !important;
-
-        }
-        .evento{
-            width: 85%;
-            text-align: left;
-        }
-        /*CSS del calendario*/
-        .months-container{
-            display: flex !important;
-            -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .col-calendario{
-            width: 30%;
-            float:left;
-            position: relative;
-            min-height: 1px;
-        }
-        .calendar2019 .months-container .month-container:nth-child(1),
-        .calendar2019 .months-container .month-container:nth-child(2),
-        .calendar2019 .months-container .month-container:nth-child(3),
-        .calendar2019 .months-container .month-container:nth-child(4),
-        .calendar2019 .months-container .month-container:nth-child(5),
-        .calendar2019 .months-container .month-container:nth-child(6),
-        .calendar2019 .months-container .month-container:nth-child(7),
-        .calendar2019 .months-container .month-container:nth-child(8),
-        .calendar2019 .months-container .month-container:nth-child(19),
-        .calendar2019 .months-container .month-container:nth-child(20),
-        .calendar2019 .months-container .month-container:nth-child(21),
-        .calendar2019 .months-container .month-container:nth-child(22),
-        .calendar2019 .months-container .month-container:nth-child(23),
-        .calendar2019 .months-container .month-container:nth-child(24)
-        {
-            display: none;
-        }
-        .calendar2, .calendar-header{
-            display: none;
-        }
-        .calendar .month-container{
-            height: 350px;
-            padding: 10px;
-            border:1px solid rgba(29, 136, 115,0.4);
-            border-radius: 1rem;
-            margin: 10px;
-            box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.2);
-        }
-        .calendar table.month tr td .day-content{
-            padding: 10px 12px;
-        }
-        .calendar table td, .calendar table th{
-            font-size: 16px;
-        }
-        .month tr td:nth-child(6), .month tr td:nth-child(7){
-            background: lightcoral;
-            color: #555;
-        }
-        .month tr td:nth-child(6).disabled, .month tr td:nth-child(7).disabled{
-            background: transparent;
-        }
-        .calendar .calendar-header table th:hover {
-            background: transparent;
-            cursor: initial;
-        }
-        .dia-activo{
-            background: rgba(9, 9, 80,0.9) !important;
-            border: 1px solid black;
-            color: white;
-        }
-        .leyenda{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .cajacubo{
-            font-size: 14px;
-            padding:0 20px;
-        }
-        .cubo{
-            width: 30px;
-            height: 30px;
-            border-radius: .25rem;
-            box-shadow: 0 0 20px 0 rgba(0,0,0,.2);
-            margin: 0 auto;
-        }
-        .festivo{
-            background: lightcoral;
-            border: 1px solid darkred;
-        }
-        .dia-actual{
-            background: rgba(9, 9, 80,0.9);
-            border:1px solid black;
-        }
-        .libre{
-            background: lightblue;
-            border: 1px solid royalblue;
-        }
-        .padres{
-            color:red;
-            font-weight: bold;
-        }
-        .singular{
-            background: lightgreen;
-            border: 1px solid darkgreen;
-        }
-        .evaluacion{
-            background: #e4ccb8;
-            border: 1px solid burlywood;
-        }
-        @media only screen and (min-width: 1200px) {
-            .g-order-1--xl{
-                order:1;
-            }
-            .g-order-2--xl{
-                order:2;
-            }
-        }
-        @media only screen and (max-width: 1700px) {
-            .col-calendario {
-                width: 45%;
-            }
-        }
-        @media only screen and (max-width: 800px){
-            .month-container{
-                width: auto;
-            }
-        }
-        @media only screen and (max-width: 450px){
-            .container-fluid{
-                padding:0 !important;
-            }
-            .card{
-                border-radius: 0 !important;
-            }
-        }
-
-    </style>
 @endsection
 @section('content')
-    <section class="container-fluid g-px-50">
+    <section id='calendarioEscolar' class="container-fluid g-px-50">
         <div class="g-py-100">
             <div class="row justify-content-center g-mb-70">
                 <div class="col-lg-12">
@@ -219,7 +76,7 @@ $prueba =explode("-",$calendario[0]->fecha);
                     <div id="nav-7-1-default-hor-left-big-icons" class="tab-content g-pt-20">
                         <div class="tab-pane fade show active rounded u-shadow-v1-5" id="primero" role="tabpanel">
                             <!-- Hover Rows -->
-                            <div class="card g-brd-primary rounded g-mb-30 ">
+                            <div class="card g-brd-primary g-overflow-hidden rounded g-mb-30 ">
                                 <h3 class="card-header g-bg-primary g-brd-transparent g-color-white g-font-size-16 rounded-0 mb-0">
                                     <i class="icon-communication-146 u-line-icon-pro g-mr-5"></i>
                                     Primer Trimestre
@@ -325,7 +182,7 @@ $prueba =explode("-",$calendario[0]->fecha);
                             <!-- End Hover Rows -->
                         </div>
                         <div class="tab-pane fade rounded u-shadow-v1-5" id="segundo" role="tabpanel">
-                            <div class="card g-brd-secondary rounded g-mb-30">
+                            <div class="card g-brd-secondary g-overflow-hidden rounded g-mb-30">
                                 <h3 class="card-header g-bg-secondary g-brd-transparent g-color-white g-font-size-16 rounded-0 mb-0 text-center">
                                     <i class="icon-communication-146 u-line-icon-pro g-mr-5"></i>
                                     Segundo Trimestre
@@ -351,10 +208,7 @@ $prueba =explode("-",$calendario[0]->fecha);
                                                 </tr>
                                             @endif
                                         @endforeach
-                                        <tr>
-                                            <th class="fecha">16</th>
-                                            <td class="evento">Atención a familias en horario de tarde con cita previa.</td>
-                                        </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -379,18 +233,7 @@ $prueba =explode("-",$calendario[0]->fecha);
                                                 </tr>
                                             @endif
                                         @endforeach
-                                            <tr>
-                                                <th class="fecha">11</th>
-                                                <td class="evento">Atención a familias en horario de tarde.</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="fecha">21</th>
-                                                <td class="evento">Fiesta de carnaval.</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="fecha">24 y 26</th>
-                                                <td class="evento">Días de libre disposición.</td>
-                                            </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -415,25 +258,14 @@ $prueba =explode("-",$calendario[0]->fecha);
                                                 </tr>
                                             @endif
                                         @endforeach
-                                            <tr>
-                                                <th class="fecha">4</th>
-                                                <td class="evento">Atención a familias con cita previa en horario de tarde.</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="fecha">13</th>
-                                                <td class="evento">Fin del segundo trimestre.</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="fecha">23</th>
-                                                <td class="evento">Entrega de notas y visita de padres/madres en horario de tarde.</td>
-                                            </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                         <div class="tab-pane fade rounded u-shadow-v1-5" id="tercero" role="tabpanel">
-                            <div class="card g-brd-primary rounded g-mb-30">
+                            <div class="card g-brd-primary g-overflow-hidden rounded g-mb-30">
                                 <h3 class="card-header g-bg-primary g-brd-transparent g-color-white g-font-size-16 rounded-0 mb-0 text-right">
                                     <i class="icon-communication-146 u-line-icon-pro g-mr-5"></i>
                                     Tercer Trimestre

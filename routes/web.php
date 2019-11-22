@@ -17,8 +17,8 @@ Route::get('/noticia/{id}-{titulo}','IndexController@getNoticia');
 Route::get('/actividad/{id}-{titulo}','IndexController@getActividad');
 /*Alumnado*/
 Route::get('/junta-de-delegados', 'IndexController@getDepartamentos');
-Route::get('/horario-de-grupos', 'TablasController@getGrupo');
-Route::get('/horario-de-grupos/grupo/{id}', 'TablasController@getHorario');
+Route::get('/grupos', 'TablasController@getGrupo');
+Route::get('/grupo/{id}', 'TablasController@getHorario');
 /*Secretaría*/
 Route::get('/impresos', 'IndexController@getImpreso');
 Route::get('/certificados', 'IndexController@getDepartamentos');
@@ -37,7 +37,7 @@ Route::get('/home', function () {
 Auth::routes(['register' => false]);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeUpgradeController@index')->name('home');
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
     Route::resource('permissions', 'PermissionsController');
@@ -100,8 +100,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('impresos', 'ImpresosController');
 
     // Horarios
-    Route::delete('horarios/destroy', 'HorarioController@massDestroy')->name('horarios.massDestroy');
-    Route::resource('horarios', 'HorarioController');
+    Route::delete('horarios/destroy', 'HorarioUpgradeController@massDestroy')->name('horarios.massDestroy');
+    Route::resource('horarios', 'HorarioUpgradeController');
 
     // Grupos
     Route::delete('grupos/destroy', 'GruposController@massDestroy')->name('grupos.massDestroy');

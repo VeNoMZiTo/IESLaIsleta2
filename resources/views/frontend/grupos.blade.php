@@ -13,12 +13,12 @@
             padding: 1em 2em;
             border: none;
             background: none;
-            color: inherit;
             vertical-align: middle;
             position: relative;
             z-index: 1;
             -webkit-backface-visibility: hidden;
             -moz-osx-font-smoothing: grayscale;
+            text-align: center;
 
         }
         .button:focus {
@@ -37,6 +37,11 @@
             border-radius: .25rem;
             font-size: 16px;
             box-shadow: 0 0 20px 0 rgba(0,0,0,.2);
+            text-decoration: none;
+
+        }
+        .button--menu:hover{
+            text-decoration: none;
 
         }
         .button--menu.button--inverted {
@@ -114,7 +119,6 @@
     </style>
 @endsection
 @section('content')
-
     <section class="container">
         <div class="g-py-100">
             <div class="row justify-content-center g-mb-50">
@@ -147,28 +151,28 @@
                         <div class="box col-12 d-flex justify-content-center">
                             @foreach($grupos as $g)
                                 @if(strstr($g->curso,'1') && strstr($g,$nivel[0]))
-                                    <a class="button button--menu button--round-s button--text-thick" href="/horario-de-grupos/grupo/{{$g->id}}">{{$g->curso}}</a>
+                                    <a class="button button--menu button--round-s button--text-thick" href="/grupo/{{$g->id}}">{{$g->curso}}</a>
                                 @endif
                             @endforeach
                         </div>
                         <div class="box col-12 d-flex justify-content-center">
                             @foreach($grupos as $g)
                                 @if(strstr($g->curso,'2') && strstr($g,$nivel[0]))
-                                    <a class="button button--menu button--round-s button--text-thick">{{$g->curso}}</a>
+                                    <a class="button button--menu button--round-s button--text-thick" href="/grupo/{{$g->id}}">{{$g->curso}}</a>
                                 @endif
                             @endforeach
                         </div>
                         <div class="box col-12 d-flex justify-content-center">
                             @foreach($grupos as $g)
                                 @if(strstr($g->curso,'3') && strstr($g,$nivel[0]))
-                                    <a class="button button--menu button--round-s button--text-thick">{{$g->curso}}</a>
+                                    <a class="button button--menu button--round-s button--text-thick" href="/grupo/{{$g->id}}">{{$g->curso}}</a>
                                 @endif
                             @endforeach
                         </div>
                         <div class="box col-12 d-flex justify-content-center">
                             @foreach($grupos as $g)
                                 @if(strstr($g->curso,'4') && strstr($g,$nivel[0]))
-                                    <a class="button button--menu button--round-s button--text-thick">{{$g->curso}}</a>
+                                    <a class="button button--menu button--round-s button--text-thick" href="/grupo/{{$g->id}}">{{$g->curso}}</a>
                                 @endif
                             @endforeach
                         </div>
@@ -179,7 +183,7 @@
                             <div class="box col-12 d-flex justify-content-center">
                                 @foreach($grupos as $g)
                                     @if(strstr($g->curso,'1') && strstr($g,$nivel[1]))
-                                        <a class="button button--menu button--round-s button--text-thick">{{$g->curso}}</a>
+                                        <a class="button button--menu button--round-s button--text-thick" href="/grupo/{{$g->id}}">{{$g->curso}}</a>
                                     @endif
                                 @endforeach
                             </div>
@@ -188,7 +192,7 @@
                             <div class="box col-12 d-flex justify-content-center">
                                 @foreach($grupos as $g)
                                     @if(strstr($g->curso,'2') && strstr($g,$nivel[1]))
-                                        <a class="button button--menu button--round-s button--text-thick">{{$g->curso}}</a>
+                                        <a class="button button--menu button--round-s button--text-thick" href="/grupo/{{$g->id}}">{{$g->curso}}</a>
                                     @endif
                                 @endforeach
                             </div>

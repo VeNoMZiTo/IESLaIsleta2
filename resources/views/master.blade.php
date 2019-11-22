@@ -399,7 +399,7 @@
                                                         <a href="/junta-de-delegados">Junta de delegados</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/horario-de-grupos">Horario de grupos</a>
+                                                        <a href="/grupos">Horario de grupos</a>
                                                     </li>
                                                     <li>
                                                         <a href="/nodisponible">Redes educativas</a>
@@ -411,7 +411,8 @@
                                                         <a id="nav-link-2" class="nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-2">APP Pincel Alumnado y Familias
                                                         </a>
                                                         <!-- Submenu (level 2) -->
-                                                        <ul class="hs-sub-menu list-unstyled g-brd-top g-brd-primary g-brd-top-2 g-min-width-200 g-my-2 animated" id="nav-submenu-2" aria-labelledby="nav-link-2" style="display: none;">
+                                                        <ul class="hs-sub-men
+                                                        u list-unstyled g-brd-top g-brd-primary g-brd-top-2 g-min-width-200 g-my-2 animated" id="nav-submenu-2" aria-labelledby="nav-link-2" style="display: none;">
                                                             <li class="dropdown-item">
                                                                 <a class="nav-link" href="https://www.gobiernodecanarias.org/educacion/9/PEKWEB/Ekade/Account/LogOn?ReturnUrl=%2Feducacion%2FPEKWEB%2FEkade%2F">Acceso</a>
                                                             </li>
@@ -658,7 +659,7 @@
                                     <i class="fa fa-phone"></i>
                                   </span>
                                     </div>
-                                    <p class="mb-0"><a href='tel: 928 468 550'>928 468 550 </a><br> 928 999 999</p>
+                                    <p class="mb-0 d-flex"><a href='tel: 928 468 550' class="d-flex align-items-center">928 468 550 </a></p>
                                 </div>
                                 <!-- End Phone -->
 
@@ -669,10 +670,8 @@
                                     <i class="fa fa-globe"></i>
                                   </span>
                                     </div>
-                                    <p class="mb-0">
-                                        <a class="" href="info@ieslaisleta.net">info@ieslaisleta.net</a>
-                                        <br>
-                                        <a class="" href="#">Segundo correo</a>
+                                    <p class="mb-0 d-flex">
+                                        <a class="d-flex align-items-center" href="info@ieslaisleta.net">info@ieslaisleta.net</a>
                                     </p>
                                 </div>
                                 <!-- End Email and Website -->

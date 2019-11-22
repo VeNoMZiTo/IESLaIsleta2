@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="vendor/revolution-slider/revolution/css/layers.css">
     <link rel="stylesheet" href="vendor/revolution-slider/revolution/css/navigation.css">
 @endsection
-@php
-@endphp
+
 @section('slider')
+
     <section class="s-slider">
         <div id="rev_slider_486_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container u-shadow-v1-5"
              data-alias="news-gallery36"

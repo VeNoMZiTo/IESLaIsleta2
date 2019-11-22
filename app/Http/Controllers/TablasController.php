@@ -58,7 +58,7 @@ class TablasController extends Controller
         $grupos = Grupo::all();
         $horario = Horario::firstOrFail()->where('curso_id',$id)->get();
         $departamentos = Departamento::all();
-        return view('frontend.grupo',array(
+        return view('frontend.horariodegrupo',array(
             'grupos' =>$grupos,
             'horario' => $horario,
             'departamentos' => $departamentos
@@ -67,7 +67,7 @@ class TablasController extends Controller
     public function getGrupo(){
         $grupos = Grupo::all();
         $departamentos = Departamento::all();
-        return view('frontend.horariodegrupos',array(
+        return view('frontend.grupos',array(
             'grupos' =>$grupos,
             'departamentos' => $departamentos
         ));

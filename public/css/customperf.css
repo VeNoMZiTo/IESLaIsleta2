@@ -51,6 +51,10 @@ body{
             linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
     opacity:.8;
 }
+/*Colores*/
+.g-brd-primary{
+    border-color:#1d8873;
+}
 /*Navbar*/
 
 nav{
@@ -659,6 +663,123 @@ tr.body *, tr.body{
         stroke-dashoffset: 1500;
     }
 }
+/*Calendario Escolar*/
+.fecha{
+    width: 15%;
+    text-align: left;
+    padding-left: 15px !important;
+
+}
+.evento{
+    width: 85%;
+    text-align: left;
+}
+/*CSS del calendario*/
+.months-container{
+    display: flex !important;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.col-calendario{
+    width: 30%;
+    float:left;
+    position: relative;
+    min-height: 1px;
+}
+.calendar2019 .months-container .month-container:nth-child(1),
+.calendar2019 .months-container .month-container:nth-child(2),
+.calendar2019 .months-container .month-container:nth-child(3),
+.calendar2019 .months-container .month-container:nth-child(4),
+.calendar2019 .months-container .month-container:nth-child(5),
+.calendar2019 .months-container .month-container:nth-child(6),
+.calendar2019 .months-container .month-container:nth-child(7),
+.calendar2019 .months-container .month-container:nth-child(8),
+.calendar2019 .months-container .month-container:nth-child(19),
+.calendar2019 .months-container .month-container:nth-child(20),
+.calendar2019 .months-container .month-container:nth-child(21),
+.calendar2019 .months-container .month-container:nth-child(22),
+.calendar2019 .months-container .month-container:nth-child(23),
+.calendar2019 .months-container .month-container:nth-child(24)
+{
+    display: none;
+}
+.calendar2, .calendar-header{
+    display: none;
+}
+.calendar .month-container{
+    height: 350px;
+    padding: 10px;
+    border:1px solid rgba(29, 136, 115,0.4);
+    border-radius: 1rem;
+    margin: 10px;
+    box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.2);
+}
+.calendar table.month tr td .day-content{
+    padding: 10px 12px;
+}
+.calendar table td, .calendar table th{
+    font-size: 16px;
+}
+.month tr td:nth-child(6), .month tr td:nth-child(7){
+    background: lightcoral;
+    color: #555;
+}
+.month tr td:nth-child(6).disabled, .month tr td:nth-child(7).disabled{
+    background: transparent;
+}
+.calendar .calendar-header table th:hover {
+    background: transparent;
+    cursor: initial;
+}
+.dia-activo{
+    background: rgba(9, 9, 80,0.9) !important;
+    border: 1px solid black;
+    color: white;
+}
+.leyenda{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cajacubo{
+    font-size: 14px;
+    padding:0 20px;
+}
+.cubo{
+    width: 30px;
+    height: 30px;
+    border-radius: .25rem;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,.2);
+    margin: 0 auto;
+}
+.festivo{
+    background: lightcoral;
+    border: 1px solid darkred;
+}
+.dia-actual{
+    background: rgba(9, 9, 80,0.9);
+    border:1px solid black;
+}
+.libre{
+    background: lightblue;
+    border: 1px solid royalblue;
+}
+.padres{
+    color:red;
+    font-weight: bold;
+}
+.singular{
+    background: lightgreen;
+    border: 1px solid darkgreen;
+}
+.evaluacion{
+    background: #e4ccb8;
+    border: 1px solid burlywood;
+}
+.year-title{
+    display:none;
+}
 @media only screen and (max-width: 1600px) and (min-width: 1200px){
     #actividades{
         width: 100%;
@@ -720,6 +841,7 @@ tr.body *, tr.body{
         margin-left: 10px;
     }
 }
+
 @media only screen and (min-width: 1240px) {
     .s-slider {
         height: 500px;
@@ -729,6 +851,14 @@ tr.body *, tr.body{
     .js-slide img{
         height: 165px;
         object-fit: cover;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .g-order-1--xl{
+        order:1;
+    }
+    .g-order-2--xl{
+        order:2;
     }
 }
 @media only screen and (min-width: 1024px) and (max-width: 1239px) {
@@ -773,6 +903,11 @@ tr.body *, tr.body{
         display: none;
     }
 
+}
+@media only screen and (max-width: 1700px) {
+    .col-calendario {
+        width: 45%;
+    }
 }
 @media only screen and (max-width: 1500px) {
     #zona-contenido #topnavbarfirst .container-fluid .row{
@@ -876,6 +1011,11 @@ tr.body *, tr.body{
     .fotoprincipal{
         height:350px;
         width: 100%;
+    }
+}
+@media only screen and (max-width: 800px){
+    .month-container{
+        width: auto;
     }
 }
 @media only screen and (max-width: 768px){
@@ -1036,10 +1176,218 @@ tr.body *, tr.body{
         margin-top: 10px !important;
         margin-bottom: 20px !important;
     }
+    #calendarioEscolar.container-fluid{
+        padding:0 !important;
+    }
+    #calendarioEscolar .card{
+        border-radius: 0 !important;
+    }
 }
 @media only screen and (max-width: 380px) {
     #topnavbarfirst strong span{
         font-size:10px !important;
     }
 
+}
+
+/**************************************** ADMIN ********************************************/
+/*Colores*/
+.g-color-black--opacity_8{
+    color:rgba(0,0,0,.8);
+}
+.g-bg-white{
+    background: white;
+}
+.g-color-white--opacity_9{
+    color:rgba(255,255,255,.9);
+}
+#admin nav.main-header{
+    background: #427787 !important;
+}
+#admin .content-wrapper .content > .row:first-child{
+    text-align: center;
+}
+
+#admin .content-wrapper .content > .row > div > a{
+    font-size: 35px;
+    background: #1d8873;
+    border-color:#1d8873;
+    color:white;
+}
+#admin .content-wrapper .content > .row > div > a:hover{
+    background: white;
+    color:#1d8873;
+}
+#admin .content-wrapper .content > .row a:before {
+    content: "\f067";
+    font-family: "Font Awesome 5 Free";
+    font-weight:900;
+    margin-right: 10px;
+}
+#admin nav.main-header .navbar-nav .nav-link {
+    color:white;
+}
+.dataTables_length, .dt-buttons, .dataTables_filter{
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.dt-buttons a.btn{
+    border-radius: .25rem;
+    box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.2);
+    transition: .2s;
+}
+.dt-buttons a.btn:hover{
+    box-shadow:none;
+}
+.dataTables_length, .dataTables_length > label, .dt-buttons, .dataTables_filter, .dataTables_filter > label{
+    margin-bottom: 0;
+}
+#admin aside .has-treeview ul{
+    padding-left: 20px;
+}
+#admin .has-treeview li, #admin .has-treeview a, #admin .has-treeview span, #admin .has-treeview i{
+    transition: .2s;
+}
+#admin aside.main-sidebar .sidebar span{
+    font-size: 14px;
+}
+#admin .has-treeview.menu-open .nav-dropdown-toggle{
+    background:#1d8873;
+}
+#admin .has-treeview.menu-open .active, #admin .nav-item .active{
+    background:rgba(0,0,0,.2);
+}
+
+#admin .has-treeview.menu-open .nav-dropdown-toggle span, #admin .has-treeview.menu-open .nav-dropdown-toggle i{
+    color:white
+}
+#admin aside.main-sidebar .sidebar span, #admin aside.main-sidebar .sidebar i{
+    color:rgba(0,0,0,.8);
+}
+
+#admin aside.main-sidebar{
+    overflow-x: hidden;
+    background: rgba(255,255,255,1);
+}
+
+.cubo-color{
+    width: 150px;
+    border:1px solid rgba(0,0,0,.2);
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+.cubo-top{
+    height: 100px;
+    box-shadow: 0 10px 6px 0px rgba(0, 0, 0, 0.2);
+    transition: .2s;
+}
+.cubo-bot{
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+    color:rgba(50,50,50,1);
+}
+.caja-colores .col-2{
+    margin-bottom: 20px;
+}
+.caja-colores .col-2:hover .cubo-top{
+    opacity: .5;
+    cursor: pointer;
+}
+/*Panel previo del color*/
+#preview-color{
+    background-color: white;
+    width: 300px;
+    border-radius: 0.25rem;
+    border: 1px solid
+    rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 20px 0;
+    padding: 5px;
+    text-align: center;
+    height: 100%;
+    display: grid;
+    justify-content: center;
+}
+#preview-color span{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+#preview-color .oscuro{
+    color:black;
+}
+#preview-color .normal{
+    color:lightgrey;
+}
+#preview-color .claro{
+    color:white;
+}
+/*Botón de elegir color*/
+.panel, .caja-boton-color , .caja-preview-color{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+#bgcolor-button{
+    background: white !important;
+    color:rgba(50,50,50,1) !important;
+    border: 1px solid #1d8873;
+    padding: 20px;
+    font-size: 22px;
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 20px 0;
+    cursor: pointer;
+
+}
+/*Tabla de ajuste*/
+.tabla-color{
+    border: 1px solid rgba(0,0,0,.2);
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 20px 0;
+    border-radius: .25rem;
+}
+.tabla-color caption{
+    caption-side:top;
+    text-align: center;
+    color:black;
+}
+.tabla-color th, .tabla-color td{
+    padding: 15px;
+}
+.tabla-color input{
+    padding: 5px;
+    border-radius: .25rem;
+    border: 1px solid rgba(0,0,0,.2);
+}
+/*Titulo*/
+.g-height-20 {
+    height: 20px !important;
+}
+.g-brd-primary {
+    border-color: #1d8873;
+}
+.titulo-color {
+    position: relative;
+    display: inline-block;
+}
+.text-center .titulo-color::before {
+    left: -3.92857rem;
+}
+.titulo-color::after {
+    right: -3.92857rem;
+}
+.titulo-color::after, .text-center .titulo-color::before, .text-right .titulo-color::before {
+    content: "";
+    position: absolute;
+    top: 52%;
+    display: inline-block;
+    width: 2.85714rem;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-color: inherit;
+}
+.fa-paint-brush{
+    color:#1d8873;
 }
