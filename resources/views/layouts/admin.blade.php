@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Panel de Control | IES La Isleta</title>
-    <link rel="shortcut icon" href="/img/newlogos/png/icon.png" sizes="16x16">
+    <title>{{ trans('panel.site_title') }}</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" />
     <link href="{{ asset('css/adminltev3.css') }}" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet" />
@@ -21,11 +20,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/customperf.css">
     @yield('styles')
 </head>
 
-<body id='admin' class="sidebar-mini layout-fixed" style="height: auto;">
+<body class="sidebar-mini layout-fixed" style="height: auto;">
     <div class="wrapper">
         <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
             <!-- Left navbar links -->
@@ -34,14 +32,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
                 </li>
             </ul>
-            <div class="user-panel d-flex align-items-center justify-content-center ml-auto">
-                <div class="image">
-                    <i class="img-circle elevation-2 fa fa-user g-color-black--opacity_8 p-2 g-bg-white"></i>
-                </div>
-                <div class="info">
-                    <span href="#" class="d-block g-color-white--opacity_9">{{$prueba->user()->name}}</span>
-                </div>
-            </div>
+
             <!-- Right navbar links -->
             @if(count(config('panel.available_languages', [])) > 1)
                 <ul class="navbar-nav ml-auto">
@@ -117,7 +108,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
-    <script src="{{ asset('js/customperfect.js') }}"></script>
     <script>
         $(function() {
   let copyButtonTrans = '{{ trans('global.datatables.copy') }}'
@@ -220,8 +210,6 @@
 
     </script>
     @yield('scripts')
-    @section('js')
-    @show
 </body>
 
 </html>
