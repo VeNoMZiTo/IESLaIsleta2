@@ -1201,6 +1201,55 @@ tr.body *, tr.body{
 .g-color-white--opacity_9{
     color:rgba(255,255,255,.9);
 }
+#admin .sidebar{
+    padding: 0;
+}
+#admin aside.main-sidebar{
+    min-height: auto !important;
+}
+#admin .sidebar nav::-webkit-scrollbar-thumb {
+    background: #cdcdcd;
+    -webkit-border-radius: 1ex;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+#admin .sidebar nav::-webkit-scrollbar {
+    height: 12px;
+    width: 5px;
+    background: #f0f0f0;
+    border-radius: .25rem;
+}
+#admin .sidebar nav{
+    max-height: 650px;
+    overflow-y: auto;
+    scrollbar-width:thin;
+}
+.nav-sidebar{
+    position: initial;
+}
+#admin .nav-sidebar > li{
+    padding: 0 10px;
+}
+#admin .nav-sidebar > li:last-child{
+    padding: 0;
+    background: #427787;
+    position: absolute;
+    bottom: 0;
+    height: 125px;
+    width: 100%;
+}
+#admin .nav-sidebar > li:last-child a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#efecto-salir{
+    position: absolute;
+    top: -15px;
+    height: 50px;
+    transform: rotate(180deg);
+}
 #admin nav.main-header{
     background: #427787 !important;
 }
@@ -1262,10 +1311,15 @@ tr.body *, tr.body{
 #admin .has-treeview.menu-open .nav-dropdown-toggle span, #admin .has-treeview.menu-open .nav-dropdown-toggle i{
     color:white
 }
+/*General de la lateral*/
 #admin aside.main-sidebar .sidebar span, #admin aside.main-sidebar .sidebar i{
     color:rgba(0,0,0,.8);
 }
-
+/*Especifico de salir*/
+#admin .nav-sidebar > li:last-child span, #admin .nav-sidebar > li:last-child i{
+    font-size: 30px;
+    color:rgba(255,255,255,.9);
+}
 #admin aside.main-sidebar{
     overflow-x: hidden;
     background: rgba(255,255,255,1);
@@ -1390,4 +1444,24 @@ tr.body *, tr.body{
 }
 .fa-paint-brush{
     color:#1d8873;
+}
+@media only screen and (max-height:900px) and (min-height: 851px){
+    #admin .sidebar nav{
+        max-height: 600px;
+    }
+}
+@media only screen and (max-height:850px) and (min-height: 801px){
+    #admin .sidebar nav{
+        max-height: 550px;
+    }
+}
+@media only screen and (max-height:800px) and (min-height: 701px){
+    #admin .sidebar nav{
+        max-height: 500px;
+    }
+}
+@media only screen and (max-height:700px){
+    #admin .sidebar nav{
+        max-height: 400px;
+    }
 }
