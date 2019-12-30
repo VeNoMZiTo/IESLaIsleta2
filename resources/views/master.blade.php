@@ -390,11 +390,10 @@
                                                 <!-- End Submenu -->
                                             </li>
                                             <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-20--xl g-mb-5 g-mb-0--lg">
-                                                <a href="#" class="nav-link g-font-size-16--lg g-font-size-15" id="nav-link-1" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-1">Alumnado
-
+                                                <a href="#" class="nav-link g-font-size-16--lg g-font-size-15" id="nav-link-1-alumnos" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-1-alumnos">Alumnado
                                                 </a>
                                                 <!-- Submenu -->
-                                                <ul class="hs-sub-menu list-unstyled " id="nav-submenu-1" aria-labelledby="nav-link-1">
+                                                <ul class="hs-sub-menu list-unstyled " id="nav-submenu-1-alumnos" aria-labelledby="nav-link-1-alumnos">
                                                     <li>
                                                         <a href="/junta-de-delegados">Junta de delegados</a>
                                                     </li>
@@ -408,11 +407,10 @@
                                                         <a href="/nodisponible">Proyectos del centro</a>
                                                     </li>
                                                     <li class="dropdown-item hs-has-sub-menu">
-                                                        <a id="nav-link-2" class="nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-2">APP Pincel Alumnado y Familias
+                                                        <a id="nav-link-2-alumnos" class="nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-2-alumnos">APP Pincel Alumnado y Familias
                                                         </a>
                                                         <!-- Submenu (level 2) -->
-                                                        <ul class="hs-sub-men
-                                                        u list-unstyled g-brd-top g-brd-primary g-brd-top-2 g-min-width-200 g-my-2 animated" id="nav-submenu-2" aria-labelledby="nav-link-2" style="display: none;">
+                                                        <ul class="hs-sub-menu list-unstyled g-brd-top g-brd-primary g-brd-top-2 g-min-width-200 g-my-2 animated" id="nav-submenu-2-alumnos" aria-labelledby="nav-link-2-alumnos" style="display: none;">
                                                             <li class="dropdown-item">
                                                                 <a class="nav-link" href="https://www.gobiernodecanarias.org/educacion/9/PEKWEB/Ekade/Account/LogOn?ReturnUrl=%2Feducacion%2FPEKWEB%2FEkade%2F">Acceso</a>
                                                             </li>
@@ -686,7 +684,7 @@
             <!-- Copyright Footer -->
             <footer class=" g-color-white-opacity-0_8 text-center g-py-20 adr">
                 <div class="container">
-                    <small class="g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">2019 © All Rights Reserved - <strong><a href="https://adrianrm.com/" target="_blank" style="color:inherit; text-decoration: none !important;">Adrian RM</a></strong>
+                    <small class="g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">@php echo date('Y');@endphp © Todos los Derechos Reservados - <strong><a href="https://adrianrm.com/" target="_blank" style="color:inherit; text-decoration: none !important;">Adrian RM</a></strong>
                     </small>
                 </div>
             </footer>
