@@ -199,7 +199,7 @@
                     </li>
                 @endcan
                 @can('familium_access')
-                    <li class="nav-item has-treeview {{ request()->is('admin/tutoria*') ? 'menu-open' : '' }} {{ request()->is('admin/ampas*') ? 'menu-open' : '' }} {{ request()->is('admin/documentos*') ? 'menu-open' : '' }}">
+                    <li class="nav-item has-treeview {{ request()->is('admin/tutoria*') ? 'menu-open' : '' }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa-fw fas fa-users">
 
@@ -218,30 +218,6 @@
                                         </i>
                                         <p>
                                             <span>{{ trans('cruds.tutorium.title') }}</span>
-                                        </p>
-                                    </a>
-                                </li>
-                            @endcan
-                            @can('ampa_access')
-                                <li class="nav-item">
-                                    <a href="{{ route("admin.ampas.index") }}" class="nav-link {{ request()->is('admin/ampas') || request()->is('admin/ampas/*') ? 'active' : '' }}">
-                                        <i class="fa-fw fas fa-clipboard-list">
-
-                                        </i>
-                                        <p>
-                                            <span>{{ trans('cruds.ampa.title') }}</span>
-                                        </p>
-                                    </a>
-                                </li>
-                            @endcan
-                            @can('documento_access')
-                                <li class="nav-item">
-                                    <a href="{{ route("admin.documentos.index") }}" class="nav-link {{ request()->is('admin/documentos') || request()->is('admin/documentos/*') ? 'active' : '' }}">
-                                        <i class="fa-fw fas fa-copy">
-
-                                        </i>
-                                        <p>
-                                            <span>{{ trans('cruds.documento.title') }}</span>
                                         </p>
                                     </a>
                                 </li>
@@ -289,7 +265,7 @@
                     </li>
                 @endcan
                 @can('secretarium_access')
-                    <li class="nav-item has-treeview {{ request()->is('admin/impresos*') ? 'menu-open' : '' }} {{ request()->is('admin/informacions*') ? 'menu-open' : '' }}">
+                    <li class="nav-item has-treeview {{ request()->is('admin/impresos*') ? 'menu-open' : '' }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa-fw far fa-list-alt">
 
@@ -308,18 +284,6 @@
                                         </i>
                                         <p>
                                             <span>{{ trans('cruds.impreso.title') }}</span>
-                                        </p>
-                                    </a>
-                                </li>
-                            @endcan
-                            @can('informacion_access')
-                                <li class="nav-item">
-                                    <a href="{{ route("admin.informacions.index") }}" class="nav-link {{ request()->is('admin/informacions') || request()->is('admin/informacions/*') ? 'active' : '' }}">
-                                        <i class="fa-fw fab fa-adn">
-
-                                        </i>
-                                        <p>
-                                            <span>{{ trans('cruds.informacion.title') }}</span>
                                         </p>
                                     </a>
                                 </li>

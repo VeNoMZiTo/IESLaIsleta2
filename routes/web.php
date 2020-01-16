@@ -87,22 +87,4 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Grupos
     Route::delete('grupos/destroy', 'GruposController@massDestroy')->name('grupos.massDestroy');
     Route::resource('grupos', 'GruposController');
-
-    // Informacions
-    Route::delete('informacions/destroy', 'InformacionController@massDestroy')->name('informacions.massDestroy');
-    Route::post('informacions/media', 'InformacionController@storeMedia')->name('informacions.storeMedia');
-    Route::post('informacions/ckmedia', 'InformacionController@storeCKEditorImages')->name('informacions.storeCKEditorImages');
-    Route::resource('informacions', 'InformacionController');
-
-    // Ampas
-    Route::delete('ampas/destroy', 'AmpaController@massDestroy')->name('ampas.massDestroy');
-    Route::post('ampas/media', 'AmpaController@storeMedia')->name('ampas.storeMedia');
-    Route::post('ampas/ckmedia', 'AmpaController@storeCKEditorImages')->name('ampas.storeCKEditorImages');
-    Route::resource('ampas', 'AmpaController');
-
-    // Documentos
-    Route::delete('documentos/destroy', 'DocumentosController@massDestroy')->name('documentos.massDestroy');
-    Route::post('documentos/media', 'DocumentosController@storeMedia')->name('documentos.storeMedia');
-    Route::post('documentos/ckmedia', 'DocumentosController@storeCKEditorImages')->name('documentos.storeCKEditorImages');
-    Route::resource('documentos', 'DocumentosController');
 });

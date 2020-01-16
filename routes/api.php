@@ -53,16 +53,4 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Grupos
     Route::apiResource('grupos', 'GruposApiController');
-
-    // Informacions
-    Route::post('informacions/media', 'InformacionApiController@storeMedia')->name('informacions.storeMedia');
-    Route::apiResource('informacions', 'InformacionApiController');
-
-    // Ampas
-    Route::post('ampas/media', 'AmpaApiController@storeMedia')->name('ampas.storeMedia');
-    Route::apiResource('ampas', 'AmpaApiController');
-
-    // Documentos
-    Route::post('documentos/media', 'DocumentosApiController@storeMedia')->name('documentos.storeMedia');
-    Route::apiResource('documentos', 'DocumentosApiController');
 });
