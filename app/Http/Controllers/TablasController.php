@@ -59,11 +59,14 @@ class TablasController extends Controller
         ));
     }
     public function getCalendario(){
-        $calendario = Calendario::all();
+        $calendario = Calendario::all()->where('fecha')->sortBy('fecha');
         $departamentos = Departamento::all();
+        $descargar = Descargar::all()->first();
+
         return view('frontend.calendarioescolar',array(
             'calendario' => $calendario,
-            'departamentos' => $departamentos
+            'departamentos' => $departamentos,
+            'descargar'=>$descargar
         ));
     }
     public function getHorario(Request $request, $id){

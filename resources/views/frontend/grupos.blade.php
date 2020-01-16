@@ -138,6 +138,7 @@
                         <div class="text-center text-uppercase u-heading-v6-2 g-mb-20 col-12">
                             <h2 class="h3 u-heading-v6__title">Educación Secundaria Obligatoria (ESO)</h2>
                         </div>
+
                         @php
                             $separador;
                             $nivel = [];

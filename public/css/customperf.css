@@ -819,6 +819,10 @@ tr.body *, tr.body{
     border-top-left-radius: .25rem;
     border-bottom-left-radius: .25rem;
 }
+/*Calendario*/
+.js-tabs-mobile-control{
+    border-color:#1d8873;
+}
 @media only screen and (max-width: 1600px) and (min-width: 1200px){
     #actividades{
         width: 100%;
@@ -1207,7 +1211,15 @@ tr.body *, tr.body{
         margin-top: 10px;
         display: block;
     }
-
+    .CajaArchivosCalendario{
+        display: block !important;
+    }
+    .CajaArchivosCalendario a{
+        display: block;
+    }
+    .CajaArchivosCalendario a{
+        margin-bottom: 15px;
+    }
 }
 @media only screen and (max-width: 450px) {
     .caja-texto{

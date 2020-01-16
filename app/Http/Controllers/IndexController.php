@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Calendario;
 use App\Noticium;
 use App\Slider;
 use App\Actividade;
@@ -77,9 +78,6 @@ class IndexController extends Controller
             case 'junta-de-delegados':
                 $url='frontend.juntadelegados';
                 break;
-            case 'calendario-escolar':
-                $url='frontend.calendarioescolar';
-                break;
             case 'oferta-educativa':
                 $url='frontend.ofertaeducativa';
                 break;
@@ -107,5 +105,6 @@ class IndexController extends Controller
 
         ));
     }
+
 
 }

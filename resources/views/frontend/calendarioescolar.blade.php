@@ -57,8 +57,42 @@ $Primero=$Segundo=$Tercero=['',''];
                     <div class="calendar calendar2019"></div>
                     <div class="calendar2 calendar2020"></div>
                 </div>
+{{--                @php--}}
+{{--                    function date_sort($a, $b) {--}}
+{{--                        return strtotime($a) - strtotime($b);--}}
+{{--                    }--}}
+{{--                    usort($prueba, "date_sort");--}}
+{{--                    dd($prueba[0]->fecha)--}}
+{{--                @endphp                --}}
                 <div class="col-12 col-md-8 col-xl-4 g-order-1 g-order-2--xl">
                     <!-- Nav tabs -->
+                    @if(!empty($descargar->calescolar) || !empty($descargar->calpadres))
+                    <div>
+                        <div class="g-mb-20 text-center">
+                            <h4 class="text-center g-mb-20">Descarga el calendario</h4>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center CajaArchivosCalendario g-mb-20">
+                            @if(!empty($descargar->calescolar))
+                            <a href="{{$descargar->calescolar->getUrl()}}" download class="btn btn-md u-btn-primary u-btn-content g-font-weight-600 g-letter-spacing-0_5 text-uppercase g-brd-2 g-mx-10 text-left">
+                                <i class="fa fa-download pull-left g-font-size-35 g-mr-10"></i>
+                                <span class="text-left">
+                                Escolar
+                                <span class="d-block g-font-size-11">Descargar</span>
+                            </span>
+                            </a>
+                            @endif
+                            @if(!empty($descargar->calpadres))
+                            <a href="{{$descargar->calpadres->getUrl()}}" download class="btn btn-md u-btn-primary u-btn-content g-font-weight-600 g-letter-spacing-0_5 text-uppercase g-brd-2 g-mx-10 text-left">
+                                <i class="fa fa-download pull-left g-font-size-35 g-mr-10"></i>
+                                <span class="text-left">
+                                Visita de Padres
+                                <span class="d-block g-font-size-11">Descargar</span>
+                            </span>
+                            </a>
+                            @endif
+                        </div>
+                    </div>
+                    @endif
                     <ul class="nav text-center nav-justified u-nav-v7-1" role="tablist" data-target="nav-7-1-default-hor-left-big-icons" data-tabs-mobile-type="slide-up-down" data-btn-classes="btn btn-md btn-block rounded-0 u-btn-outline-lightgray">
                         <li class="nav-item">
                             <a class="nav-link {{$Primero[0]}}" data-toggle="tab" href="#primero" role="tab">
