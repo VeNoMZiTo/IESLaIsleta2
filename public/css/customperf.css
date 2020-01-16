@@ -739,8 +739,9 @@ tr.body *, tr.body{
 }
 .leyenda{
     display: flex;
-    align-items: center;
-    justify-content: center;
+}
+.leyenda .cajacubo{
+    text-align: center;
 }
 .cajacubo{
     font-size: 14px;
@@ -779,6 +780,44 @@ tr.body *, tr.body{
 }
 .year-title{
     display:none;
+}
+.MegaMenuDepartamentos{
+    width: 50%;
+    max-width: 100%
+}
+
+.MegaMenuDepartamentos ul li a {
+    color: #777 !important;
+    padding: 0.42857rem 1.78571rem !important;
+    width: 100%;
+}
+.a-link:hover{
+    text-decoration: none;
+}
+.hs-mega-menu ul{
+    background: white !important;
+}
+/*Presentación*/
+.PresentacionCarousel .js-slide img{
+    height: 400px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.PresentacionCarousel .u-arrow-v1{
+    transition: .2s;
+}
+.PresentacionCarousel .u-arrow-v1:hover{
+    background: #1d8873 !important;
+    color:white
+}
+.PresentacionCarousel .js-prev{
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+}
+.PresentacionCarousel .js-next{
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
 }
 @media only screen and (max-width: 1600px) and (min-width: 1200px){
     #actividades{
@@ -1019,6 +1058,9 @@ tr.body *, tr.body{
     }
 }
 @media only screen and (max-width: 768px){
+    .leyenda .cajacubo{
+        margin: 15px 0 ;
+    }
     .s-slider {
         height: 375px;
     }
@@ -1181,6 +1223,9 @@ tr.body *, tr.body{
     }
     #calendarioEscolar .card{
         border-radius: 0 !important;
+    }
+    .PresentacionCarousel .js-slide img{
+        height: 300px;
     }
 }
 @media only screen and (max-width: 380px) {

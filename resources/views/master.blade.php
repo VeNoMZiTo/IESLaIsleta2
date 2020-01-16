@@ -344,7 +344,7 @@
                                                 <!-- Submenu -->
                                                 <ul class="hs-sub-menu list-unstyled " id="nav-submenu-1" aria-labelledby="nav-link-1">
                                                     <li>
-                                                        <a href="/nodisponible">Presentación</a>
+                                                        <a href="/presentacion">Presentación</a>
                                                     </li>
                                                     <li>
                                                         <a href="/equipo-directivo">Equipo directivo</a>
@@ -353,7 +353,7 @@
                                                         <a href="/equipo-docente">Equipo docente</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">Consejo escolar</a>
+                                                        <a href="/consejo-escolar">Consejo escolar</a>
                                                     </li>
                                                     <li>
                                                         <a href="/oferta-educativa">Oferta educativa</a>
@@ -374,20 +374,48 @@
                                                 <!-- Submenu -->
                                                 <!-- End Submenu -->
                                             </li>
-                                            <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-20--xl g-mb-5 g-mb-0--lg">
-                                                <a href="#" class="nav-link g-font-size-16--lg g-font-size-15" id="nav-link-1" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-1">Departamentos
+{{--                                            <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-20--xl g-mb-5 g-mb-0--lg">--}}
+{{--                                                <a href="#" class="nav-link g-font-size-16--lg g-font-size-15" id="nav-link-1" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-1">Departamentos--}}
 
+{{--                                                </a>--}}
+{{--                                                <!-- Submenu -->--}}
+{{--                                                <ul class="hs-sub-menu list-unstyled " id="nav-submenu-1" aria-labelledby="nav-link-1">--}}
+{{--                                                    <li>--}}
+{{--                                                        @foreach($departamentos as $d)--}}
+{{--                                                        <a href="/departamentos">{{$d->nombre}}</a>--}}
+{{--                                                        @endforeach--}}
+{{--                                                    </li>--}}
+
+{{--                                                </ul>--}}
+{{--                                                <!-- End Submenu -->--}}
+{{--                                            </li>--}}
+
+                                            <li class="hs-has-mega-menu nav-item g-mx-10--lg g-mx-20--xl g-mb-5 g-mb-0--lg" data-animation-in="fadeIn" data-animation-out="fadeOut" data-position="center">
+                                                <a id="mega-menu-label-1" class="nav-link g-font-size-16--lg g-font-size-15" href="#!" aria-haspopup="true" aria-expanded="false">
+                                                    Departamentos
                                                 </a>
-                                                <!-- Submenu -->
-                                                <ul class="hs-sub-menu list-unstyled " id="nav-submenu-1" aria-labelledby="nav-link-1">
-                                                    <li>
-                                                        @foreach($departamentos as $d)
-                                                        <a href="/departamentos">{{$d->nombre}}</a>
-                                                        @endforeach
-                                                    </li>
-
-                                                </ul>
-                                                <!-- End Submenu -->
+                                                <div class="hs-mega-menu u-shadow-v11 MegaMenuDepartamentos" aria-labelledby="mega-menu-label-1">
+                                                    <div class="row align-items-stretch mx-0">
+                                                        <div class="col-lg-6 px-0">
+                                                            <ul class="list-unstyled">
+                                                                @foreach($DepartamentosGeneral[0] as $col)
+                                                                    <li>
+                                                                        <a class='a-link' href="/departamentos">{{$col['nombre']}}</a>
+                                                                    </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-lg-6 g-brd-left--lg g-brd-gray-light-v5 px-0">
+                                                            <ul class="list-unstyled">
+                                                                @foreach($DepartamentosGeneral[1] as $col)
+                                                                    <li>
+                                                                        <a class='a-link' href="/departamentos">{{$col['nombre']}}</a>
+                                                                    </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </li>
                                             <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-20--xl g-mb-5 g-mb-0--lg">
                                                 <a href="#" class="nav-link g-font-size-16--lg g-font-size-15" id="nav-link-1-alumnos" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-1-alumnos">Alumnado
@@ -454,7 +482,7 @@
                                                         <a href="/tutorias">Tutorías</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">Calendario de visitas</a>
+                                                        <a href="//calendario-escolar">Calendario de visitas</a>
                                                     </li>
                                                     <li class="dropdown-item hs-has-sub-menu">
                                                         <a id="nav-link-2" class="nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-2">APP Pincel Alumnado y Familias
@@ -787,6 +815,7 @@
 </script>
 <script>
     $(document).on('ready', function () {
+
         var sheigth;
         if ($(window).width() < 990) {
             sheigth = 143;

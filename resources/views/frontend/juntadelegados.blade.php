@@ -16,13 +16,13 @@
             </div>
             <div class="row">
                 <div class="col-lg-6 g-mb-50 g-mb-0--lg">
-                    <p class="g-mb-30 g-color-gray-dark-v3">
+                    <p class="g-mb-30 g-color-gray-dark-v3 g-font-size-16 text-justify">
                         L@s delegad@s y subdelegad@s, como representantes de sus compañer@s:
                     </p>
 
                     <div class="row">
                         <div class="col-12">
-                            <ul class="list-unstyled g-color-gray-dark-v3">
+                            <ul class="list-unstyled g-color-gray-dark-v3 g-font-size-16">
                                 <li class="d-flex g-mb-10">
                                     <i class="icon-education-007 u-line-icon-pro g-color-primary align-self-center g-mr-10 g-font-size-18"></i>
                                     <div class="text-justify">

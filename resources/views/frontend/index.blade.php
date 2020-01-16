@@ -238,7 +238,7 @@
                 </div>
 
 
-                <div class="js-carousel col-12 col-lg-6"
+                <div class="js-carousel col-12 col-lg-6 carousel-noticias"
                      data-infinite="true"
                      data-slides-show="2"
                      data-slides-scroll="1"
@@ -413,6 +413,15 @@
 @section('js')
 
 <script>
+    $(document).ready(function () {
+        var CarouselItems=$('.carousel-noticias .js-slide');
+        var AlturaSlide=[];
+        for(let x=0; x<CarouselItems.length; x++){
+            AlturaSlide[x]=CarouselItems.eq(x).height();
+        }
+        var AlturaMaxima = Math.max.apply(Math, AlturaSlide);
+        CarouselItems.height(AlturaMaxima);
+    });
 
     // initialization of carousel
     var tpj = jQuery;

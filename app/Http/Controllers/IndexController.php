@@ -12,55 +12,54 @@ use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
+    public function __construct()
+    {
+        $Departamento = Departamento::all();
+        if(count($Departamento)%2!=0){
+            $contador=count($Departamento) - 1;
+        }else{
+            $contador= count($Departamento)/2;
+        }
+        view()->share('DepartamentosGeneral',[
+            '0'=>array_slice($Departamento->toArray(),0,$contador),
+            '1'=>array_slice($Departamento->toArray(),$contador,count($Departamento)),
+        ]);
+    }
     public function getIndex(){
         $slider = Slider::all();
-        $departamentos = Departamento::all();
         $actividades=Actividade::all()->take(4);
         $noticias = Noticium::orderBy('id', 'desc')->take(4)->get();
         return view('frontend.index',array(
             'slider' => $slider,
-            'departamentos' => $departamentos,
             'actividades'=> $actividades,
             'noticias'=>$noticias
         ));
     }
     public function getNoticia(Request $request, $id){
         $noticia = Noticium::find($id);
-        $departamentos = Departamento::all();
         return view('frontend.unoticias',array(
-            'noticia' => $noticia,
-            'departamentos' => $departamentos
+            'noticia' => $noticia
         ));
     }
     public function getActividad(Request $request, $id){
         $actividad = Actividade::find($id);
-        $departamentos = Departamento::all();
         return view('frontend.unoticias',array(
-            'actividad' => $actividad,
-            'departamentos' => $departamentos
-
+            'actividad' => $actividad
         ));
     }
     public function getRepertorioNoticias(){
         $noticias = Noticium::all();
-        $departamentos = Departamento::all();
         return view('frontend.noticias',array(
-            'noticias' => $noticias,
-            'departamentos' => $departamentos
-
+            'noticias' => $noticias
         ));
     }
     public function getImpreso(){
         $impreso = Impreso::all();
-        $departamentos = Departamento::all();
         return view('frontend.impresos',array(
-            'impreso' => $impreso,
-            'departamentos' => $departamentos
-
+            'impreso' => $impreso
         ));
     }
     public function getDepartamentos(Request $request){
-        $departamentos = Departamento::all();
         $destinatarioConsultas=false;
         switch ($request->path()){
             case 'nodisponible':
@@ -90,19 +89,20 @@ class IndexController extends Controller
             case 'pincel-ekade':
                 $url='frontend.pincelekade';
                 break;
+            case 'presentacion':
+                $url='frontend.presentacion';
+                break;
+            case 'consejo-escolar':
+                $url='frontend.consejoescolar';
+                break;
         }
         return view($url,array(
-            'departamentos' => $departamentos,
             'destinatarioConsultas' =>$destinatarioConsultas
-
         ));
     }
-
     public function getConsultas(Request $request, $id){
-        $departamentos = Departamento::all();
         $destinatarioConsultas = $id;
         return view('frontend.consultas',array(
-            'departamentos' => $departamentos,
             'destinatarioConsultas' => $destinatarioConsultas
 
         ));

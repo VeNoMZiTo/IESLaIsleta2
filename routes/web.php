@@ -1,6 +1,8 @@
 <?php
 Route::get('/', 'IndexController@getIndex');
 
+Route::get('/presentacion','IndexController@getDepartamentos');
+Route::get('/consejo-escolar','IndexController@getDepartamentos');
 Route::get('/equipo-directivo','TablasController@getEqDirectivo');
 Route::get('/equipo-docente','TablasController@getEqDocente');
 Route::get('/tutorias','TablasController@getTutoria');

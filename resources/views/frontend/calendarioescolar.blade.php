@@ -2,7 +2,16 @@
 @section('title','Calendario Escolar')
 @php
 $dia= date('j');
-$mes= date('M');
+$mes= date('M'); // Para el calendario
+$MesActivo= date('n'); // Para el trimestre
+$Primero=$Segundo=$Tercero=['',''];
+    if($MesActivo < 4){
+    $Segundo=['active', 'show'];
+    }else if( $MesActivo >= 4 && $MesActivo <8){
+    $Tercero=['active', 'show'];
+    }else{
+    $Primero=['active', 'show'];
+    }
 @endphp
 @section('css')
     <link rel="stylesheet" type="text/css" href="/vendor/tooltipster-master/css/tooltipster.bundle.min.css"/>
@@ -25,23 +34,23 @@ $mes= date('M');
 
                 <div class="col-12 col-xl-8 g-order-2 g-order-1--xl">
                     <h2 class="h3 g-color-gray-dark-v2 g-font-weight-700 mb-4 text-center">2019 - 2020</h2>
-                    <div class="leyenda">
-                        <div class="cajacubo">
+                    <div class="leyenda row">
+                        <div class="cajacubo col-6 col-sm-4 col-md-2">
                             <div class="cubo festivo"></div> Días no lectivos
                         </div>
-                        <div class="cajacubo">
+                        <div class="cajacubo col-6 col-sm-4 col-md-2">
                             <div class="cubo libre"></div> Días de libre disposición
                         </div>
-                        <div class="cajacubo">
+                        <div class="cajacubo col-6 col-sm-4 col-md-2">
                             <div class="cubo evaluacion"></div> Evaluaciones
                         </div>
-                        <div class="cajacubo">
+                        <div class="cajacubo col-6 col-sm-4 col-md-2">
                             <div class="cubo padres d-flex align-items-center justify-content-center">1</div> Visita de padres
                         </div>
-                        <div class="cajacubo">
+                        <div class="cajacubo col-6 col-sm-4 col-md-2">
                             <div class="cubo singular"></div> Fecha singulares
                         </div>
-                        <div class="cajacubo">
+                        <div class="cajacubo col-6 col-sm-4  col-md-2">
                             <div class="cubo dia-actual"></div> Hoy
                         </div>
                     </div>
@@ -52,19 +61,19 @@ $mes= date('M');
                     <!-- Nav tabs -->
                     <ul class="nav text-center nav-justified u-nav-v7-1" role="tablist" data-target="nav-7-1-default-hor-left-big-icons" data-tabs-mobile-type="slide-up-down" data-btn-classes="btn btn-md btn-block rounded-0 u-btn-outline-lightgray">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#primero" role="tab">
+                            <a class="nav-link {{$Primero[0]}}" data-toggle="tab" href="#primero" role="tab">
                                 <i class="icon-education-005 u-line-icon-pro d-block g-font-size-25 u-tab-line-icon-pro"></i>
                                 Primer Trimestre
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#segundo" role="tab">
+                            <a class="nav-link {{$Segundo[0]}}" data-toggle="tab" href="#segundo" role="tab">
                                 <i class="icon-education-116 u-line-icon-pro d-block g-font-size-25 u-tab-line-icon-pro"></i>
                                 Segundo Trimestre
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tercero" role="tab">
+                            <a class="nav-link  {{$Tercero[0]}}" data-toggle="tab" href="#tercero" role="tab">
                                 <i class="icon-education-199 u-line-icon-pro d-block g-font-size-25 u-tab-line-icon-pro"></i>
                                 Tercer Trimestre
                             </a>
@@ -74,7 +83,7 @@ $mes= date('M');
 
                     <!-- Tab panes -->
                     <div id="nav-7-1-default-hor-left-big-icons" class="tab-content g-pt-20">
-                        <div class="tab-pane fade show active rounded u-shadow-v1-5" id="primero" role="tabpanel">
+                        <div class="tab-pane fade {{$Primero[0]}} {{$Primero[1]}} rounded u-shadow-v1-5" id="primero" role="tabpanel">
                             <!-- Hover Rows -->
                             <div class="card g-brd-primary g-overflow-hidden rounded g-mb-30 ">
                                 <h3 class="card-header g-bg-primary g-brd-transparent g-color-white g-font-size-16 rounded-0 mb-0">
@@ -181,7 +190,7 @@ $mes= date('M');
                             </div>
                             <!-- End Hover Rows -->
                         </div>
-                        <div class="tab-pane fade rounded u-shadow-v1-5" id="segundo" role="tabpanel">
+                        <div class="tab-pane fade {{$Segundo[0]}} {{$Segundo[1]}} rounded u-shadow-v1-5" id="segundo" role="tabpanel">
                             <div class="card g-brd-secondary g-overflow-hidden rounded g-mb-30">
                                 <h3 class="card-header g-bg-secondary g-brd-transparent g-color-white g-font-size-16 rounded-0 mb-0 text-center">
                                     <i class="icon-communication-146 u-line-icon-pro g-mr-5"></i>
@@ -264,7 +273,7 @@ $mes= date('M');
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade rounded u-shadow-v1-5" id="tercero" role="tabpanel">
+                        <div class="tab-pane fade {{$Tercero[0]}} {{$Tercero[1]}} rounded u-shadow-v1-5" id="tercero" role="tabpanel">
                             <div class="card g-brd-primary g-overflow-hidden rounded g-mb-30">
                                 <h3 class="card-header g-bg-primary g-brd-transparent g-color-white g-font-size-16 rounded-0 mb-0 text-right">
                                     <i class="icon-communication-146 u-line-icon-pro g-mr-5"></i>
@@ -355,6 +364,7 @@ $mes= date('M');
     <script src="/vendor/calendar/bootstrap-year-calendar.js"></script>
     <script src="/vendor/tooltipster-master/js/tooltipster.bundle.min.js"></script>
     <script>
+
         $(function() {
             var currentYear = new Date('8/1/2019').getFullYear();
             var endyear = new Date('12/31/2019');
