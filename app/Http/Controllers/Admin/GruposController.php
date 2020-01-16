@@ -54,6 +54,8 @@ class GruposController extends Controller
     {
         abort_if(Gate::denies('grupo_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $grupo->load('cursoHorarios', 'cursoCitaPrevia', 'cursosAsginaturas');
+
         return view('admin.grupos.show', compact('grupo'));
     }
 

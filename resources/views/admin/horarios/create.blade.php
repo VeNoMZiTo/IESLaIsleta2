@@ -7,77 +7,71 @@
     </div>
 
     <div class="card-body">
-        <form action="{{ route("admin.horarios.store") }}" method="POST" enctype="multipart/form-data">
+        <form method="POST" action="{{ route("admin.horarios.store") }}" enctype="multipart/form-data">
             @csrf
-            <div class="form-group {{ $errors->has('horario') ? 'has-error' : '' }}">
-                <label for="horario">{{ trans('cruds.horario.fields.horario') }}*</label>
-                <select id="horario" name="horario" class="form-control" required>
-                    <option value="" disabled {{ old('horario', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
-                    @foreach(App\Horario::HORARIO_SELECT as $key => $label)
-                        <option value="{{ $key }}" {{ old('horario', null) === (string)$key ? 'selected' : '' }}>{{ $label }}</option>
-                    @endforeach
-                </select>
-                @if($errors->has('horario'))
-                    <p class="help-block">
-                        {{ $errors->first('horario') }}
-                    </p>
-                @endif
-            </div>
-            <div class="form-group {{ $errors->has('dia') ? 'has-error' : '' }}">
-                <label for="dia">{{ trans('cruds.horario.fields.dia') }}*</label>
-                <select id="dia" name="dia" class="form-control" required>
-                    <option value="" disabled {{ old('dia', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
-                    @foreach(App\Horario::DIA_SELECT as $key => $label)
-                        <option value="{{ $key }}" {{ old('dia', null) === (string)$key ? 'selected' : '' }}>{{ $label }}</option>
-                    @endforeach
-                </select>
-                @if($errors->has('dia'))
-                    <p class="help-block">
-                        {{ $errors->first('dia') }}
-                    </p>
-                @endif
-            </div>
-            <div class="form-group {{ $errors->has('curso_id') ? 'has-error' : '' }}">
-                <label for="curso">{{ trans('cruds.horario.fields.curso') }}*</label>
-                <select name="curso_id" id="curso" class="form-control select2" required>
+            <div class="form-group">
+                <label class="required" for="curso_id">{{ trans('cruds.horario.fields.curso') }}</label>
+                <select class="form-control select2 {{ $errors->has('curso') ? 'is-invalid' : '' }}" name="curso_id" id="curso_id" required>
                     @foreach($cursos as $id => $curso)
-                        <option value="{{ $id }}" {{ (isset($horario) && $horario->curso ? $horario->curso->id : old('curso_id')) == $id ? 'selected' : '' }}>{{ $curso }}</option>
+                        <option value="{{ $id }}" {{ old('curso_id') == $id ? 'selected' : '' }}>{{ $curso }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('curso_id'))
-                    <p class="help-block">
-                        {{ $errors->first('curso_id') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('curso_id') }}</span>
                 @endif
+                <span class="help-block">{{ trans('cruds.horario.fields.curso_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('asignatura') ? 'has-error' : '' }}">
-                <label for="asignatura">{{ trans('cruds.horario.fields.asignatura') }}*</label>
-                <input type="text" id="asignatura" name="asignatura" class="form-control" value="{{ old('asignatura', isset($horario) ? $horario->asignatura : '') }}" required>
+            <div class="form-group">
+                <label class="required">{{ trans('cruds.horario.fields.horario') }}</label>
+                <select class="form-control {{ $errors->has('horario') ? 'is-invalid' : '' }}" name="horario" id="horario" required>
+                    <option value disabled {{ old('horario', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                    @foreach(App\Horario::HORARIO_SELECT as $key => $label)
+                        <option value="{{ $key }}" {{ old('horario', '') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('horario'))
+                    <span class="text-danger">{{ $errors->first('horario') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.horario.fields.horario_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required">{{ trans('cruds.horario.fields.dia') }}</label>
+                <select class="form-control {{ $errors->has('dia') ? 'is-invalid' : '' }}" name="dia" id="dia" required>
+                    <option value disabled {{ old('dia', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                    @foreach(App\Horario::DIA_SELECT as $key => $label)
+                        <option value="{{ $key }}" {{ old('dia', '') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('dia'))
+                    <span class="text-danger">{{ $errors->first('dia') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.horario.fields.dia_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="asignatura">{{ trans('cruds.horario.fields.asignatura') }}</label>
+                <input class="form-control {{ $errors->has('asignatura') ? 'is-invalid' : '' }}" type="text" name="asignatura" id="asignatura" value="{{ old('asignatura', '') }}" required>
                 @if($errors->has('asignatura'))
-                    <p class="help-block">
-                        {{ $errors->first('asignatura') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('asignatura') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.horario.fields.asignatura_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.horario.fields.asignatura_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('color') ? 'has-error' : '' }}">
-                <label for="color">{{ trans('cruds.horario.fields.color') }}*</label>
-                <input type="text" id="color" name="color" class="form-control" value="{{ old('color', isset($horario) ? $horario->color : '') }}" required>
+            <div class="form-group">
+                <label class="required" for="color">{{ trans('cruds.horario.fields.color') }}</label>
+                <input class="form-control {{ $errors->has('color') ? 'is-invalid' : '' }}" type="text" name="color" id="color" value="{{ old('color', '') }}" required>
                 @if($errors->has('color'))
-                    <p class="help-block">
-                        {{ $errors->first('color') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('color') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.horario.fields.color_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.horario.fields.color_helper') }}</span>
             </div>
-            <div>
-                <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
+            <div class="form-group">
+                <button class="btn btn-danger" type="submit">
+                    {{ trans('global.save') }}
+                </button>
             </div>
         </form>
     </div>
 </div>
+
+
+
 @endsection

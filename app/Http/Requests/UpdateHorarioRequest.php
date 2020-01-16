@@ -19,15 +19,15 @@ class UpdateHorarioRequest extends FormRequest
     public function rules()
     {
         return [
+            'curso_id'   => [
+                'required',
+                'integer',
+            ],
             'horario'    => [
                 'required',
             ],
             'dia'        => [
                 'required',
-            ],
-            'curso_id'   => [
-                'required',
-                'integer',
             ],
             'asignatura' => [
                 'required',

@@ -26,13 +26,13 @@
                             {{ trans('cruds.horario.fields.id') }}
                         </th>
                         <th>
+                            {{ trans('cruds.horario.fields.curso') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.horario.fields.horario') }}
                         </th>
                         <th>
                             {{ trans('cruds.horario.fields.dia') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.horario.fields.curso') }}
                         </th>
                         <th>
                             {{ trans('cruds.horario.fields.asignatura') }}
@@ -55,13 +55,13 @@
                                 {{ $horario->id ?? '' }}
                             </td>
                             <td>
+                                {{ $horario->curso->curso ?? '' }}
+                            </td>
+                            <td>
                                 {{ App\Horario::HORARIO_SELECT[$horario->horario] ?? '' }}
                             </td>
                             <td>
                                 {{ App\Horario::DIA_SELECT[$horario->dia] ?? '' }}
-                            </td>
-                            <td>
-                                {{ $horario->curso->curso ?? '' }}
                             </td>
                             <td>
                                 {{ $horario->asignatura ?? '' }}
@@ -99,6 +99,9 @@
         </div>
     </div>
 </div>
+
+
+
 @endsection
 @section('scripts')
 @parent

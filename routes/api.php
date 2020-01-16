@@ -53,4 +53,10 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Grupos
     Route::apiResource('grupos', 'GruposApiController');
+
+    // Asginaturas
+    Route::apiResource('asginaturas', 'AsginaturasApiController');
+
+    // Cita Previa
+    Route::apiResource('cita-previa', 'CitaPreviaApiController');
 });

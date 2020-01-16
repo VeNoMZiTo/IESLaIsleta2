@@ -7,24 +7,25 @@
     </div>
 
     <div class="card-body">
-        <form action="{{ route("admin.grupos.store") }}" method="POST" enctype="multipart/form-data">
+        <form method="POST" action="{{ route("admin.grupos.store") }}" enctype="multipart/form-data">
             @csrf
-            <div class="form-group {{ $errors->has('curso') ? 'has-error' : '' }}">
-                <label for="curso">{{ trans('cruds.grupo.fields.curso') }}*</label>
-                <input type="text" id="curso" name="curso" class="form-control" value="{{ old('curso', isset($grupo) ? $grupo->curso : '') }}" required>
+            <div class="form-group">
+                <label class="required" for="curso">{{ trans('cruds.grupo.fields.curso') }}</label>
+                <input class="form-control {{ $errors->has('curso') ? 'is-invalid' : '' }}" type="text" name="curso" id="curso" value="{{ old('curso', '') }}" required>
                 @if($errors->has('curso'))
-                    <p class="help-block">
-                        {{ $errors->first('curso') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('curso') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.grupo.fields.curso_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.grupo.fields.curso_helper') }}</span>
             </div>
-            <div>
-                <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
+            <div class="form-group">
+                <button class="btn btn-danger" type="submit">
+                    {{ trans('global.save') }}
+                </button>
             </div>
         </form>
     </div>
 </div>
+
+
+
 @endsection

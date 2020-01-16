@@ -303,6 +303,30 @@
                         </a>
                     </li>
                 @endcan
+                @can('asginatura_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.asginaturas.index") }}" class="nav-link {{ request()->is('admin/asginaturas') || request()->is('admin/asginaturas/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-tags">
+
+                            </i>
+                            <p>
+                                <span>{{ trans('cruds.asginatura.title') }}</span>
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+                @can('cita_previum_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.cita-previa.index") }}" class="nav-link {{ request()->is('admin/cita-previa') || request()->is('admin/cita-previa/*') ? 'active' : '' }}">
+                            <i class="fa-fw far fa-calendar-check">
+
+                            </i>
+                            <p>
+                                <span>{{ trans('cruds.citaPrevium.title') }}</span>
+                            </p>
+                        </a>
+                    </li>
+                @endcan
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                         <p>
