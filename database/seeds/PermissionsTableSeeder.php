@@ -352,66 +352,6 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => '86',
                 'title' => 'grupo_access',
             ],
-            [
-                'id'    => '87',
-                'title' => 'informacion_create',
-            ],
-            [
-                'id'    => '88',
-                'title' => 'informacion_edit',
-            ],
-            [
-                'id'    => '89',
-                'title' => 'informacion_show',
-            ],
-            [
-                'id'    => '90',
-                'title' => 'informacion_delete',
-            ],
-            [
-                'id'    => '91',
-                'title' => 'informacion_access',
-            ],
-            [
-                'id'    => '92',
-                'title' => 'ampa_create',
-            ],
-            [
-                'id'    => '93',
-                'title' => 'ampa_edit',
-            ],
-            [
-                'id'    => '94',
-                'title' => 'ampa_show',
-            ],
-            [
-                'id'    => '95',
-                'title' => 'ampa_delete',
-            ],
-            [
-                'id'    => '96',
-                'title' => 'ampa_access',
-            ],
-            [
-                'id'    => '97',
-                'title' => 'documento_create',
-            ],
-            [
-                'id'    => '98',
-                'title' => 'documento_edit',
-            ],
-            [
-                'id'    => '99',
-                'title' => 'documento_show',
-            ],
-            [
-                'id'    => '100',
-                'title' => 'documento_delete',
-            ],
-            [
-                'id'    => '101',
-                'title' => 'documento_access',
-            ],
         ];
 
         Permission::insert($permissions);
