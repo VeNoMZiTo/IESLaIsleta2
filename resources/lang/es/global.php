@@ -51,6 +51,7 @@ return [
     'youAreLoggedIn'                       => 'Ha iniciado sesión',
     'yourAccountNeedsAdminApproval'        => 'Sus cuentas necesitan la aprobación de un administrador para iniciar sesión',
     'submit'                               => 'Enviar',
+    'relatedData'                          => 'Related Data',
     'datatables'                           => [
         'copy'          => 'Copiar',
         'csv'           => 'CSV',
@@ -81,7 +82,7 @@ return [
     'assets'                               => 'Bienes',
     'assets_history'                       => 'Historia de los activos',
     'assets_management'                    => 'Gestión de activos',
-    'assigned_to'                          => 'Asignado A',
+    'assigned_to'                          => 'Asignado a',
     'assigned_user'                        => 'Asignado(Usuario)',
     'attachment'                           => 'Adjunto archivo',
     'axis'                                 => 'Eje',

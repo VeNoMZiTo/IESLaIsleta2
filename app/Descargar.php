@@ -14,12 +14,6 @@ class Descargar extends Model implements HasMedia
 
     public $table = 'descargars';
 
-    protected $appends = [
-        'docente',
-        'tutoria',
-        'directiva',
-    ];
-
     protected $dates = [
         'created_at',
         'updated_at',
@@ -30,6 +24,14 @@ class Descargar extends Model implements HasMedia
         'created_at',
         'updated_at',
         'deleted_at',
+    ];
+
+    protected $appends = [
+        'docente',
+        'tutoria',
+        'directiva',
+        'calpadres',
+        'calescolar',
     ];
 
     public function registerMediaConversions(Media $media = null)
@@ -50,5 +52,15 @@ class Descargar extends Model implements HasMedia
     public function getTutoriaAttribute()
     {
         return $this->getMedia('tutoria')->last();
+    }
+
+    public function getCalescolarAttribute()
+    {
+        return $this->getMedia('calescolar')->last();
+    }
+
+    public function getCalpadresAttribute()
+    {
+        return $this->getMedia('calpadres')->last();
     }
 }

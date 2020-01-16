@@ -10,6 +10,7 @@ use App\Http\Requests\StoreDescargarRequest;
 use App\Http\Requests\UpdateDescargarRequest;
 use Gate;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 
 class DescargarController extends Controller
@@ -46,6 +47,18 @@ class DescargarController extends Controller
 
         if ($request->input('tutoria', false)) {
             $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('tutoria')))->toMediaCollection('tutoria');
+        }
+
+        if ($request->input('calescolar', false)) {
+            $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('calescolar')))->toMediaCollection('calescolar');
+        }
+
+        if ($request->input('calpadres', false)) {
+            $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('calpadres')))->toMediaCollection('calpadres');
+        }
+
+        if ($media = $request->input('ck-media', false)) {
+            Media::whereIn('id', $media)->update(['model_id' => $descargar->id]);
         }
 
         return redirect()->route('admin.descargars.index');
@@ -86,6 +99,22 @@ class DescargarController extends Controller
             $descargar->tutoria->delete();
         }
 
+        if ($request->input('calescolar', false)) {
+            if (!$descargar->calescolar || $request->input('calescolar') !== $descargar->calescolar->file_name) {
+                $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('calescolar')))->toMediaCollection('calescolar');
+            }
+        } elseif ($descargar->calescolar) {
+            $descargar->calescolar->delete();
+        }
+
+        if ($request->input('calpadres', false)) {
+            if (!$descargar->calpadres || $request->input('calpadres') !== $descargar->calpadres->file_name) {
+                $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('calpadres')))->toMediaCollection('calpadres');
+            }
+        } elseif ($descargar->calpadres) {
+            $descargar->calpadres->delete();
+        }
+
         return redirect()->route('admin.descargars.index');
     }
 
@@ -110,5 +139,17 @@ class DescargarController extends Controller
         Descargar::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function storeCKEditorImages(Request $request)
+    {
+        abort_if(Gate::denies('descargar_create') && Gate::denies('descargar_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $model         = new Descargar();
+        $model->id     = $request->input('crud_id', 0);
+        $model->exists = true;
+        $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media', 'public');
+
+        return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }
 }
