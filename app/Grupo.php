@@ -24,8 +24,18 @@ class Grupo extends Model
         'deleted_at',
     ];
 
-    public function horarios()
+    public function cursoHorarios()
     {
         return $this->hasMany(Horario::class, 'curso_id', 'id');
+    }
+
+    public function cursoCitaPrevia()
+    {
+        return $this->hasMany(CitaPrevium::class, 'curso_id', 'id');
+    }
+
+    public function cursosAsginaturas()
+    {
+        return $this->belongsToMany(Asginatura::class);
     }
 }

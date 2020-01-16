@@ -39,8 +39,41 @@
                 </a>
             </div>
         </div>
-
-
     </div>
 </div>
+
+<div class="card">
+    <div class="card-header">
+        {{ trans('global.relatedData') }}
+    </div>
+    <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="#curso_horarios" role="tab" data-toggle="tab">
+                {{ trans('cruds.horario.title') }}
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#curso_cita_previa" role="tab" data-toggle="tab">
+                {{ trans('cruds.citaPrevium.title') }}
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#cursos_asginaturas" role="tab" data-toggle="tab">
+                {{ trans('cruds.asginatura.title') }}
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane" role="tabpanel" id="curso_horarios">
+            @includeIf('admin.grupos.relationships.cursoHorarios', ['horarios' => $grupo->cursoHorarios])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="curso_cita_previa">
+            @includeIf('admin.grupos.relationships.cursoCitaPrevia', ['citaPrevia' => $grupo->cursoCitaPrevia])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="cursos_asginaturas">
+            @includeIf('admin.grupos.relationships.cursosAsginaturas', ['asginaturas' => $grupo->cursosAsginaturas])
+        </div>
+    </div>
+</div>
+
 @endsection

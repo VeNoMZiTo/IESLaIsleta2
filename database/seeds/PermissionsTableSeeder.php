@@ -352,6 +352,46 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => '86',
                 'title' => 'grupo_access',
             ],
+            [
+                'id'    => '87',
+                'title' => 'asginatura_create',
+            ],
+            [
+                'id'    => '88',
+                'title' => 'asginatura_edit',
+            ],
+            [
+                'id'    => '89',
+                'title' => 'asginatura_show',
+            ],
+            [
+                'id'    => '90',
+                'title' => 'asginatura_delete',
+            ],
+            [
+                'id'    => '91',
+                'title' => 'asginatura_access',
+            ],
+            [
+                'id'    => '92',
+                'title' => 'cita_previum_create',
+            ],
+            [
+                'id'    => '93',
+                'title' => 'cita_previum_edit',
+            ],
+            [
+                'id'    => '94',
+                'title' => 'cita_previum_show',
+            ],
+            [
+                'id'    => '95',
+                'title' => 'cita_previum_delete',
+            ],
+            [
+                'id'    => '96',
+                'title' => 'cita_previum_access',
+            ],
         ];
 
         Permission::insert($permissions);

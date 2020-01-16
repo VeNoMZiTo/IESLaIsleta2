@@ -24,13 +24,18 @@ class Team extends Model
         'deleted_at',
     ];
 
-    public function users()
+    public function teamUsers()
     {
         return $this->hasMany(User::class, 'team_id', 'id');
     }
 
-    public function departamentos()
+    public function teamDepartamentos()
     {
         return $this->hasMany(Departamento::class, 'team_id', 'id');
+    }
+
+    public function teamAsginaturas()
+    {
+        return $this->hasMany(Asginatura::class, 'team_id', 'id');
     }
 }
