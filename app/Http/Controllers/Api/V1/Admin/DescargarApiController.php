@@ -39,6 +39,14 @@ class DescargarApiController extends Controller
             $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('tutoria')))->toMediaCollection('tutoria');
         }
 
+        if ($request->input('calescolar', false)) {
+            $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('calescolar')))->toMediaCollection('calescolar');
+        }
+
+        if ($request->input('calpadres', false)) {
+            $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('calpadres')))->toMediaCollection('calpadres');
+        }
+
         return (new DescargarResource($descargar))
             ->response()
             ->setStatusCode(Response::HTTP_CREATED);
@@ -77,6 +85,22 @@ class DescargarApiController extends Controller
             }
         } elseif ($descargar->tutoria) {
             $descargar->tutoria->delete();
+        }
+
+        if ($request->input('calescolar', false)) {
+            if (!$descargar->calescolar || $request->input('calescolar') !== $descargar->calescolar->file_name) {
+                $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('calescolar')))->toMediaCollection('calescolar');
+            }
+        } elseif ($descargar->calescolar) {
+            $descargar->calescolar->delete();
+        }
+
+        if ($request->input('calpadres', false)) {
+            if (!$descargar->calpadres || $request->input('calpadres') !== $descargar->calpadres->file_name) {
+                $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('calpadres')))->toMediaCollection('calpadres');
+            }
+        } elseif ($descargar->calpadres) {
+            $descargar->calpadres->delete();
         }
 
         return (new DescargarResource($descargar))

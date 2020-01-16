@@ -35,6 +35,12 @@
                             {{ trans('cruds.descargar.fields.tutoria') }}
                         </th>
                         <th>
+                            {{ trans('cruds.descargar.fields.calescolar') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.descargar.fields.calpadres') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -70,6 +76,20 @@
                                 @endif
                             </td>
                             <td>
+                                @if($descargar->calescolar)
+                                    <a href="{{ $descargar->calescolar->getUrl() }}" target="_blank">
+                                        {{ trans('global.view_file') }}
+                                    </a>
+                                @endif
+                            </td>
+                            <td>
+                                @if($descargar->calpadres)
+                                    <a href="{{ $descargar->calpadres->getUrl() }}" target="_blank">
+                                        {{ trans('global.view_file') }}
+                                    </a>
+                                @endif
+                            </td>
+                            <td>
                                 @can('descargar_show')
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.descargars.show', $descargar->id) }}">
                                         {{ trans('global.view') }}
@@ -99,6 +119,9 @@
         </div>
     </div>
 </div>
+
+
+
 @endsection
 @section('scripts')
 @parent
@@ -137,7 +160,7 @@
 
   $.extend(true, $.fn.dataTable.defaults, {
     order: [[ 1, 'desc' ]],
-    pageLength: 100,
+    pageLength: 25,
   });
   $('.datatable-Descargar:not(.ajaxTable)').DataTable({ buttons: dtButtons })
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){

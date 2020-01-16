@@ -1,32 +1,6 @@
 <?php
-Route::get('/', 'IndexController@getIndex');
 
-Route::get('/presentacion','IndexController@getDepartamentos');
-Route::get('/consejo-escolar','IndexController@getDepartamentos');
-Route::get('/equipo-directivo','TablasController@getEqDirectivo');
-Route::get('/equipo-docente','TablasController@getEqDocente');
-Route::get('/tutorias','TablasController@getTutoria');
-Route::get('/calendario-escolar', 'TablasController@getCalendario');
-Route::get('/nodisponible', 'IndexController@getDepartamentos');
-Route::get('/consultas', 'IndexController@getDepartamentos');
-Route::get('/pincel-ekade', 'IndexController@getDepartamentos');
-Route::get('/contactar/{id}', 'IndexController@getConsultas');
-Route::get('/profesorado', 'IndexController@getDepartamentos');
-Route::get('/oferta-educativa', 'IndexController@getDepartamentos');
-Route::get('/departamentos', 'IndexController@getDepartamentos');
-Route::get('/noticias', 'IndexController@getRepertorioNoticias');
-Route::get('/noticia/{id}-{titulo}','IndexController@getNoticia');
-Route::get('/actividad/{id}-{titulo}','IndexController@getActividad');
-/*Alumnado*/
-Route::get('/junta-de-delegados', 'IndexController@getDepartamentos');
-Route::get('/grupos', 'TablasController@getGrupo');
-Route::get('/grupo/{id}', 'TablasController@getHorario');
-/*Secretaría*/
-Route::get('/impresos', 'IndexController@getImpreso');
-Route::get('/certificados', 'IndexController@getDepartamentos');
-Route::post('mail/send-contact', 'MailController@sendCertificado');
-/*Correos del Apartado de Buzón de Sugerencias*/
-Route::post('mail/send-contact', 'MailController@sendContact');
+Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
@@ -36,10 +10,10 @@ Route::get('/home', function () {
 });
 
 Auth::routes(['register' => false]);
+// Admin
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
-
-    Route::get('/', 'HomeUpgradeController@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('home');
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
     Route::resource('permissions', 'PermissionsController');
@@ -55,16 +29,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Sliders
     Route::delete('sliders/destroy', 'SliderController@massDestroy')->name('sliders.massDestroy');
     Route::post('sliders/media', 'SliderController@storeMedia')->name('sliders.storeMedia');
+    Route::post('sliders/ckmedia', 'SliderController@storeCKEditorImages')->name('sliders.storeCKEditorImages');
     Route::resource('sliders', 'SliderController');
 
     // Noticia
     Route::delete('noticia/destroy', 'NoticiasController@massDestroy')->name('noticia.massDestroy');
     Route::post('noticia/media', 'NoticiasController@storeMedia')->name('noticia.storeMedia');
+    Route::post('noticia/ckmedia', 'NoticiasController@storeCKEditorImages')->name('noticia.storeCKEditorImages');
     Route::resource('noticia', 'NoticiasController');
 
     // Actividades
     Route::delete('actividades/destroy', 'ActividadesController@massDestroy')->name('actividades.massDestroy');
     Route::post('actividades/media', 'ActividadesController@storeMedia')->name('actividades.storeMedia');
+    Route::post('actividades/ckmedia', 'ActividadesController@storeCKEditorImages')->name('actividades.storeCKEditorImages');
     Route::resource('actividades', 'ActividadesController');
 
     // Departamentos
@@ -86,6 +63,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Descargars
     Route::delete('descargars/destroy', 'DescargarController@massDestroy')->name('descargars.massDestroy');
     Route::post('descargars/media', 'DescargarController@storeMedia')->name('descargars.storeMedia');
+    Route::post('descargars/ckmedia', 'DescargarController@storeCKEditorImages')->name('descargars.storeCKEditorImages');
     Route::resource('descargars', 'DescargarController');
 
     // Teams
@@ -99,13 +77,32 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Impresos
     Route::delete('impresos/destroy', 'ImpresosController@massDestroy')->name('impresos.massDestroy');
     Route::post('impresos/media', 'ImpresosController@storeMedia')->name('impresos.storeMedia');
+    Route::post('impresos/ckmedia', 'ImpresosController@storeCKEditorImages')->name('impresos.storeCKEditorImages');
     Route::resource('impresos', 'ImpresosController');
 
     // Horarios
-    Route::delete('horarios/destroy', 'HorarioUpgradeController@massDestroy')->name('horarios.massDestroy');
-    Route::resource('horarios', 'HorarioUpgradeController');
+    Route::delete('horarios/destroy', 'HorarioController@massDestroy')->name('horarios.massDestroy');
+    Route::resource('horarios', 'HorarioController');
 
     // Grupos
     Route::delete('grupos/destroy', 'GruposController@massDestroy')->name('grupos.massDestroy');
     Route::resource('grupos', 'GruposController');
+
+    // Informacions
+    Route::delete('informacions/destroy', 'InformacionController@massDestroy')->name('informacions.massDestroy');
+    Route::post('informacions/media', 'InformacionController@storeMedia')->name('informacions.storeMedia');
+    Route::post('informacions/ckmedia', 'InformacionController@storeCKEditorImages')->name('informacions.storeCKEditorImages');
+    Route::resource('informacions', 'InformacionController');
+
+    // Ampas
+    Route::delete('ampas/destroy', 'AmpaController@massDestroy')->name('ampas.massDestroy');
+    Route::post('ampas/media', 'AmpaController@storeMedia')->name('ampas.storeMedia');
+    Route::post('ampas/ckmedia', 'AmpaController@storeCKEditorImages')->name('ampas.storeCKEditorImages');
+    Route::resource('ampas', 'AmpaController');
+
+    // Documentos
+    Route::delete('documentos/destroy', 'DocumentosController@massDestroy')->name('documentos.massDestroy');
+    Route::post('documentos/media', 'DocumentosController@storeMedia')->name('documentos.storeMedia');
+    Route::post('documentos/ckmedia', 'DocumentosController@storeCKEditorImages')->name('documentos.storeCKEditorImages');
+    Route::resource('documentos', 'DocumentosController');
 });
