@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\EquipoDirectivo;
 use App\EquipoDocente;
-use App\Departamento;
+use App\team;
 use App\Tutorium;
 use App\Descargar;
 use App\DescagarFamilium;
@@ -26,11 +26,13 @@ class TablasController extends Controller
     }
     public function getEqDocente(){
         $docente = EquipoDocente::all();
-        $departamentos= Departamento::with('equipoDocentes')->get();
+//        $departamentos= EquipoDocente::with('departamento')->get();
+        $departamentos= Team::all();
         $descargar = Descargar::all()->first();
         return view('frontend.eqdocente',array(
             'docente' => $docente,
-            'descargar' => $descargar
+            'descargar' => $descargar,
+            'departamentos' =>$departamentos
         ));
     }
     public function getTutoria(){

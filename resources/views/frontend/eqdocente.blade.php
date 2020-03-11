@@ -46,8 +46,9 @@
                                 </thead>
                             </table>
                         </div>
-                        <style>
-                        </style>
+                        @php
+                        dd($departamentos[0])
+                        @endphp
                         <div class="tabla-body js-pscroll">
                             <table>
                                 <tbody>
@@ -55,18 +56,18 @@
                                 $color='gris';
                                 @endphp
                                 @foreach($departamentos as $key=>$dep)
-                                    @if(count($dep->equipoDocentes)>1)
+                                    @if(count($dep->departamento)>1)
                                         @php
                                         if($color=='gris'){$color='blanco';}else{$color='gris';};
                                         @endphp
                                         <tr class="row100 body {{$color}}">
-                                            <td data-column="Departamento" class="columnas column1" rowspan="{{count($dep->equipoDocentes)+1}}">
+                                            <td data-column="Departamento" class="columnas column1" rowspan="{{count($dep->departamento)+1}}">
                                                 <p>
                                                     {{$dep->nombre}}
                                                 </p>
                                             </td>
                                         </tr>
-                                        @foreach($dep->equipoDocentes as $equipo)
+                                        @foreach($dep->departamento as $equipo)
                                             <tr class="body-contenido {{$color}}">
                                                 <td data-column="Profesor/a" class="columnas column2">
                                                     <p>
@@ -86,7 +87,7 @@
                                                 </td>
                                             </tr>
                                         @endforeach
-                                    @elseif(count($dep->equipoDocentes)==1)
+                                    @elseif(count($dep->departamento)==1)
                                         @php
                                             if($color=='gris'){$color='blanco';}else{$color='gris';};
                                         @endphp
@@ -98,18 +99,18 @@
                                             </td>
                                             <td data-column="Profesor/a" class="columnas column2">
                                                 <p>
-                                                    {{$dep->equipoDocentes[0]->profesores}}
+                                                    {{$dep->departamento[0]->profesores}}
                                                 </p>
                                             </td>
 
                                             <td data-column="Cargo" class="columnas column3">
                                                 <p>
-                                                    {{$dep->equipoDocentes[0]->cargo}}
+                                                    {{$dep->departamento[0]->cargo}}
                                                 </p>
                                             </td>
                                             <td data-column="Correo Electrónico" class="columnas column4">
                                                 <p>
-                                                    {{$dep->equipoDocentes[0]->email}}
+                                                    {{$dep->departamento[0]->email}}
                                                 </p>
                                             </td>
                                         </tr>
