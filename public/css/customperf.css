@@ -569,7 +569,7 @@ nav{
     line-height: 1.4;
 }
 
-.tabla.ver1 .tabla-body tr:nth-child(even), .tabla.ver3 .tabla-body tr:nth-child(even) {
+.tabla.ver1 .tabla-body tr:nth-child(even), .tabla.ver2 .tabla-body tr:nth-child(even), .tabla.ver3 .tabla-body tr:nth-child(even) {
     background-color: lightgray;
 }
 .panel-descarga{

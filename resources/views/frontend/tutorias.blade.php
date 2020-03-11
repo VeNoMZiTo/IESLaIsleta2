@@ -28,6 +28,7 @@
                     <select class="cs-select cs-skin-underline">
                         <option value="" disabled selected>Selecciona un curso</option>
                         <option value="todos" class="all-select">Todos</option>
+
                         @foreach($tutoria as $curso)
                         <option value="{{$curso->nivel}} {{$curso->grupo}}">{{$curso->nivel}} - {{$curso->grupo}}</option>
                         @endforeach
@@ -83,7 +84,7 @@
                                             {{$t->tutor}}
                                         </p>
                                     </td>
-                                    <td data-column="Departamento" class="columnas column4 tooltipster" title="{{$t->departamento->nombre}}">
+                                    <td data-column="Departamento" class="columnas column4">
                                         <p>
                                             {{$t->abreviatura_departamento}}
                                         </p>

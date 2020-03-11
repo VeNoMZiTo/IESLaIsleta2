@@ -63,6 +63,12 @@ class IndexController extends Controller
     public function getDepartamentos(Request $request){
         $destinatarioConsultas=false;
         switch ($request->path()){
+            case 'ampa':
+                $url='frontend.ampa';
+                break;
+            case 'redes-y-proyectos':
+                $url='frontend.redesyproyectos';
+                break;
             case 'nodisponible':
                 $url='frontend.nodisponible';
                 break;

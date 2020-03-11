@@ -426,13 +426,10 @@
                                                         <a href="/junta-de-delegados">Junta de delegados</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/grupos">Horario de grupos</a>
+                                                        <a href="/pdf/horario-grupos-ies-la-isleta-2019-2020.pdf">Horario de grupos</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">Redes educativas</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/nodisponible">Proyectos del centro</a>
+                                                        <a href="/redes-y-proyectos">Redes y proyectos</a>
                                                     </li>
                                                     <li class="dropdown-item hs-has-sub-menu">
                                                         <a id="nav-link-2-alumnos" class="nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-2-alumnos">APP Pincel Alumnado y Familias
@@ -482,7 +479,7 @@
                                                         <a href="/tutorias">Tutorías</a>
                                                     </li>
                                                     <li>
-                                                        <a href="//calendario-escolar">Calendario de visitas</a>
+                                                        <a href="/pdf/visita-padres.pdf">Calendario de visitas</a>
                                                     </li>
                                                     <li class="dropdown-item hs-has-sub-menu">
                                                         <a id="nav-link-2" class="nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-2">APP Pincel Alumnado y Familias
@@ -509,7 +506,7 @@
                                                         <!-- End Submenu (level 2) -->
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">AMPA</a>
+                                                        <a href="/ampa">AMPA</a>
                                                     </li>
                                                     <li>
                                                         <a href="/nodisponible">Documentos</a>

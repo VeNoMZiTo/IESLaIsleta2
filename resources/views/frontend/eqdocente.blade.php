@@ -47,74 +47,34 @@
                             </table>
                         </div>
                         @php
-                        dd($departamentos[0])
                         @endphp
                         <div class="tabla-body js-pscroll">
                             <table>
                                 <tbody>
-                                @php
-                                $color='gris';
-                                @endphp
-                                @foreach($departamentos as $key=>$dep)
-                                    @if(count($dep->departamento)>1)
-                                        @php
-                                        if($color=='gris'){$color='blanco';}else{$color='gris';};
-                                        @endphp
-                                        <tr class="row100 body {{$color}}">
-                                            <td data-column="Departamento" class="columnas column1" rowspan="{{count($dep->departamento)+1}}">
-                                                <p>
-                                                    {{$dep->nombre}}
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        @foreach($dep->departamento as $equipo)
-                                            <tr class="body-contenido {{$color}}">
-                                                <td data-column="Profesor/a" class="columnas column2">
-                                                    <p>
-                                                        {{$equipo->profesores}}
-                                                    </p>
-                                                </td>
+                                @foreach($docente as $d)
+                                    <tr class="row100 body ">
+                                        <td data-column="Departamento" class="columnas column1" rowspan="1">
+                                            <p>
+                                                {{$d->departamento}}
+                                            </p>
+                                        </td>
+                                        <td data-column="Profesor/a" class="columnas column2">
+                                            <p>
+                                                {{$d->profesores}}
+                                            </p>
+                                        </td>
 
-                                                <td data-column="Cargo" class="columnas column3">
-                                                    <p>
-                                                        {{$equipo->cargo}}
-                                                    </p>
-                                                </td>
-                                                <td data-column="Correo Electrónico" class="columnas column4">
-                                                    <p>
-                                                        {{$equipo->email}}
-                                                    </p>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @elseif(count($dep->departamento)==1)
-                                        @php
-                                            if($color=='gris'){$color='blanco';}else{$color='gris';};
-                                        @endphp
-                                        <tr class="row100 body {{$color}}">
-                                            <td data-column="Departamento" class="columnas column1" rowspan="1">
-                                                <p>
-                                                    {{$dep->nombre}}
-                                                </p>
-                                            </td>
-                                            <td data-column="Profesor/a" class="columnas column2">
-                                                <p>
-                                                    {{$dep->departamento[0]->profesores}}
-                                                </p>
-                                            </td>
-
-                                            <td data-column="Cargo" class="columnas column3">
-                                                <p>
-                                                    {{$dep->departamento[0]->cargo}}
-                                                </p>
-                                            </td>
-                                            <td data-column="Correo Electrónico" class="columnas column4">
-                                                <p>
-                                                    {{$dep->departamento[0]->email}}
-                                                </p>
-                                            </td>
-                                        </tr>
-                                    @endif
+                                        <td data-column="Cargo" class="columnas column3">
+                                            <p>
+                                                {{$d->cargo}}
+                                            </p>
+                                        </td>
+                                        <td data-column="Correo Electrónico" class="columnas column4">
+                                            <p>
+                                                {{$d->email}}
+                                            </p>
+                                        </td>
+                                    </tr>
                                 @endforeach
                                 </tbody>
                             </table>

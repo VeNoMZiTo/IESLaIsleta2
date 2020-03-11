@@ -27,19 +27,17 @@ class TablasController extends Controller
     public function getEqDocente(){
         $docente = EquipoDocente::all();
 //        $departamentos= EquipoDocente::with('departamento')->get();
-        $departamentos= Team::all();
         $descargar = Descargar::all()->first();
         return view('frontend.eqdocente',array(
             'docente' => $docente,
-            'descargar' => $descargar,
-            'departamentos' =>$departamentos
+            'descargar' => $descargar
         ));
     }
     public function getTutoria(){
-//        $tutoria = Tutorium::with('departamento')->get();
+        $tutoria = Tutorium::all();
         $descargar = DescagarFamilium::all()->first();
         return view('frontend.tutorias',array(
-//            'tutoria' => $tutoria,
+            'tutoria' => $tutoria,
             'descargar' => $descargar
         ));
     }

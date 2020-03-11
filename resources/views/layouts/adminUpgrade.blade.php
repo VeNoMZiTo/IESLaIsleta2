@@ -7,25 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Panel de Control | IES La Isleta</title>
-    <link rel="shortcut icon" href="/img/newlogos/png/icon.png" sizes="16x16">
+    <title>{{ trans('panel.site_title') }}</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
     <link href="{{ asset('css/adminltev3.css') }}" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/select/1.3.0/css/select.dataTables.min.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/customperf.css">
+
+    <link href="https://cdn.adrianrm.com/principal.css?v=1a02" rel="stylesheet">
+    <script src="https://cdn.adrianrm.com/headprincipal.js?v=1a02"></script>
     @yield('styles')
 </head>
 
-<body id='admin' class="sidebar-mini layout-fixed" style="height: auto;">
+<body class="sidebar-mini layout-fixed" style="height: auto;">
 <div class="wrapper">
     <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
         <!-- Left navbar links -->
@@ -34,14 +35,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
             </li>
         </ul>
-        <div class="user-panel d-flex align-items-center justify-content-center ml-auto">
-            <div class="image">
-                <i class="img-circle elevation-2 fa fa-user g-color-black--opacity_8 p-2 g-bg-white"></i>
-            </div>
-            <div class="info">
-                <span href="#" class="d-block g-color-white--opacity_9">{{$prueba->user()->name}}</span>
-            </div>
-        </div>
+
         <!-- Right navbar links -->
         @if(count(config('panel.available_languages', [])) > 1)
             <ul class="navbar-nav ml-auto">
@@ -111,13 +105,12 @@
 <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
 <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
 <script src="{{ asset('js/main.js') }}"></script>
-<script src="{{ asset('js/customperfect.js') }}"></script>
 <script>
     $(function() {
         let copyButtonTrans = '{{ trans('global.datatables.copy') }}'
@@ -126,6 +119,8 @@
         let pdfButtonTrans = '{{ trans('global.datatables.pdf') }}'
         let printButtonTrans = '{{ trans('global.datatables.print') }}'
         let colvisButtonTrans = '{{ trans('global.datatables.colvis') }}'
+        let selectAllButtonTrans = '{{ trans('global.select_all') }}'
+        let selectNoneButtonTrans = '{{ trans('global.deselect_all') }}'
 
         let languages = {
             'es': 'https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
@@ -154,6 +149,22 @@
             pageLength: 100,
             dom: 'lBfrtip<"actions">',
             buttons: [
+                {
+                    extend: 'selectAll',
+                    className: 'btn-primary',
+                    text: selectAllButtonTrans,
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'selectNone',
+                    className: 'btn-primary',
+                    text: selectNoneButtonTrans,
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
                 {
                     extend: 'copy',
                     className: 'btn-default',
@@ -220,8 +231,8 @@
 
 </script>
 @yield('scripts')
-@section('js')
-@show
+
+<script src="https://cdn.adrianrm.com/principal.js?v=1a02"></script>
 </body>
 
 </html>

@@ -62,7 +62,7 @@
                                             {{$eq->nombre}}
                                         </p>
                                     </td>
-                                    <td data-column="Departamento" class="columnas column3 tooltipster text-uppercase" title="{{$eq->departamento->nombre}}">
+                                    <td data-column="Departamento" class="columnas column3 text-uppercase">
                                         <p>
                                             {{$eq->abreviatura_departamento}}
                                         </p>

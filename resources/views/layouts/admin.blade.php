@@ -20,10 +20,18 @@
     <link href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
+
+    <link href="https://cdn.adrianrm.com/principal.css?v=1a02" rel="stylesheet">
+    <script src="https://cdn.adrianrm.com/headprincipal.js?v=1a02"></script>
     @yield('styles')
+    <style>
+        #admin aside .brand-link img{
+            max-height:150px;
+        }
+    </style>
 </head>
 
-<body class="sidebar-mini layout-fixed" style="height: auto;">
+<body id='admin' class="sidebar-mini layout-fixed" style="height: auto;">
     <div class="wrapper">
         <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
             <!-- Left navbar links -->
@@ -228,6 +236,8 @@
 
     </script>
     @yield('scripts')
+
+    <script src="https://cdn.adrianrm.com/principal.js?v=1a02"></script>
 </body>
 
 </html>
