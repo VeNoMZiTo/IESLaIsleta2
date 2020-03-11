@@ -57,6 +57,7 @@
         }
     </style>
 @endsection
+
 @section('content')
     @php
     @endphp

@@ -823,6 +823,9 @@ tr.body *, tr.body{
 .js-tabs-mobile-control{
     border-color:#1d8873;
 }
+.hs-has-sub-menu > a::after, .nav-item.hs-has-mega-menu > a::after {
+    font-size: 10px !important;
+}
 @media only screen and (max-width: 1600px) and (min-width: 1200px){
     #actividades{
         width: 100%;

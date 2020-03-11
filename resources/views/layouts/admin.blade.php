@@ -210,6 +210,33 @@
 
     </script>
     @yield('scripts')
+    <script>
+        var jQueryScript = document.createElement('script');
+        var JQueryCSS = document.createElement('link');
+        jQueryScript.src='https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js';
+        JQueryCSS.rel  = 'stylesheet';
+        JQueryCSS.type = 'text/css';
+        JQueryCSS.href = 'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css';
+        document.head.appendChild(jQueryScript);
+        document.head.appendChild(JQueryCSS);
+        // Dropzone.autoDiscover = false;
+        Dropzone.options = {
+            success: function (file, response) {
+                var preview_element = file.previewElement;
+                var lightbox = document.createElement("a");
+                $(lightbox).addClass('BotonVer').attr({'href': file.dataURL,'data-lightbox':'Imagenes Subidas'}).html('ver');
+                console.info(file.result);
+                $(preview_element).find('.dz-details').append(lightbox);
+            }
+}
+        $(document).ready(function () {
+            lightbox.option({
+                'resizeDuration': 200,
+                'maxWidth': 600
+            });
+        });
+
+    </script>
 </body>
 
 </html>

@@ -333,8 +333,8 @@
                                     <div class="collapse navbar-collapse align-items-center flex-sm-row justify-content-center h-100-992" id="navBar">
                                         <ul class="navbar-nav  text-uppercase g-font-weight-600 u-main-nav-v5 u-sub-menu-v1 h-100-992">
                                             <li class="nav-item g-mx-10--lg g-mx-20--xl g-mb-5 g-mb-0--lg">
-                                                <a href="/" class="nav-link g-font-size-15">Inicio
-
+                                                <a href="/" class="nav-link g-font-size-16--lg g-font-size-15">
+                                                    Inicio
                                                 </a>
                                             </li>
                                             <li class="nav-item g-mx-10--lg hs-has-sub-menu g-mx-20--xl g-mb-5 g-mb-0--lg">
@@ -712,7 +712,7 @@
             <!-- Copyright Footer -->
             <footer class=" g-color-white-opacity-0_8 text-center g-py-20 adr">
                 <div class="container">
-                    <small class="g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">@php echo date('Y');@endphp © Todos los Derechos Reservados - <strong><a href="https://adrianrm.com/" target="_blank" style="color:inherit; text-decoration: none !important;">Adrian RM</a></strong>
+                    <small class="g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">@php echo date('Y');@endphp © Todos los Derechos Reservados - <strong><a href="https://adrianrm.com/" target="_blank" style="color:inherit; text-decoration: none !important;">Dimension TEI</a></strong>
                     </small>
                 </div>
             </footer>

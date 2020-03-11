@@ -139,40 +139,31 @@
                             <h2 class="h3 u-heading-v6__title">Educación Secundaria Obligatoria (ESO)</h2>
                         </div>
 
-                        @php
-                            $separador;
-                            $nivel = [];
-                            foreach($grupos as $g){
-                                $separador=preg_split("/[\s,]+/", $g->curso);
-                                if(!in_array($separador[1], $nivel)){
-                                    array_push($nivel, $separador[1]);
-                                }
-                            }
-                        @endphp
+
                         <div class="box col-12 d-flex justify-content-center">
                             @foreach($grupos as $g)
-                                @if(strstr($g->curso,'1') && strstr($g,$nivel[0]))
+                                @if(preg_match('/1/',$g->curso) && preg_match('/ESO/',$g->curso) && !preg_match('/PARM/',$g->curso))
+                                    <a class="button button--menu button--round-s button--text-thick" href="/grupo/{{$g->curso}}">{{$g->curso}}</a>
+                                @endif
+                            @endforeach
+                        </div>
+                        <div class="box col-12 d-flex justify-content-center">
+                            @foreach($grupos as $g)
+                                @if(preg_match('/2/',$g->curso) && preg_match('/ESO/',$g->curso) && !preg_match('/PARM/',$g->curso))
+                                    <a class="button button--menu button--round-s button--text-thick" href="/grupo/{{$g->curso}}">{{$g->curso}}</a>
+                                @endif
+                            @endforeach
+                        </div>
+                        <div class="box col-12 d-flex justify-content-center">
+                            @foreach($grupos as $g)
+                                @if((preg_match('/3/',$g->curso) && preg_match('/ESO/',$g->curso)) || (preg_match('/1/',$g->curso) && preg_match('/PARM/',$g->curso)))
                                     <a class="button button--menu button--round-s button--text-thick" href="/grupo/{{$g->id}}">{{$g->curso}}</a>
                                 @endif
                             @endforeach
                         </div>
                         <div class="box col-12 d-flex justify-content-center">
                             @foreach($grupos as $g)
-                                @if(strstr($g->curso,'2') && strstr($g,$nivel[0]))
-                                    <a class="button button--menu button--round-s button--text-thick" href="/grupo/{{$g->id}}">{{$g->curso}}</a>
-                                @endif
-                            @endforeach
-                        </div>
-                        <div class="box col-12 d-flex justify-content-center">
-                            @foreach($grupos as $g)
-                                @if(strstr($g->curso,'3') && strstr($g,$nivel[0]))
-                                    <a class="button button--menu button--round-s button--text-thick" href="/grupo/{{$g->id}}">{{$g->curso}}</a>
-                                @endif
-                            @endforeach
-                        </div>
-                        <div class="box col-12 d-flex justify-content-center">
-                            @foreach($grupos as $g)
-                                @if(strstr($g->curso,'4') && strstr($g,$nivel[0]))
+                                @if((preg_match('/4/',$g->curso) && preg_match('/ESO/',$g->curso)) || (preg_match('/2/',$g->curso) && preg_match('/PARM/',$g->curso)))
                                     <a class="button button--menu button--round-s button--text-thick" href="/grupo/{{$g->id}}">{{$g->curso}}</a>
                                 @endif
                             @endforeach
@@ -183,7 +174,7 @@
                         <div class="box col-12 d-flex justify-content-center">
                             <div class="box col-12 d-flex justify-content-center">
                                 @foreach($grupos as $g)
-                                    @if(strstr($g->curso,'1') && strstr($g,$nivel[1]))
+                                    @if(preg_match('/1/',$g->curso) && preg_match('/BACH/',$g->curso))
                                         <a class="button button--menu button--round-s button--text-thick" href="/grupo/{{$g->id}}">{{$g->curso}}</a>
                                     @endif
                                 @endforeach
@@ -192,7 +183,7 @@
                         <div class="box col-12 d-flex justify-content-center">
                             <div class="box col-12 d-flex justify-content-center">
                                 @foreach($grupos as $g)
-                                    @if(strstr($g->curso,'2') && strstr($g,$nivel[1]))
+                                    @if(preg_match('/2/',$g->curso) && preg_match('/BACH/',$g->curso))
                                         <a class="button button--menu button--round-s button--text-thick" href="/grupo/{{$g->id}}">{{$g->curso}}</a>
                                     @endif
                                 @endforeach

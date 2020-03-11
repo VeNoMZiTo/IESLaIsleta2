@@ -25,10 +25,10 @@
                     <div class="panel-descarga">
                         <ul class="list-unstyled objetos-panel">
                             <li>
-                                <a class="download tooltipster" title="Descargar" href="{{$descargar->directiva->getUrl()}}" download><i class="fa fa-download"></i></a>
+                                <a class="download tooltipster" title="Descargar" href="{{$descargar->directiva->getUrl() ?? ''}}" download><i class="fa fa-download"></i></a>
                             </li>
                             <li>
-                                <a class="downloand-print tooltipster" title="Imprimir" href="{{$descargar->directiva->getUrl()}}"><i class="fa fa-print"></i></a>
+                                <a class="downloand-print tooltipster" title="Imprimir" href="{{$descargar->directiva->getUrl() ?? ''}}"><i class="fa fa-print"></i></a>
                             </li>
                         </ul>
                     </div>
