@@ -17,7 +17,7 @@ class EquipoDocenteApiController extends Controller
     {
         abort_if(Gate::denies('equipo_docente_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new EquipoDocenteResource(EquipoDocente::all());
+        return new EquipoDocenteResource(EquipoDocente::with(['departamento'])->get());
 
     }
 
@@ -35,7 +35,7 @@ class EquipoDocenteApiController extends Controller
     {
         abort_if(Gate::denies('equipo_docente_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new EquipoDocenteResource($equipoDocente);
+        return new EquipoDocenteResource($equipoDocente->load(['departamento']));
 
     }
 

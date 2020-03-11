@@ -11,6 +11,18 @@
             @method('PUT')
             @csrf
             <div class="form-group">
+                <label class="required" for="departamento_id">{{ trans('cruds.equipoDocente.fields.departamento') }}</label>
+                <select class="form-control select2 {{ $errors->has('departamento') ? 'is-invalid' : '' }}" name="departamento_id" id="departamento_id" required>
+                    @foreach($departamentos as $id => $departamento)
+                        <option value="{{ $id }}" {{ ($equipoDocente->departamento ? $equipoDocente->departamento->id : old('departamento_id')) == $id ? 'selected' : '' }}>{{ $departamento }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('departamento'))
+                    <span class="text-danger">{{ $errors->first('departamento') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.equipoDocente.fields.departamento_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label class="required" for="profesores">{{ trans('cruds.equipoDocente.fields.profesores') }}</label>
                 <input class="form-control {{ $errors->has('profesores') ? 'is-invalid' : '' }}" type="text" name="profesores" id="profesores" value="{{ old('profesores', $equipoDocente->profesores) }}" required>
                 @if($errors->has('profesores'))

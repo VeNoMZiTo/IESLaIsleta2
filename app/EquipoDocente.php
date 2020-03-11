@@ -24,5 +24,12 @@ class EquipoDocente extends Model
         'created_at',
         'updated_at',
         'deleted_at',
+        'departamento_id',
     ];
+
+    public function departamento()
+    {
+        return $this->belongsTo(Team::class, 'departamento_id');
+
+    }
 }

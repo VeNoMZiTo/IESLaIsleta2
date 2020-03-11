@@ -20,9 +20,12 @@ class StoreEquipoDocenteRequest extends FormRequest
     public function rules()
     {
         return [
-            'profesores' => [
+            'departamento_id' => [
+                'required',
+                'integer'],
+            'profesores'      => [
                 'required'],
-            'email'      => [
+            'email'           => [
                 'required'],
         ];
 
