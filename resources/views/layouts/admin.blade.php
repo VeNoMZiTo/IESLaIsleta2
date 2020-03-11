@@ -28,6 +28,10 @@
         #admin aside .brand-link img{
             max-height:150px;
         }
+
+        .bootstrap-datetimepicker-widget{
+            z-index: 10000;
+        }
     </style>
 </head>
 
