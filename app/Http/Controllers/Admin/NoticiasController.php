@@ -10,6 +10,7 @@ use App\Http\Requests\UpdateNoticiumRequest;
 use App\Noticium;
 use Gate;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 
 class NoticiasController extends Controller
@@ -44,7 +45,12 @@ class NoticiasController extends Controller
             $noticium->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('archivos');
         }
 
+        if ($media = $request->input('ck-media', false)) {
+            Media::whereIn('id', $media)->update(['model_id' => $noticium->id]);
+        }
+
         return redirect()->route('admin.noticia.index');
+
     }
 
     public function edit(Noticium $noticium)
@@ -63,7 +69,9 @@ class NoticiasController extends Controller
                 if (!in_array($media->file_name, $request->input('foto', []))) {
                     $media->delete();
                 }
+
             }
+
         }
 
         $media = $noticium->foto->pluck('file_name')->toArray();
@@ -72,6 +80,7 @@ class NoticiasController extends Controller
             if (count($media) === 0 || !in_array($file, $media)) {
                 $noticium->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('foto');
             }
+
         }
 
         if (count($noticium->archivos) > 0) {
@@ -79,7 +88,9 @@ class NoticiasController extends Controller
                 if (!in_array($media->file_name, $request->input('archivos', []))) {
                     $media->delete();
                 }
+
             }
+
         }
 
         $media = $noticium->archivos->pluck('file_name')->toArray();
@@ -88,9 +99,11 @@ class NoticiasController extends Controller
             if (count($media) === 0 || !in_array($file, $media)) {
                 $noticium->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('archivos');
             }
+
         }
 
         return redirect()->route('admin.noticia.index');
+
     }
 
     public function show(Noticium $noticium)
@@ -107,6 +120,7 @@ class NoticiasController extends Controller
         $noticium->delete();
 
         return back();
+
     }
 
     public function massDestroy(MassDestroyNoticiumRequest $request)
@@ -114,5 +128,20 @@ class NoticiasController extends Controller
         Noticium::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+
     }
+
+    public function storeCKEditorImages(Request $request)
+    {
+        abort_if(Gate::denies('noticium_create') && Gate::denies('noticium_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $model         = new Noticium();
+        $model->id     = $request->input('crud_id', 0);
+        $model->exists = true;
+        $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media', 'public');
+
+        return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
+
+    }
+
 }

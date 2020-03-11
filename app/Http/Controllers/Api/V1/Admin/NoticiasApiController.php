@@ -21,6 +21,7 @@ class NoticiasApiController extends Controller
         abort_if(Gate::denies('noticium_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return new NoticiumResource(Noticium::all());
+
     }
 
     public function store(StoreNoticiumRequest $request)
@@ -38,6 +39,7 @@ class NoticiasApiController extends Controller
         return (new NoticiumResource($noticium))
             ->response()
             ->setStatusCode(Response::HTTP_CREATED);
+
     }
 
     public function show(Noticium $noticium)
@@ -45,6 +47,7 @@ class NoticiasApiController extends Controller
         abort_if(Gate::denies('noticium_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return new NoticiumResource($noticium);
+
     }
 
     public function update(UpdateNoticiumRequest $request, Noticium $noticium)
@@ -55,6 +58,7 @@ class NoticiasApiController extends Controller
             if (!$noticium->foto || $request->input('foto') !== $noticium->foto->file_name) {
                 $noticium->addMedia(storage_path('tmp/uploads/' . $request->input('foto')))->toMediaCollection('foto');
             }
+
         } elseif ($noticium->foto) {
             $noticium->foto->delete();
         }
@@ -63,6 +67,7 @@ class NoticiasApiController extends Controller
             if (!$noticium->archivos || $request->input('archivos') !== $noticium->archivos->file_name) {
                 $noticium->addMedia(storage_path('tmp/uploads/' . $request->input('archivos')))->toMediaCollection('archivos');
             }
+
         } elseif ($noticium->archivos) {
             $noticium->archivos->delete();
         }
@@ -70,6 +75,7 @@ class NoticiasApiController extends Controller
         return (new NoticiumResource($noticium))
             ->response()
             ->setStatusCode(Response::HTTP_ACCEPTED);
+
     }
 
     public function destroy(Noticium $noticium)
@@ -79,5 +85,7 @@ class NoticiasApiController extends Controller
         $noticium->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+
     }
+
 }

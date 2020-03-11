@@ -21,6 +21,7 @@ class ActividadesApiController extends Controller
         abort_if(Gate::denies('actividade_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return new ActividadeResource(Actividade::all());
+
     }
 
     public function store(StoreActividadeRequest $request)
@@ -38,6 +39,7 @@ class ActividadesApiController extends Controller
         return (new ActividadeResource($actividade))
             ->response()
             ->setStatusCode(Response::HTTP_CREATED);
+
     }
 
     public function show(Actividade $actividade)
@@ -45,6 +47,7 @@ class ActividadesApiController extends Controller
         abort_if(Gate::denies('actividade_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return new ActividadeResource($actividade);
+
     }
 
     public function update(UpdateActividadeRequest $request, Actividade $actividade)
@@ -55,6 +58,7 @@ class ActividadesApiController extends Controller
             if (!$actividade->foto || $request->input('foto') !== $actividade->foto->file_name) {
                 $actividade->addMedia(storage_path('tmp/uploads/' . $request->input('foto')))->toMediaCollection('foto');
             }
+
         } elseif ($actividade->foto) {
             $actividade->foto->delete();
         }
@@ -63,6 +67,7 @@ class ActividadesApiController extends Controller
             if (!$actividade->archivos || $request->input('archivos') !== $actividade->archivos->file_name) {
                 $actividade->addMedia(storage_path('tmp/uploads/' . $request->input('archivos')))->toMediaCollection('archivos');
             }
+
         } elseif ($actividade->archivos) {
             $actividade->archivos->delete();
         }
@@ -70,6 +75,7 @@ class ActividadesApiController extends Controller
         return (new ActividadeResource($actividade))
             ->response()
             ->setStatusCode(Response::HTTP_ACCEPTED);
+
     }
 
     public function destroy(Actividade $actividade)
@@ -79,5 +85,7 @@ class ActividadesApiController extends Controller
         $actividade->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+
     }
+
 }

@@ -14,27 +14,24 @@ class StoreActividadeRequest extends FormRequest
         abort_if(Gate::denies('actividade_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
+
     }
 
     public function rules()
     {
         return [
             'titulo'      => [
-                'required',
-            ],
+                'required'],
             'fecha'       => [
                 'required',
-                'date_format:' . config('panel.date_format'),
-            ],
+                'date_format:' . config('panel.date_format')],
             'foto.*'      => [
-                'required',
-            ],
+                'required'],
             'autor'       => [
-                'required',
-            ],
+                'required'],
             'descripcion' => [
-                'required',
-            ],
+                'required'],
         ];
+
     }
 }

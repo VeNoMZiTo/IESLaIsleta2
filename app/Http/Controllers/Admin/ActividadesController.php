@@ -10,6 +10,7 @@ use App\Http\Requests\StoreActividadeRequest;
 use App\Http\Requests\UpdateActividadeRequest;
 use Gate;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 
 class ActividadesController extends Controller
@@ -44,7 +45,12 @@ class ActividadesController extends Controller
             $actividade->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('archivos');
         }
 
+        if ($media = $request->input('ck-media', false)) {
+            Media::whereIn('id', $media)->update(['model_id' => $actividade->id]);
+        }
+
         return redirect()->route('admin.actividades.index');
+
     }
 
     public function edit(Actividade $actividade)
@@ -63,7 +69,9 @@ class ActividadesController extends Controller
                 if (!in_array($media->file_name, $request->input('foto', []))) {
                     $media->delete();
                 }
+
             }
+
         }
 
         $media = $actividade->foto->pluck('file_name')->toArray();
@@ -72,6 +80,7 @@ class ActividadesController extends Controller
             if (count($media) === 0 || !in_array($file, $media)) {
                 $actividade->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('foto');
             }
+
         }
 
         if (count($actividade->archivos) > 0) {
@@ -79,7 +88,9 @@ class ActividadesController extends Controller
                 if (!in_array($media->file_name, $request->input('archivos', []))) {
                     $media->delete();
                 }
+
             }
+
         }
 
         $media = $actividade->archivos->pluck('file_name')->toArray();
@@ -88,9 +99,11 @@ class ActividadesController extends Controller
             if (count($media) === 0 || !in_array($file, $media)) {
                 $actividade->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('archivos');
             }
+
         }
 
         return redirect()->route('admin.actividades.index');
+
     }
 
     public function show(Actividade $actividade)
@@ -107,6 +120,7 @@ class ActividadesController extends Controller
         $actividade->delete();
 
         return back();
+
     }
 
     public function massDestroy(MassDestroyActividadeRequest $request)
@@ -114,5 +128,20 @@ class ActividadesController extends Controller
         Actividade::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+
     }
+
+    public function storeCKEditorImages(Request $request)
+    {
+        abort_if(Gate::denies('actividade_create') && Gate::denies('actividade_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $model         = new Actividade();
+        $model->id     = $request->input('crud_id', 0);
+        $model->exists = true;
+        $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media', 'public');
+
+        return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
+
+    }
+
 }

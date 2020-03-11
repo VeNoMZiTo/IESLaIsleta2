@@ -7,93 +7,70 @@
     </div>
 
     <div class="card-body">
-        <form action="{{ route("admin.actividades.update", [$actividade->id]) }}" method="POST" enctype="multipart/form-data">
-            @csrf
+        <form method="POST" action="{{ route("admin.actividades.update", [$actividade->id]) }}" enctype="multipart/form-data">
             @method('PUT')
-            <div class="form-group {{ $errors->has('titulo') ? 'has-error' : '' }}">
-                <label for="titulo">{{ trans('cruds.actividade.fields.titulo') }}*</label>
-                <input type="text" id="titulo" name="titulo" class="form-control" value="{{ old('titulo', isset($actividade) ? $actividade->titulo : '') }}" required>
+            @csrf
+            <div class="form-group">
+                <label class="required" for="titulo">{{ trans('cruds.actividade.fields.titulo') }}</label>
+                <input class="form-control {{ $errors->has('titulo') ? 'is-invalid' : '' }}" type="text" name="titulo" id="titulo" value="{{ old('titulo', $actividade->titulo) }}" required>
                 @if($errors->has('titulo'))
-                    <p class="help-block">
-                        {{ $errors->first('titulo') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('titulo') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.actividade.fields.titulo_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.actividade.fields.titulo_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('fecha') ? 'has-error' : '' }}">
-                <label for="fecha">{{ trans('cruds.actividade.fields.fecha') }}*</label>
-                <input type="text" id="fecha" name="fecha" class="form-control date" value="{{ old('fecha', isset($actividade) ? $actividade->fecha : '') }}" required>
+            <div class="form-group">
+                <label class="required" for="fecha">{{ trans('cruds.actividade.fields.fecha') }}</label>
+                <input class="form-control date {{ $errors->has('fecha') ? 'is-invalid' : '' }}" type="text" name="fecha" id="fecha" value="{{ old('fecha', $actividade->fecha) }}" required>
                 @if($errors->has('fecha'))
-                    <p class="help-block">
-                        {{ $errors->first('fecha') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('fecha') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.actividade.fields.fecha_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.actividade.fields.fecha_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('foto') ? 'has-error' : '' }}">
-                <label for="foto">{{ trans('cruds.actividade.fields.foto') }}*</label>
-                <div class="needsclick dropzone" id="foto-dropzone">
-
+            <div class="form-group">
+                <label class="required" for="foto">{{ trans('cruds.actividade.fields.foto') }}</label>
+                <div class="needsclick dropzone {{ $errors->has('foto') ? 'is-invalid' : '' }}" id="foto-dropzone">
                 </div>
                 @if($errors->has('foto'))
-                    <p class="help-block">
-                        {{ $errors->first('foto') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('foto') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.actividade.fields.foto_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.actividade.fields.foto_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('autor') ? 'has-error' : '' }}">
-                <label for="autor">{{ trans('cruds.actividade.fields.autor') }}*</label>
-                <input type="text" id="autor" name="autor" class="form-control" value="{{ old('autor', isset($actividade) ? $actividade->autor : '') }}" required>
+            <div class="form-group">
+                <label class="required" for="autor">{{ trans('cruds.actividade.fields.autor') }}</label>
+                <input class="form-control {{ $errors->has('autor') ? 'is-invalid' : '' }}" type="text" name="autor" id="autor" value="{{ old('autor', $actividade->autor) }}" required>
                 @if($errors->has('autor'))
-                    <p class="help-block">
-                        {{ $errors->first('autor') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('autor') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.actividade.fields.autor_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.actividade.fields.autor_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('descripcion') ? 'has-error' : '' }}">
-                <label for="descripcion">{{ trans('cruds.actividade.fields.descripcion') }}*</label>
-                <textarea id="descripcion" name="descripcion" class="form-control ckeditor">{{ old('descripcion', isset($actividade) ? $actividade->descripcion : '') }}</textarea>
+            <div class="form-group">
+                <label for="descripcion">{{ trans('cruds.actividade.fields.descripcion') }}</label>
+                <textarea class="form-control ckeditor {{ $errors->has('descripcion') ? 'is-invalid' : '' }}" name="descripcion" id="descripcion">{!! old('descripcion', $actividade->descripcion) !!}</textarea>
                 @if($errors->has('descripcion'))
-                    <p class="help-block">
-                        {{ $errors->first('descripcion') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('descripcion') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.actividade.fields.descripcion_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.actividade.fields.descripcion_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('archivos') ? 'has-error' : '' }}">
+            <div class="form-group">
                 <label for="archivos">{{ trans('cruds.actividade.fields.archivos') }}</label>
-                <div class="needsclick dropzone" id="archivos-dropzone">
-
+                <div class="needsclick dropzone {{ $errors->has('archivos') ? 'is-invalid' : '' }}" id="archivos-dropzone">
                 </div>
                 @if($errors->has('archivos'))
-                    <p class="help-block">
-                        {{ $errors->first('archivos') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('archivos') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.actividade.fields.archivos_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.actividade.fields.archivos_helper') }}</span>
             </div>
-            <div>
-                <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
+            <div class="form-group">
+                <button class="btn btn-danger" type="submit">
+                    {{ trans('global.save') }}
+                </button>
             </div>
         </form>
-
-
     </div>
 </div>
+
+
+
 @endsection
 
 @section('scripts')
@@ -159,6 +136,70 @@ Dropzone.options.fotoDropzone = {
 }
 </script>
 <script>
+    $(document).ready(function () {
+  function SimpleUploadAdapter(editor) {
+    editor.plugins.get('FileRepository').createUploadAdapter = function(loader) {
+      return {
+        upload: function() {
+          return loader.file
+            .then(function (file) {
+              return new Promise(function(resolve, reject) {
+                // Init request
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/admin/actividades/ckmedia', true);
+                xhr.setRequestHeader('x-csrf-token', window._token);
+                xhr.setRequestHeader('Accept', 'application/json');
+                xhr.responseType = 'json';
+
+                // Init listeners
+                var genericErrorText = `Couldn't upload file: ${ file.name }.`;
+                xhr.addEventListener('error', function() { reject(genericErrorText) });
+                xhr.addEventListener('abort', function() { reject() });
+                xhr.addEventListener('load', function() {
+                  var response = xhr.response;
+
+                  if (!response || xhr.status !== 201) {
+                    return reject(response && response.message ? `${genericErrorText}\n${xhr.status} ${response.message}` : `${genericErrorText}\n ${xhr.status} ${xhr.statusText}`);
+                  }
+
+                  $('form').append('<input type="hidden" name="ck-media[]" value="' + response.id + '">');
+
+                  resolve({ default: response.url });
+                });
+
+                if (xhr.upload) {
+                  xhr.upload.addEventListener('progress', function(e) {
+                    if (e.lengthComputable) {
+                      loader.uploadTotal = e.total;
+                      loader.uploaded = e.loaded;
+                    }
+                  });
+                }
+
+                // Send request
+                var data = new FormData();
+                data.append('upload', file);
+                data.append('crud_id', {{ $actividade->id ?? 0 }});
+                xhr.send(data);
+              });
+            })
+        }
+      };
+    }
+  }
+
+  var allEditors = document.querySelectorAll('.ckeditor');
+  for (var i = 0; i < allEditors.length; ++i) {
+    ClassicEditor.create(
+      allEditors[i], {
+        extraPlugins: [SimpleUploadAdapter]
+      }
+    );
+  }
+});
+</script>
+
+<script>
     var uploadedArchivosMap = {}
 Dropzone.options.archivosDropzone = {
     url: '{{ route('admin.actividades.storeMedia') }}',
@@ -214,4 +255,4 @@ Dropzone.options.archivosDropzone = {
      }
 }
 </script>
-@stop
+@endsection

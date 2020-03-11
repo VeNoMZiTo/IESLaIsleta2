@@ -40,16 +40,19 @@ class Actividade extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')->width(50)->height(50);
+
     }
 
     public function getFechaAttribute($value)
     {
         return $value ? Carbon::parse($value)->format(config('panel.date_format')) : null;
+
     }
 
     public function setFechaAttribute($value)
     {
         $this->attributes['fecha'] = $value ? Carbon::createFromFormat(config('panel.date_format'), $value)->format('Y-m-d') : null;
+
     }
 
     public function getFotoAttribute()
@@ -61,10 +64,12 @@ class Actividade extends Model implements HasMedia
         });
 
         return $files;
+
     }
 
     public function getArchivosAttribute()
     {
         return $this->getMedia('archivos');
+
     }
 }

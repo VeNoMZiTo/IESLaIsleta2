@@ -61,25 +61,21 @@
                                 {{ $actividade->fecha ?? '' }}
                             </td>
                             <td>
-                                @if($actividade->foto)
-                                    @foreach($actividade->foto as $key => $media)
-                                        <a href="{{ $media->getUrl() }}" target="_blank">
-                                            <img src="{{ $media->getUrl('thumb') }}" width="50px" height="50px">
-                                        </a>
-                                    @endforeach
-                                @endif
+                                @foreach($actividade->foto as $key => $media)
+                                    <a href="{{ $media->getUrl() }}" target="_blank">
+                                        <img src="{{ $media->getUrl('thumb') }}" width="50px" height="50px">
+                                    </a>
+                                @endforeach
                             </td>
                             <td>
                                 {{ $actividade->autor ?? '' }}
                             </td>
                             <td>
-                                @if($actividade->archivos)
-                                    @foreach($actividade->archivos as $key => $media)
-                                        <a href="{{ $media->getUrl() }}" target="_blank">
-                                            {{ trans('global.view_file') }}
-                                        </a>
-                                    @endforeach
-                                @endif
+                                @foreach($actividade->archivos as $key => $media)
+                                    <a href="{{ $media->getUrl() }}" target="_blank">
+                                        {{ trans('global.view_file') }}
+                                    </a>
+                                @endforeach
                             </td>
                             <td>
                                 @can('actividade_show')
@@ -111,6 +107,9 @@
         </div>
     </div>
 </div>
+
+
+
 @endsection
 @section('scripts')
 @parent
