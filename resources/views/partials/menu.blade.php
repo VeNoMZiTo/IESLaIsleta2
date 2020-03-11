@@ -175,7 +175,7 @@
                     </li>
                 @endcan
                 @can('centro_access')
-                    <li class="nav-item has-treeview {{ request()->is('admin/calendarios*') ? 'menu-open' : '' }} {{ request()->is('admin/equipo-directivos*') ? 'menu-open' : '' }} {{ request()->is('admin/equipo-docentes*') ? 'menu-open' : '' }} {{ request()->is('admin/descargars*') ? 'menu-open' : '' }}">
+                    <li class="nav-item has-treeview {{ request()->is('admin/calendarios*') ? 'menu-open' : '' }} {{ request()->is('admin/equipo-directivos*') ? 'menu-open' : '' }} {{ request()->is('admin/descargars*') ? 'menu-open' : '' }} {{ request()->is('admin/equipo-docentes*') ? 'menu-open' : '' }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa-fw fas fa-graduation-cap">
 
@@ -210,18 +210,6 @@
                                     </a>
                                 </li>
                             @endcan
-                            @can('equipo_docente_access')
-                                <li class="nav-item">
-                                    <a href="{{ route("admin.equipo-docentes.index") }}" class="nav-link {{ request()->is('admin/equipo-docentes') || request()->is('admin/equipo-docentes/*') ? 'active' : '' }}">
-                                        <i class="fa-fw fas fa-user-graduate">
-
-                                        </i>
-                                        <p>
-                                            <span>{{ trans('cruds.equipoDocente.title') }}</span>
-                                        </p>
-                                    </a>
-                                </li>
-                            @endcan
                             @can('descargar_access')
                                 <li class="nav-item">
                                     <a href="{{ route("admin.descargars.index") }}" class="nav-link {{ request()->is('admin/descargars') || request()->is('admin/descargars/*') ? 'active' : '' }}">
@@ -230,6 +218,18 @@
                                         </i>
                                         <p>
                                             <span>{{ trans('cruds.descargar.title') }}</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('equipo_docente_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.equipo-docentes.index") }}" class="nav-link {{ request()->is('admin/equipo-docentes') || request()->is('admin/equipo-docentes/*') ? 'active' : '' }}">
+                                        <i class="fa-fw fas fa-user-graduate">
+
+                                        </i>
+                                        <p>
+                                            <span>{{ trans('cruds.equipoDocente.title') }}</span>
                                         </p>
                                     </a>
                                 </li>

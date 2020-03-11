@@ -28,7 +28,7 @@
                             {{ trans('cruds.equipoDocente.fields.departamento') }}
                         </th>
                         <td>
-                            {{ $equipoDocente->departamento->name ?? '' }}
+                            {{ $equipoDocente->departamento }}
                         </td>
                     </tr>
                     <tr>

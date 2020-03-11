@@ -16,5 +16,6 @@ class EquipoDocenteTest extends DuskTestCase
             $browser->visit(route('admin.equipodocente.index'));
             $browser->assertRouteIs('admin.equipodocente.index');
         });
+
     }
 }

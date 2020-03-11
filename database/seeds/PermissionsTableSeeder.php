@@ -154,247 +154,247 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => '37',
-                'title' => 'equipo_docente_create',
-            ],
-            [
-                'id'    => '38',
-                'title' => 'equipo_docente_edit',
-            ],
-            [
-                'id'    => '39',
-                'title' => 'equipo_docente_show',
-            ],
-            [
-                'id'    => '40',
-                'title' => 'equipo_docente_delete',
-            ],
-            [
-                'id'    => '41',
-                'title' => 'equipo_docente_access',
-            ],
-            [
-                'id'    => '42',
                 'title' => 'tutorium_create',
             ],
             [
-                'id'    => '43',
+                'id'    => '38',
                 'title' => 'tutorium_edit',
             ],
             [
-                'id'    => '44',
+                'id'    => '39',
                 'title' => 'tutorium_show',
             ],
             [
-                'id'    => '45',
+                'id'    => '40',
                 'title' => 'tutorium_delete',
             ],
             [
-                'id'    => '46',
+                'id'    => '41',
                 'title' => 'tutorium_access',
             ],
             [
-                'id'    => '47',
+                'id'    => '42',
                 'title' => 'descargar_create',
             ],
             [
-                'id'    => '48',
+                'id'    => '43',
                 'title' => 'descargar_edit',
             ],
             [
-                'id'    => '49',
+                'id'    => '44',
                 'title' => 'descargar_show',
             ],
             [
-                'id'    => '50',
+                'id'    => '45',
                 'title' => 'descargar_delete',
             ],
             [
-                'id'    => '51',
+                'id'    => '46',
                 'title' => 'descargar_access',
             ],
             [
-                'id'    => '52',
+                'id'    => '47',
                 'title' => 'team_create',
             ],
             [
-                'id'    => '53',
+                'id'    => '48',
                 'title' => 'team_edit',
             ],
             [
-                'id'    => '54',
+                'id'    => '49',
                 'title' => 'team_show',
             ],
             [
-                'id'    => '55',
+                'id'    => '50',
                 'title' => 'team_delete',
             ],
             [
-                'id'    => '56',
+                'id'    => '51',
                 'title' => 'team_access',
             ],
             [
-                'id'    => '57',
+                'id'    => '52',
                 'title' => 'calendario_create',
             ],
             [
-                'id'    => '58',
+                'id'    => '53',
                 'title' => 'calendario_edit',
             ],
             [
-                'id'    => '59',
+                'id'    => '54',
                 'title' => 'calendario_show',
             ],
             [
-                'id'    => '60',
+                'id'    => '55',
                 'title' => 'calendario_delete',
             ],
             [
-                'id'    => '61',
+                'id'    => '56',
                 'title' => 'calendario_access',
             ],
             [
-                'id'    => '62',
+                'id'    => '57',
                 'title' => 'inicio_access',
             ],
             [
-                'id'    => '63',
+                'id'    => '58',
                 'title' => 'centro_access',
             ],
             [
-                'id'    => '64',
+                'id'    => '59',
                 'title' => 'familium_access',
             ],
             [
-                'id'    => '65',
+                'id'    => '60',
                 'title' => 'secretarium_access',
             ],
             [
-                'id'    => '66',
+                'id'    => '61',
                 'title' => 'impreso_create',
             ],
             [
-                'id'    => '67',
+                'id'    => '62',
                 'title' => 'impreso_edit',
             ],
             [
-                'id'    => '68',
+                'id'    => '63',
                 'title' => 'impreso_show',
             ],
             [
-                'id'    => '69',
+                'id'    => '64',
                 'title' => 'impreso_delete',
             ],
             [
-                'id'    => '70',
+                'id'    => '65',
                 'title' => 'impreso_access',
             ],
             [
-                'id'    => '71',
+                'id'    => '66',
                 'title' => 'alumnado_access',
             ],
             [
-                'id'    => '72',
+                'id'    => '67',
                 'title' => 'horario_create',
             ],
             [
-                'id'    => '73',
+                'id'    => '68',
                 'title' => 'horario_edit',
             ],
             [
-                'id'    => '74',
+                'id'    => '69',
                 'title' => 'horario_show',
             ],
             [
-                'id'    => '75',
+                'id'    => '70',
                 'title' => 'horario_delete',
             ],
             [
-                'id'    => '76',
+                'id'    => '71',
                 'title' => 'horario_access',
             ],
             [
-                'id'    => '77',
+                'id'    => '72',
                 'title' => 'estructura_access',
             ],
             [
-                'id'    => '78',
+                'id'    => '73',
                 'title' => 'curso_create',
             ],
             [
-                'id'    => '79',
+                'id'    => '74',
                 'title' => 'curso_edit',
             ],
             [
-                'id'    => '80',
+                'id'    => '75',
                 'title' => 'curso_show',
             ],
             [
-                'id'    => '81',
+                'id'    => '76',
                 'title' => 'curso_delete',
             ],
             [
-                'id'    => '82',
+                'id'    => '77',
                 'title' => 'curso_access',
             ],
             [
-                'id'    => '83',
+                'id'    => '78',
                 'title' => 'asginatura_create',
             ],
             [
-                'id'    => '84',
+                'id'    => '79',
                 'title' => 'asginatura_edit',
             ],
             [
-                'id'    => '85',
+                'id'    => '80',
                 'title' => 'asginatura_show',
             ],
             [
-                'id'    => '86',
+                'id'    => '81',
                 'title' => 'asginatura_delete',
             ],
             [
-                'id'    => '87',
+                'id'    => '82',
                 'title' => 'asginatura_access',
             ],
             [
-                'id'    => '88',
+                'id'    => '83',
                 'title' => 'grupo_create',
             ],
             [
-                'id'    => '89',
+                'id'    => '84',
                 'title' => 'grupo_edit',
             ],
             [
-                'id'    => '90',
+                'id'    => '85',
                 'title' => 'grupo_show',
             ],
             [
-                'id'    => '91',
+                'id'    => '86',
                 'title' => 'grupo_delete',
             ],
             [
-                'id'    => '92',
+                'id'    => '87',
                 'title' => 'grupo_access',
             ],
             [
-                'id'    => '93',
+                'id'    => '88',
                 'title' => 'descagar_familium_create',
             ],
             [
-                'id'    => '94',
+                'id'    => '89',
                 'title' => 'descagar_familium_edit',
             ],
             [
-                'id'    => '95',
+                'id'    => '90',
                 'title' => 'descagar_familium_show',
             ],
             [
-                'id'    => '96',
+                'id'    => '91',
                 'title' => 'descagar_familium_delete',
             ],
             [
-                'id'    => '97',
+                'id'    => '92',
                 'title' => 'descagar_familium_access',
+            ],
+            [
+                'id'    => '93',
+                'title' => 'equipo_docente_create',
+            ],
+            [
+                'id'    => '94',
+                'title' => 'equipo_docente_edit',
+            ],
+            [
+                'id'    => '95',
+                'title' => 'equipo_docente_show',
+            ],
+            [
+                'id'    => '96',
+                'title' => 'equipo_docente_delete',
+            ],
+            [
+                'id'    => '97',
+                'title' => 'equipo_docente_access',
             ],
         ];
 

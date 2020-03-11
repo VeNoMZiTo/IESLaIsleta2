@@ -52,7 +52,7 @@
                                 {{ $equipoDocente->id ?? '' }}
                             </td>
                             <td>
-                                {{ $equipoDocente->departamento->name ?? '' }}
+                                {{ $equipoDocente->departamento ?? '' }}
                             </td>
                             <td>
                                 {{ $equipoDocente->profesores ?? '' }}

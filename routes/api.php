@@ -25,9 +25,6 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Equipo Directivos
     Route::apiResource('equipo-directivos', 'EquipoDirectivoApiController');
 
-    // Equipo Docentes
-    Route::apiResource('equipo-docentes', 'EquipoDocenteApiController');
-
     // Tutoria
     Route::apiResource('tutoria', 'TutoriasApiController');
 
@@ -60,5 +57,8 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Descagar Familia
     Route::post('descagar-familia/media', 'DescagarFamiliasApiController@storeMedia')->name('descagar-familia.storeMedia');
     Route::apiResource('descagar-familia', 'DescagarFamiliasApiController');
+
+    // Equipo Docentes
+    Route::apiResource('equipo-docentes', 'EquipoDocenteApiController');
 
 });

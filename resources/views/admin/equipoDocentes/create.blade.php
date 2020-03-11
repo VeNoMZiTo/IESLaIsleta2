@@ -10,12 +10,8 @@
         <form method="POST" action="{{ route("admin.equipo-docentes.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label class="required" for="departamento_id">{{ trans('cruds.equipoDocente.fields.departamento') }}</label>
-                <select class="form-control select2 {{ $errors->has('departamento') ? 'is-invalid' : '' }}" name="departamento_id" id="departamento_id" required>
-                    @foreach($departamentos as $id => $departamento)
-                        <option value="{{ $id }}" {{ old('departamento_id') == $id ? 'selected' : '' }}>{{ $departamento }}</option>
-                    @endforeach
-                </select>
+                <label class="required" for="departamento">{{ trans('cruds.equipoDocente.fields.departamento') }}</label>
+                <input class="form-control {{ $errors->has('departamento') ? 'is-invalid' : '' }}" type="text" name="departamento" id="departamento" value="{{ old('departamento', '') }}" required>
                 @if($errors->has('departamento'))
                     <span class="text-danger">{{ $errors->first('departamento') }}</span>
                 @endif
