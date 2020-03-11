@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyEquipoDocenteRequest;
 use App\Http\Requests\StoreEquipoDocenteRequest;
 use App\Http\Requests\UpdateEquipoDocenteRequest;
+use App\Team;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,7 +27,9 @@ class EquipoDocenteController extends Controller
     {
         abort_if(Gate::denies('equipo_docente_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.equipoDocentes.create');
+        $departamentos = Team::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        return view('admin.equipoDocentes.create', compact('departamentos'));
     }
 
     public function store(StoreEquipoDocenteRequest $request)
@@ -41,7 +44,11 @@ class EquipoDocenteController extends Controller
     {
         abort_if(Gate::denies('equipo_docente_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.equipoDocentes.edit', compact('equipoDocente'));
+        $departamentos = Team::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $equipoDocente->load('departamento');
+
+        return view('admin.equipoDocentes.edit', compact('departamentos', 'equipoDocente'));
     }
 
     public function update(UpdateEquipoDocenteRequest $request, EquipoDocente $equipoDocente)
@@ -55,6 +62,8 @@ class EquipoDocenteController extends Controller
     public function show(EquipoDocente $equipoDocente)
     {
         abort_if(Gate::denies('equipo_docente_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $equipoDocente->load('departamento');
 
         return view('admin.equipoDocentes.show', compact('equipoDocente'));
     }

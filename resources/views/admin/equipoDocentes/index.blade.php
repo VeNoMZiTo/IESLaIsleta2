@@ -26,6 +26,9 @@
                             {{ trans('cruds.equipoDocente.fields.id') }}
                         </th>
                         <th>
+                            {{ trans('cruds.equipoDocente.fields.departamento') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.equipoDocente.fields.profesores') }}
                         </th>
                         <th>
@@ -47,6 +50,9 @@
                             </td>
                             <td>
                                 {{ $equipoDocente->id ?? '' }}
+                            </td>
+                            <td>
+                                {{ $equipoDocente->departamento->name ?? '' }}
                             </td>
                             <td>
                                 {{ $equipoDocente->profesores ?? '' }}
