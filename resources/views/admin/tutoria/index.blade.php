@@ -44,9 +44,6 @@
                             {{ trans('cruds.tutorium.fields.hora_atencion') }}
                         </th>
                         <th>
-                            {{ trans('cruds.tutorium.fields.departamento') }}
-                        </th>
-                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -79,9 +76,6 @@
                                 {{ $tutorium->hora_atencion ?? '' }}
                             </td>
                             <td>
-                                {{ $tutorium->departamento->nombre ?? '' }}
-                            </td>
-                            <td>
                                 @can('tutorium_show')
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.tutoria.show', $tutorium->id) }}">
                                         {{ trans('global.view') }}
@@ -111,6 +105,9 @@
         </div>
     </div>
 </div>
+
+
+
 @endsection
 @section('scripts')
 @parent

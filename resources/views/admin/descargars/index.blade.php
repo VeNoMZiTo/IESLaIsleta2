@@ -32,15 +32,6 @@
                             {{ trans('cruds.descargar.fields.directiva') }}
                         </th>
                         <th>
-                            {{ trans('cruds.descargar.fields.tutoria') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.descargar.fields.calescolar') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.descargar.fields.calpadres') }}
-                        </th>
-                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -64,27 +55,6 @@
                             <td>
                                 @if($descargar->directiva)
                                     <a href="{{ $descargar->directiva->getUrl() }}" target="_blank">
-                                        {{ trans('global.view_file') }}
-                                    </a>
-                                @endif
-                            </td>
-                            <td>
-                                @if($descargar->tutoria)
-                                    <a href="{{ $descargar->tutoria->getUrl() }}" target="_blank">
-                                        {{ trans('global.view_file') }}
-                                    </a>
-                                @endif
-                            </td>
-                            <td>
-                                @if($descargar->calescolar)
-                                    <a href="{{ $descargar->calescolar->getUrl() }}" target="_blank">
-                                        {{ trans('global.view_file') }}
-                                    </a>
-                                @endif
-                            </td>
-                            <td>
-                                @if($descargar->calpadres)
-                                    <a href="{{ $descargar->calpadres->getUrl() }}" target="_blank">
                                         {{ trans('global.view_file') }}
                                     </a>
                                 @endif

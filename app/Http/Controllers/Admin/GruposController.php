@@ -34,6 +34,7 @@ class GruposController extends Controller
         $grupo = Grupo::create($request->all());
 
         return redirect()->route('admin.grupos.index');
+
     }
 
     public function edit(Grupo $grupo)
@@ -48,13 +49,12 @@ class GruposController extends Controller
         $grupo->update($request->all());
 
         return redirect()->route('admin.grupos.index');
+
     }
 
     public function show(Grupo $grupo)
     {
         abort_if(Gate::denies('grupo_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $grupo->load('cursoHorarios', 'cursoCitaPrevia', 'cursosAsginaturas');
 
         return view('admin.grupos.show', compact('grupo'));
     }
@@ -66,6 +66,7 @@ class GruposController extends Controller
         $grupo->delete();
 
         return back();
+
     }
 
     public function massDestroy(MassDestroyGrupoRequest $request)
@@ -73,5 +74,6 @@ class GruposController extends Controller
         Grupo::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+
     }
 }

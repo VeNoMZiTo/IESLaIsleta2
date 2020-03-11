@@ -14,27 +14,21 @@ class StoreEquipoDirectivoRequest extends FormRequest
         abort_if(Gate::denies('equipo_directivo_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
+
     }
 
     public function rules()
     {
         return [
             'cargo'                    => [
-                'required',
-            ],
+                'required'],
             'nombre'                   => [
-                'required',
-            ],
+                'required'],
             'abreviatura_departamento' => [
-                'required',
-            ],
+                'required'],
             'email'                    => [
-                'required',
-            ],
-            'departamento_id'          => [
-                'required',
-                'integer',
-            ],
+                'required'],
         ];
+
     }
 }

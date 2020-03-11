@@ -47,42 +47,6 @@
                             @endif
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.descargar.fields.tutoria') }}
-                        </th>
-                        <td>
-                            @if($descargar->tutoria)
-                                <a href="{{ $descargar->tutoria->getUrl() }}" target="_blank">
-                                    {{ trans('global.view_file') }}
-                                </a>
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.descargar.fields.calescolar') }}
-                        </th>
-                        <td>
-                            @if($descargar->calescolar)
-                                <a href="{{ $descargar->calescolar->getUrl() }}" target="_blank">
-                                    {{ trans('global.view_file') }}
-                                </a>
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.descargar.fields.calpadres') }}
-                        </th>
-                        <td>
-                            @if($descargar->calpadres)
-                                <a href="{{ $descargar->calpadres->getUrl() }}" target="_blank">
-                                    {{ trans('global.view_file') }}
-                                </a>
-                            @endif
-                        </td>
-                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

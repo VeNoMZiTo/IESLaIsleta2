@@ -17,7 +17,8 @@ class EquipoDirectivoApiController extends Controller
     {
         abort_if(Gate::denies('equipo_directivo_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new EquipoDirectivoResource(EquipoDirectivo::with(['departamento'])->get());
+        return new EquipoDirectivoResource(EquipoDirectivo::all());
+
     }
 
     public function store(StoreEquipoDirectivoRequest $request)
@@ -27,13 +28,15 @@ class EquipoDirectivoApiController extends Controller
         return (new EquipoDirectivoResource($equipoDirectivo))
             ->response()
             ->setStatusCode(Response::HTTP_CREATED);
+
     }
 
     public function show(EquipoDirectivo $equipoDirectivo)
     {
         abort_if(Gate::denies('equipo_directivo_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new EquipoDirectivoResource($equipoDirectivo->load(['departamento']));
+        return new EquipoDirectivoResource($equipoDirectivo);
+
     }
 
     public function update(UpdateEquipoDirectivoRequest $request, EquipoDirectivo $equipoDirectivo)
@@ -43,6 +46,7 @@ class EquipoDirectivoApiController extends Controller
         return (new EquipoDirectivoResource($equipoDirectivo))
             ->response()
             ->setStatusCode(Response::HTTP_ACCEPTED);
+
     }
 
     public function destroy(EquipoDirectivo $equipoDirectivo)
@@ -52,5 +56,6 @@ class EquipoDirectivoApiController extends Controller
         $equipoDirectivo->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+
     }
 }

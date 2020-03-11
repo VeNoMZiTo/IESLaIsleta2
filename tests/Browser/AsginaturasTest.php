@@ -16,5 +16,6 @@ class AsginaturasTest extends DuskTestCase
             $browser->visit(route('admin.asginaturas.index'));
             $browser->assertRouteIs('admin.asginaturas.index');
         });
+
     }
 }

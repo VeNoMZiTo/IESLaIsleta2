@@ -14,15 +14,16 @@ class StoreGrupoRequest extends FormRequest
         abort_if(Gate::denies('grupo_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
+
     }
 
     public function rules()
     {
         return [
-            'curso' => [
+            'nombre' => [
                 'required',
-                'unique:grupos',
-            ],
+                'unique:grupos'],
         ];
+
     }
 }

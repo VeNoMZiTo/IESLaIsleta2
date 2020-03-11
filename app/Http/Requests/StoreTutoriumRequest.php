@@ -14,33 +14,25 @@ class StoreTutoriumRequest extends FormRequest
         abort_if(Gate::denies('tutorium_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
+
     }
 
     public function rules()
     {
         return [
             'nivel'                    => [
-                'required',
-            ],
+                'required'],
             'grupo'                    => [
-                'required',
-            ],
+                'required'],
             'tutor'                    => [
-                'required',
-            ],
+                'required'],
             'abreviatura_departamento' => [
-                'required',
-            ],
+                'required'],
             'email'                    => [
-                'required',
-            ],
+                'required'],
             'hora_atencion'            => [
-                'required',
-            ],
-            'departamento_id'          => [
-                'required',
-                'integer',
-            ],
+                'required'],
         ];
+
     }
 }

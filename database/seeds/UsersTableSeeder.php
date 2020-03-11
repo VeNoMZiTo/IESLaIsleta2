@@ -12,11 +12,12 @@ class UsersTableSeeder extends Seeder
                 'id'             => 1,
                 'name'           => 'Admin',
                 'email'          => 'admin@admin.com',
-                'password'       => '$2y$10$e5yiFMRmQqfT4n9HwS/zdeT9gz3ni4zafWpBF1cmqWjWJDsLPh9C.',
+                'password'       => '$2y$10$QbCUDD2o/ym6n.MJzLYkOOqKT0UPBWQYOh8LlsU0ldkNVXON7sfW6',
                 'remember_token' => null,
             ],
         ];
 
         User::insert($users);
+
     }
 }

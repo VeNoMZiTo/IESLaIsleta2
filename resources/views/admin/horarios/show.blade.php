@@ -25,10 +25,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.horario.fields.curso') }}
+                            {{ trans('cruds.horario.fields.grupo') }}
                         </th>
                         <td>
-                            {{ $horario->curso->curso ?? '' }}
+                            {{ $horario->grupo->nombre ?? '' }}
                         </td>
                     </tr>
                     <tr>

@@ -14,15 +14,16 @@ class UpdateGrupoRequest extends FormRequest
         abort_if(Gate::denies('grupo_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
+
     }
 
     public function rules()
     {
         return [
-            'curso' => [
+            'nombre' => [
                 'required',
-                'unique:grupos,curso,' . request()->route('grupo')->id,
-            ],
+                'unique:grupos,nombre,' . request()->route('grupo')->id],
         ];
+
     }
 }

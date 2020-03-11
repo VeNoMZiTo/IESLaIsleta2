@@ -14,6 +14,7 @@ class MassDestroyHorarioRequest extends FormRequest
         abort_if(Gate::denies('horario_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
+
     }
 
     public function rules()
@@ -22,5 +23,6 @@ class MassDestroyHorarioRequest extends FormRequest
             'ids'   => 'required|array',
             'ids.*' => 'exists:horarios,id',
         ];
+
     }
 }

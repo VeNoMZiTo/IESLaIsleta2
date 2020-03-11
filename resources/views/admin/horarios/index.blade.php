@@ -26,7 +26,7 @@
                             {{ trans('cruds.horario.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.horario.fields.curso') }}
+                            {{ trans('cruds.horario.fields.grupo') }}
                         </th>
                         <th>
                             {{ trans('cruds.horario.fields.horario') }}
@@ -55,7 +55,7 @@
                                 {{ $horario->id ?? '' }}
                             </td>
                             <td>
-                                {{ $horario->curso->curso ?? '' }}
+                                {{ $horario->grupo->nombre ?? '' }}
                             </td>
                             <td>
                                 {{ App\Horario::HORARIO_SELECT[$horario->horario] ?? '' }}

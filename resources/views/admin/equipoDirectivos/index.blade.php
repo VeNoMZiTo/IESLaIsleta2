@@ -38,9 +38,6 @@
                             {{ trans('cruds.equipoDirectivo.fields.email') }}
                         </th>
                         <th>
-                            {{ trans('cruds.equipoDirectivo.fields.departamento') }}
-                        </th>
-                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -65,9 +62,6 @@
                             </td>
                             <td>
                                 {{ $equipoDirectivo->email ?? '' }}
-                            </td>
-                            <td>
-                                {{ $equipoDirectivo->departamento->nombre ?? '' }}
                             </td>
                             <td>
                                 @can('equipo_directivo_show')
@@ -99,6 +93,9 @@
         </div>
     </div>
 </div>
+
+
+
 @endsection
 @section('scripts')
 @parent

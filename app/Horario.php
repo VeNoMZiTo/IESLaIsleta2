@@ -21,7 +21,7 @@ class Horario extends Model
         'dia',
         'color',
         'horario',
-        'curso_id',
+        'grupo_id',
         'asignatura',
         'created_at',
         'updated_at',
@@ -45,8 +45,9 @@ class Horario extends Model
         'sexta'   => '13:05 - 14:00',
     ];
 
-    public function curso()
+    public function grupo()
     {
-        return $this->belongsTo(Grupo::class, 'curso_id');
+        return $this->belongsTo(Grupo::class, 'grupo_id');
+
     }
 }

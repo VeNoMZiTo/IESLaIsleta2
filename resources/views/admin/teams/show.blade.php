@@ -42,38 +42,6 @@
     </div>
 </div>
 
-<div class="card">
-    <div class="card-header">
-        {{ trans('global.relatedData') }}
-    </div>
-    <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
-        <li class="nav-item">
-            <a class="nav-link" href="#team_users" role="tab" data-toggle="tab">
-                {{ trans('cruds.user.title') }}
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#team_departamentos" role="tab" data-toggle="tab">
-                {{ trans('cruds.departamento.title') }}
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#team_asginaturas" role="tab" data-toggle="tab">
-                {{ trans('cruds.asginatura.title') }}
-            </a>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane" role="tabpanel" id="team_users">
-            @includeIf('admin.teams.relationships.teamUsers', ['users' => $team->teamUsers])
-        </div>
-        <div class="tab-pane" role="tabpanel" id="team_departamentos">
-            @includeIf('admin.teams.relationships.teamDepartamentos', ['departamentos' => $team->teamDepartamentos])
-        </div>
-        <div class="tab-pane" role="tabpanel" id="team_asginaturas">
-            @includeIf('admin.teams.relationships.teamAsginaturas', ['asginaturas' => $team->teamAsginaturas])
-        </div>
-    </div>
-</div>
+
 
 @endsection

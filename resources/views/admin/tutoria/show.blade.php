@@ -7,7 +7,12 @@
     </div>
 
     <div class="card-body">
-        <div class="mb-2">
+        <div class="form-group">
+            <div class="form-group">
+                <a class="btn btn-default" href="{{ route('admin.tutoria.index') }}">
+                    {{ trans('global.back_to_list') }}
+                </a>
+            </div>
             <table class="table table-bordered table-striped">
                 <tbody>
                     <tr>
@@ -66,22 +71,17 @@
                             {{ $tutorium->hora_atencion }}
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.tutorium.fields.departamento') }}
-                        </th>
-                        <td>
-                            {{ $tutorium->departamento->nombre ?? '' }}
-                        </td>
-                    </tr>
                 </tbody>
             </table>
-            <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">
-                {{ trans('global.back_to_list') }}
-            </a>
+            <div class="form-group">
+                <a class="btn btn-default" href="{{ route('admin.tutoria.index') }}">
+                    {{ trans('global.back_to_list') }}
+                </a>
+            </div>
         </div>
-
-
     </div>
 </div>
+
+
+
 @endsection

@@ -14,6 +14,7 @@ class MassDestroyAsginaturaRequest extends FormRequest
         abort_if(Gate::denies('asginatura_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
+
     }
 
     public function rules()
@@ -22,5 +23,6 @@ class MassDestroyAsginaturaRequest extends FormRequest
             'ids'   => 'required|array',
             'ids.*' => 'exists:asginaturas,id',
         ];
+
     }
 }

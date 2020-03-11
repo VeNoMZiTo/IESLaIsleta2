@@ -10,16 +10,16 @@
         <form method="POST" action="{{ route("admin.horarios.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label class="required" for="curso_id">{{ trans('cruds.horario.fields.curso') }}</label>
-                <select class="form-control select2 {{ $errors->has('curso') ? 'is-invalid' : '' }}" name="curso_id" id="curso_id" required>
-                    @foreach($cursos as $id => $curso)
-                        <option value="{{ $id }}" {{ old('curso_id') == $id ? 'selected' : '' }}>{{ $curso }}</option>
+                <label class="required" for="grupo_id">{{ trans('cruds.horario.fields.grupo') }}</label>
+                <select class="form-control select2 {{ $errors->has('grupo') ? 'is-invalid' : '' }}" name="grupo_id" id="grupo_id" required>
+                    @foreach($grupos as $id => $grupo)
+                        <option value="{{ $id }}" {{ old('grupo_id') == $id ? 'selected' : '' }}>{{ $grupo }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('curso_id'))
-                    <span class="text-danger">{{ $errors->first('curso_id') }}</span>
+                @if($errors->has('grupo'))
+                    <span class="text-danger">{{ $errors->first('grupo') }}</span>
                 @endif
-                <span class="help-block">{{ trans('cruds.horario.fields.curso_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.horario.fields.grupo_helper') }}</span>
             </div>
             <div class="form-group">
                 <label class="required">{{ trans('cruds.horario.fields.horario') }}</label>

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Asginatura;
-use App\Grupo;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyAsginaturaRequest;
 use App\Http\Requests\StoreAsginaturaRequest;
@@ -27,43 +26,35 @@ class AsginaturasController extends Controller
     {
         abort_if(Gate::denies('asginatura_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $cursos = Grupo::all()->pluck('curso', 'id');
-
-        return view('admin.asginaturas.create', compact('cursos'));
+        return view('admin.asginaturas.create');
     }
 
     public function store(StoreAsginaturaRequest $request)
     {
         $asginatura = Asginatura::create($request->all());
-        $asginatura->cursos()->sync($request->input('cursos', []));
 
         return redirect()->route('admin.asginaturas.index');
+
     }
 
     public function edit(Asginatura $asginatura)
     {
         abort_if(Gate::denies('asginatura_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $cursos = Grupo::all()->pluck('curso', 'id');
-
-        $asginatura->load('cursos', 'team');
-
-        return view('admin.asginaturas.edit', compact('cursos', 'asginatura'));
+        return view('admin.asginaturas.edit', compact('asginatura'));
     }
 
     public function update(UpdateAsginaturaRequest $request, Asginatura $asginatura)
     {
         $asginatura->update($request->all());
-        $asginatura->cursos()->sync($request->input('cursos', []));
 
         return redirect()->route('admin.asginaturas.index');
+
     }
 
     public function show(Asginatura $asginatura)
     {
         abort_if(Gate::denies('asginatura_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $asginatura->load('cursos', 'team', 'asignaturaCitaPrevia');
 
         return view('admin.asginaturas.show', compact('asginatura'));
     }
@@ -75,6 +66,7 @@ class AsginaturasController extends Controller
         $asginatura->delete();
 
         return back();
+
     }
 
     public function massDestroy(MassDestroyAsginaturaRequest $request)
@@ -82,5 +74,6 @@ class AsginaturasController extends Controller
         Asginatura::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+
     }
 }

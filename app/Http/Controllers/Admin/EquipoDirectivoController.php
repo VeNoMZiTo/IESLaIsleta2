@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Departamento;
 use App\EquipoDirectivo;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyEquipoDirectivoRequest;
@@ -27,9 +26,7 @@ class EquipoDirectivoController extends Controller
     {
         abort_if(Gate::denies('equipo_directivo_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $departamentos = Departamento::all()->pluck('nombre', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        return view('admin.equipoDirectivos.create', compact('departamentos'));
+        return view('admin.equipoDirectivos.create');
     }
 
     public function store(StoreEquipoDirectivoRequest $request)
@@ -37,17 +34,14 @@ class EquipoDirectivoController extends Controller
         $equipoDirectivo = EquipoDirectivo::create($request->all());
 
         return redirect()->route('admin.equipo-directivos.index');
+
     }
 
     public function edit(EquipoDirectivo $equipoDirectivo)
     {
         abort_if(Gate::denies('equipo_directivo_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $departamentos = Departamento::all()->pluck('nombre', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $equipoDirectivo->load('departamento');
-
-        return view('admin.equipoDirectivos.edit', compact('departamentos', 'equipoDirectivo'));
+        return view('admin.equipoDirectivos.edit', compact('equipoDirectivo'));
     }
 
     public function update(UpdateEquipoDirectivoRequest $request, EquipoDirectivo $equipoDirectivo)
@@ -55,13 +49,12 @@ class EquipoDirectivoController extends Controller
         $equipoDirectivo->update($request->all());
 
         return redirect()->route('admin.equipo-directivos.index');
+
     }
 
     public function show(EquipoDirectivo $equipoDirectivo)
     {
         abort_if(Gate::denies('equipo_directivo_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $equipoDirectivo->load('departamento');
 
         return view('admin.equipoDirectivos.show', compact('equipoDirectivo'));
     }
@@ -73,6 +66,7 @@ class EquipoDirectivoController extends Controller
         $equipoDirectivo->delete();
 
         return back();
+
     }
 
     public function massDestroy(MassDestroyEquipoDirectivoRequest $request)
@@ -80,5 +74,6 @@ class EquipoDirectivoController extends Controller
         EquipoDirectivo::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+
     }
 }

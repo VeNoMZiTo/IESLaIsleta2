@@ -1,32 +1,6 @@
 <?php
 
-Route::get('/', 'IndexController@getIndex');
-Route::get('/presentacion', 'IndexController@getDepartamentos');
-Route::get('/consejo-escolar', 'IndexController@getDepartamentos');
-Route::get('/equipo-directivo', 'TablasController@getEqDirectivo');
-Route::get('/equipo-docente', 'TablasController@getEqDocente');
-Route::get('/tutorias', 'TablasController@getTutoria');
-Route::get('/calendario-escolar', 'TablasController@getCalendario');
-Route::get('/nodisponible', 'IndexController@getDepartamentos');
-Route::get('/consultas', 'IndexController@getDepartamentos');
-Route::get('/pincel-ekade', 'IndexController@getDepartamentos');
-Route::get('/contactar/{id}', 'IndexController@getConsultas');
-Route::get('/profesorado', 'IndexController@getDepartamentos');
-Route::get('/oferta-educativa', 'IndexController@getDepartamentos');
-Route::get('/departamentos', 'IndexController@getDepartamentos');
-Route::get('/noticias', 'IndexController@getRepertorioNoticias');
-Route::get('/noticia/{id}-{titulo}', 'IndexController@getNoticia');
-Route::get('/actividad/{id}-{titulo}', 'IndexController@getActividad');
-/*Alumnado*/
-Route::get('/junta-de-delegados', 'IndexController@getDepartamentos');
-Route::get('/grupos', 'TablasController@getGrupo');
-Route::get('/grupo/{id}', 'TablasController@getHorario');
-/*Secretaría*/
-Route::get('/impresos', 'IndexController@getImpreso');
-Route::get('/certificados', 'IndexController@getDepartamentos');
-Route::post('mail/send-contact', 'MailController@sendCertificado');
-/*Correos del Apartado de Buzón de Sugerencias*/
-Route::post('mail/send-contact', 'MailController@sendContact');
+Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
@@ -70,10 +44,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('actividades/ckmedia', 'ActividadesController@storeCKEditorImages')->name('actividades.storeCKEditorImages');
     Route::resource('actividades', 'ActividadesController');
 
-    // Departamentos
-    Route::delete('departamentos/destroy', 'DepartamentosController@massDestroy')->name('departamentos.massDestroy');
-    Route::resource('departamentos', 'DepartamentosController');
-
     // Equipo Directivos
     Route::delete('equipo-directivos/destroy', 'EquipoDirectivoController@massDestroy')->name('equipo-directivos.massDestroy');
     Route::resource('equipo-directivos', 'EquipoDirectivoController');
@@ -107,18 +77,25 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('impresos', 'ImpresosController');
 
     // Horarios
-    Route::delete('horarios/destroy', 'HorarioUpgradeController@massDestroy')->name('horarios.massDestroy');
-    Route::resource('horarios', 'HorarioUpgradeController');
+    Route::delete('horarios/destroy', 'HorarioController@massDestroy')->name('horarios.massDestroy');
+    Route::resource('horarios', 'HorarioController');
 
-    // Grupos
-    Route::delete('grupos/destroy', 'GruposController@massDestroy')->name('grupos.massDestroy');
-    Route::resource('grupos', 'GruposController');
+    // Cursos
+    Route::delete('cursos/destroy', 'CursosController@massDestroy')->name('cursos.massDestroy');
+    Route::resource('cursos', 'CursosController');
 
     // Asginaturas
     Route::delete('asginaturas/destroy', 'AsginaturasController@massDestroy')->name('asginaturas.massDestroy');
     Route::resource('asginaturas', 'AsginaturasController');
 
-    // Cita Previa
-    Route::delete('cita-previa/destroy', 'CitaPreviaController@massDestroy')->name('cita-previa.massDestroy');
-    Route::resource('cita-previa', 'CitaPreviaController');
+    // Grupos
+    Route::delete('grupos/destroy', 'GruposController@massDestroy')->name('grupos.massDestroy');
+    Route::resource('grupos', 'GruposController');
+
+    // Descagar Familia
+    Route::delete('descagar-familia/destroy', 'DescagarFamiliasController@massDestroy')->name('descagar-familia.massDestroy');
+    Route::post('descagar-familia/media', 'DescagarFamiliasController@storeMedia')->name('descagar-familia.storeMedia');
+    Route::post('descagar-familia/ckmedia', 'DescagarFamiliasController@storeCKEditorImages')->name('descagar-familia.storeCKEditorImages');
+    Route::resource('descagar-familia', 'DescagarFamiliasController');
+
 });

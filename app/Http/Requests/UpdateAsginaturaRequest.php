@@ -14,21 +14,15 @@ class UpdateAsginaturaRequest extends FormRequest
         abort_if(Gate::denies('asginatura_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
+
     }
 
     public function rules()
     {
         return [
-            'nombre'   => [
-                'required',
-            ],
-            'cursos.*' => [
-                'integer',
-            ],
-            'cursos'   => [
-                'required',
-                'array',
-            ],
+            'asginaturas' => [
+                'required'],
         ];
+
     }
 }
