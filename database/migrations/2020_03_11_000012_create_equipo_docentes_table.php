@@ -13,6 +13,7 @@ class CreateEquipoDocentesTable extends Migration
             $table->string('profesores');
             $table->string('cargo')->nullable();
             $table->string('email');
+            $table->string('departamento');
             $table->timestamps();
             $table->softDeletes();
         });
