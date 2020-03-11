@@ -7,105 +7,78 @@
     </div>
 
     <div class="card-body">
-        <form action="{{ route("admin.noticia.update", [$noticium->id]) }}" method="POST" enctype="multipart/form-data">
-            @csrf
+        <form method="POST" action="{{ route("admin.noticia.update", [$noticium->id]) }}" enctype="multipart/form-data">
             @method('PUT')
-            <div class="form-group {{ $errors->has('titulo') ? 'has-error' : '' }}">
-                <label for="titulo">{{ trans('cruds.noticium.fields.titulo') }}*</label>
-                <input type="text" id="titulo" name="titulo" class="form-control" value="{{ old('titulo', isset($noticium) ? $noticium->titulo : '') }}" required>
+            @csrf
+            <div class="form-group">
+                <label class="required" for="titulo">{{ trans('cruds.noticium.fields.titulo') }}</label>
+                <input class="form-control {{ $errors->has('titulo') ? 'is-invalid' : '' }}" type="text" name="titulo" id="titulo" value="{{ old('titulo', $noticium->titulo) }}" required>
                 @if($errors->has('titulo'))
-                    <p class="help-block">
-                        {{ $errors->first('titulo') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('titulo') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.noticium.fields.titulo_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.noticium.fields.titulo_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('subtitulo') ? 'has-error' : '' }}">
+            <div class="form-group">
                 <label for="subtitulo">{{ trans('cruds.noticium.fields.subtitulo') }}</label>
-                <input type="text" id="subtitulo" name="subtitulo" class="form-control" value="{{ old('subtitulo', isset($noticium) ? $noticium->subtitulo : '') }}">
+                <input class="form-control {{ $errors->has('subtitulo') ? 'is-invalid' : '' }}" type="text" name="subtitulo" id="subtitulo" value="{{ old('subtitulo', $noticium->subtitulo) }}">
                 @if($errors->has('subtitulo'))
-                    <p class="help-block">
-                        {{ $errors->first('subtitulo') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('subtitulo') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.noticium.fields.subtitulo_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.noticium.fields.subtitulo_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('fecha') ? 'has-error' : '' }}">
-                <label for="fecha">{{ trans('cruds.noticium.fields.fecha') }}*</label>
-                <input type="text" id="fecha" name="fecha" class="form-control date" value="{{ old('fecha', isset($noticium) ? $noticium->fecha : '') }}" required>
+            <div class="form-group">
+                <label class="required" for="fecha">{{ trans('cruds.noticium.fields.fecha') }}</label>
+                <input class="form-control date {{ $errors->has('fecha') ? 'is-invalid' : '' }}" type="text" name="fecha" id="fecha" value="{{ old('fecha', $noticium->fecha) }}" required>
                 @if($errors->has('fecha'))
-                    <p class="help-block">
-                        {{ $errors->first('fecha') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('fecha') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.noticium.fields.fecha_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.noticium.fields.fecha_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('autor') ? 'has-error' : '' }}">
-                <label for="autor">{{ trans('cruds.noticium.fields.autor') }}*</label>
-                <input type="text" id="autor" name="autor" class="form-control" value="{{ old('autor', isset($noticium) ? $noticium->autor : '') }}" required>
+            <div class="form-group">
+                <label class="required" for="autor">{{ trans('cruds.noticium.fields.autor') }}</label>
+                <input class="form-control {{ $errors->has('autor') ? 'is-invalid' : '' }}" type="text" name="autor" id="autor" value="{{ old('autor', $noticium->autor) }}" required>
                 @if($errors->has('autor'))
-                    <p class="help-block">
-                        {{ $errors->first('autor') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('autor') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.noticium.fields.autor_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.noticium.fields.autor_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('foto') ? 'has-error' : '' }}">
-                <label for="foto">{{ trans('cruds.noticium.fields.foto') }}*</label>
-                <div class="needsclick dropzone" id="foto-dropzone">
-
+            <div class="form-group">
+                <label class="required" for="foto">{{ trans('cruds.noticium.fields.foto') }}</label>
+                <div class="needsclick dropzone {{ $errors->has('foto') ? 'is-invalid' : '' }}" id="foto-dropzone">
                 </div>
                 @if($errors->has('foto'))
-                    <p class="help-block">
-                        {{ $errors->first('foto') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('foto') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.noticium.fields.foto_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.noticium.fields.foto_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('descripcion') ? 'has-error' : '' }}">
-                <label for="descripcion">{{ trans('cruds.noticium.fields.descripcion') }}*</label>
-                <textarea id="descripcion" name="descripcion" class="form-control ckeditor">{{ old('descripcion', isset($noticium) ? $noticium->descripcion : '') }}</textarea>
+            <div class="form-group">
+                <label for="descripcion">{{ trans('cruds.noticium.fields.descripcion') }}</label>
+                <textarea class="form-control ckeditor {{ $errors->has('descripcion') ? 'is-invalid' : '' }}" name="descripcion" id="descripcion">{!! old('descripcion', $noticium->descripcion) !!}</textarea>
                 @if($errors->has('descripcion'))
-                    <p class="help-block">
-                        {{ $errors->first('descripcion') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('descripcion') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.noticium.fields.descripcion_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.noticium.fields.descripcion_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('archivos') ? 'has-error' : '' }}">
+            <div class="form-group">
                 <label for="archivos">{{ trans('cruds.noticium.fields.archivos') }}</label>
-                <div class="needsclick dropzone" id="archivos-dropzone">
-
+                <div class="needsclick dropzone {{ $errors->has('archivos') ? 'is-invalid' : '' }}" id="archivos-dropzone">
                 </div>
                 @if($errors->has('archivos'))
-                    <p class="help-block">
-                        {{ $errors->first('archivos') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('archivos') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.noticium.fields.archivos_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.noticium.fields.archivos_helper') }}</span>
             </div>
-            <div>
-                <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
+            <div class="form-group">
+                <button class="btn btn-danger" type="submit">
+                    {{ trans('global.save') }}
+                </button>
             </div>
         </form>
-
-
     </div>
 </div>
+
+
+
 @endsection
 
 @section('scripts')
@@ -171,6 +144,70 @@ Dropzone.options.fotoDropzone = {
 }
 </script>
 <script>
+    $(document).ready(function () {
+  function SimpleUploadAdapter(editor) {
+    editor.plugins.get('FileRepository').createUploadAdapter = function(loader) {
+      return {
+        upload: function() {
+          return loader.file
+            .then(function (file) {
+              return new Promise(function(resolve, reject) {
+                // Init request
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/admin/noticia/ckmedia', true);
+                xhr.setRequestHeader('x-csrf-token', window._token);
+                xhr.setRequestHeader('Accept', 'application/json');
+                xhr.responseType = 'json';
+
+                // Init listeners
+                var genericErrorText = `Couldn't upload file: ${ file.name }.`;
+                xhr.addEventListener('error', function() { reject(genericErrorText) });
+                xhr.addEventListener('abort', function() { reject() });
+                xhr.addEventListener('load', function() {
+                  var response = xhr.response;
+
+                  if (!response || xhr.status !== 201) {
+                    return reject(response && response.message ? `${genericErrorText}\n${xhr.status} ${response.message}` : `${genericErrorText}\n ${xhr.status} ${xhr.statusText}`);
+                  }
+
+                  $('form').append('<input type="hidden" name="ck-media[]" value="' + response.id + '">');
+
+                  resolve({ default: response.url });
+                });
+
+                if (xhr.upload) {
+                  xhr.upload.addEventListener('progress', function(e) {
+                    if (e.lengthComputable) {
+                      loader.uploadTotal = e.total;
+                      loader.uploaded = e.loaded;
+                    }
+                  });
+                }
+
+                // Send request
+                var data = new FormData();
+                data.append('upload', file);
+                data.append('crud_id', {{ $noticium->id ?? 0 }});
+                xhr.send(data);
+              });
+            })
+        }
+      };
+    }
+  }
+
+  var allEditors = document.querySelectorAll('.ckeditor');
+  for (var i = 0; i < allEditors.length; ++i) {
+    ClassicEditor.create(
+      allEditors[i], {
+        extraPlugins: [SimpleUploadAdapter]
+      }
+    );
+  }
+});
+</script>
+
+<script>
     var uploadedArchivosMap = {}
 Dropzone.options.archivosDropzone = {
     url: '{{ route('admin.noticia.storeMedia') }}',
@@ -226,4 +263,4 @@ Dropzone.options.archivosDropzone = {
      }
 }
 </script>
-@stop
+@endsection

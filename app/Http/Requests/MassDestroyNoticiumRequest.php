@@ -14,6 +14,7 @@ class MassDestroyNoticiumRequest extends FormRequest
         abort_if(Gate::denies('noticium_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
+
     }
 
     public function rules()
@@ -22,5 +23,6 @@ class MassDestroyNoticiumRequest extends FormRequest
             'ids'   => 'required|array',
             'ids.*' => 'exists:noticia,id',
         ];
+
     }
 }
