@@ -22,9 +22,6 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     Route::post('actividades/media', 'ActividadesApiController@storeMedia')->name('actividades.storeMedia');
     Route::apiResource('actividades', 'ActividadesApiController');
 
-    // Departamentos
-    Route::apiResource('departamentos', 'DepartamentosApiController');
-
     // Equipo Directivos
     Route::apiResource('equipo-directivos', 'EquipoDirectivoApiController');
 
@@ -51,12 +48,17 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Horarios
     Route::apiResource('horarios', 'HorarioApiController');
 
-    // Grupos
-    Route::apiResource('grupos', 'GruposApiController');
+    // Cursos
+    Route::apiResource('cursos', 'CursosApiController');
 
     // Asginaturas
     Route::apiResource('asginaturas', 'AsginaturasApiController');
 
-    // Cita Previa
-    Route::apiResource('cita-previa', 'CitaPreviaApiController');
+    // Grupos
+    Route::apiResource('grupos', 'GruposApiController');
+
+    // Descagar Familia
+    Route::post('descagar-familia/media', 'DescagarFamiliasApiController@storeMedia')->name('descagar-familia.storeMedia');
+    Route::apiResource('descagar-familia', 'DescagarFamiliasApiController');
+
 });

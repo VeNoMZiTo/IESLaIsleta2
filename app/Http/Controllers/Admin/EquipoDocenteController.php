@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Departamento;
 use App\EquipoDocente;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyEquipoDocenteRequest;
@@ -27,9 +26,7 @@ class EquipoDocenteController extends Controller
     {
         abort_if(Gate::denies('equipo_docente_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $departamentos = Departamento::all()->pluck('nombre', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        return view('admin.equipoDocentes.create', compact('departamentos'));
+        return view('admin.equipoDocentes.create');
     }
 
     public function store(StoreEquipoDocenteRequest $request)
@@ -37,17 +34,14 @@ class EquipoDocenteController extends Controller
         $equipoDocente = EquipoDocente::create($request->all());
 
         return redirect()->route('admin.equipo-docentes.index');
+
     }
 
     public function edit(EquipoDocente $equipoDocente)
     {
         abort_if(Gate::denies('equipo_docente_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $departamentos = Departamento::all()->pluck('nombre', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $equipoDocente->load('departamento');
-
-        return view('admin.equipoDocentes.edit', compact('departamentos', 'equipoDocente'));
+        return view('admin.equipoDocentes.edit', compact('equipoDocente'));
     }
 
     public function update(UpdateEquipoDocenteRequest $request, EquipoDocente $equipoDocente)
@@ -55,13 +49,12 @@ class EquipoDocenteController extends Controller
         $equipoDocente->update($request->all());
 
         return redirect()->route('admin.equipo-docentes.index');
+
     }
 
     public function show(EquipoDocente $equipoDocente)
     {
         abort_if(Gate::denies('equipo_docente_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $equipoDocente->load('departamento');
 
         return view('admin.equipoDocentes.show', compact('equipoDocente'));
     }
@@ -73,6 +66,7 @@ class EquipoDocenteController extends Controller
         $equipoDocente->delete();
 
         return back();
+
     }
 
     public function massDestroy(MassDestroyEquipoDocenteRequest $request)
@@ -80,5 +74,6 @@ class EquipoDocenteController extends Controller
         EquipoDocente::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+
     }
 }

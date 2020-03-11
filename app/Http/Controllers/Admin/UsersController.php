@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Curso;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyUserRequest;
 use App\Http\Requests\StoreUserRequest;
@@ -30,17 +31,21 @@ class UsersController extends Controller
 
         $roles = Role::all()->pluck('title', 'id');
 
+        $cursos = Curso::all()->pluck('nivel', 'id');
+
         $teams = Team::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.users.create', compact('roles', 'teams'));
+        return view('admin.users.create', compact('roles', 'cursos', 'teams'));
     }
 
     public function store(StoreUserRequest $request)
     {
         $user = User::create($request->all());
         $user->roles()->sync($request->input('roles', []));
+        $user->cursos()->sync($request->input('cursos', []));
 
         return redirect()->route('admin.users.index');
+
     }
 
     public function edit(User $user)
@@ -49,26 +54,30 @@ class UsersController extends Controller
 
         $roles = Role::all()->pluck('title', 'id');
 
+        $cursos = Curso::all()->pluck('nivel', 'id');
+
         $teams = Team::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $user->load('roles', 'team');
+        $user->load('roles', 'cursos', 'team');
 
-        return view('admin.users.edit', compact('roles', 'teams', 'user'));
+        return view('admin.users.edit', compact('roles', 'cursos', 'teams', 'user'));
     }
 
     public function update(UpdateUserRequest $request, User $user)
     {
         $user->update($request->all());
         $user->roles()->sync($request->input('roles', []));
+        $user->cursos()->sync($request->input('cursos', []));
 
         return redirect()->route('admin.users.index');
+
     }
 
     public function show(User $user)
     {
         abort_if(Gate::denies('user_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $user->load('roles', 'team');
+        $user->load('roles', 'cursos', 'team');
 
         return view('admin.users.show', compact('user'));
     }
@@ -80,6 +89,7 @@ class UsersController extends Controller
         $user->delete();
 
         return back();
+
     }
 
     public function massDestroy(MassDestroyUserRequest $request)
@@ -87,5 +97,6 @@ class UsersController extends Controller
         User::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+
     }
 }

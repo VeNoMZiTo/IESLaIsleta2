@@ -7,82 +7,86 @@
     </div>
 
     <div class="card-body">
-        <form action="{{ route("admin.users.update", [$user->id]) }}" method="POST" enctype="multipart/form-data">
-            @csrf
+        <form method="POST" action="{{ route("admin.users.update", [$user->id]) }}" enctype="multipart/form-data">
             @method('PUT')
-            <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-                <label for="name">{{ trans('cruds.user.fields.name') }}*</label>
-                <input type="text" id="name" name="name" class="form-control" value="{{ old('name', isset($user) ? $user->name : '') }}" required>
+            @csrf
+            <div class="form-group">
+                <label class="required" for="name">{{ trans('cruds.user.fields.name') }}</label>
+                <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', $user->name) }}" required>
                 @if($errors->has('name'))
-                    <p class="help-block">
-                        {{ $errors->first('name') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('name') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.user.fields.name_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.user.fields.name_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                <label for="email">{{ trans('cruds.user.fields.email') }}*</label>
-                <input type="email" id="email" name="email" class="form-control" value="{{ old('email', isset($user) ? $user->email : '') }}" required>
+            <div class="form-group">
+                <label class="required" for="email">{{ trans('cruds.user.fields.email') }}</label>
+                <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="text" name="email" id="email" value="{{ old('email', $user->email) }}" required>
                 @if($errors->has('email'))
-                    <p class="help-block">
-                        {{ $errors->first('email') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('email') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.user.fields.email_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.user.fields.email_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
-                <label for="password">{{ trans('cruds.user.fields.password') }}</label>
-                <input type="password" id="password" name="password" class="form-control">
+            <div class="form-group">
+                <label class="required" for="password">{{ trans('cruds.user.fields.password') }}</label>
+                <input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" id="password">
                 @if($errors->has('password'))
-                    <p class="help-block">
-                        {{ $errors->first('password') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('password') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.user.fields.password_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.user.fields.password_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('roles') ? 'has-error' : '' }}">
-                <label for="roles">{{ trans('cruds.user.fields.roles') }}*
-                    <span class="btn btn-info btn-xs select-all">{{ trans('global.select_all') }}</span>
-                    <span class="btn btn-info btn-xs deselect-all">{{ trans('global.deselect_all') }}</span></label>
-                <select name="roles[]" id="roles" class="form-control select2" multiple="multiple" required>
+            <div class="form-group">
+                <label class="required" for="roles">{{ trans('cruds.user.fields.roles') }}</label>
+                <div style="padding-bottom: 4px">
+                    <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
+                    <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
+                </div>
+                <select class="form-control select2 {{ $errors->has('roles') ? 'is-invalid' : '' }}" name="roles[]" id="roles" multiple required>
                     @foreach($roles as $id => $roles)
-                        <option value="{{ $id }}" {{ (in_array($id, old('roles', [])) || isset($user) && $user->roles->contains($id)) ? 'selected' : '' }}>{{ $roles }}</option>
+                        <option value="{{ $id }}" {{ (in_array($id, old('roles', [])) || $user->roles->contains($id)) ? 'selected' : '' }}>{{ $roles }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('roles'))
-                    <p class="help-block">
-                        {{ $errors->first('roles') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('roles') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.user.fields.roles_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.user.fields.roles_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('team_id') ? 'has-error' : '' }}">
-                <label for="team">{{ trans('cruds.user.fields.team') }}</label>
-                <select name="team_id" id="team" class="form-control select2">
-                    @foreach($teams as $id => $team)
-                        <option value="{{ $id }}" {{ (isset($user) && $user->team ? $user->team->id : old('team_id')) == $id ? 'selected' : '' }}>{{ $team }}</option>
+            <div class="form-group">
+                <label for="cursos">{{ trans('cruds.user.fields.cursos') }}</label>
+                <div style="padding-bottom: 4px">
+                    <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
+                    <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
+                </div>
+                <select class="form-control select2 {{ $errors->has('cursos') ? 'is-invalid' : '' }}" name="cursos[]" id="cursos" multiple>
+                    @foreach($cursos as $id => $cursos)
+                        <option value="{{ $id }}" {{ (in_array($id, old('cursos', [])) || $user->cursos->contains($id)) ? 'selected' : '' }}>{{ $cursos }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('team_id'))
-                    <p class="help-block">
-                        {{ $errors->first('team_id') }}
-                    </p>
+                @if($errors->has('cursos'))
+                    <span class="text-danger">{{ $errors->first('cursos') }}</span>
                 @endif
+                <span class="help-block">{{ trans('cruds.user.fields.cursos_helper') }}</span>
             </div>
-            <div>
-                <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
+            <div class="form-group">
+                <label for="team_id">{{ trans('cruds.user.fields.team') }}</label>
+                <select class="form-control select2 {{ $errors->has('team') ? 'is-invalid' : '' }}" name="team_id" id="team_id">
+                    @foreach($teams as $id => $team)
+                        <option value="{{ $id }}" {{ ($user->team ? $user->team->id : old('team_id')) == $id ? 'selected' : '' }}>{{ $team }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('team'))
+                    <span class="text-danger">{{ $errors->first('team') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.user.fields.team_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger" type="submit">
+                    {{ trans('global.save') }}
+                </button>
             </div>
         </form>
-
-
     </div>
 </div>
+
+
+
 @endsection

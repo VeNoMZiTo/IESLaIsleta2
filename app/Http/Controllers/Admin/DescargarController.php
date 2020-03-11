@@ -45,23 +45,12 @@ class DescargarController extends Controller
             $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('directiva')))->toMediaCollection('directiva');
         }
 
-        if ($request->input('tutoria', false)) {
-            $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('tutoria')))->toMediaCollection('tutoria');
-        }
-
-        if ($request->input('calescolar', false)) {
-            $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('calescolar')))->toMediaCollection('calescolar');
-        }
-
-        if ($request->input('calpadres', false)) {
-            $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('calpadres')))->toMediaCollection('calpadres');
-        }
-
         if ($media = $request->input('ck-media', false)) {
             Media::whereIn('id', $media)->update(['model_id' => $descargar->id]);
         }
 
         return redirect()->route('admin.descargars.index');
+
     }
 
     public function edit(Descargar $descargar)
@@ -79,6 +68,7 @@ class DescargarController extends Controller
             if (!$descargar->docente || $request->input('docente') !== $descargar->docente->file_name) {
                 $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('docente')))->toMediaCollection('docente');
             }
+
         } elseif ($descargar->docente) {
             $descargar->docente->delete();
         }
@@ -87,35 +77,13 @@ class DescargarController extends Controller
             if (!$descargar->directiva || $request->input('directiva') !== $descargar->directiva->file_name) {
                 $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('directiva')))->toMediaCollection('directiva');
             }
+
         } elseif ($descargar->directiva) {
             $descargar->directiva->delete();
         }
 
-        if ($request->input('tutoria', false)) {
-            if (!$descargar->tutoria || $request->input('tutoria') !== $descargar->tutoria->file_name) {
-                $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('tutoria')))->toMediaCollection('tutoria');
-            }
-        } elseif ($descargar->tutoria) {
-            $descargar->tutoria->delete();
-        }
-
-        if ($request->input('calescolar', false)) {
-            if (!$descargar->calescolar || $request->input('calescolar') !== $descargar->calescolar->file_name) {
-                $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('calescolar')))->toMediaCollection('calescolar');
-            }
-        } elseif ($descargar->calescolar) {
-            $descargar->calescolar->delete();
-        }
-
-        if ($request->input('calpadres', false)) {
-            if (!$descargar->calpadres || $request->input('calpadres') !== $descargar->calpadres->file_name) {
-                $descargar->addMedia(storage_path('tmp/uploads/' . $request->input('calpadres')))->toMediaCollection('calpadres');
-            }
-        } elseif ($descargar->calpadres) {
-            $descargar->calpadres->delete();
-        }
-
         return redirect()->route('admin.descargars.index');
+
     }
 
     public function show(Descargar $descargar)
@@ -132,6 +100,7 @@ class DescargarController extends Controller
         $descargar->delete();
 
         return back();
+
     }
 
     public function massDestroy(MassDestroyDescargarRequest $request)
@@ -139,6 +108,7 @@ class DescargarController extends Controller
         Descargar::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+
     }
 
     public function storeCKEditorImages(Request $request)
@@ -151,5 +121,7 @@ class DescargarController extends Controller
         $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media', 'public');
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
+
     }
+
 }

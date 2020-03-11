@@ -7,64 +7,42 @@
     </div>
 
     <div class="card-body">
-        <form action="{{ route("admin.equipo-docentes.update", [$equipoDocente->id]) }}" method="POST" enctype="multipart/form-data">
-            @csrf
+        <form method="POST" action="{{ route("admin.equipo-docentes.update", [$equipoDocente->id]) }}" enctype="multipart/form-data">
             @method('PUT')
-            <div class="form-group {{ $errors->has('profesores') ? 'has-error' : '' }}">
-                <label for="profesores">{{ trans('cruds.equipoDocente.fields.profesores') }}*</label>
-                <input type="text" id="profesores" name="profesores" class="form-control" value="{{ old('profesores', isset($equipoDocente) ? $equipoDocente->profesores : '') }}" required>
+            @csrf
+            <div class="form-group">
+                <label class="required" for="profesores">{{ trans('cruds.equipoDocente.fields.profesores') }}</label>
+                <input class="form-control {{ $errors->has('profesores') ? 'is-invalid' : '' }}" type="text" name="profesores" id="profesores" value="{{ old('profesores', $equipoDocente->profesores) }}" required>
                 @if($errors->has('profesores'))
-                    <p class="help-block">
-                        {{ $errors->first('profesores') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('profesores') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.equipoDocente.fields.profesores_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.equipoDocente.fields.profesores_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('cargo') ? 'has-error' : '' }}">
+            <div class="form-group">
                 <label for="cargo">{{ trans('cruds.equipoDocente.fields.cargo') }}</label>
-                <input type="text" id="cargo" name="cargo" class="form-control" value="{{ old('cargo', isset($equipoDocente) ? $equipoDocente->cargo : '') }}">
+                <input class="form-control {{ $errors->has('cargo') ? 'is-invalid' : '' }}" type="text" name="cargo" id="cargo" value="{{ old('cargo', $equipoDocente->cargo) }}">
                 @if($errors->has('cargo'))
-                    <p class="help-block">
-                        {{ $errors->first('cargo') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('cargo') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.equipoDocente.fields.cargo_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.equipoDocente.fields.cargo_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                <label for="email">{{ trans('cruds.equipoDocente.fields.email') }}*</label>
-                <input type="email" id="email" name="email" class="form-control" value="{{ old('email', isset($equipoDocente) ? $equipoDocente->email : '') }}" required>
+            <div class="form-group">
+                <label class="required" for="email">{{ trans('cruds.equipoDocente.fields.email') }}</label>
+                <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="text" name="email" id="email" value="{{ old('email', $equipoDocente->email) }}" required>
                 @if($errors->has('email'))
-                    <p class="help-block">
-                        {{ $errors->first('email') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('email') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.equipoDocente.fields.email_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.equipoDocente.fields.email_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('departamento_id') ? 'has-error' : '' }}">
-                <label for="departamento">{{ trans('cruds.equipoDocente.fields.departamento') }}*</label>
-                <select name="departamento_id" id="departamento" class="form-control select2" required>
-                    @foreach($departamentos as $id => $departamento)
-                        <option value="{{ $id }}" {{ (isset($equipoDocente) && $equipoDocente->departamento ? $equipoDocente->departamento->id : old('departamento_id')) == $id ? 'selected' : '' }}>{{ $departamento }}</option>
-                    @endforeach
-                </select>
-                @if($errors->has('departamento_id'))
-                    <p class="help-block">
-                        {{ $errors->first('departamento_id') }}
-                    </p>
-                @endif
-            </div>
-            <div>
-                <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
+            <div class="form-group">
+                <button class="btn btn-danger" type="submit">
+                    {{ trans('global.save') }}
+                </button>
             </div>
         </form>
-
-
     </div>
 </div>
+
+
+
 @endsection

@@ -14,24 +14,26 @@ class UpdateUserRequest extends FormRequest
         abort_if(Gate::denies('user_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
+
     }
 
     public function rules()
     {
         return [
-            'name'    => [
+            'name'     => [
+                'required'],
+            'email'    => [
+                'required'],
+            'roles.*'  => [
+                'integer'],
+            'roles'    => [
                 'required',
-            ],
-            'email'   => [
-                'required',
-            ],
-            'roles.*' => [
-                'integer',
-            ],
-            'roles'   => [
-                'required',
-                'array',
-            ],
+                'array'],
+            'cursos.*' => [
+                'integer'],
+            'cursos'   => [
+                'array'],
         ];
+
     }
 }

@@ -14,11 +14,13 @@ class StoreDescargarRequest extends FormRequest
         abort_if(Gate::denies('descargar_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
+
     }
 
     public function rules()
     {
         return [
         ];
+
     }
 }

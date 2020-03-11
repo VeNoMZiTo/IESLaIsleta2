@@ -17,7 +17,8 @@ class EquipoDocenteApiController extends Controller
     {
         abort_if(Gate::denies('equipo_docente_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new EquipoDocenteResource(EquipoDocente::with(['departamento'])->get());
+        return new EquipoDocenteResource(EquipoDocente::all());
+
     }
 
     public function store(StoreEquipoDocenteRequest $request)
@@ -27,13 +28,15 @@ class EquipoDocenteApiController extends Controller
         return (new EquipoDocenteResource($equipoDocente))
             ->response()
             ->setStatusCode(Response::HTTP_CREATED);
+
     }
 
     public function show(EquipoDocente $equipoDocente)
     {
         abort_if(Gate::denies('equipo_docente_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new EquipoDocenteResource($equipoDocente->load(['departamento']));
+        return new EquipoDocenteResource($equipoDocente);
+
     }
 
     public function update(UpdateEquipoDocenteRequest $request, EquipoDocente $equipoDocente)
@@ -43,6 +46,7 @@ class EquipoDocenteApiController extends Controller
         return (new EquipoDocenteResource($equipoDocente))
             ->response()
             ->setStatusCode(Response::HTTP_ACCEPTED);
+
     }
 
     public function destroy(EquipoDocente $equipoDocente)
@@ -52,5 +56,6 @@ class EquipoDocenteApiController extends Controller
         $equipoDocente->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+
     }
 }

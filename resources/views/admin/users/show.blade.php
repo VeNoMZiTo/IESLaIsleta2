@@ -7,7 +7,12 @@
     </div>
 
     <div class="card-body">
-        <div class="mb-2">
+        <div class="form-group">
+            <div class="form-group">
+                <a class="btn btn-default" href="{{ route('admin.users.index') }}">
+                    {{ trans('global.back_to_list') }}
+                </a>
+            </div>
             <table class="table table-bordered table-striped">
                 <tbody>
                     <tr>
@@ -44,22 +49,35 @@
                     </tr>
                     <tr>
                         <th>
-                            Roles
+                            {{ trans('cruds.user.fields.roles') }}
                         </th>
                         <td>
-                            @foreach($user->roles as $id => $roles)
-                                <span class="label label-info label-many">{{ $roles->title }}</span>
+                            @foreach($user->roles as $key => $roles)
+                                <span class="label label-info">{{ $roles->title }}</span>
+                            @endforeach
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.cursos') }}
+                        </th>
+                        <td>
+                            @foreach($user->cursos as $key => $cursos)
+                                <span class="label label-info">{{ $cursos->nivel }}</span>
                             @endforeach
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">
-                {{ trans('global.back_to_list') }}
-            </a>
+            <div class="form-group">
+                <a class="btn btn-default" href="{{ route('admin.users.index') }}">
+                    {{ trans('global.back_to_list') }}
+                </a>
+            </div>
         </div>
-
-
     </div>
 </div>
+
+
+
 @endsection

@@ -26,10 +26,7 @@
                             {{ trans('cruds.asginatura.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.asginatura.fields.nombre') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.asginatura.fields.cursos') }}
+                            {{ trans('cruds.asginatura.fields.asginaturas') }}
                         </th>
                         <th>
                             &nbsp;
@@ -46,12 +43,7 @@
                                 {{ $asginatura->id ?? '' }}
                             </td>
                             <td>
-                                {{ $asginatura->nombre ?? '' }}
-                            </td>
-                            <td>
-                                @foreach($asginatura->cursos as $key => $item)
-                                    <span class="badge badge-info">{{ $item->curso }}</span>
-                                @endforeach
+                                {{ $asginatura->asginaturas ?? '' }}
                             </td>
                             <td>
                                 @can('asginatura_show')
@@ -124,7 +116,7 @@
 
   $.extend(true, $.fn.dataTable.defaults, {
     order: [[ 1, 'desc' ]],
-    pageLength: 25,
+    pageLength: 100,
   });
   $('.datatable-Asginatura:not(.ajaxTable)').DataTable({ buttons: dtButtons })
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){

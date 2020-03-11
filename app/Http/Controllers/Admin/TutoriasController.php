@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Departamento;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyTutoriumRequest;
 use App\Http\Requests\StoreTutoriumRequest;
@@ -27,9 +26,7 @@ class TutoriasController extends Controller
     {
         abort_if(Gate::denies('tutorium_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $departamentos = Departamento::all()->pluck('nombre', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        return view('admin.tutoria.create', compact('departamentos'));
+        return view('admin.tutoria.create');
     }
 
     public function store(StoreTutoriumRequest $request)
@@ -37,17 +34,14 @@ class TutoriasController extends Controller
         $tutorium = Tutorium::create($request->all());
 
         return redirect()->route('admin.tutoria.index');
+
     }
 
     public function edit(Tutorium $tutorium)
     {
         abort_if(Gate::denies('tutorium_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $departamentos = Departamento::all()->pluck('nombre', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $tutorium->load('departamento');
-
-        return view('admin.tutoria.edit', compact('departamentos', 'tutorium'));
+        return view('admin.tutoria.edit', compact('tutorium'));
     }
 
     public function update(UpdateTutoriumRequest $request, Tutorium $tutorium)
@@ -55,13 +49,12 @@ class TutoriasController extends Controller
         $tutorium->update($request->all());
 
         return redirect()->route('admin.tutoria.index');
+
     }
 
     public function show(Tutorium $tutorium)
     {
         abort_if(Gate::denies('tutorium_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $tutorium->load('departamento');
 
         return view('admin.tutoria.show', compact('tutorium'));
     }
@@ -73,6 +66,7 @@ class TutoriasController extends Controller
         $tutorium->delete();
 
         return back();
+
     }
 
     public function massDestroy(MassDestroyTutoriumRequest $request)
@@ -80,5 +74,6 @@ class TutoriasController extends Controller
         Tutorium::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+
     }
 }

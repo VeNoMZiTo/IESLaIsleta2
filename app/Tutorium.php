@@ -26,12 +26,6 @@ class Tutorium extends Model
         'updated_at',
         'deleted_at',
         'hora_atencion',
-        'departamento_id',
         'abreviatura_departamento',
     ];
-
-    public function departamento()
-    {
-        return $this->belongsTo(Departamento::class, 'departamento_id');
-    }
 }

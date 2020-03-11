@@ -14,27 +14,24 @@ class StoreHorarioRequest extends FormRequest
         abort_if(Gate::denies('horario_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
+
     }
 
     public function rules()
     {
         return [
-            'curso_id'   => [
+            'grupo_id'   => [
                 'required',
-                'integer',
-            ],
+                'integer'],
             'horario'    => [
-                'required',
-            ],
+                'required'],
             'dia'        => [
-                'required',
-            ],
+                'required'],
             'asignatura' => [
-                'required',
-            ],
+                'required'],
             'color'      => [
-                'required',
-            ],
+                'required'],
         ];
+
     }
 }

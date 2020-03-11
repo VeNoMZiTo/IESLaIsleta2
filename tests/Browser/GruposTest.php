@@ -16,5 +16,6 @@ class GruposTest extends DuskTestCase
             $browser->visit(route('admin.grupos.index'));
             $browser->assertRouteIs('admin.grupos.index');
         });
+
     }
 }

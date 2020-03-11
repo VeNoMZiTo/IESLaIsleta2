@@ -14,21 +14,17 @@ class UpdateEquipoDocenteRequest extends FormRequest
         abort_if(Gate::denies('equipo_docente_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
+
     }
 
     public function rules()
     {
         return [
-            'profesores'      => [
-                'required',
-            ],
-            'email'           => [
-                'required',
-            ],
-            'departamento_id' => [
-                'required',
-                'integer',
-            ],
+            'profesores' => [
+                'required'],
+            'email'      => [
+                'required'],
         ];
+
     }
 }

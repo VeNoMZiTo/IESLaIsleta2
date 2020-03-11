@@ -116,6 +116,8 @@
   let pdfButtonTrans = '{{ trans('global.datatables.pdf') }}'
   let printButtonTrans = '{{ trans('global.datatables.print') }}'
   let colvisButtonTrans = '{{ trans('global.datatables.colvis') }}'
+  let selectAllButtonTrans = '{{ trans('global.select_all') }}'
+  let selectNoneButtonTrans = '{{ trans('global.deselect_all') }}'
 
   let languages = {
     'es': 'https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
@@ -144,6 +146,22 @@
     pageLength: 100,
     dom: 'lBfrtip<"actions">',
     buttons: [
+      {
+        extend: 'selectAll',
+        className: 'btn-primary',
+        text: selectAllButtonTrans,
+        exportOptions: {
+          columns: ':visible'
+        }
+      },
+      {
+        extend: 'selectNone',
+        className: 'btn-primary',
+        text: selectNoneButtonTrans,
+        exportOptions: {
+          columns: ':visible'
+        }
+      },
       {
         extend: 'copy',
         className: 'btn-default',
@@ -210,33 +228,6 @@
 
     </script>
     @yield('scripts')
-    <script>
-        var jQueryScript = document.createElement('script');
-        var JQueryCSS = document.createElement('link');
-        jQueryScript.src='https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js';
-        JQueryCSS.rel  = 'stylesheet';
-        JQueryCSS.type = 'text/css';
-        JQueryCSS.href = 'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css';
-        document.head.appendChild(jQueryScript);
-        document.head.appendChild(JQueryCSS);
-        // Dropzone.autoDiscover = false;
-        Dropzone.options = {
-            success: function (file, response) {
-                var preview_element = file.previewElement;
-                var lightbox = document.createElement("a");
-                $(lightbox).addClass('BotonVer').attr({'href': file.dataURL,'data-lightbox':'Imagenes Subidas'}).html('ver');
-                console.info(file.result);
-                $(preview_element).find('.dz-details').append(lightbox);
-            }
-}
-        $(document).ready(function () {
-            lightbox.option({
-                'resizeDuration': 200,
-                'maxWidth': 600
-            });
-        });
-
-    </script>
 </body>
 
 </html>

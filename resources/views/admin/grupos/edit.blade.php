@@ -11,12 +11,12 @@
             @method('PUT')
             @csrf
             <div class="form-group">
-                <label class="required" for="curso">{{ trans('cruds.grupo.fields.curso') }}</label>
-                <input class="form-control {{ $errors->has('curso') ? 'is-invalid' : '' }}" type="text" name="curso" id="curso" value="{{ old('curso', $grupo->curso) }}" required>
-                @if($errors->has('curso'))
-                    <span class="text-danger">{{ $errors->first('curso') }}</span>
+                <label class="required" for="nombre">{{ trans('cruds.grupo.fields.nombre') }}</label>
+                <input class="form-control {{ $errors->has('nombre') ? 'is-invalid' : '' }}" type="text" name="nombre" id="nombre" value="{{ old('nombre', $grupo->nombre) }}" required>
+                @if($errors->has('nombre'))
+                    <span class="text-danger">{{ $errors->first('nombre') }}</span>
                 @endif
-                <span class="help-block">{{ trans('cruds.grupo.fields.curso_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.grupo.fields.nombre_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

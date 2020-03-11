@@ -17,7 +17,8 @@ class TutoriasApiController extends Controller
     {
         abort_if(Gate::denies('tutorium_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new TutoriumResource(Tutorium::with(['departamento'])->get());
+        return new TutoriumResource(Tutorium::all());
+
     }
 
     public function store(StoreTutoriumRequest $request)
@@ -27,13 +28,15 @@ class TutoriasApiController extends Controller
         return (new TutoriumResource($tutorium))
             ->response()
             ->setStatusCode(Response::HTTP_CREATED);
+
     }
 
     public function show(Tutorium $tutorium)
     {
         abort_if(Gate::denies('tutorium_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new TutoriumResource($tutorium->load(['departamento']));
+        return new TutoriumResource($tutorium);
+
     }
 
     public function update(UpdateTutoriumRequest $request, Tutorium $tutorium)
@@ -43,6 +46,7 @@ class TutoriasApiController extends Controller
         return (new TutoriumResource($tutorium))
             ->response()
             ->setStatusCode(Response::HTTP_ACCEPTED);
+
     }
 
     public function destroy(Tutorium $tutorium)
@@ -52,5 +56,6 @@ class TutoriasApiController extends Controller
         $tutorium->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+
     }
 }

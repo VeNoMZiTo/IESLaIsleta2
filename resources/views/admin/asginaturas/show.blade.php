@@ -25,20 +25,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.asginatura.fields.nombre') }}
+                            {{ trans('cruds.asginatura.fields.asginaturas') }}
                         </th>
                         <td>
-                            {{ $asginatura->nombre }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.asginatura.fields.cursos') }}
-                        </th>
-                        <td>
-                            @foreach($asginatura->cursos as $key => $cursos)
-                                <span class="label label-info">{{ $cursos->curso }}</span>
-                            @endforeach
+                            {{ $asginatura->asginaturas }}
                         </td>
                     </tr>
                 </tbody>
@@ -52,22 +42,6 @@
     </div>
 </div>
 
-<div class="card">
-    <div class="card-header">
-        {{ trans('global.relatedData') }}
-    </div>
-    <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
-        <li class="nav-item">
-            <a class="nav-link" href="#asignatura_cita_previa" role="tab" data-toggle="tab">
-                {{ trans('cruds.citaPrevium.title') }}
-            </a>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane" role="tabpanel" id="asignatura_cita_previa">
-            @includeIf('admin.asginaturas.relationships.asignaturaCitaPrevia', ['citaPrevia' => $asginatura->asignaturaCitaPrevia])
-        </div>
-    </div>
-</div>
+
 
 @endsection

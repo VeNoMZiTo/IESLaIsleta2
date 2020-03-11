@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'userManagement'  => [
+    'userManagement'   => [
         'title'          => 'Gestión de usuarios',
         'title_singular' => 'Gestión de usuarios',
     ],
-    'permission'      => [
+    'permission'       => [
         'title'          => 'Permisos',
         'title_singular' => 'Permisos',
         'fields'         => [
@@ -21,7 +21,7 @@ return [
             'deleted_at_helper' => '',
         ],
     ],
-    'role'            => [
+    'role'             => [
         'title'          => 'Roles',
         'title_singular' => 'Rol',
         'fields'         => [
@@ -39,7 +39,7 @@ return [
             'deleted_at_helper'  => '',
         ],
     ],
-    'user'            => [
+    'user'             => [
         'title'          => 'Usuarios',
         'title_singular' => 'Usuario',
         'fields'         => [
@@ -65,9 +65,11 @@ return [
             'deleted_at_helper'        => '',
             'team'                     => 'Team',
             'team_helper'              => '',
+            'cursos'                   => 'Cursos',
+            'cursos_helper'            => '',
         ],
     ],
-    'slider'          => [
+    'slider'           => [
         'title'          => 'Slider',
         'title_singular' => 'Slider',
         'fields'         => [
@@ -89,7 +91,7 @@ return [
             'foto_helper'        => '',
         ],
     ],
-    'noticium'        => [
+    'noticium'         => [
         'title'          => 'Noticias',
         'title_singular' => 'Noticia',
         'fields'         => [
@@ -117,7 +119,7 @@ return [
             'archivos_helper'    => 'Si el archivo pesa mucho puede intentar comprimirlo.',
         ],
     ],
-    'actividade'      => [
+    'actividade'       => [
         'title'          => 'Actividades',
         'title_singular' => 'Actividade',
         'fields'         => [
@@ -143,25 +145,7 @@ return [
             'archivos_helper'    => 'Si el archivo pesa mucho puede intentar comprimirlo.',
         ],
     ],
-    'departamento'    => [
-        'title'          => 'Departamentos',
-        'title_singular' => 'Departamento',
-        'fields'         => [
-            'id'                => 'ID',
-            'id_helper'         => '',
-            'created_at'        => 'Created at',
-            'created_at_helper' => '',
-            'updated_at'        => 'Updated at',
-            'updated_at_helper' => '',
-            'deleted_at'        => 'Deleted at',
-            'deleted_at_helper' => '',
-            'nombre'            => 'Nombre',
-            'nombre_helper'     => '',
-            'team'              => 'Team',
-            'team_helper'       => '',
-        ],
-    ],
-    'equipoDirectivo' => [
+    'equipoDirectivo'  => [
         'title'          => 'Equipo Directivo',
         'title_singular' => 'Equipo Directivo',
         'fields'         => [
@@ -181,33 +165,29 @@ return [
             'deleted_at_helper'               => '',
             'abreviatura_departamento'        => 'Abreviatura del Departamento',
             'abreviatura_departamento_helper' => '',
-            'departamento'                    => 'Departamento',
-            'departamento_helper'             => '',
         ],
     ],
-    'equipoDocente'   => [
+    'equipoDocente'    => [
         'title'          => 'Equipo Docente',
         'title_singular' => 'Equipo Docente',
         'fields'         => [
-            'id'                  => 'ID',
-            'id_helper'           => '',
-            'profesores'          => 'Profesor/a',
-            'profesores_helper'   => '',
-            'cargo'               => 'Cargo',
-            'cargo_helper'        => '',
-            'email'               => 'Email',
-            'email_helper'        => '',
-            'created_at'          => 'Created at',
-            'created_at_helper'   => '',
-            'updated_at'          => 'Updated at',
-            'updated_at_helper'   => '',
-            'deleted_at'          => 'Deleted at',
-            'deleted_at_helper'   => '',
-            'departamento'        => 'Departamento',
-            'departamento_helper' => '',
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'profesores'        => 'Profesor/a',
+            'profesores_helper' => '',
+            'cargo'             => 'Cargo',
+            'cargo_helper'      => '',
+            'email'             => 'Email',
+            'email_helper'      => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
         ],
     ],
-    'tutorium'        => [
+    'tutorium'         => [
         'title'          => 'Tutorías',
         'title_singular' => 'Tutoría',
         'fields'         => [
@@ -231,11 +211,9 @@ return [
             'deleted_at_helper'               => '',
             'abreviatura_departamento'        => 'Abreviatura del Departamento',
             'abreviatura_departamento_helper' => '',
-            'departamento'                    => 'Departamento',
-            'departamento_helper'             => '',
         ],
     ],
-    'descargar'       => [
+    'descargar'        => [
         'title'          => 'Descargar/Imprimir',
         'title_singular' => 'Descargar/Imprimir',
         'fields'         => [
@@ -245,21 +223,15 @@ return [
             'docente_helper'    => 'Si el archivo pesa mucho puede intentar comprimirlo.',
             'directiva'         => 'Descargar/Imprimir - Directiva',
             'directiva_helper'  => 'Si el archivo pesa mucho puede intentar comprimirlo.',
-            'tutoria'           => 'Descargar/Imprimir - Tutoria',
-            'tutoria_helper'    => 'Si el archivo pesa mucho puede intentar comprimirlo.',
             'created_at'        => 'Created at',
             'created_at_helper' => '',
             'updated_at'        => 'Updated at',
             'updated_at_helper' => '',
             'deleted_at'        => 'Deleted at',
             'deleted_at_helper' => '',
-            'calescolar'        => 'Calendario - Escolar',
-            'calescolar_helper' => '',
-            'calpadres'         => 'Calendario - Visita de Padres',
-            'calpadres_helper'  => '',
         ],
     ],
-    'team'            => [
+    'team'             => [
         'title'          => 'Departamentos',
         'title_singular' => 'Departamento',
         'fields'         => [
@@ -275,7 +247,7 @@ return [
             'name_helper'       => '',
         ],
     ],
-    'calendario'      => [
+    'calendario'       => [
         'title'          => 'Calendario',
         'title_singular' => 'Calendario',
         'fields'         => [
@@ -295,23 +267,23 @@ return [
             'deleted_at_helper' => '',
         ],
     ],
-    'inicio'          => [
+    'inicio'           => [
         'title'          => 'Inicio',
         'title_singular' => 'Inicio',
     ],
-    'centro'          => [
+    'centro'           => [
         'title'          => 'Centro',
         'title_singular' => 'Centro',
     ],
-    'familium'        => [
+    'familium'         => [
         'title'          => 'Familias',
         'title_singular' => 'Familia',
     ],
-    'secretarium'     => [
+    'secretarium'      => [
         'title'          => 'Secretaría',
         'title_singular' => 'Secretaría',
     ],
-    'impreso'         => [
+    'impreso'          => [
         'title'          => 'Impresos',
         'title_singular' => 'Impreso',
         'fields'         => [
@@ -329,11 +301,11 @@ return [
             'deleted_at_helper' => '',
         ],
     ],
-    'alumnado'        => [
+    'alumnado'         => [
         'title'          => 'Alumnado',
         'title_singular' => 'Alumnado',
     ],
-    'horario'         => [
+    'horario'          => [
         'title'          => 'Horario de Grupos',
         'title_singular' => 'Horario de Grupo',
         'fields'         => [
@@ -353,58 +325,74 @@ return [
             'deleted_at_helper' => '',
             'color'             => 'Color',
             'color_helper'      => 'Seleccione un color de los que estan abajo.',
-            'curso'             => 'Curso',
-            'curso_helper'      => '',
+            'grupo'             => 'Grupo',
+            'grupo_helper'      => '',
         ],
     ],
-    'grupo'           => [
+    'estructura'       => [
+        'title'          => 'Estructura del centro',
+        'title_singular' => 'Estructura del centro',
+    ],
+    'curso'            => [
+        'title'          => 'Cursos',
+        'title_singular' => 'Curso',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'nivel'             => 'Nivel',
+            'nivel_helper'      => '',
+            'curso'             => 'Curso',
+            'curso_helper'      => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+            'asignatura'        => 'Asignatura',
+            'asignatura_helper' => '',
+        ],
+    ],
+    'asginatura'       => [
+        'title'          => 'Asginaturas',
+        'title_singular' => 'Asginatura',
+        'fields'         => [
+            'id'                 => 'ID',
+            'id_helper'          => '',
+            'asginaturas'        => 'Asginaturas',
+            'asginaturas_helper' => '',
+            'created_at'         => 'Created at',
+            'created_at_helper'  => '',
+            'updated_at'         => 'Updated at',
+            'updated_at_helper'  => '',
+            'deleted_at'         => 'Deleted at',
+            'deleted_at_helper'  => '',
+        ],
+    ],
+    'grupo'            => [
         'title'          => 'Grupos',
         'title_singular' => 'Grupo',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => '',
-            'created_at'        => 'Created at',
-            'created_at_helper' => '',
-            'updated_at'        => 'Updated at',
-            'updated_at_helper' => '',
-            'deleted_at'        => 'Deleted at',
-            'deleted_at_helper' => '',
-            'curso'             => 'Curso',
-            'curso_helper'      => '',
-        ],
-    ],
-    'asginatura'      => [
-        'title'          => 'Asginaturas',
-        'title_singular' => 'Asginatura',
-        'fields'         => [
-            'id'                => 'ID',
-            'id_helper'         => '',
             'nombre'            => 'Nombre',
-            'nombre_helper'     => '',
+            'nombre_helper'     => 'Nivel-grupo-nombre. Ejemplo: (1-A-ESO)',
             'created_at'        => 'Created at',
             'created_at_helper' => '',
             'updated_at'        => 'Updated at',
             'updated_at_helper' => '',
             'deleted_at'        => 'Deleted at',
             'deleted_at_helper' => '',
-            'cursos'            => 'Cursos',
-            'cursos_helper'     => '',
-            'team'              => 'Team',
-            'team_helper'       => '',
         ],
     ],
-    'citaPrevium'     => [
-        'title'          => 'Cita Previa',
-        'title_singular' => 'Cita Previum',
+    'descagarFamilium' => [
+        'title'          => 'Descagar/Imprimir',
+        'title_singular' => 'Descagar/Imprimir',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => '',
-            'asignatura'        => 'Asignatura',
-            'asignatura_helper' => '',
-            'curso'             => 'Curso',
-            'curso_helper'      => '',
-            'fecha'             => 'Fecha',
-            'fecha_helper'      => '',
+            'archivo'           => 'Descargar/imprimir - Tutorías',
+            'archivo_helper'    => '',
             'created_at'        => 'Created at',
             'created_at_helper' => '',
             'updated_at'        => 'Updated at',

@@ -27,9 +27,9 @@ class HorarioController extends Controller
     {
         abort_if(Gate::denies('horario_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $cursos = Grupo::all()->pluck('curso', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $grupos = Grupo::all()->pluck('nombre', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.horarios.create', compact('cursos'));
+        return view('admin.horarios.create', compact('grupos'));
     }
 
     public function store(StoreHorarioRequest $request)
@@ -37,17 +37,18 @@ class HorarioController extends Controller
         $horario = Horario::create($request->all());
 
         return redirect()->route('admin.horarios.index');
+
     }
 
     public function edit(Horario $horario)
     {
         abort_if(Gate::denies('horario_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $cursos = Grupo::all()->pluck('curso', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $grupos = Grupo::all()->pluck('nombre', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $horario->load('curso');
+        $horario->load('grupo');
 
-        return view('admin.horarios.edit', compact('cursos', 'horario'));
+        return view('admin.horarios.edit', compact('grupos', 'horario'));
     }
 
     public function update(UpdateHorarioRequest $request, Horario $horario)
@@ -55,13 +56,14 @@ class HorarioController extends Controller
         $horario->update($request->all());
 
         return redirect()->route('admin.horarios.index');
+
     }
 
     public function show(Horario $horario)
     {
         abort_if(Gate::denies('horario_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $horario->load('curso');
+        $horario->load('grupo');
 
         return view('admin.horarios.show', compact('horario'));
     }
@@ -73,6 +75,7 @@ class HorarioController extends Controller
         $horario->delete();
 
         return back();
+
     }
 
     public function massDestroy(MassDestroyHorarioRequest $request)
@@ -80,5 +83,6 @@ class HorarioController extends Controller
         Horario::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+
     }
 }
