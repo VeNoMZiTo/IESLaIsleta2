@@ -48,10 +48,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('equipo-directivos/destroy', 'EquipoDirectivoController@massDestroy')->name('equipo-directivos.massDestroy');
     Route::resource('equipo-directivos', 'EquipoDirectivoController');
 
-    // Equipo Docentes
-    Route::delete('equipo-docentes/destroy', 'EquipoDocenteController@massDestroy')->name('equipo-docentes.massDestroy');
-    Route::resource('equipo-docentes', 'EquipoDocenteController');
-
     // Tutoria
     Route::delete('tutoria/destroy', 'TutoriasController@massDestroy')->name('tutoria.massDestroy');
     Route::resource('tutoria', 'TutoriasController');
@@ -97,5 +93,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('descagar-familia/media', 'DescagarFamiliasController@storeMedia')->name('descagar-familia.storeMedia');
     Route::post('descagar-familia/ckmedia', 'DescagarFamiliasController@storeCKEditorImages')->name('descagar-familia.storeCKEditorImages');
     Route::resource('descagar-familia', 'DescagarFamiliasController');
+
+    // Equipo Docentes
+    Route::delete('equipo-docentes/destroy', 'EquipoDocenteController@massDestroy')->name('equipo-docentes.massDestroy');
+    Route::resource('equipo-docentes', 'EquipoDocenteController');
 
 });

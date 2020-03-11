@@ -10,10 +10,10 @@ class CreateEquipoDocentesTable extends Migration
     {
         Schema::create('equipo_docentes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('departamento');
             $table->string('profesores');
             $table->string('cargo')->nullable();
             $table->string('email');
-            $table->string('departamento');
             $table->timestamps();
             $table->softDeletes();
         });
