@@ -10,12 +10,12 @@
         <form method="POST" action="{{ route("admin.grupos.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label class="required" for="nombre">{{ trans('cruds.grupo.fields.nombre') }}</label>
-                <input class="form-control {{ $errors->has('nombre') ? 'is-invalid' : '' }}" type="text" name="nombre" id="nombre" value="{{ old('nombre', '') }}" required>
-                @if($errors->has('nombre'))
-                    <span class="text-danger">{{ $errors->first('nombre') }}</span>
+                <label class="required" for="grupo">{{ trans('cruds.grupo.fields.grupo') }}</label>
+                <input class="form-control {{ $errors->has('grupo') ? 'is-invalid' : '' }}" type="text" name="grupo" id="grupo" value="{{ old('grupo', '') }}" required>
+                @if($errors->has('grupo'))
+                    <span class="text-danger">{{ $errors->first('grupo') }}</span>
                 @endif
-                <span class="help-block">{{ trans('cruds.grupo.fields.nombre_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.grupo.fields.grupo_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

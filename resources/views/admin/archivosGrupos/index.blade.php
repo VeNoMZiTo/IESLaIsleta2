@@ -1,32 +1,35 @@
 @extends('layouts.admin')
 @section('content')
-@can('grupo_create')
+@can('archivos_grupo_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.grupos.create") }}">
-                {{ trans('global.add') }} {{ trans('cruds.grupo.title_singular') }}
+            <a class="btn btn-success" href="{{ route("admin.archivos-grupos.create") }}">
+                {{ trans('global.add') }} {{ trans('cruds.archivosGrupo.title_singular') }}
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.grupo.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.archivosGrupo.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-Grupo">
+            <table class=" table table-bordered table-striped table-hover datatable datatable-ArchivosGrupo">
                 <thead>
                     <tr>
                         <th width="10">
 
                         </th>
                         <th>
-                            {{ trans('cruds.grupo.fields.id') }}
+                            {{ trans('cruds.archivosGrupo.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.grupo.fields.grupo') }}
+                            {{ trans('cruds.archivosGrupo.fields.grupo') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.archivosGrupo.fields.archivos') }}
                         </th>
                         <th>
                             &nbsp;
@@ -34,32 +37,39 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($grupos as $key => $grupo)
-                        <tr data-entry-id="{{ $grupo->id }}">
+                    @foreach($archivosGrupos as $key => $archivosGrupo)
+                        <tr data-entry-id="{{ $archivosGrupo->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $grupo->id ?? '' }}
+                                {{ $archivosGrupo->id ?? '' }}
                             </td>
                             <td>
-                                {{ $grupo->grupo ?? '' }}
+                                {{ $archivosGrupo->grupo->grupo ?? '' }}
                             </td>
                             <td>
-                                @can('grupo_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.grupos.show', $grupo->id) }}">
+                                @foreach($archivosGrupo->archivos as $key => $media)
+                                    <a href="{{ $media->getUrl() }}" target="_blank">
+                                        {{ trans('global.view_file') }}
+                                    </a>
+                                @endforeach
+                            </td>
+                            <td>
+                                @can('archivos_grupo_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.archivos-grupos.show', $archivosGrupo->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
-                                @can('grupo_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.grupos.edit', $grupo->id) }}">
+                                @can('archivos_grupo_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.archivos-grupos.edit', $archivosGrupo->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
-                                @can('grupo_delete')
-                                    <form action="{{ route('admin.grupos.destroy', $grupo->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('archivos_grupo_delete')
+                                    <form action="{{ route('admin.archivos-grupos.destroy', $archivosGrupo->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -84,11 +94,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('grupo_delete')
+@can('archivos_grupo_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.grupos.massDestroy') }}",
+    url: "{{ route('admin.archivos-grupos.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -116,9 +126,9 @@
 
   $.extend(true, $.fn.dataTable.defaults, {
     order: [[ 1, 'desc' ]],
-    pageLength: 25,
+    pageLength: 10,
   });
-  $('.datatable-Grupo:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  $('.datatable-ArchivosGrupo:not(.ajaxTable)').DataTable({ buttons: dtButtons })
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
         $($.fn.dataTable.tables(true)).DataTable()
             .columns.adjust();
