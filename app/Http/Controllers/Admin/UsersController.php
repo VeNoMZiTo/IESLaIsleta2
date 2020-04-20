@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Curso;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyUserRequest;
 use App\Http\Requests\StoreUserRequest;
@@ -31,18 +30,15 @@ class UsersController extends Controller
 
         $roles = Role::all()->pluck('title', 'id');
 
-        $cursos = Curso::all()->pluck('nivel', 'id');
-
         $teams = Team::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.users.create', compact('roles', 'cursos', 'teams'));
+        return view('admin.users.create', compact('roles', 'teams'));
     }
 
     public function store(StoreUserRequest $request)
     {
         $user = User::create($request->all());
         $user->roles()->sync($request->input('roles', []));
-        $user->cursos()->sync($request->input('cursos', []));
 
         return redirect()->route('admin.users.index');
 
@@ -54,20 +50,17 @@ class UsersController extends Controller
 
         $roles = Role::all()->pluck('title', 'id');
 
-        $cursos = Curso::all()->pluck('nivel', 'id');
-
         $teams = Team::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $user->load('roles', 'cursos', 'team');
+        $user->load('roles', 'team');
 
-        return view('admin.users.edit', compact('roles', 'cursos', 'teams', 'user'));
+        return view('admin.users.edit', compact('roles', 'teams', 'user'));
     }
 
     public function update(UpdateUserRequest $request, User $user)
     {
         $user->update($request->all());
         $user->roles()->sync($request->input('roles', []));
-        $user->cursos()->sync($request->input('cursos', []));
 
         return redirect()->route('admin.users.index');
 
@@ -77,7 +70,7 @@ class UsersController extends Controller
     {
         abort_if(Gate::denies('user_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $user->load('roles', 'cursos', 'team');
+        $user->load('roles', 'team');
 
         return view('admin.users.show', compact('user'));
     }

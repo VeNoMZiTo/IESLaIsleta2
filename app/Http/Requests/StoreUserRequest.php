@@ -31,10 +31,6 @@ class StoreUserRequest extends FormRequest
             'roles'    => [
                 'required',
                 'array'],
-            'cursos.*' => [
-                'integer'],
-            'cursos'   => [
-                'array'],
         ];
 
     }
