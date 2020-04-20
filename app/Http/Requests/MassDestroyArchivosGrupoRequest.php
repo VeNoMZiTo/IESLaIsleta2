@@ -2,16 +2,16 @@
 
 namespace App\Http\Requests;
 
-use App\Grupo;
+use App\ArchivosGrupo;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
-class UpdateGrupoRequest extends FormRequest
+class MassDestroyArchivosGrupoRequest extends FormRequest
 {
     public function authorize()
     {
-        abort_if(Gate::denies('grupo_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('archivos_grupo_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
 
@@ -20,9 +20,8 @@ class UpdateGrupoRequest extends FormRequest
     public function rules()
     {
         return [
-            'grupo' => [
-                'required',
-                'unique:grupos,grupo,' . request()->route('grupo')->id],
+            'ids'   => 'required|array',
+            'ids.*' => 'exists:archivos_grupos,id',
         ];
 
     }

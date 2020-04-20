@@ -26,7 +26,7 @@
                             {{ trans('cruds.grupo.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.grupo.fields.nombre') }}
+                            {{ trans('cruds.grupo.fields.grupo') }}
                         </th>
                         <th>
                             &nbsp;
@@ -43,7 +43,7 @@
                                 {{ $grupo->id ?? '' }}
                             </td>
                             <td>
-                                {{ $grupo->nombre ?? '' }}
+                                {{ $grupo->grupo ?? '' }}
                             </td>
                             <td>
                                 @can('grupo_show')
@@ -116,7 +116,7 @@
 
   $.extend(true, $.fn.dataTable.defaults, {
     order: [[ 1, 'desc' ]],
-    pageLength: 100,
+    pageLength: 25,
   });
   $('.datatable-Grupo:not(.ajaxTable)').DataTable({ buttons: dtButtons })
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
