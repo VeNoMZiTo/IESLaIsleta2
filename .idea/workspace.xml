@@ -2,13 +2,76 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f9d890-cdf8-4d84-907a-e2c0d84695a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/DepartamentosController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/ArchivosGrupo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArchivosGruposController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/GrupoController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Admin/ArchivosGruposApiController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Admin/GrupoApiController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/MassDestroyArchivosGrupoRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/StoreArchivosGrupoRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateArchivosGrupoRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/ArchivosGrupoResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000003_create_archivos_grupos_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000024_add_relationship_fields_to_grupos_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000025_add_relationship_fields_to_archivos_grupos_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/archivosGrupos/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/archivosGrupos/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/archivosGrupos/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/archivosGrupos/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Browser/ArchivosGruposTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Browser/GrupoTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TablasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TablasController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/departamentos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/departamentos.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Grupo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Grupo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Admin/UsersApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Admin/UsersApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreGrupoRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreGrupoRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreUserRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UpdateGrupoRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateGrupoRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UpdateUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateUserRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000001_create_media_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000001_create_media_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000002_create_permissions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000002_create_permissions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000003_create_descagar_familia_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000006_create_descagar_familia_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000004_create_grupos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000004_create_grupos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000005_create_asginaturas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000007_create_asginaturas_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000006_create_cursos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000008_create_cursos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000007_create_horarios_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000008_create_impresos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000009_create_impresos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000009_create_calendarios_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000010_create_calendarios_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000010_create_teams_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000011_create_teams_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000011_create_descargars_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000012_create_descargars_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000012_create_tutoria_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000013_create_tutoria_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000013_create_equipo_directivos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000014_create_equipo_directivos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000014_create_actividades_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000015_create_actividades_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000015_create_noticia_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000016_create_noticia_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000016_create_sliders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000017_create_sliders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000017_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000018_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000018_create_roles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000019_create_roles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000019_create_equipo_docentes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000005_create_equipo_docentes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000020_create_curso_user_pivot_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000021_create_role_user_pivot_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000020_create_role_user_pivot_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000022_create_permission_role_pivot_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000021_create_permission_role_pivot_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000023_add_relationship_fields_to_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000023_add_relationship_fields_to_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000024_add_relationship_fields_to_horarios_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_11_000025_add_relationship_fields_to_cursos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_20_000022_add_relationship_fields_to_cursos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/PermissionsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PermissionsTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/cruds.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es/cruds.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es/global.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/grupos/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/grupos/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/grupos/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/grupos/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/grupos/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/grupos/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/grupos/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/grupos/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/webUpgrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/webUpgrade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,6 +325,7 @@
       <workItem from="1583928060890" duration="1645000" />
       <workItem from="1584028402894" duration="166000" />
       <workItem from="1587362728269" duration="1542000" />
+      <workItem from="1587365398730" duration="160000" />
     </task>
     <servers />
   </component>

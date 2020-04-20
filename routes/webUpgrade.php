@@ -15,7 +15,6 @@ Route::get('/pincel-ekade', 'IndexController@getDepartamentos');
 Route::get('/contactar/{id}', 'IndexController@getConsultas');
 Route::get('/profesorado', 'IndexController@getDepartamentos');
 Route::get('/oferta-educativa', 'IndexController@getDepartamentos');
-Route::get('/departamentos', 'IndexController@getDepartamentos');
 Route::get('/noticias', 'IndexController@getRepertorioNoticias');
 Route::get('/noticia/{id}-{titulo}', 'IndexController@getNoticia');
 Route::get('/actividad/{id}-{titulo}', 'IndexController@getActividad');
@@ -27,6 +26,10 @@ Route::get('/grupo/{id}', 'TablasController@getHorario');
 Route::get('/impresos', 'IndexController@getImpreso');
 Route::get('/certificados', 'IndexController@getDepartamentos');
 Route::post('mail/send-contact', 'MailController@sendCertificado');
+/*Departamentos*/
+Route::get('/departamentos', 'IndexController@getDepartamentos');
+Route::get('/departamentos/{id}', 'DepartamentosController@getDepartamento');
+
 /*Correos del Apartado de Buzón de Sugerencias*/
 Route::post('mail/send-contact', 'MailController@sendContact');
 Route::get('/home', function () {
