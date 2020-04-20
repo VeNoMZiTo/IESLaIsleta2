@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f9d890-cdf8-4d84-907a-e2c0d84695a3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/DepartamentosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TablasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TablasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/departamentos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/departamentos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +259,9 @@
       <workItem from="1579121485520" duration="11802000" />
       <workItem from="1579215010235" duration="78000" />
       <workItem from="1583915773003" duration="3395000" />
-      <workItem from="1583928060890" duration="1225000" />
+      <workItem from="1583928060890" duration="1645000" />
+      <workItem from="1584028402894" duration="166000" />
+      <workItem from="1587362728269" duration="1542000" />
     </task>
     <servers />
   </component>
@@ -261,10 +269,11 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="636" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1579215086959">
+    <state x="636" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1587362728011">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="636" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579215086959" />
+    <state x="636" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587362728011" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1583919021259">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

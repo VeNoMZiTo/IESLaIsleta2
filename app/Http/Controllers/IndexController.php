@@ -6,26 +6,26 @@ use App\Calendario;
 use App\Noticium;
 use App\Slider;
 use App\Actividade;
-use App\Departamento;
+use App\Team;
 use App\Impreso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
-//    public function __construct()
-//    {
-//        $Departamento = Departamento::all();
-//        if(count($Departamento)%2!=0){
-//            $contador=count($Departamento) - 1;
-//        }else{
-//            $contador= count($Departamento)/2;
-//        }
-//        view()->share('DepartamentosGeneral',[
-//            '0'=>array_slice($Departamento->toArray(),0,$contador),
-//            '1'=>array_slice($Departamento->toArray(),$contador,count($Departamento)),
-//        ]);
-//    }
+    public function __construct()
+    {
+        $Departamento = Team::all();
+        if(count($Departamento)%2!=0){
+            $contador=count($Departamento) - 1;
+        }else{
+            $contador= count($Departamento)/2;
+        }
+        view()->share('DepartamentosGeneral',[
+            '0'=>array_slice($Departamento->toArray(),0,$contador),
+            '1'=>array_slice($Departamento->toArray(),$contador,count($Departamento)),
+        ]);
+    }
     public function getIndex(){
         $slider = Slider::all();
         $actividades=Actividade::all()->take(4);

@@ -57,7 +57,8 @@
         }
     </style>
 </head>
-
+@php
+@endphp
 <body style="background:#f4f4f4">
 <div id='box-slider'>
 {{--    <div id='slider-color'>--}}
@@ -398,20 +399,20 @@
                                                     <div class="row align-items-stretch mx-0">
                                                         <div class="col-lg-6 px-0">
                                                             <ul class="list-unstyled">
-{{--                                                                @foreach($DepartamentosGeneral[0] as $col)--}}
-{{--                                                                    <li>--}}
-{{--                                                                        <a class='a-link' href="/departamentos">{{$col['nombre']}}</a>--}}
-{{--                                                                    </li>--}}
-{{--                                                                @endforeach--}}
+                                                                @foreach($DepartamentosGeneral[0] as $col)
+                                                                    <li>
+                                                                        <a class='a-link' href="/departamentos/{{$col['name']}}">{{$col['name']}}</a>
+                                                                    </li>
+                                                                @endforeach
                                                             </ul>
                                                         </div>
                                                         <div class="col-lg-6 g-brd-left--lg g-brd-gray-light-v5 px-0">
                                                             <ul class="list-unstyled">
-{{--                                                                @foreach($DepartamentosGeneral[1] as $col)--}}
-{{--                                                                    <li>--}}
-{{--                                                                        <a class='a-link' href="/departamentos">{{$col['nombre']}}</a>--}}
-{{--                                                                    </li>--}}
-{{--                                                                @endforeach--}}
+                                                                @foreach($DepartamentosGeneral[1] as $col)
+                                                                    <li>
+                                                                        <a class='a-link' href="/departamentos/{{$col['name']}}">{{$col['name']}}</a>
+                                                                    </li>
+                                                                @endforeach
                                                             </ul>
                                                         </div>
                                                     </div>
