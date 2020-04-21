@@ -826,6 +826,21 @@ tr.body *, tr.body{
 .hs-has-sub-menu > a::after, .nav-item.hs-has-mega-menu > a::after {
     font-size: 10px !important;
 }
+/*Recursos*/
+.cartaDescarga{
+    padding: 10px;
+    border: 1px solid #1d8873;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px 0 rgba(50, 50, 50, 0.16);
+    text-decoration: inherit !important;
+}
+.cartaDescarga .u-icon-v2{
+    border-color: #1d8873;
+}
+.cartaDescarga .u-icon-v2 i{
+    color: #333;
+}
+
 @media only screen and (max-width: 1600px) and (min-width: 1200px){
     #actividades{
         width: 100%;

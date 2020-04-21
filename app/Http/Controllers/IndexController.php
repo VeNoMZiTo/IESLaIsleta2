@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Calendario;
+use App\Grupo;
 use App\Noticium;
 use App\Slider;
 use App\Actividade;
@@ -33,7 +34,9 @@ class IndexController extends Controller
         return view('frontend.index',array(
             'slider' => $slider,
             'actividades'=> $actividades,
-            'noticias'=>$noticias
+            'noticias'=>$noticias,
+            'mierda'=>Grupo::all()
+
         ));
     }
     public function getNoticia(Request $request, $id){

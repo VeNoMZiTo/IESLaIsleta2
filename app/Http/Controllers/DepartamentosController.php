@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Team;
+use App\Grupo;
+use App\ArchivosGrupo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,8 +26,25 @@ class DepartamentosController extends Controller
 
     public function getDepartamento(Request $request, $id)
     {
-
         return view('frontend.departamentos',array(
+            'url'=>$id
         ));
+    }
+    public function getCursos(Request $request, $id)
+    {
+//        $grupos = Grupo::all()->where('team_id','=',Team::all()->where('name','=',$id)->first()->id);
+        $Archivos = ArchivosGrupo::with('grupo')->get()->where('team_id','=',Team::all()->where('name','=',$id)->first()->id);
+        return view('frontend.departamentosrecursos',array(
+            'grupos'=>$Archivos,
+        ));
+    }
+    public function getRecurso(Request $request)
+    {
+        try{
+            $Archivos = ArchivosGrupo::with('grupo')->get()->where('team_id','=',$request->input('departamento'))->where('grupo_id','=',$request->input('grupo'))->first()->media;
+            return $Archivos;
+        }catch(\Exception $e){
+            return 'FAIL';
+        }
     }
 }

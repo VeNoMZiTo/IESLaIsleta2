@@ -2,7 +2,10 @@
 @section('title','Departamentos')
 @section('css')
 @endsection
+@php
+@endphp
 @section('content')
+
     <section>
         <div class='container g-py-100'>
             <div class='row text-center g-mb-30'>
@@ -54,14 +57,14 @@
                             </h3>
                         </div>
                     </a>
-                    <a class="g-text-underline--none--hover" href="#">
+                    <a class="g-text-underline--none--hover" href="">
                         <h3>
                             Noticias
                         </h3>
                     </a>
                 </div>
                 <div class='col-md-6 col-lg-6 g-mb-20 departamento-seccion'>
-                    <a class="d-inline-block u-block-hover--flip g-width-250 g-height-250 g-brd-around g-brd-gray-light-v4 g-bg-white g-ma-5 d-inline-flex align-items-center justify-content-center u-shadow-v1-5 rounded" href="">
+                    <a class="d-inline-block u-block-hover--flip g-width-250 g-height-250 g-brd-around g-brd-gray-light-v4 g-bg-white g-ma-5 d-inline-flex align-items-center justify-content-center u-shadow-v1-5 rounded" href="/departamentos/{{$url}}/recursos">
                         <img class="u-block-hover__img u-block-hover__main--flip-vert" src="/img/departamentos/1.jpg" alt="">
                         <div class="u-block-hover__additional--flip-vert g-bg-primary g-color-white g-pa-10">
                             <h3 class="g-absolute-centered g-font-weight-600 g-font-size-25 mb-0">
@@ -69,7 +72,7 @@
                             </h3>
                         </div>
                     </a>
-                    <a class="g-text-underline--none--hover" href="#">
+                    <a class="g-text-underline--none--hover" href="/departamentos/{{$url}}/recursos">
                         <h3>
                             Recursos didácticos
                         </h3>

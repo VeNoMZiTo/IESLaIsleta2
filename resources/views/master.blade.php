@@ -57,8 +57,7 @@
         }
     </style>
 </head>
-@php
-@endphp
+
 <body style="background:#f4f4f4">
 <div id='box-slider'>
 {{--    <div id='slider-color'>--}}
