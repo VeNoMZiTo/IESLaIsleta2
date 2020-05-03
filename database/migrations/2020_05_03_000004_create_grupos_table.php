@@ -10,7 +10,7 @@ class CreateGruposTable extends Migration
     {
         Schema::create('grupos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('grupo')->unique();
+            $table->string('grupo');
             $table->timestamps();
             $table->softDeletes();
         });

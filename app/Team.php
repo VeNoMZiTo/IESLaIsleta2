@@ -18,9 +18,9 @@ class Team extends Model
     ];
 
     protected $fillable = [
-        'name',
         'created_at',
         'updated_at',
         'deleted_at',
+        'name',
     ];
 }

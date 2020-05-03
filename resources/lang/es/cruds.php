@@ -118,8 +118,8 @@ return [
         ],
     ],
     'actividade'       => [
-        'title'          => 'Actividades',
-        'title_singular' => 'Actividade',
+        'title'          => 'Especial Interés',
+        'title_singular' => 'Especial Interé',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => '',
