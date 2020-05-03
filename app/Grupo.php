@@ -20,10 +20,10 @@ class Grupo extends Model
 
     protected $fillable = [
         'grupo',
-        'team_id',
         'created_at',
         'updated_at',
         'deleted_at',
+        'team_id',
     ];
 
     public function team()
