@@ -147,10 +147,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('grupos', 'GrupoController');
 
     // Archivos Grupos
-    Route::delete('archivos-grupos/destroy', 'ArchivosGruposController@massDestroy')->name('archivos-grupos.massDestroy');
-    Route::post('archivos-grupos/media', 'ArchivosGruposController@storeMedia')->name('archivos-grupos.storeMedia');
-    Route::post('archivos-grupos/ckmedia', 'ArchivosGruposController@storeCKEditorImages')->name('archivos-grupos.storeCKEditorImages');
-    Route::resource('archivos-grupos', 'ArchivosGruposController');
+    Route::delete('archivos-grupos/destroy', 'ArchivosGruposControllerUpgrade@massDestroy')->name('archivos-grupos.massDestroy');
+    Route::post('archivos-grupos/media', 'ArchivosGruposControllerUpgrade@storeMedia')->name('archivos-grupos.storeMedia');
+    Route::post('archivos-grupos/ckmedia', 'ArchivosGruposControllerUpgrade@storeCKEditorImages')->name('archivos-grupos.storeCKEditorImages');
+    Route::resource('archivos-grupos', 'ArchivosGruposControllerUpgrade');
 
     // Consejo Escolars
     Route::delete('consejo-escolars/destroy', 'ConsejoEscolarController@massDestroy')->name('consejo-escolars.massDestroy');

@@ -1,4 +1,5 @@
 <?php
+
 Route::get('/', 'IndexController@getIndex');
 /*Centro*/
 Route::get('/presentacion', 'IndexController@getDepartamentos');
@@ -6,8 +7,8 @@ Route::get('/equipo-directivo', 'TablasController@getEqDirectivo');
 Route::get('/equipo-docente', 'TablasController@getEqDocente');
 Route::get('/calendario-escolar', 'TablasController@getCalendario');
 Route::get('/oferta-educativa', 'IndexController@getDepartamentos');
-Route::get('/consejo-escolar', 'IndexController@getDepartamentos');
-Route::get('/documentos-institucionales', 'IndexController@getDepartamentos');
+Route::get('/consejo-escolar', 'IndexController@getConsejoEscolar');
+Route::get('/documentos-institucionales', 'IndexController@getDocumentosInstitucionales');
 Route::get('/contactar/{id}', 'IndexController@getConsultas');
 
 /*Profesorado*/
@@ -20,17 +21,19 @@ Route::get('/departamentos/{id}/recursos', 'DepartamentosController@getCursos');
 Route::post('/recursos/curso', 'DepartamentosController@getRecurso');
 
 /*Alumnado*/
-Route::get('/junta-de-delegados', 'IndexController@getDepartamentos');
-Route::get('/redes-y-proyectos', 'IndexController@getDepartamentos');
+Route::get('/junta-de-delegados', 'IndexController@getJuntaDelegados');
+Route::get('/redes-y-proyectos', 'IndexController@getRedesProyectos');
+Route::get('/actividades-extraescolares', 'IndexController@getActividadesExtraescolares');
 //Route::get('/grupos', 'TablasController@getGrupo');
 //Route::get('/grupo/{id}', 'TablasController@getHorario');
 
 /*Familias*/
-Route::get('/ampa', 'IndexController@getDepartamentos');
-Route::get('/documentos-familias', 'IndexController@getDepartamentos');
+Route::get('/ampa', 'IndexController@getAmpa');
+Route::get('/documentos-familias', 'IndexController@getDocumentosFamilia');
 Route::get('/tutorias', 'TablasController@getTutoria');
 
 /*Secretaría*/
+Route::get('/secretaria-informacion', 'IndexController@getSecretariaInformacion');
 Route::get('/impresos', 'IndexController@getImpreso');
 Route::get('/certificados', 'IndexController@getDepartamentos');
 Route::post('mail/send-contact', 'MailController@sendCertificado');
@@ -48,6 +51,8 @@ Route::get('/actividad/{id}-{titulo}', 'IndexController@getActividad');
 
 /*Correos del Apartado de Buzón de Sugerencias*/
 Route::post('mail/send-contact', 'MailController@sendContact');
+
+
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
@@ -119,10 +124,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('impresos/ckmedia', 'ImpresosController@storeCKEditorImages')->name('impresos.storeCKEditorImages');
     Route::resource('impresos', 'ImpresosController');
 
-    // Horarios
-    Route::delete('horarios/destroy', 'HorarioController@massDestroy')->name('horarios.massDestroy');
-    Route::resource('horarios', 'HorarioController');
-
     // Cursos
     Route::delete('cursos/destroy', 'CursosController@massDestroy')->name('cursos.massDestroy');
     Route::resource('cursos', 'CursosController');
@@ -130,10 +131,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Asginaturas
     Route::delete('asginaturas/destroy', 'AsginaturasController@massDestroy')->name('asginaturas.massDestroy');
     Route::resource('asginaturas', 'AsginaturasController');
-
-    // Grupos
-    Route::delete('grupos/destroy', 'GruposController@massDestroy')->name('grupos.massDestroy');
-    Route::resource('grupos', 'GruposController');
 
     // Descagar Familia
     Route::delete('descagar-familia/destroy', 'DescagarFamiliasController@massDestroy')->name('descagar-familia.massDestroy');
@@ -145,4 +142,68 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('equipo-docentes/destroy', 'EquipoDocenteController@massDestroy')->name('equipo-docentes.massDestroy');
     Route::resource('equipo-docentes', 'EquipoDocenteController');
 
+    // Grupos
+    Route::delete('grupos/destroy', 'GrupoController@massDestroy')->name('grupos.massDestroy');
+    Route::resource('grupos', 'GrupoController');
+
+    // Archivos Grupos
+    Route::delete('archivos-grupos/destroy', 'ArchivosGruposControllerUpgrade@massDestroy')->name('archivos-grupos.massDestroy');
+    Route::post('archivos-grupos/media', 'ArchivosGruposControllerUpgrade@storeMedia')->name('archivos-grupos.storeMedia');
+    Route::post('archivos-grupos/ckmedia', 'ArchivosGruposControllerUpgrade@storeCKEditorImages')->name('archivos-grupos.storeCKEditorImages');
+    Route::resource('archivos-grupos', 'ArchivosGruposControllerUpgrade');
+
+    // Consejo Escolars
+    Route::delete('consejo-escolars/destroy', 'ConsejoEscolarController@massDestroy')->name('consejo-escolars.massDestroy');
+    Route::post('consejo-escolars/media', 'ConsejoEscolarController@storeMedia')->name('consejo-escolars.storeMedia');
+    Route::post('consejo-escolars/ckmedia', 'ConsejoEscolarController@storeCKEditorImages')->name('consejo-escolars.storeCKEditorImages');
+    Route::resource('consejo-escolars', 'ConsejoEscolarController');
+
+    // Proyectos
+    Route::delete('proyectos/destroy', 'ProyectosController@massDestroy')->name('proyectos.massDestroy');
+    Route::post('proyectos/media', 'ProyectosController@storeMedia')->name('proyectos.storeMedia');
+    Route::post('proyectos/ckmedia', 'ProyectosController@storeCKEditorImages')->name('proyectos.storeCKEditorImages');
+    Route::resource('proyectos', 'ProyectosController');
+
+    // Documentos Institucionales
+    Route::delete('documentos-institucionales/destroy', 'DocumentosInstitucionalesController@massDestroy')->name('documentos-institucionales.massDestroy');
+    Route::post('documentos-institucionales/media', 'DocumentosInstitucionalesController@storeMedia')->name('documentos-institucionales.storeMedia');
+    Route::post('documentos-institucionales/ckmedia', 'DocumentosInstitucionalesController@storeCKEditorImages')->name('documentos-institucionales.storeCKEditorImages');
+    Route::resource('documentos-institucionales', 'DocumentosInstitucionalesController');
+
+    // Junta Delegados
+    Route::delete('junta-delegados/destroy', 'JuntaDelegadoController@massDestroy')->name('junta-delegados.massDestroy');
+    Route::post('junta-delegados/media', 'JuntaDelegadoController@storeMedia')->name('junta-delegados.storeMedia');
+    Route::post('junta-delegados/ckmedia', 'JuntaDelegadoController@storeCKEditorImages')->name('junta-delegados.storeCKEditorImages');
+    Route::resource('junta-delegados', 'JuntaDelegadoController');
+
+    // Documentos Familia
+    Route::delete('documentos-familia/destroy', 'DocumentosFamiliasController@massDestroy')->name('documentos-familia.massDestroy');
+    Route::post('documentos-familia/media', 'DocumentosFamiliasController@storeMedia')->name('documentos-familia.storeMedia');
+    Route::post('documentos-familia/ckmedia', 'DocumentosFamiliasController@storeCKEditorImages')->name('documentos-familia.storeCKEditorImages');
+    Route::resource('documentos-familia', 'DocumentosFamiliasController');
+
+    // Ampas
+    Route::delete('ampas/destroy', 'AmpaController@massDestroy')->name('ampas.massDestroy');
+    Route::post('ampas/media', 'AmpaController@storeMedia')->name('ampas.storeMedia');
+    Route::post('ampas/ckmedia', 'AmpaController@storeCKEditorImages')->name('ampas.storeCKEditorImages');
+    Route::resource('ampas', 'AmpaController');
+
+    // Secretaria Informacions
+    Route::delete('secretaria-informacions/destroy', 'SecretariaInformacionController@massDestroy')->name('secretaria-informacions.massDestroy');
+    Route::post('secretaria-informacions/media', 'SecretariaInformacionController@storeMedia')->name('secretaria-informacions.storeMedia');
+    Route::post('secretaria-informacions/ckmedia', 'SecretariaInformacionController@storeCKEditorImages')->name('secretaria-informacions.storeCKEditorImages');
+    Route::resource('secretaria-informacions', 'SecretariaInformacionController');
+
+    // Actividades Extraescolares
+    Route::delete('actividades-extraescolares/destroy', 'ActividadesExtraescolaresController@massDestroy')->name('actividades-extraescolares.massDestroy');
+    Route::post('actividades-extraescolares/media', 'ActividadesExtraescolaresController@storeMedia')->name('actividades-extraescolares.storeMedia');
+    Route::post('actividades-extraescolares/ckmedia', 'ActividadesExtraescolaresController@storeCKEditorImages')->name('actividades-extraescolares.storeCKEditorImages');
+    Route::resource('actividades-extraescolares', 'ActividadesExtraescolaresController');
+});
+Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
+// Change password
+    if (file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php'))) {
+        Route::get('password', 'ChangePasswordController@edit')->name('password.edit');
+        Route::post('password', 'ChangePasswordController@update')->name('password.update');
+    }
 });
