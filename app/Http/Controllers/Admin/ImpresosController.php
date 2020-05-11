@@ -10,6 +10,7 @@ use App\Http\Requests\UpdateImpresoRequest;
 use App\Impreso;
 use Gate;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 
 class ImpresosController extends Controller
@@ -36,8 +37,12 @@ class ImpresosController extends Controller
     {
         $impreso = Impreso::create($request->all());
 
-        foreach ($request->input('archivo', []) as $file) {
-            $impreso->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('archivo');
+        if ($request->input('archivo', false)) {
+            $impreso->addMedia(storage_path('tmp/uploads/' . $request->input('archivo')))->toMediaCollection('archivo');
+        }
+
+        if ($media = $request->input('ck-media', false)) {
+            Media::whereIn('id', $media)->update(['model_id' => $impreso->id]);
         }
 
         return redirect()->route('admin.impresos.index');
@@ -54,20 +59,12 @@ class ImpresosController extends Controller
     {
         $impreso->update($request->all());
 
-        if (count($impreso->archivo) > 0) {
-            foreach ($impreso->archivo as $media) {
-                if (!in_array($media->file_name, $request->input('archivo', []))) {
-                    $media->delete();
-                }
+        if ($request->input('archivo', false)) {
+            if (!$impreso->archivo || $request->input('archivo') !== $impreso->archivo->file_name) {
+                $impreso->addMedia(storage_path('tmp/uploads/' . $request->input('archivo')))->toMediaCollection('archivo');
             }
-        }
-
-        $media = $impreso->archivo->pluck('file_name')->toArray();
-
-        foreach ($request->input('archivo', []) as $file) {
-            if (count($media) === 0 || !in_array($file, $media)) {
-                $impreso->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('archivo');
-            }
+        } elseif ($impreso->archivo) {
+            $impreso->archivo->delete();
         }
 
         return redirect()->route('admin.impresos.index');
@@ -94,5 +91,17 @@ class ImpresosController extends Controller
         Impreso::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function storeCKEditorImages(Request $request)
+    {
+        abort_if(Gate::denies('impreso_create') && Gate::denies('impreso_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $model         = new Impreso();
+        $model->id     = $request->input('crud_id', 0);
+        $model->exists = true;
+        $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
+
+        return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }
 }

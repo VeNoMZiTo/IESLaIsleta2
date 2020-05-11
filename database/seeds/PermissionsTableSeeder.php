@@ -398,11 +398,174 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => '98',
+                'title' => 'consejo_escolar_create',
+            ],
+            [
+                'id'    => '99',
+                'title' => 'consejo_escolar_edit',
+            ],
+            [
+                'id'    => '100',
+                'title' => 'consejo_escolar_show',
+            ],
+            [
+                'id'    => '101',
+                'title' => 'consejo_escolar_delete',
+            ],
+            [
+                'id'    => '102',
+                'title' => 'consejo_escolar_access',
+            ],
+            [
+                'id'    => '103',
+                'title' => 'alumnado_access',
+            ],
+            [
+                'id'    => '104',
+                'title' => 'proyecto_create',
+            ],
+            [
+                'id'    => '105',
+                'title' => 'proyecto_edit',
+            ],
+            [
+                'id'    => '106',
+                'title' => 'proyecto_show',
+            ],
+            [
+                'id'    => '107',
+                'title' => 'proyecto_delete',
+            ],
+            [
+                'id'    => '108',
+                'title' => 'proyecto_access',
+            ],
+            [
+                'id'    => '109',
+                'title' => 'documentos_institucionale_create',
+            ],
+            [
+                'id'    => '110',
+                'title' => 'documentos_institucionale_edit',
+            ],
+            [
+                'id'    => '111',
+                'title' => 'documentos_institucionale_show',
+            ],
+            [
+                'id'    => '112',
+                'title' => 'documentos_institucionale_delete',
+            ],
+            [
+                'id'    => '113',
+                'title' => 'documentos_institucionale_access',
+            ],
+            [
+                'id'    => '114',
+                'title' => 'junta_delegado_create',
+            ],
+            [
+                'id'    => '115',
+                'title' => 'junta_delegado_edit',
+            ],
+            [
+                'id'    => '116',
+                'title' => 'junta_delegado_show',
+            ],
+            [
+                'id'    => '117',
+                'title' => 'junta_delegado_delete',
+            ],
+            [
+                'id'    => '118',
+                'title' => 'junta_delegado_access',
+            ],
+            [
+                'id'    => '119',
+                'title' => 'documentos_familium_create',
+            ],
+            [
+                'id'    => '120',
+                'title' => 'documentos_familium_edit',
+            ],
+            [
+                'id'    => '121',
+                'title' => 'documentos_familium_show',
+            ],
+            [
+                'id'    => '122',
+                'title' => 'documentos_familium_delete',
+            ],
+            [
+                'id'    => '123',
+                'title' => 'documentos_familium_access',
+            ],
+            [
+                'id'    => '124',
+                'title' => 'ampa_create',
+            ],
+            [
+                'id'    => '125',
+                'title' => 'ampa_edit',
+            ],
+            [
+                'id'    => '126',
+                'title' => 'ampa_show',
+            ],
+            [
+                'id'    => '127',
+                'title' => 'ampa_delete',
+            ],
+            [
+                'id'    => '128',
+                'title' => 'ampa_access',
+            ],
+            [
+                'id'    => '129',
+                'title' => 'secretaria_informacion_create',
+            ],
+            [
+                'id'    => '130',
+                'title' => 'secretaria_informacion_edit',
+            ],
+            [
+                'id'    => '131',
+                'title' => 'secretaria_informacion_show',
+            ],
+            [
+                'id'    => '132',
+                'title' => 'secretaria_informacion_delete',
+            ],
+            [
+                'id'    => '133',
+                'title' => 'secretaria_informacion_access',
+            ],
+            [
+                'id'    => '134',
+                'title' => 'actividades_extraescolare_create',
+            ],
+            [
+                'id'    => '135',
+                'title' => 'actividades_extraescolare_edit',
+            ],
+            [
+                'id'    => '136',
+                'title' => 'actividades_extraescolare_show',
+            ],
+            [
+                'id'    => '137',
+                'title' => 'actividades_extraescolare_delete',
+            ],
+            [
+                'id'    => '138',
+                'title' => 'actividades_extraescolare_access',
+            ],
+            [
+                'id'    => '139',
                 'title' => 'profile_password_edit',
             ],
         ];
 
         Permission::insert($permissions);
-
     }
 }

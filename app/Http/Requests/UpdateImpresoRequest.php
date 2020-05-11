@@ -20,8 +20,7 @@ class UpdateImpresoRequest extends FormRequest
     {
         return [
             'nombre' => [
-                'required',
-            ],
+                'required'],
         ];
     }
 }
