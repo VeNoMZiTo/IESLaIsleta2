@@ -456,7 +456,7 @@
                                                         <!-- End Submenu (level 2) -->
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">Actividades extraescolares y complementarias</a>
+                                                        <a href="/actividades-extraescolares">Actividades extraescolares y complementarias</a>
                                                     </li>
                                                     <hr class='mb-2'/>
                                                     <li>
@@ -522,7 +522,7 @@
                                                 <!-- Submenu -->
                                                 <ul class="hs-sub-menu list-unstyled " id="nav-submenu-1" aria-labelledby="nav-link-1">
                                                     <li>
-                                                        <a href="/nodisponible">Información</a>
+                                                        <a href="/secretaria-informacion">Información</a>
                                                     </li>
                                                     <li>
                                                         <a href="/certificados">Solicitud de certificados</a>
@@ -530,7 +530,6 @@
                                                     <li>
                                                         <a href="/impresos">Impresos</a>
                                                     </li>
-
                                                 </ul>
                                                 <!-- End Submenu -->
                                             </li>

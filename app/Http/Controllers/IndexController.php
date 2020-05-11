@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Calendario;
+use App\ConsejoEscolar;
 use App\EquipoDirectivo;
 use App\Grupo;
 use App\Noticium;
@@ -10,6 +11,13 @@ use App\Slider;
 use App\Actividade;
 use App\Team;
 use App\Impreso;
+use App\Proyecto;
+use App\JuntaDelegado;
+use App\DocumentosFamilium;
+use App\DocumentosInstitucionale;
+use App\Ampa;
+use App\SecretariaInformacion;
+use App\ActividadesExtraescolare;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -67,15 +75,6 @@ class IndexController extends Controller
     public function getDepartamentos(Request $request){
         $destinatarioConsultas=false;
         switch ($request->path()){
-            case 'ampa':
-                $url='frontend.familia.ampa';
-                break;
-            case 'documentos-familias':
-                $url='frontend.familia.documentosfamilias';
-                break;
-            case 'redes-y-proyectos':
-                $url='frontend.alumnado.redesyproyectos';
-                break;
             case 'nodisponible':
                 $url='frontend.nodisponible';
                 break;
@@ -87,9 +86,6 @@ class IndexController extends Controller
                 break;
             case 'consultas':
                 $url='frontend.consultas';
-                break;
-            case 'junta-de-delegados':
-                $url='frontend.alumnado.juntadelegados';
                 break;
             case 'oferta-educativa':
                 $url='frontend.centro.ofertaeducativa';
@@ -103,18 +99,60 @@ class IndexController extends Controller
             case 'presentacion':
                 $url='frontend.centro.presentacion';
                 break;
-            case 'consejo-escolar':
-                $url='frontend.centro.consejoescolar';
-                break;
             case 'cita-previa-tarde':
                 $url='frontend.cita.citaprevia';
-                break;
-            case 'documentos-institucionales':
-                $url='frontend.centro.documentos';
                 break;
         }
         return view($url,array(
             'destinatarioConsultas' =>$destinatarioConsultas
+        ));
+    }
+    public function getConsejoEscolar(){
+        $consejoEscolar = ConsejoEscolar::all()->first();
+        return view('frontend.centro.consejoescolar',array(
+            'consejoEscolar' => $consejoEscolar
+        ));
+    }
+    public function getRedesProyectos(){
+        $redesProyectos = Proyecto::all();
+        return view('frontend.alumnado.redesyproyectos',array(
+            'redesProyectos' => $redesProyectos
+        ));
+    }
+    public function getJuntaDelegados(){
+        $juntaDelegados = JuntaDelegado::all()->first();
+        return view('frontend.alumnado.juntadelegados',array(
+            'juntaDelegados' => $juntaDelegados
+        ));
+    }
+    public function getDocumentosFamilia(){
+        $documentosFamilia = DocumentosFamilium::all();
+        return view('frontend.familia.documentosfamilias',array(
+            'documentosFamilia' => $documentosFamilia
+        ));
+    }
+    public function getDocumentosInstitucionales(){
+        $documentosInstitucionales = DocumentosInstitucionale::all();
+        return view('frontend.centro.documentos',array(
+            'documentosInstitucionales' => $documentosInstitucionales
+        ));
+    }
+    public function getAmpa(){
+        $ampa = Ampa::all()->first();
+        return view('frontend.familia.ampa',array(
+            'ampa' => $ampa
+        ));
+    }
+    public function getSecretariaInformacion(){
+        $secretaria = SecretariaInformacion::all()->first();
+        return view('frontend.secretaria.informacion',array(
+            'secretaria' => $secretaria
+        ));
+    }
+    public function getActividadesExtraescolares(){
+        $actividades = ActividadesExtraescolare::all()->first();
+        return view('frontend.alumnado.actividadesextraescolares',array(
+            'actividades' => $actividades
         ));
     }
     public function getConsultas(Request $request, $id){

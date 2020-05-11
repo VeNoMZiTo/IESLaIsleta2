@@ -1,5 +1,5 @@
 @extends('master')
-@section('title','Impresos')
+@section('title','Documentos Institucionales')
 @section('css')
 @endsection
 @section('content')
@@ -8,7 +8,7 @@
         <div class='container g-py-100'>
             <div class='row text-center g-mb-30'>
                 <div class="text-center col-12">
-                    <h2 class="h1 g-color-black mb-4">Impresos</h2>
+                    <h2 class="h1 g-color-black mb-4">Documentos institucionales</h2>
                     <div class="d-inline-block g-width-70 g-height-2 g-bg-primary mb-4"></div>
                 </div>
             </div>
@@ -19,18 +19,18 @@
 
                 <div class="col-lg-6">
                     <header class="u-heading-v2-3--bottom g-brd-primary g-mb-20">
-                        <h2 class="h3 u-heading-v2__title">Descargar Impresos</h2>
+                        <h2 class="h3 u-heading-v2__title">Descargar documentos institucionales</h2>
                     </header>
                     <p class="lead g-mb-15">
                         Cualquier duda o sugerencia puede contactar con <a href="/consultas">nosotros</a>.
                     </p>
                     <div class="row">
-                        @foreach($documentos as $i)
+                        @foreach($documentosInstitucionales as $d)
                             <div class='col-md-6 g-mb-30'>
-                                <a class='media g-mb-15 cartaDescarga' href='{{$i->archivo->first()->getUrl()}}' download>
+                                <a class='media g-mb-15 cartaDescarga' href='{{$d->archivo->first()->getUrl()}}' download>
                                     <div class='d-flex align-self-center mr-3'>
                                         @php
-                                            $tipo = explode('.',$i->archivo->first()->file_name);
+                                            $tipo = explode('.',$d->archivo->first()->file_name);
                                             $tipo = $tipo[count($tipo) - 1];
                                             switch ($tipo){
                                                 case 'jpg':
@@ -53,7 +53,7 @@
                                 </span>
                                     </div>
                                     <div class='media-body align-self-center'>
-                                        <h3 class='h5 g-color-black mb-0'>{{$i->nombre}}</h3>
+                                        <h3 class='h5 g-color-black mb-0'>{{$d->nombre}}</h3>
 
                                         <span class='d-block g-color-gray-dark-v4'>Archivo tipo : <b>{{$tipo}}</b></span>
                                     </div>

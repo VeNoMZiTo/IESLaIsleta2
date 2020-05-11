@@ -953,17 +953,16 @@ tr.body *, tr.body{
     list-style: none;
 }
 #juntaDelegados ul li{
-    display:flex
 }
 .listaEditable li::before, #juntaDelegados ul li::before{
     content:"\e080";
     font-family: 'simple-line-icons';
-    display: flex;
+    display: inline-block;
     align-items: center;
     margin-right: 1rem;
     color: #1d8873;
-
 }
+
 @media only screen and (max-width: 1600px) and (min-width: 1200px){
     #actividades{
         width: 100%;

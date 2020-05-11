@@ -1,34 +1,50 @@
 <?php
-
 Route::get('/', 'IndexController@getIndex');
+/*Centro*/
 Route::get('/presentacion', 'IndexController@getDepartamentos');
-Route::get('/redes-y-proyectos', 'IndexController@getDepartamentos');
-Route::get('/ampa', 'IndexController@getDepartamentos');
-Route::get('/consejo-escolar', 'IndexController@getDepartamentos');
 Route::get('/equipo-directivo', 'TablasController@getEqDirectivo');
 Route::get('/equipo-docente', 'TablasController@getEqDocente');
-Route::get('/tutorias', 'TablasController@getTutoria');
 Route::get('/calendario-escolar', 'TablasController@getCalendario');
-Route::get('/nodisponible', 'IndexController@getDepartamentos');
-Route::get('/consultas', 'IndexController@getDepartamentos');
-Route::get('/pincel-ekade', 'IndexController@getDepartamentos');
-Route::get('/contactar/{id}', 'IndexController@getConsultas');
-Route::get('/profesorado', 'IndexController@getDepartamentos');
 Route::get('/oferta-educativa', 'IndexController@getDepartamentos');
-Route::get('/noticias', 'IndexController@getRepertorioNoticias');
-Route::get('/noticia/{id}-{titulo}', 'IndexController@getNoticia');
-Route::get('/actividad/{id}-{titulo}', 'IndexController@getActividad');
+Route::get('/consejo-escolar', 'IndexController@getDepartamentos');
+Route::get('/documentos-institucionales', 'IndexController@getDepartamentos');
+Route::get('/contactar/{id}', 'IndexController@getConsultas');
+
+/*Profesorado*/
+Route::get('/profesorado', 'IndexController@getDepartamentos');
+
+/*Departamentos*/
+Route::get('/departamentos', 'IndexController@getDepartamentos');
+Route::get('/departamentos/{id}', 'DepartamentosController@getDepartamento');
+Route::get('/departamentos/{id}/recursos', 'DepartamentosController@getCursos');
+Route::post('/recursos/curso', 'DepartamentosController@getRecurso');
+
 /*Alumnado*/
 Route::get('/junta-de-delegados', 'IndexController@getDepartamentos');
-Route::get('/grupos', 'TablasController@getGrupo');
-Route::get('/grupo/{id}', 'TablasController@getHorario');
+Route::get('/redes-y-proyectos', 'IndexController@getDepartamentos');
+//Route::get('/grupos', 'TablasController@getGrupo');
+//Route::get('/grupo/{id}', 'TablasController@getHorario');
+
+/*Familias*/
+Route::get('/ampa', 'IndexController@getDepartamentos');
+Route::get('/documentos-familias', 'IndexController@getDepartamentos');
+Route::get('/tutorias', 'TablasController@getTutoria');
+
 /*Secretaría*/
 Route::get('/impresos', 'IndexController@getImpreso');
 Route::get('/certificados', 'IndexController@getDepartamentos');
 Route::post('mail/send-contact', 'MailController@sendCertificado');
-/*Departamentos*/
-Route::get('/departamentos', 'IndexController@getDepartamentos');
-Route::get('/departamentos/{id}', 'DepartamentosController@getDepartamento');
+
+/*Cita Previa de Tarde*/
+Route::get('/cita-previa-tarde', 'IndexController@getDepartamentos');
+
+/*General*/
+Route::get('/nodisponible', 'IndexController@getDepartamentos');
+Route::get('/consultas', 'IndexController@getDepartamentos');
+Route::get('/pincel-ekade', 'IndexController@getDepartamentos');
+Route::get('/noticias', 'IndexController@getRepertorioNoticias');
+Route::get('/noticia/{id}-{titulo}', 'IndexController@getNoticia');
+Route::get('/actividad/{id}-{titulo}', 'IndexController@getActividad');
 
 /*Correos del Apartado de Buzón de Sugerencias*/
 Route::post('mail/send-contact', 'MailController@sendContact');
@@ -44,7 +60,7 @@ Auth::routes(['register' => false]);
 // Admin
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeUpgradeController@index')->name('home');
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
     Route::resource('permissions', 'PermissionsController');
