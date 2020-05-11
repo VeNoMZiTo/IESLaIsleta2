@@ -32,9 +32,8 @@ class ArchivosGruposController extends Controller
         abort_if(Gate::denies('archivos_grupo_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $grupos = Grupo::all()->pluck('grupo', 'id')->prepend(trans('global.pleaseSelect'), '');
-        $filtro = ArchivosGrupo::with('grupo')->get();
 
-        return view('admin.archivosGrupos.create', compact('grupos','filtro'));
+        return view('admin.archivosGrupos.create', compact('grupos'));
     }
 
     public function store(StoreArchivosGrupoRequest $request)

@@ -14,11 +14,6 @@ class Ampa extends Model implements HasMedia
 
     public $table = 'ampas';
 
-    protected $appends = [
-        'foto',
-        'archivos',
-    ];
-
     protected $dates = [
         'created_at',
         'updated_at',
@@ -26,8 +21,9 @@ class Ampa extends Model implements HasMedia
     ];
 
     protected $fillable = [
-        'texto',
+        'titulo',
         'subtitulo',
+        'texto',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -36,22 +32,5 @@ class Ampa extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')->width(50)->height(50);
-    }
-
-    public function getFotoAttribute()
-    {
-        $file = $this->getMedia('foto')->last();
-
-        if ($file) {
-            $file->url       = $file->getUrl();
-            $file->thumbnail = $file->getUrl('thumb');
-        }
-
-        return $file;
-    }
-
-    public function getArchivosAttribute()
-    {
-        return $this->getMedia('archivos');
     }
 }

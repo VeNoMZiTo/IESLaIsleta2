@@ -27,14 +27,6 @@ class AmpaApiController extends Controller
     {
         $ampa = Ampa::create($request->all());
 
-        if ($request->input('foto', false)) {
-            $ampa->addMedia(storage_path('tmp/uploads/' . $request->input('foto')))->toMediaCollection('foto');
-        }
-
-        if ($request->input('archivos', false)) {
-            $ampa->addMedia(storage_path('tmp/uploads/' . $request->input('archivos')))->toMediaCollection('archivos');
-        }
-
         return (new AmpaResource($ampa))
             ->response()
             ->setStatusCode(Response::HTTP_CREATED);
@@ -50,22 +42,6 @@ class AmpaApiController extends Controller
     public function update(UpdateAmpaRequest $request, Ampa $ampa)
     {
         $ampa->update($request->all());
-
-        if ($request->input('foto', false)) {
-            if (!$ampa->foto || $request->input('foto') !== $ampa->foto->file_name) {
-                $ampa->addMedia(storage_path('tmp/uploads/' . $request->input('foto')))->toMediaCollection('foto');
-            }
-        } elseif ($ampa->foto) {
-            $ampa->foto->delete();
-        }
-
-        if ($request->input('archivos', false)) {
-            if (!$ampa->archivos || $request->input('archivos') !== $ampa->archivos->file_name) {
-                $ampa->addMedia(storage_path('tmp/uploads/' . $request->input('archivos')))->toMediaCollection('archivos');
-            }
-        } elseif ($ampa->archivos) {
-            $ampa->archivos->delete();
-        }
 
         return (new AmpaResource($ampa))
             ->response()

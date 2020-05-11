@@ -13,9 +13,7 @@
                 <label class="required" for="grupo_id">{{ trans('cruds.archivosGrupo.fields.grupo') }}</label>
                 <select class="form-control select2 {{ $errors->has('grupo') ? 'is-invalid' : '' }}" name="grupo_id" id="grupo_id" required>
                     @foreach($grupos as $id => $grupo)
-                        @if(empty($filtro->where('grupo_id','=',$id)->first()))
                         <option value="{{ $id }}" {{ old('grupo_id') == $id ? 'selected' : '' }}>{{ $grupo }}</option>
-                        @endif
                     @endforeach
                 </select>
                 @if($errors->has('grupo'))

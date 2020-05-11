@@ -50,11 +50,9 @@
                             </td>
                             <td>
                                 @if($impreso->archivo)
-                                    @foreach($impreso->archivo as $key => $media)
-                                        <a href="{{ $media->getUrl() }}" target="_blank">
-                                            {{ trans('global.view_file') }}
-                                        </a>
-                                    @endforeach
+                                    <a href="{{ $impreso->archivo->getUrl() }}" target="_blank">
+                                        {{ trans('global.view_file') }}
+                                    </a>
                                 @endif
                             </td>
                             <td>
@@ -87,6 +85,9 @@
         </div>
     </div>
 </div>
+
+
+
 @endsection
 @section('scripts')
 @parent

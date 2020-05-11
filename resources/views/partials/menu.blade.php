@@ -174,7 +174,7 @@
                     </li>
                 @endcan
                 @can('centro_access')
-                    <li class="nav-item has-treeview {{ request()->is('admin/calendarios*') ? 'menu-open' : '' }} {{ request()->is('admin/equipo-directivos*') ? 'menu-open' : '' }} {{ request()->is('admin/descargars*') ? 'menu-open' : '' }} {{ request()->is('admin/equipo-docentes*') ? 'menu-open' : '' }}">
+                    <li class="nav-item has-treeview {{ request()->is('admin/calendarios*') ? 'menu-open' : '' }} {{ request()->is('admin/equipo-directivos*') ? 'menu-open' : '' }} {{ request()->is('admin/equipo-docentes*') ? 'menu-open' : '' }} {{ request()->is('admin/consejo-escolars*') ? 'menu-open' : '' }} {{ request()->is('admin/documentos-institucionales*') ? 'menu-open' : '' }} {{ request()->is('admin/descargars*') ? 'menu-open' : '' }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa-fw nav-icon fas fa-graduation-cap">
 
@@ -209,18 +209,6 @@
                                     </a>
                                 </li>
                             @endcan
-                            @can('descargar_access')
-                                <li class="nav-item">
-                                    <a href="{{ route("admin.descargars.index") }}" class="nav-link {{ request()->is('admin/descargars') || request()->is('admin/descargars/*') ? 'active' : '' }}">
-                                        <i class="fa-fw nav-icon fas fa-file-pdf">
-
-                                        </i>
-                                        <p>
-                                            {{ trans('cruds.descargar.title') }}
-                                        </p>
-                                    </a>
-                                </li>
-                            @endcan
                             @can('equipo_docente_access')
                                 <li class="nav-item">
                                     <a href="{{ route("admin.equipo-docentes.index") }}" class="nav-link {{ request()->is('admin/equipo-docentes') || request()->is('admin/equipo-docentes/*') ? 'active' : '' }}">
@@ -233,11 +221,47 @@
                                     </a>
                                 </li>
                             @endcan
+                            @can('consejo_escolar_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.consejo-escolars.index") }}" class="nav-link {{ request()->is('admin/consejo-escolars') || request()->is('admin/consejo-escolars/*') ? 'active' : '' }}">
+                                        <i class="fa-fw nav-icon fas fa-child">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.consejoEscolar.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('documentos_institucionale_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.documentos-institucionales.index") }}" class="nav-link {{ request()->is('admin/documentos-institucionales') || request()->is('admin/documentos-institucionales/*') ? 'active' : '' }}">
+                                        <i class="fa-fw nav-icon fas fa-cogs">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.documentosInstitucionale.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('descargar_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.descargars.index") }}" class="nav-link {{ request()->is('admin/descargars') || request()->is('admin/descargars/*') ? 'active' : '' }}">
+                                        <i class="fa-fw nav-icon fas fa-file-pdf">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.descargar.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
                         </ul>
                     </li>
                 @endcan
                 @can('familium_access')
-                    <li class="nav-item has-treeview {{ request()->is('admin/tutoria*') ? 'menu-open' : '' }} {{ request()->is('admin/descagar-familia*') ? 'menu-open' : '' }}">
+                    <li class="nav-item has-treeview {{ request()->is('admin/tutoria*') ? 'menu-open' : '' }} {{ request()->is('admin/ampas*') ? 'menu-open' : '' }} {{ request()->is('admin/documentos-familia*') ? 'menu-open' : '' }} {{ request()->is('admin/descagar-familia*') ? 'menu-open' : '' }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa-fw nav-icon fas fa-users">
 
@@ -260,6 +284,30 @@
                                     </a>
                                 </li>
                             @endcan
+                            @can('ampa_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.ampas.index") }}" class="nav-link {{ request()->is('admin/ampas') || request()->is('admin/ampas/*') ? 'active' : '' }}">
+                                        <i class="fa-fw nav-icon fab fa-adn">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.ampa.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('documentos_familium_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.documentos-familia.index") }}" class="nav-link {{ request()->is('admin/documentos-familia') || request()->is('admin/documentos-familia/*') ? 'active' : '' }}">
+                                        <i class="fa-fw nav-icon fas fa-cogs">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.documentosFamilium.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
                             @can('descagar_familium_access')
                                 <li class="nav-item">
                                     <a href="{{ route("admin.descagar-familia.index") }}" class="nav-link {{ request()->is('admin/descagar-familia') || request()->is('admin/descagar-familia/*') ? 'active' : '' }}">
@@ -275,8 +323,59 @@
                         </ul>
                     </li>
                 @endcan
+                @can('alumnado_access')
+                    <li class="nav-item has-treeview {{ request()->is('admin/proyectos*') ? 'menu-open' : '' }} {{ request()->is('admin/junta-delegados*') ? 'menu-open' : '' }} {{ request()->is('admin/actividades-extraescolares*') ? 'menu-open' : '' }}">
+                        <a class="nav-link nav-dropdown-toggle" href="#">
+                            <i class="fa-fw nav-icon fas fa-futbol">
+
+                            </i>
+                            <p>
+                                {{ trans('cruds.alumnado.title') }}
+                                <i class="right fa fa-fw fa-angle-left nav-icon"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            @can('proyecto_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.proyectos.index") }}" class="nav-link {{ request()->is('admin/proyectos') || request()->is('admin/proyectos/*') ? 'active' : '' }}">
+                                        <i class="fa-fw nav-icon far fa-bookmark">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.proyecto.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('junta_delegado_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.junta-delegados.index") }}" class="nav-link {{ request()->is('admin/junta-delegados') || request()->is('admin/junta-delegados/*') ? 'active' : '' }}">
+                                        <i class="fa-fw nav-icon fas fa-bullhorn">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.juntaDelegado.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('actividades_extraescolare_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.actividades-extraescolares.index") }}" class="nav-link {{ request()->is('admin/actividades-extraescolares') || request()->is('admin/actividades-extraescolares/*') ? 'active' : '' }}">
+                                        <i class="fa-fw nav-icon fab fa-adn">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.actividadesExtraescolare.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcan
                 @can('secretarium_access')
-                    <li class="nav-item has-treeview {{ request()->is('admin/impresos*') ? 'menu-open' : '' }}">
+                    <li class="nav-item has-treeview {{ request()->is('admin/impresos*') ? 'menu-open' : '' }} {{ request()->is('admin/secretaria-informacions*') ? 'menu-open' : '' }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa-fw nav-icon far fa-list-alt">
 
@@ -295,6 +394,18 @@
                                         </i>
                                         <p>
                                             {{ trans('cruds.impreso.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('secretaria_informacion_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.secretaria-informacions.index") }}" class="nav-link {{ request()->is('admin/secretaria-informacions') || request()->is('admin/secretaria-informacions/*') ? 'active' : '' }}">
+                                        <i class="fa-fw nav-icon fas fa-ellipsis-v">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.secretariaInformacion.title') }}
                                         </p>
                                     </a>
                                 </li>

@@ -64,12 +64,12 @@ return [
         'zero_selected' => 'No se han seleccionado filas',
     ],
     'billing'                              => [
-        'menu'                        => 'Billing',
-        'current_plan'                => 'Your current plan',
-        'choose_this_plan'            => 'Choose this plan',
-        'month'                       => 'month',
-        'trial_user'                  => 'Trial User',
-        'plan_purchased_successfully' => 'Plan purchased successfully',
+        'menu'                        => 'Facturación',
+        'current_plan'                => 'Tu plan actual',
+        'choose_this_plan'            => 'Escoger plan',
+        'month'                       => 'mes',
+        'trial_user'                  => 'Usuario de prueba',
+        'plan_purchased_successfully' => 'Tu plan fue adquirido exitosamente',
     ],
     'payments'                             => [
         'title'        => 'Payments',

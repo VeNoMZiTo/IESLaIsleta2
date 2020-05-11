@@ -7,51 +7,45 @@
     </div>
 
     <div class="card-body">
-        <form action="{{ route("admin.impresos.update", [$impreso->id]) }}" method="POST" enctype="multipart/form-data">
-            @csrf
+        <form method="POST" action="{{ route("admin.impresos.update", [$impreso->id]) }}" enctype="multipart/form-data">
             @method('PUT')
-            <div class="form-group {{ $errors->has('nombre') ? 'has-error' : '' }}">
-                <label for="nombre">{{ trans('cruds.impreso.fields.nombre') }}*</label>
-                <input type="text" id="nombre" name="nombre" class="form-control" value="{{ old('nombre', isset($impreso) ? $impreso->nombre : '') }}" required>
+            @csrf
+            <div class="form-group">
+                <label class="required" for="nombre">{{ trans('cruds.impreso.fields.nombre') }}</label>
+                <input class="form-control {{ $errors->has('nombre') ? 'is-invalid' : '' }}" type="text" name="nombre" id="nombre" value="{{ old('nombre', $impreso->nombre) }}" required>
                 @if($errors->has('nombre'))
-                    <p class="help-block">
-                        {{ $errors->first('nombre') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('nombre') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.impreso.fields.nombre_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.impreso.fields.nombre_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('archivo') ? 'has-error' : '' }}">
-                <label for="archivo">{{ trans('cruds.impreso.fields.archivo') }}*</label>
-                <div class="needsclick dropzone" id="archivo-dropzone">
-
+            <div class="form-group">
+                <label class="required" for="archivo">{{ trans('cruds.impreso.fields.archivo') }}</label>
+                <div class="needsclick dropzone {{ $errors->has('archivo') ? 'is-invalid' : '' }}" id="archivo-dropzone">
                 </div>
                 @if($errors->has('archivo'))
-                    <p class="help-block">
-                        {{ $errors->first('archivo') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('archivo') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.impreso.fields.archivo_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.impreso.fields.archivo_helper') }}</span>
             </div>
-            <div>
-                <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
+            <div class="form-group">
+                <button class="btn btn-danger" type="submit">
+                    {{ trans('global.save') }}
+                </button>
             </div>
         </form>
-
-
     </div>
 </div>
+
+
+
 @endsection
 
 @section('scripts')
 <script>
-    var uploadedArchivoMap = {}
-Dropzone.options.archivoDropzone = {
+    Dropzone.options.archivoDropzone = {
     url: '{{ route('admin.impresos.storeMedia') }}',
     maxFilesize: 2, // MB
+    maxFiles: 1,
     addRemoveLinks: true,
     headers: {
       'X-CSRF-TOKEN': "{{ csrf_token() }}"
@@ -60,29 +54,23 @@ Dropzone.options.archivoDropzone = {
       size: 2
     },
     success: function (file, response) {
-      $('form').append('<input type="hidden" name="archivo[]" value="' + response.name + '">')
-      uploadedArchivoMap[file.name] = response.name
+      $('form').find('input[name="archivo"]').remove()
+      $('form').append('<input type="hidden" name="archivo" value="' + response.name + '">')
     },
     removedfile: function (file) {
       file.previewElement.remove()
-      var name = ''
-      if (typeof file.file_name !== 'undefined') {
-        name = file.file_name
-      } else {
-        name = uploadedArchivoMap[file.name]
+      if (file.status !== 'error') {
+        $('form').find('input[name="archivo"]').remove()
+        this.options.maxFiles = this.options.maxFiles + 1
       }
-      $('form').find('input[name="archivo[]"][value="' + name + '"]').remove()
     },
     init: function () {
 @if(isset($impreso) && $impreso->archivo)
-          var files =
-            {!! json_encode($impreso->archivo) !!}
-              for (var i in files) {
-              var file = files[i]
-              this.options.addedfile.call(this, file)
-              file.previewElement.classList.add('dz-complete')
-              $('form').append('<input type="hidden" name="archivo[]" value="' + file.file_name + '">')
-            }
+      var file = {!! json_encode($impreso->archivo) !!}
+          this.options.addedfile.call(this, file)
+      file.previewElement.classList.add('dz-complete')
+      $('form').append('<input type="hidden" name="archivo" value="' + file.file_name + '">')
+      this.options.maxFiles = this.options.maxFiles - 1
 @endif
     },
      error: function (file, response) {
@@ -103,4 +91,4 @@ Dropzone.options.archivoDropzone = {
      }
 }
 </script>
-@stop
+@endsection
