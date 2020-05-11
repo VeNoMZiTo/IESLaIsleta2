@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Calendario;
+use App\EquipoDirectivo;
 use App\Grupo;
 use App\Noticium;
 use App\Slider;
@@ -59,7 +60,7 @@ class IndexController extends Controller
     }
     public function getImpreso(){
         $impreso = Impreso::all();
-        return view('frontend.impresos',array(
+        return view('frontend.secretaria.impresos',array(
             'impreso' => $impreso
         ));
     }
@@ -67,28 +68,31 @@ class IndexController extends Controller
         $destinatarioConsultas=false;
         switch ($request->path()){
             case 'ampa':
-                $url='frontend.ampa';
+                $url='frontend.familia.ampa';
+                break;
+            case 'documentos-familias':
+                $url='frontend.familia.documentosfamilias';
                 break;
             case 'redes-y-proyectos':
-                $url='frontend.redesyproyectos';
+                $url='frontend.alumnado.redesyproyectos';
                 break;
             case 'nodisponible':
                 $url='frontend.nodisponible';
                 break;
             case 'profesorado':
-                $url='frontend.profesorado';
+                $url='frontend.profesorado.profesorado';
                 break;
             case 'certificados':
-                $url='frontend.certificados';
+                $url='frontend.secretaria.certificados';
                 break;
             case 'consultas':
                 $url='frontend.consultas';
                 break;
             case 'junta-de-delegados':
-                $url='frontend.juntadelegados';
+                $url='frontend.alumnado.juntadelegados';
                 break;
             case 'oferta-educativa':
-                $url='frontend.ofertaeducativa';
+                $url='frontend.centro.ofertaeducativa';
                 break;
             case 'departamentos':
                 $url='frontend.departamentos';
@@ -97,10 +101,16 @@ class IndexController extends Controller
                 $url='frontend.pincelekade';
                 break;
             case 'presentacion':
-                $url='frontend.presentacion';
+                $url='frontend.centro.presentacion';
                 break;
             case 'consejo-escolar':
-                $url='frontend.consejoescolar';
+                $url='frontend.centro.consejoescolar';
+                break;
+            case 'cita-previa-tarde':
+                $url='frontend.cita.citaprevia';
+                break;
+            case 'documentos-institucionales':
+                $url='frontend.centro.documentos';
                 break;
         }
         return view($url,array(
@@ -109,9 +119,10 @@ class IndexController extends Controller
     }
     public function getConsultas(Request $request, $id){
         $destinatarioConsultas = $id;
+        $email = EquipoDirectivo::all()->where('cargo','=',$id)->first()->email;
         return view('frontend.consultas',array(
-            'destinatarioConsultas' => $destinatarioConsultas
-
+            'destinatarioConsultas' => $destinatarioConsultas,
+            'email'=>$email
         ));
     }
 

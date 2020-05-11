@@ -1,6 +1,56 @@
 <?php
 
-Route::redirect('/', '/login');
+Route::get('/', 'IndexController@getIndex');
+
+/*Centro*/
+Route::get('/presentacion', 'IndexController@getDepartamentos');
+Route::get('/equipo-directivo', 'TablasController@getEqDirectivo');
+Route::get('/equipo-docente', 'TablasController@getEqDocente');
+Route::get('/calendario-escolar', 'TablasController@getCalendario');
+Route::get('/oferta-educativa', 'IndexController@getDepartamentos');
+Route::get('/consejo-escolar', 'IndexController@getDepartamentos');
+Route::get('/documentos-institucionales', 'IndexController@getDepartamentos');
+Route::get('/contactar/{id}', 'IndexController@getConsultas');
+
+/*Profesorado*/
+Route::get('/profesorado', 'IndexController@getDepartamentos');
+
+/*Departamentos*/
+Route::get('/departamentos', 'IndexController@getDepartamentos');
+Route::get('/departamentos/{id}', 'DepartamentosController@getDepartamento');
+Route::get('/departamentos/{id}/recursos', 'DepartamentosController@getCursos');
+Route::post('/recursos/curso', 'DepartamentosController@getRecurso');
+
+/*Alumnado*/
+Route::get('/junta-de-delegados', 'IndexController@getDepartamentos');
+Route::get('/redes-y-proyectos', 'IndexController@getDepartamentos');
+//Route::get('/grupos', 'TablasController@getGrupo');
+//Route::get('/grupo/{id}', 'TablasController@getHorario');
+
+/*Familias*/
+Route::get('/ampa', 'IndexController@getDepartamentos');
+Route::get('/documentos-familias', 'IndexController@getDepartamentos');
+Route::get('/tutorias', 'TablasController@getTutoria');
+
+/*Secretaría*/
+Route::get('/impresos', 'IndexController@getImpreso');
+Route::get('/certificados', 'IndexController@getDepartamentos');
+Route::post('mail/send-contact', 'MailController@sendCertificado');
+
+/*Cita Previa de Tarde*/
+Route::get('/cita-previa-tarde', 'IndexController@getDepartamentos');
+
+/*General*/
+Route::get('/nodisponible', 'IndexController@getDepartamentos');
+Route::get('/consultas', 'IndexController@getDepartamentos');
+Route::get('/pincel-ekade', 'IndexController@getDepartamentos');
+Route::get('/noticias', 'IndexController@getRepertorioNoticias');
+Route::get('/noticia/{id}-{titulo}', 'IndexController@getNoticia');
+Route::get('/actividad/{id}-{titulo}', 'IndexController@getActividad');
+
+/*Correos del Apartado de Buzón de Sugerencias*/
+Route::post('mail/send-contact', 'MailController@sendContact');
+
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));

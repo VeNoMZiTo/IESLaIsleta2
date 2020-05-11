@@ -21,18 +21,16 @@
             </div>
             <div class="row">
                 <div class="col-12 px-0">
-                    @if($descargar)
                     <div class="panel-descarga">
                         <ul class="list-unstyled objetos-panel">
                             <li>
-                                <a class="download tooltipster" title="Descargar" href="{{$descargar->directiva->getUrl() ?? ''}}" download><i class="fa fa-download"></i></a>
+                                <a class="download tooltipster" title="Descargar" href="" download><i class="fa fa-download"></i></a>
                             </li>
                             <li>
-                                <a class="downloand-print tooltipster" title="Imprimir" href="{{$descargar->directiva->getUrl() ?? ''}}"><i class="fa fa-print"></i></a>
+                                <a class="downloand-print tooltipster" title="Imprimir" href=""><i class="fa fa-print"></i></a>
                             </li>
                         </ul>
                     </div>
-                    @endif
                     <div class="tabla ver1 m-b-110">
                         <div class="tabla-head">
                             <table>
@@ -73,10 +71,7 @@
                                         </p>
                                     </td>
                                     <td data-column="Hora de Atención" class="columnas column5">
-                                        @php
-                                            $nombre=explode('@',$eq->email);
-                                        @endphp
-                                        <a href="/contactar/{{$nombre[0]}}">
+                                        <a href="/contactar/{{$eq->cargo}}">
                                             Solicitar cita
                                         </a>
                                     </td>

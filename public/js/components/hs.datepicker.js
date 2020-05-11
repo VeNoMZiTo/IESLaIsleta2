@@ -17,13 +17,13 @@
     _baseConfig: {
       dateFormat: 'dd.mm.yy',
       dayNamesMin: [
-        'Sun',
-        'Mon',
-        'Tue',
-        'Wed',
-        'Thu',
-        'Fri',
-        'Sat'
+        'Dom',
+        'Lun',
+        'Mar',
+        'Mie',
+        'Jue',
+        'Vie',
+        'Sab'
       ],
       prevText: '<i class="fa fa-angle-left"></i>',
       nextText: '<i class="fa fa-angle-right"></i>'
@@ -133,6 +133,9 @@
         } else {
           $this.datepicker({
             dateFormat: config['dateFormat'],
+            firstDay:1,
+            monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+            monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
             dayNamesMin: config['dayNamesMin'],
             showOtherMonths: true,
             prevText: config['prevText'],

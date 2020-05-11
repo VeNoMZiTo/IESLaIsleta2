@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 use Spatie\MediaLibrary\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 
-class ArchivosGruposController extends Controller
+class ArchivosGruposControllerUpgrade extends Controller
 {
     use MediaUploadingTrait;
 

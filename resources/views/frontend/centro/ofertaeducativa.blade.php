@@ -24,7 +24,7 @@
                         <span class="g-font-size-11 d-inline-block">(LOMCE)</span>
                     </h3>
                     <p class="g-mb-25 g-font-size-16">Modalidad de ciencas</p>
-                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7329">
+                    <a class="g-font-weight-600 g-font-size-14 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7329">
                         <i class="fa fa-plus mr-1"></i>
                         Más información...
                     </a>
@@ -40,7 +40,7 @@
                         <span class="g-font-size-11 d-inline-block g-color-white">(LOMCE)</span>
                     </h3>
                     <p class="g-mb-25 g-font-size-16 g-color-white">Modalidad de Ciencias </p>
-                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7330">    <i class="fa fa-plus mr-1"></i>
+                    <a class="g-font-weight-600 g-font-size-14 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7330">    <i class="fa fa-plus mr-1"></i>
                         Más información...
                     </a>
                     <!-- End Icon Blocks -->
@@ -55,7 +55,7 @@
                         <span class="g-font-size-11 d-inline-block">(LOMCE)</span>
                     </h3>
                     <p class="g-mb-25 g-font-size-16">Modalidad de Humanidades y Ciencias Sociales</p>
-                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7331">
+                    <a class="g-font-weight-600 g-font-size-14 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7331">
                         <i class="fa fa-plus mr-1"></i>
                         Más información...
                     </a>
@@ -70,7 +70,7 @@
                         <span class="g-font-size-11 d-inline-block g-color-white">(LOMCE)</span>
                     </h3>
                     <p class="g-mb-25 g-font-size-1 g-color-white">Modalidad de Humanidades y Ciencias Sociales </p>
-                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7333">
+                    <a class="g-font-weight-600 g-font-size-14 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7333">
                         <i class="fa fa-plus mr-1"></i>
                         Más información...
                     </a>
@@ -92,7 +92,7 @@
                         <span class="g-font-size-11 d-inline-block g-color-white">(LOMCE)</span>
                     </h3>
                     <p class="g-mb-25 g-font-size-16 g-color-white">Cuarto de Educación Secundaria Obligatoria</p>
-                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7312">
+                    <a class="g-font-weight-600 g-font-size-14 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7312">
                         <i class="fa fa-plus mr-1"></i>
                         Más información...
                     </a>
@@ -108,7 +108,7 @@
                         <span class="g-font-size-11 d-inline-block">(LOMCE)</span>
                     </h3>
                     <p class="g-mb-25 g-font-size-16">Tercero de Educación Secundaria Obligatoria</p>
-                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7310">
+                    <a class="g-font-weight-600 g-font-size-14 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7310">
                         <i class="fa fa-plus mr-1"></i>
                         Más información...
                     </a>
@@ -126,7 +126,7 @@
                     <p class="g-mb-25 g-font-size-16 g-color-white">
                         Segundo curso del Programa de Mejora del Aprendizaje y el Rendimiento
                     </p>
-                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7311">
+                    <a class="g-font-weight-600 g-font-size-14 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7311">
                         <i class="fa fa-plus mr-1"></i>
                         Más información...
                     </a>
@@ -144,7 +144,7 @@
                         <span class="g-font-size-11 d-inline-block">(LOMCE)</span>
                     </h3>
                     <p class="g-mb-25 g-font-size-16">Primer curso del Programa de Mejora del Aprendizaje y el Rendimiento</p>
-                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7309">
+                    <a class="g-font-weight-600 g-font-size-14 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7309">
                         <i class="fa fa-plus mr-1"></i>
                         Más información...
                     </a>
@@ -160,7 +160,7 @@
                         <span class="g-font-size-11 d-inline-block g-color-white">(LOMCE)</span>
                     </h3>
                     <p class="g-mb-25 g-font-size-16 g-color-white">Segundo de Educación Secundaria Obligatoria</p>
-                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7308">
+                    <a class="g-font-weight-600 g-font-size-14 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7308">
                         <i class="fa fa-plus mr-1"></i>
                         Más información...
                     </a>
@@ -176,7 +176,7 @@
                         <span class="g-font-size-11 d-inline-block">(LOMCE)</span>
                     </h3>
                     <p class="g-mb-25 g-font-size-16">Primero de Educación Secundaria Obligatoria</p>
-                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7307">
+                    <a class="g-font-weight-600 g-font-size-14 g-text-underline--none--hover text-uppercase g-color-white" target='_blank' href="https://www.gobiernodecanarias.org/educacion/web/centros/centros_educativos/buscador-ensenanzas/resultados/detalle?idEstudio=7307">
                         <i class="fa fa-plus mr-1"></i>
                         Más información...
                     </a>

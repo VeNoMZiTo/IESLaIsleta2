@@ -26,15 +26,21 @@ class DepartamentosController extends Controller
 
     public function getDepartamento(Request $request, $id)
     {
-        return view('frontend.departamentos',array(
-            'url'=>$id
+        if(empty(ArchivosGrupo::with('grupo')->get()->where('team_id','=',Team::all()->where('name','=', $id)->first()->id)->first())){
+            $desactivado = true;
+        }else{
+            $desactivado = false;
+        }
+        return view('frontend.departamentos.departamentos',array(
+            'url'=>$id,
+            'desactivado'=>$desactivado
         ));
     }
     public function getCursos(Request $request, $id)
     {
 //        $grupos = Grupo::all()->where('team_id','=',Team::all()->where('name','=',$id)->first()->id);
         $Archivos = ArchivosGrupo::with('grupo')->get()->where('team_id','=',Team::all()->where('name','=',$id)->first()->id);
-        return view('frontend.departamentosrecursos',array(
+        return view('frontend.departamentos.departamentosrecursos',array(
             'grupos'=>$Archivos,
         ));
     }

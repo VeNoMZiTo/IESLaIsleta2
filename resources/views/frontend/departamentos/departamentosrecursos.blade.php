@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/vendor/selectanimate/css/cs-skin-elastic.css" />
     <link rel="stylesheet" type="text/css" href="/vendor/selectanimate/css/cs-skin-underline.css" />
 @endsection
+
 @section('content')
     <section>
         <div class='container g-py-100'>
@@ -35,11 +36,26 @@
 {{--                </div>--}}
 
             </div>
-            <div class="row g-mt-40 contenidoDescargable">
+            <div class="row g-mt-40 ">
+                <ul class="contenidoDescargable">
+
+                </ul>
             </div>
         </div>
     </section>
-
+{{--<div class='col-lg-4 g-mb-30'>--}}
+{{--    <a class='media g-mb-15 cartaDescarga' href='#' download>--}}
+{{--        <div class='d-flex align-self-center mr-3'>--}}
+{{--            <span class='u-icon-v2 g-color-gray-dark-v4 rounded-circle'>--}}
+{{--                <i class='icon-education-087 u-line-icon-pro'></i>--}}
+{{--            </span>--}}
+{{--        </div>--}}
+{{--        <div class='media-body align-self-center'>--}}
+{{--            <h3 class='h5 g-color-black mb-0'>Titulo</h3>--}}
+{{--            <span class='d-block g-color-gray-dark-v4'>Archivo tipo : <b>Nombre archivo</b></span>--}}
+{{--        </div>--}}
+{{--    </a>--}}
+{{--</div>--}}
 @endsection
 @section('js')
     <script type="text/javascript" src="/vendor/selectanimate/js/classie.js"></script>
@@ -60,22 +76,15 @@
                     "departamento":'{{$grupos->first()->team_id}}'
                 },
                 success: function(data){
+                    console.info(data);
                     if(data != 'FAIL'){
                         $('.contenidoDescargable').empty();
                         for(let x = 0; x < data.length; x++){
-                            var nuevoContenido = " <div class='col-lg-4 g-mb-30'>" +
-                                "                        <a class='media g-mb-15 cartaDescarga' href='/storage/"+data[x].model_id+"/"+ data[x].file_name+"' download>" +
-                                "                            <div class='d-flex align-self-center mr-3'>" +
-                                "                                <span class='u-icon-v2 g-color-gray-dark-v4 rounded-circle'>" +
-                                "                                    <i class='icon-education-087 u-line-icon-pro'></i>" +
-                                "                                </span>" +
-                                "                            </div>" +
-                                "                            <div class='media-body align-self-center'>" +
-                                "                                <h3 class='h5 g-color-black mb-0'>"+data[x].name.split('_').slice(-1).pop()+"</h3>" +
-                                "                                <span class='d-block g-color-gray-dark-v4'>Archivo tipo : <b>"+ data[x].file_name.split('.').slice(-1).pop() +"</b></span>" +
-                                "                            </div>" +
-                                "                        </a>" +
-                                "                    </div>";
+                            var nuevoContenido = "<li>" +
+                                "                     <a class='media g-mb-15 listaDescarga' href='/storage/"+data[x].model_id+"/"+ data[x].file_name+"' download>" +
+                                "                       <h3 class='h5 d-inline-block  g-color-gray-dark-v3 mb-0'>"+data[x].created_at.split(' ')[0]+"<span class='mx-3'>-</span>"+data[x].name.split('_').slice(-1).pop()+" - Archivo tipo : <b>"+ data[x].file_name.split('.').slice(-1).pop() +"</b></h3>" +
+                                "                     </a>" +
+                                "                 </li>";
                             $('.contenidoDescargable').append(nuevoContenido);
                         }
                     }else{

@@ -362,7 +362,7 @@
                                                         <a href="/calendario-escolar">Calendario escolar</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">Documentos institucionales</a>
+                                                        <a href="/documentos-institucionales">Documentos institucionales</a>
                                                     </li>
 
                                                 </ul>
@@ -509,7 +509,7 @@
                                                         <a href="/ampa">AMPA</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">Documentos</a>
+                                                        <a href="/documentos-familias">Documentos</a>
                                                     </li>
 
                                                 </ul>

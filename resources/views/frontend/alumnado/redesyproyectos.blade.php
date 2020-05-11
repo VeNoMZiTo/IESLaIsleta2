@@ -16,8 +16,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12 g-mb-50 g-mb-0--lg">
-                    <h3 class="text-center g-font-weight-600">Huertos escolares</h3>
+                <div class="col-md-6 g-mb-50 g-mb-0--lg cuboRedesProyectos">
+                    <h3 class="text-center g-font-weight-600 mb-4">Huertos escolares</h3>
                     <p class="g-mb-30 g-color-gray-dark-v3 g-font-size-16 text-justify">
                         Su coordinación recae sobre el departamento de Biología.
                     </p>

@@ -32,6 +32,9 @@ body{
 .g-cursor-info{
     cursor: help;
 }
+.object-fit-cover{
+    object-fit: cover;
+}
 .shadow-img{
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
@@ -840,7 +843,127 @@ tr.body *, tr.body{
 .cartaDescarga .u-icon-v2 i{
     color: #333;
 }
+.cs-options ul{
+    display:flex;
+}
+.listaDescarga{
+    color: inherit;
+    text-decoration: inherit !important;
+}
+/*Cita previa*/
+.selectCita{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.selectCita.chosen-container-single .chosen-drop{
+    border-color: #1d8873;
+    font-size: 18px;
+}
+.selectCita.chosen-container-single .chosen-drop ul{
+    padding: 0;
+}
+.selectCita.chosen-container-single .chosen-drop ul li{
+    margin:10px 0;
+}
+.selectCita.chosen-container-single .chosen-drop ul li:hover, .selectCita.chosen-container-single .chosen-drop ul li.highlighted{
+    background:rgba(29, 136, 115,.2);
+    color: rgba(0,0,0,.87);
+}
+.selectCita.chosen-container-single a, select.selectCita{
+    border: 1px solid #ddd;
+    padding: 10px;
+    display: block;
+    font-size: 20px;
+    background: none !important;
+    height:auto;
+    box-shadow: 0 0 5px #ddd;
+}
+.selectCita.chosen-container-active a.chosen-single{
+    border-color: #1d8873 !important;
+}
+.selectCita.chosen-container-single a.chosen-single div{
+    display:none;
+}
+.ui-widget.ui-widget-content{
+    border: none !important;
+}
+.ui-datepicker-header{
+    display: flex;
+    padding: 0 !important;
+}
+.ui-datepicker .ui-datepicker-prev{
+    order: 1;
+}
+.ui-datepicker-title{
+    order: 2;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ui-datepicker .ui-datepicker-next{
+    order: 3;
+}
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    position: relative;
+    top: inherit;
+    left: inherit;
+    right: inherit;
+}
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span{
+    position: static;
+    margin: 0;
+}
+.horas{
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 10px;
+}
+.horas span{
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: .25rem;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px #ddd;
+    transition:.15s ease-in-out;
+    cursor: pointer;
+}
+.horas span:hover{
+    border-color: #1d8873;
+}
+/*Redes y Proyectos*/
+.cuboRedesProyectos{
+    padding: 20px;
+    border: 1px solid #1d8873;
+    border-radius: .25rem;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14),0 1px 10px 0 rgba(0,0,0,0.12),0 2px 4px -1px rgba(0,0,0,0.3);
+}
+#juntaDelegados ul{
+    padding-left: 0;
+    list-style: none;
+}
+#juntaDelegados ul li{
+    display:flex
+}
+.listaEditable li::before, #juntaDelegados ul li::before{
+    content:"\e080";
+    font-family: 'simple-line-icons';
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    color: #1d8873;
 
+}
 @media only screen and (max-width: 1600px) and (min-width: 1200px){
     #actividades{
         width: 100%;

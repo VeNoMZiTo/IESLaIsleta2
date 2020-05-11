@@ -108,7 +108,7 @@
         var vnumberform = new RegExp(/^[9|8|7|6]{1}([\d]{2}[-]*){3}[\d]{2}$/);
         var ferror =['#e_name','#e_surname','#e_email','#e_phone','#e_message','#e_lopd'];
         var nombre, apellidos, email, mensaje, telefono;
-        var tipo='{{$destinatarioConsultas}}';
+        var tipo='{{$email}}';
         console.log(tipo);
         function valoresform(){
             nombre = $('#nombre').val().toLowerCase().trim();
