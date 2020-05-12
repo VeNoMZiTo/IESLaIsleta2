@@ -19,9 +19,8 @@ class UpdateAmpaRequest extends FormRequest
     public function rules()
     {
         return [
-            'texto' => [
-                'required',
-            ],
+            'titulo' => [
+                'required'],
         ];
     }
 }

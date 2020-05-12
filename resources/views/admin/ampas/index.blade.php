@@ -26,13 +26,10 @@
                             {{ trans('cruds.ampa.fields.id') }}
                         </th>
                         <th>
+                            {{ trans('cruds.ampa.fields.titulo') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.ampa.fields.subtitulo') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.ampa.fields.foto') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.ampa.fields.archivos') }}
                         </th>
                         <th>
                             &nbsp;
@@ -49,21 +46,10 @@
                                 {{ $ampa->id ?? '' }}
                             </td>
                             <td>
+                                {{ $ampa->titulo ?? '' }}
+                            </td>
+                            <td>
                                 {{ $ampa->subtitulo ?? '' }}
-                            </td>
-                            <td>
-                                @if($ampa->foto)
-                                    <a href="{{ $ampa->foto->getUrl() }}" target="_blank">
-                                        <img src="{{ $ampa->foto->getUrl('thumb') }}" width="50px" height="50px">
-                                    </a>
-                                @endif
-                            </td>
-                            <td>
-                                @foreach($ampa->archivos as $key => $media)
-                                    <a href="{{ $media->getUrl() }}" target="_blank">
-                                        {{ trans('global.view_file') }}
-                                    </a>
-                                @endforeach
                             </td>
                             <td>
                                 @can('ampa_show')

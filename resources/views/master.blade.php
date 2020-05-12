@@ -362,7 +362,7 @@
                                                         <a href="/calendario-escolar">Calendario escolar</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">Documentos institucionales</a>
+                                                        <a href="/documentos-institucionales">Documentos institucionales</a>
                                                     </li>
 
                                                 </ul>
@@ -398,20 +398,20 @@
                                                     <div class="row align-items-stretch mx-0">
                                                         <div class="col-lg-6 px-0">
                                                             <ul class="list-unstyled">
-{{--                                                                @foreach($DepartamentosGeneral[0] as $col)--}}
-{{--                                                                    <li>--}}
-{{--                                                                        <a class='a-link' href="/departamentos">{{$col['nombre']}}</a>--}}
-{{--                                                                    </li>--}}
-{{--                                                                @endforeach--}}
+                                                                @foreach($DepartamentosGeneral[0] as $col)
+                                                                    <li>
+                                                                        <a class='a-link' href="/departamentos/{{$col['name']}}">{{$col['name']}}</a>
+                                                                    </li>
+                                                                @endforeach
                                                             </ul>
                                                         </div>
                                                         <div class="col-lg-6 g-brd-left--lg g-brd-gray-light-v5 px-0">
                                                             <ul class="list-unstyled">
-{{--                                                                @foreach($DepartamentosGeneral[1] as $col)--}}
-{{--                                                                    <li>--}}
-{{--                                                                        <a class='a-link' href="/departamentos">{{$col['nombre']}}</a>--}}
-{{--                                                                    </li>--}}
-{{--                                                                @endforeach--}}
+                                                                @foreach($DepartamentosGeneral[1] as $col)
+                                                                    <li>
+                                                                        <a class='a-link' href="/departamentos/{{$col['name']}}">{{$col['name']}}</a>
+                                                                    </li>
+                                                                @endforeach
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -456,7 +456,7 @@
                                                         <!-- End Submenu (level 2) -->
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">Actividades extraescolares y complementarias</a>
+                                                        <a href="/actividades-extraescolares">Actividades extraescolares y complementarias</a>
                                                     </li>
                                                     <hr class='mb-2'/>
                                                     <li>
@@ -509,7 +509,7 @@
                                                         <a href="/ampa">AMPA</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/nodisponible">Documentos</a>
+                                                        <a href="/documentos-familias">Documentos</a>
                                                     </li>
 
                                                 </ul>
@@ -522,7 +522,7 @@
                                                 <!-- Submenu -->
                                                 <ul class="hs-sub-menu list-unstyled " id="nav-submenu-1" aria-labelledby="nav-link-1">
                                                     <li>
-                                                        <a href="/nodisponible">Información</a>
+                                                        <a href="/secretaria-informacion">Información</a>
                                                     </li>
                                                     <li>
                                                         <a href="/certificados">Solicitud de certificados</a>
@@ -530,7 +530,6 @@
                                                     <li>
                                                         <a href="/impresos">Impresos</a>
                                                     </li>
-
                                                 </ul>
                                                 <!-- End Submenu -->
                                             </li>

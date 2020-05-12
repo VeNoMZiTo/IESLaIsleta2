@@ -19,12 +19,10 @@ class StoreImpresoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'    => [
-                'required',
-            ],
-            'archivo.*' => [
-                'required',
-            ],
+            'nombre'  => [
+                'required'],
+            'archivo' => [
+                'required'],
         ];
     }
 }

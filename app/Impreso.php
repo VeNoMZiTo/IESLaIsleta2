@@ -38,6 +38,6 @@ class Impreso extends Model implements HasMedia
 
     public function getArchivoAttribute()
     {
-        return $this->getMedia('archivo');
+        return $this->getMedia('archivo')->last();
     }
 }

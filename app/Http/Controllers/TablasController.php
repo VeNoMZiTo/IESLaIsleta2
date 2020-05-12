@@ -16,10 +16,23 @@ use Illuminate\Support\Facades\DB;
 
 class TablasController extends Controller
 {
+    public function __construct()
+    {
+        $Departamento = Team::all();
+        if(count($Departamento)%2!=0){
+            $contador=count($Departamento) - 1;
+        }else{
+            $contador= count($Departamento)/2;
+        }
+        view()->share('DepartamentosGeneral',[
+            '0'=>array_slice($Departamento->toArray(),0,$contador),
+            '1'=>array_slice($Departamento->toArray(),$contador,count($Departamento)),
+        ]);
+    }
     public function getEqDirectivo(){
         $directivo = EquipoDirectivo::all();
         $descargar = Descargar::all()->first();
-        return view('frontend.eqdirectivo',array(
+        return view('frontend.centro.eqdirectivo',array(
             'directivo' => $directivo,
             'descargar' => $descargar
         ));
@@ -28,7 +41,7 @@ class TablasController extends Controller
         $docente = EquipoDocente::all();
 //        $departamentos= EquipoDocente::with('departamento')->get();
         $descargar = Descargar::all()->first();
-        return view('frontend.eqdocente',array(
+        return view('frontend.centro.eqdocente',array(
             'docente' => $docente,
             'descargar' => $descargar
         ));
@@ -36,7 +49,7 @@ class TablasController extends Controller
     public function getTutoria(){
         $tutoria = Tutorium::all();
         $descargar = DescagarFamilium::all()->first();
-        return view('frontend.tutorias',array(
+        return view('frontend.familia.tutorias',array(
             'tutoria' => $tutoria,
             'descargar' => $descargar
         ));
@@ -45,7 +58,7 @@ class TablasController extends Controller
         $calendario = Calendario::all()->where('fecha')->sortBy('fecha');
         $descargar = Descargar::all()->first();
 
-        return view('frontend.calendarioescolar',array(
+        return view('frontend.centro.calendarioescolar',array(
             'calendario' => $calendario,
             'descargar'=>$descargar
         ));

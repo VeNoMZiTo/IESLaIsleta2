@@ -10,6 +10,7 @@ use App\Http\Requests\StoreAmpaRequest;
 use App\Http\Requests\UpdateAmpaRequest;
 use Gate;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 
 class AmpaController extends Controller
@@ -36,12 +37,8 @@ class AmpaController extends Controller
     {
         $ampa = Ampa::create($request->all());
 
-        if ($request->input('foto', false)) {
-            $ampa->addMedia(storage_path('tmp/uploads/' . $request->input('foto')))->toMediaCollection('foto');
-        }
-
-        foreach ($request->input('archivos', []) as $file) {
-            $ampa->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('archivos');
+        if ($media = $request->input('ck-media', false)) {
+            Media::whereIn('id', $media)->update(['model_id' => $ampa->id]);
         }
 
         return redirect()->route('admin.ampas.index');
@@ -57,30 +54,6 @@ class AmpaController extends Controller
     public function update(UpdateAmpaRequest $request, Ampa $ampa)
     {
         $ampa->update($request->all());
-
-        if ($request->input('foto', false)) {
-            if (!$ampa->foto || $request->input('foto') !== $ampa->foto->file_name) {
-                $ampa->addMedia(storage_path('tmp/uploads/' . $request->input('foto')))->toMediaCollection('foto');
-            }
-        } elseif ($ampa->foto) {
-            $ampa->foto->delete();
-        }
-
-        if (count($ampa->archivos) > 0) {
-            foreach ($ampa->archivos as $media) {
-                if (!in_array($media->file_name, $request->input('archivos', []))) {
-                    $media->delete();
-                }
-            }
-        }
-
-        $media = $ampa->archivos->pluck('file_name')->toArray();
-
-        foreach ($request->input('archivos', []) as $file) {
-            if (count($media) === 0 || !in_array($file, $media)) {
-                $ampa->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('archivos');
-            }
-        }
 
         return redirect()->route('admin.ampas.index');
     }
@@ -106,5 +79,17 @@ class AmpaController extends Controller
         Ampa::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function storeCKEditorImages(Request $request)
+    {
+        abort_if(Gate::denies('ampa_create') && Gate::denies('ampa_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $model         = new Ampa();
+        $model->id     = $request->input('crud_id', 0);
+        $model->exists = true;
+        $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
+
+        return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }
 }

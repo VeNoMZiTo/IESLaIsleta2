@@ -1,13 +1,13 @@
 <?php
 
 return [
-    'userManagement'   => [
+    'userManagement'           => [
         'title'          => 'Gestión de usuarios',
         'title_singular' => 'Gestión de usuarios',
     ],
-    'permission'       => [
+    'permission'               => [
         'title'          => 'Permisos',
-        'title_singular' => 'Permisos',
+        'title_singular' => 'Permiso',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => '',
@@ -21,7 +21,7 @@ return [
             'deleted_at_helper' => '',
         ],
     ],
-    'role'             => [
+    'role'                     => [
         'title'          => 'Roles',
         'title_singular' => 'Rol',
         'fields'         => [
@@ -39,7 +39,7 @@ return [
             'deleted_at_helper'  => '',
         ],
     ],
-    'user'             => [
+    'user'                     => [
         'title'          => 'Usuarios',
         'title_singular' => 'Usuario',
         'fields'         => [
@@ -65,11 +65,9 @@ return [
             'deleted_at_helper'        => '',
             'team'                     => 'Team',
             'team_helper'              => '',
-            'cursos'                   => 'Cursos',
-            'cursos_helper'            => '',
         ],
     ],
-    'slider'           => [
+    'slider'                   => [
         'title'          => 'Slider',
         'title_singular' => 'Slider',
         'fields'         => [
@@ -91,7 +89,7 @@ return [
             'foto_helper'        => '',
         ],
     ],
-    'noticium'         => [
+    'noticium'                 => [
         'title'          => 'Noticias',
         'title_singular' => 'Noticia',
         'fields'         => [
@@ -119,9 +117,9 @@ return [
             'archivos_helper'    => 'Si el archivo pesa mucho puede intentar comprimirlo.',
         ],
     ],
-    'actividade'       => [
-        'title'          => 'Actividades',
-        'title_singular' => 'Actividade',
+    'actividade'               => [
+        'title'          => 'Especial Interés',
+        'title_singular' => 'Especial Interé',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => '',
@@ -145,7 +143,7 @@ return [
             'archivos_helper'    => 'Si el archivo pesa mucho puede intentar comprimirlo.',
         ],
     ],
-    'equipoDirectivo'  => [
+    'equipoDirectivo'          => [
         'title'          => 'Equipo Directivo',
         'title_singular' => 'Equipo Directivo',
         'fields'         => [
@@ -167,7 +165,7 @@ return [
             'abreviatura_departamento_helper' => '',
         ],
     ],
-    'tutorium'         => [
+    'tutorium'                 => [
         'title'          => 'Tutorías',
         'title_singular' => 'Tutoría',
         'fields'         => [
@@ -193,7 +191,7 @@ return [
             'abreviatura_departamento_helper' => '',
         ],
     ],
-    'descargar'        => [
+    'descargar'                => [
         'title'          => 'Descargar/Imprimir',
         'title_singular' => 'Descargar/Imprimir',
         'fields'         => [
@@ -211,7 +209,7 @@ return [
             'deleted_at_helper' => '',
         ],
     ],
-    'team'             => [
+    'team'                     => [
         'title'          => 'Departamentos',
         'title_singular' => 'Departamento',
         'fields'         => [
@@ -223,11 +221,11 @@ return [
             'updated_at_helper' => '',
             'deleted_at'        => 'Deleted At',
             'deleted_at_helper' => '',
-            'name'              => 'Name',
+            'name'              => 'Nombre',
             'name_helper'       => '',
         ],
     ],
-    'calendario'       => [
+    'calendario'               => [
         'title'          => 'Calendario',
         'title_singular' => 'Calendario',
         'fields'         => [
@@ -247,23 +245,23 @@ return [
             'deleted_at_helper' => '',
         ],
     ],
-    'inicio'           => [
+    'inicio'                   => [
         'title'          => 'Inicio',
         'title_singular' => 'Inicio',
     ],
-    'centro'           => [
+    'centro'                   => [
         'title'          => 'Centro',
         'title_singular' => 'Centro',
     ],
-    'familium'         => [
+    'familium'                 => [
         'title'          => 'Familias',
         'title_singular' => 'Familia',
     ],
-    'secretarium'      => [
+    'secretarium'              => [
         'title'          => 'Secretaría',
         'title_singular' => 'Secretaría',
     ],
-    'impreso'          => [
+    'impreso'                  => [
         'title'          => 'Impresos',
         'title_singular' => 'Impreso',
         'fields'         => [
@@ -281,39 +279,11 @@ return [
             'deleted_at_helper' => '',
         ],
     ],
-    'alumnado'         => [
-        'title'          => 'Alumnado',
-        'title_singular' => 'Alumnado',
-    ],
-    'horario'          => [
-        'title'          => 'Horario de Grupos',
-        'title_singular' => 'Horario de Grupo',
-        'fields'         => [
-            'id'                => 'ID',
-            'id_helper'         => '',
-            'horario'           => 'Horario',
-            'horario_helper'    => 'Seleccione primero la hora de la clase.',
-            'dia'               => 'Día',
-            'dia_helper'        => 'Seleccione el día de la clase',
-            'asignatura'        => 'Asignatura',
-            'asignatura_helper' => 'Introduzca el nombre de la asignatura.',
-            'created_at'        => 'Created at',
-            'created_at_helper' => '',
-            'updated_at'        => 'Updated at',
-            'updated_at_helper' => '',
-            'deleted_at'        => 'Deleted at',
-            'deleted_at_helper' => '',
-            'color'             => 'Color',
-            'color_helper'      => 'Seleccione un color de los que estan abajo.',
-            'grupo'             => 'Grupo',
-            'grupo_helper'      => '',
-        ],
-    ],
-    'estructura'       => [
+    'estructura'               => [
         'title'          => 'Estructura del centro',
         'title_singular' => 'Estructura del centro',
     ],
-    'curso'            => [
+    'curso'                    => [
         'title'          => 'Cursos',
         'title_singular' => 'Curso',
         'fields'         => [
@@ -333,7 +303,7 @@ return [
             'asignatura_helper' => '',
         ],
     ],
-    'asginatura'       => [
+    'asginatura'               => [
         'title'          => 'Asginaturas',
         'title_singular' => 'Asginatura',
         'fields'         => [
@@ -349,23 +319,7 @@ return [
             'deleted_at_helper'  => '',
         ],
     ],
-    'grupo'            => [
-        'title'          => 'Grupos',
-        'title_singular' => 'Grupo',
-        'fields'         => [
-            'id'                => 'ID',
-            'id_helper'         => '',
-            'nombre'            => 'Nombre',
-            'nombre_helper'     => 'Nivel-grupo-nombre. Ejemplo: (1-A-ESO)',
-            'created_at'        => 'Created at',
-            'created_at_helper' => '',
-            'updated_at'        => 'Updated at',
-            'updated_at_helper' => '',
-            'deleted_at'        => 'Deleted at',
-            'deleted_at_helper' => '',
-        ],
-    ],
-    'descagarFamilium' => [
+    'descagarFamilium'         => [
         'title'          => 'Descagar/Imprimir',
         'title_singular' => 'Descagar/Imprimir',
         'fields'         => [
@@ -381,7 +335,7 @@ return [
             'deleted_at_helper' => '',
         ],
     ],
-    'equipoDocente'    => [
+    'equipoDocente'            => [
         'title'          => 'Equipo Docente',
         'title_singular' => 'Equipo Docente',
         'fields'         => [
@@ -401,6 +355,208 @@ return [
             'updated_at_helper'   => '',
             'deleted_at'          => 'Deleted at',
             'deleted_at_helper'   => '',
+        ],
+    ],
+    'profesorado'              => [
+        'title'          => 'Profesorado',
+        'title_singular' => 'Profesorado',
+    ],
+    'grupo'                    => [
+        'title'          => 'Grupo',
+        'title_singular' => 'Grupo',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'grupo'             => 'Grupo',
+            'grupo_helper'      => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+            'team'              => 'Team',
+            'team_helper'       => '',
+        ],
+    ],
+    'archivosGrupo'            => [
+        'title'          => 'Archivos - Grupos',
+        'title_singular' => 'Archivos - Grupo',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'grupo'             => 'Grupo',
+            'grupo_helper'      => 'Seleccione el grupo al que desea adjuntar los archivos.',
+            'archivos'          => 'Archivos',
+            'archivos_helper'   => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+            'team'              => 'Team',
+            'team_helper'       => '',
+        ],
+    ],
+    'consejoEscolar'           => [
+        'title'          => 'Consejo Escolar',
+        'title_singular' => 'Consejo Escolar',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'titulo'            => 'Título',
+            'titulo_helper'     => '',
+            'subtitulo'         => 'Subtítulo',
+            'subtitulo_helper'  => '',
+            'texto'             => 'Texto',
+            'texto_helper'      => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+        ],
+    ],
+    'alumnado'                 => [
+        'title'          => 'Alumnado',
+        'title_singular' => 'Alumnado',
+    ],
+    'proyecto'                 => [
+        'title'          => 'Redes y proyectos',
+        'title_singular' => 'Redes y proyecto',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'titulo'            => 'Título',
+            'titulo_helper'     => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+            'texto'             => 'Texto',
+            'texto_helper'      => '',
+        ],
+    ],
+    'documentosInstitucionale' => [
+        'title'          => 'Documentos institucionales',
+        'title_singular' => 'Documentos institucionale',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+            'nombre'            => 'Nombre',
+            'nombre_helper'     => '',
+            'archivo'           => 'Archivo',
+            'archivo_helper'    => '',
+        ],
+    ],
+    'juntaDelegado'            => [
+        'title'          => 'Junta de delegados',
+        'title_singular' => 'Junta de delegado',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'titulo'            => 'Título',
+            'titulo_helper'     => '',
+            'subtitulo'         => 'Subtítulo',
+            'subtitulo_helper'  => '',
+            'texto'             => 'Texto',
+            'texto_helper'      => '',
+            'imagen'            => 'Imagen',
+            'imagen_helper'     => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+        ],
+    ],
+    'documentosFamilium'       => [
+        'title'          => 'Documentos familias',
+        'title_singular' => 'Documentos familia',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'nombre'            => 'Nombre',
+            'nombre_helper'     => '',
+            'archivo'           => 'Archivo',
+            'archivo_helper'    => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+        ],
+    ],
+    'ampa'                     => [
+        'title'          => 'Ampa',
+        'title_singular' => 'Ampa',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'titulo'            => 'Título',
+            'titulo_helper'     => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+            'subtitulo'         => 'Subtítulo',
+            'subtitulo_helper'  => '',
+            'texto'             => 'Texto',
+            'texto_helper'      => '',
+        ],
+    ],
+    'secretariaInformacion'    => [
+        'title'          => 'Información',
+        'title_singular' => 'Información',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'titulo'            => 'Título',
+            'titulo_helper'     => '',
+            'subtitulo'         => 'Subtítulo',
+            'subtitulo_helper'  => '',
+            'texto'             => 'Texto',
+            'texto_helper'      => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+        ],
+    ],
+    'actividadesExtraescolare' => [
+        'title'          => 'Actividades extraescolares',
+        'title_singular' => 'Actividades extraescolare',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'titulo'            => 'Título',
+            'titulo_helper'     => '',
+            'subtitulo'         => 'Subtítulo',
+            'subtitulo_helper'  => '',
+            'texto'             => 'Texto',
+            'texto_helper'      => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
         ],
     ],
 ];

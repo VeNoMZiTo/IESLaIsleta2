@@ -270,135 +270,302 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => '66',
-                'title' => 'alumnado_access',
-            ],
-            [
-                'id'    => '67',
-                'title' => 'horario_create',
-            ],
-            [
-                'id'    => '68',
-                'title' => 'horario_edit',
-            ],
-            [
-                'id'    => '69',
-                'title' => 'horario_show',
-            ],
-            [
-                'id'    => '70',
-                'title' => 'horario_delete',
-            ],
-            [
-                'id'    => '71',
-                'title' => 'horario_access',
-            ],
-            [
-                'id'    => '72',
                 'title' => 'estructura_access',
             ],
             [
-                'id'    => '73',
+                'id'    => '67',
                 'title' => 'curso_create',
             ],
             [
-                'id'    => '74',
+                'id'    => '68',
                 'title' => 'curso_edit',
             ],
             [
-                'id'    => '75',
+                'id'    => '69',
                 'title' => 'curso_show',
             ],
             [
-                'id'    => '76',
+                'id'    => '70',
                 'title' => 'curso_delete',
             ],
             [
-                'id'    => '77',
+                'id'    => '71',
                 'title' => 'curso_access',
             ],
             [
-                'id'    => '78',
+                'id'    => '72',
                 'title' => 'asginatura_create',
             ],
             [
-                'id'    => '79',
+                'id'    => '73',
                 'title' => 'asginatura_edit',
             ],
             [
-                'id'    => '80',
+                'id'    => '74',
                 'title' => 'asginatura_show',
             ],
             [
-                'id'    => '81',
+                'id'    => '75',
                 'title' => 'asginatura_delete',
             ],
             [
-                'id'    => '82',
+                'id'    => '76',
                 'title' => 'asginatura_access',
             ],
             [
-                'id'    => '83',
-                'title' => 'grupo_create',
-            ],
-            [
-                'id'    => '84',
-                'title' => 'grupo_edit',
-            ],
-            [
-                'id'    => '85',
-                'title' => 'grupo_show',
-            ],
-            [
-                'id'    => '86',
-                'title' => 'grupo_delete',
-            ],
-            [
-                'id'    => '87',
-                'title' => 'grupo_access',
-            ],
-            [
-                'id'    => '88',
+                'id'    => '77',
                 'title' => 'descagar_familium_create',
             ],
             [
-                'id'    => '89',
+                'id'    => '78',
                 'title' => 'descagar_familium_edit',
             ],
             [
-                'id'    => '90',
+                'id'    => '79',
                 'title' => 'descagar_familium_show',
             ],
             [
-                'id'    => '91',
+                'id'    => '80',
                 'title' => 'descagar_familium_delete',
             ],
             [
-                'id'    => '92',
+                'id'    => '81',
                 'title' => 'descagar_familium_access',
             ],
             [
-                'id'    => '93',
+                'id'    => '82',
                 'title' => 'equipo_docente_create',
             ],
             [
-                'id'    => '94',
+                'id'    => '83',
                 'title' => 'equipo_docente_edit',
             ],
             [
-                'id'    => '95',
+                'id'    => '84',
                 'title' => 'equipo_docente_show',
             ],
             [
-                'id'    => '96',
+                'id'    => '85',
                 'title' => 'equipo_docente_delete',
             ],
             [
-                'id'    => '97',
+                'id'    => '86',
                 'title' => 'equipo_docente_access',
+            ],
+            [
+                'id'    => '87',
+                'title' => 'profesorado_access',
+            ],
+            [
+                'id'    => '88',
+                'title' => 'grupo_create',
+            ],
+            [
+                'id'    => '89',
+                'title' => 'grupo_edit',
+            ],
+            [
+                'id'    => '90',
+                'title' => 'grupo_show',
+            ],
+            [
+                'id'    => '91',
+                'title' => 'grupo_delete',
+            ],
+            [
+                'id'    => '92',
+                'title' => 'grupo_access',
+            ],
+            [
+                'id'    => '93',
+                'title' => 'archivos_grupo_create',
+            ],
+            [
+                'id'    => '94',
+                'title' => 'archivos_grupo_edit',
+            ],
+            [
+                'id'    => '95',
+                'title' => 'archivos_grupo_show',
+            ],
+            [
+                'id'    => '96',
+                'title' => 'archivos_grupo_delete',
+            ],
+            [
+                'id'    => '97',
+                'title' => 'archivos_grupo_access',
+            ],
+            [
+                'id'    => '98',
+                'title' => 'consejo_escolar_create',
+            ],
+            [
+                'id'    => '99',
+                'title' => 'consejo_escolar_edit',
+            ],
+            [
+                'id'    => '100',
+                'title' => 'consejo_escolar_show',
+            ],
+            [
+                'id'    => '101',
+                'title' => 'consejo_escolar_delete',
+            ],
+            [
+                'id'    => '102',
+                'title' => 'consejo_escolar_access',
+            ],
+            [
+                'id'    => '103',
+                'title' => 'alumnado_access',
+            ],
+            [
+                'id'    => '104',
+                'title' => 'proyecto_create',
+            ],
+            [
+                'id'    => '105',
+                'title' => 'proyecto_edit',
+            ],
+            [
+                'id'    => '106',
+                'title' => 'proyecto_show',
+            ],
+            [
+                'id'    => '107',
+                'title' => 'proyecto_delete',
+            ],
+            [
+                'id'    => '108',
+                'title' => 'proyecto_access',
+            ],
+            [
+                'id'    => '109',
+                'title' => 'documentos_institucionale_create',
+            ],
+            [
+                'id'    => '110',
+                'title' => 'documentos_institucionale_edit',
+            ],
+            [
+                'id'    => '111',
+                'title' => 'documentos_institucionale_show',
+            ],
+            [
+                'id'    => '112',
+                'title' => 'documentos_institucionale_delete',
+            ],
+            [
+                'id'    => '113',
+                'title' => 'documentos_institucionale_access',
+            ],
+            [
+                'id'    => '114',
+                'title' => 'junta_delegado_create',
+            ],
+            [
+                'id'    => '115',
+                'title' => 'junta_delegado_edit',
+            ],
+            [
+                'id'    => '116',
+                'title' => 'junta_delegado_show',
+            ],
+            [
+                'id'    => '117',
+                'title' => 'junta_delegado_delete',
+            ],
+            [
+                'id'    => '118',
+                'title' => 'junta_delegado_access',
+            ],
+            [
+                'id'    => '119',
+                'title' => 'documentos_familium_create',
+            ],
+            [
+                'id'    => '120',
+                'title' => 'documentos_familium_edit',
+            ],
+            [
+                'id'    => '121',
+                'title' => 'documentos_familium_show',
+            ],
+            [
+                'id'    => '122',
+                'title' => 'documentos_familium_delete',
+            ],
+            [
+                'id'    => '123',
+                'title' => 'documentos_familium_access',
+            ],
+            [
+                'id'    => '124',
+                'title' => 'ampa_create',
+            ],
+            [
+                'id'    => '125',
+                'title' => 'ampa_edit',
+            ],
+            [
+                'id'    => '126',
+                'title' => 'ampa_show',
+            ],
+            [
+                'id'    => '127',
+                'title' => 'ampa_delete',
+            ],
+            [
+                'id'    => '128',
+                'title' => 'ampa_access',
+            ],
+            [
+                'id'    => '129',
+                'title' => 'secretaria_informacion_create',
+            ],
+            [
+                'id'    => '130',
+                'title' => 'secretaria_informacion_edit',
+            ],
+            [
+                'id'    => '131',
+                'title' => 'secretaria_informacion_show',
+            ],
+            [
+                'id'    => '132',
+                'title' => 'secretaria_informacion_delete',
+            ],
+            [
+                'id'    => '133',
+                'title' => 'secretaria_informacion_access',
+            ],
+            [
+                'id'    => '134',
+                'title' => 'actividades_extraescolare_create',
+            ],
+            [
+                'id'    => '135',
+                'title' => 'actividades_extraescolare_edit',
+            ],
+            [
+                'id'    => '136',
+                'title' => 'actividades_extraescolare_show',
+            ],
+            [
+                'id'    => '137',
+                'title' => 'actividades_extraescolare_delete',
+            ],
+            [
+                'id'    => '138',
+                'title' => 'actividades_extraescolare_access',
+            ],
+            [
+                'id'    => '139',
+                'title' => 'profile_password_edit',
             ],
         ];
 
         Permission::insert($permissions);
-
     }
 }

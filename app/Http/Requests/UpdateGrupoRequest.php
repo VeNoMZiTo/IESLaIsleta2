@@ -20,9 +20,8 @@ class UpdateGrupoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => [
-                'required',
-                'unique:grupos,nombre,' . request()->route('grupo')->id],
+            'grupo' => [
+                'required'],
         ];
 
     }

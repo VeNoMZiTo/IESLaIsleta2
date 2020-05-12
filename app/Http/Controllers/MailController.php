@@ -21,7 +21,7 @@ class MailController extends Controller
         $objDemo->vista = 'email.contact';
         $tipo=$request->input('tipo');
         if($tipo){
-            $correo=$tipo.'@ieslaisleta.net';
+            $correo=$tipo;
         }else{
             $correo='info@ieslaisleta.net';
         }

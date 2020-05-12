@@ -20,9 +20,8 @@ class StoreGrupoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => [
-                'required',
-                'unique:grupos'],
+            'grupo' => [
+                'required'],
         ];
 
     }

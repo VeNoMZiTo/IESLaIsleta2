@@ -1,0 +1,115 @@
+/*General*/
+.g-px-30{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.g-mb-10{
+    margin-bottom: 10px;
+}
+.g-mb-20{
+    margin-bottom: 20px;
+}
+.g-mb-60{
+    margin-bottom: 60px;
+}
+
+/*Step by Step*/
+.u-dot-line-v1, .u-dot-line-v1-2 {
+    position: relative;
+    display: block;
+    width: 100%;
+    font-size: 0;
+}
+.u-dot-line-v1-2::before, .u-dot-line-v1-2::after {
+    display: block;
+}
+.u-dot-line-v1::before, .u-dot-line-v1-2::before {
+    left: -30px;
+}
+
+.g-brd-gray-light-v2--before::before {
+    border-color: #ccc !important;
+}
+.u-dot-line-v1-2::before, .u-dot-line-v1-2::after {
+    display: block;
+}
+.u-dot-line-v1-2::before, .u-dot-line-v1-2::after, .u-dot-line-v1-2-2::before, .u-dot-line-v1-2-2::after {
+    display: none;
+}
+.u-dot-line-v1::before, .u-dot-line-v1-2::before {
+    left: -30px;
+}
+.u-dot-line-v1::before, .u-dot-line-v1::after, .u-dot-line-v1-2::before, .u-dot-line-v1-2::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: calc(50% + 30px);
+    border-top-width: 1px;
+    border-top-style: solid;
+    margin-top: -1px;
+
+}
+.u-dot-line-v1__inner, .u-dot-line-v1-2__inner {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 50%;
+}
+.g-bg-primary--before::before, .g-bg-primary--after::after {
+    background-color: #1d8873 !important;
+}
+.u-dot-line-v1__inner::before, .u-dot-line-v1-2__inner::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+.u-dot-line-v1::after, .u-dot-line-v1-2::after {
+    right: -30px;
+}
+.u-dot-line-v1-2::after, .u-dot-line-v1-2::before,  .g-brd-gray-light-v2 {
+    border-color: #ccc !important;
+}
+.step-by-step h3{
+    font-size: 20px;
+}
+.step-by-step p{
+    font-size: 16px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.callout{
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    color: rgba(0,0,0,.7);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+}
+.callout span.lnr{
+    font-size: 50px;
+    margin-right: 15px;
+}
+.callout h5{
+    margin-bottom: 0;
+    font-size: 20px;
+}
+.callout-success{
+    border-color: #1d8873 !important;
+}
+.callout .a-link, .callout .a-link:hover{
+    color: inherit;
+}
+/*Lightbox*/
+.fancybox-container{
+    z-index: 9999999 !important;
+}

@@ -19,12 +19,8 @@ class StoreAmpaRequest extends FormRequest
     public function rules()
     {
         return [
-            'texto' => [
-                'required',
-            ],
-            'foto'  => [
-                'required',
-            ],
+            'titulo' => [
+                'required'],
         ];
     }
 }

@@ -57,16 +57,6 @@
                             @endforeach
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.user.fields.cursos') }}
-                        </th>
-                        <td>
-                            @foreach($user->cursos as $key => $cursos)
-                                <span class="label label-info">{{ $cursos->nivel }}</span>
-                            @endforeach
-                        </td>
-                    </tr>
                 </tbody>
             </table>
             <div class="form-group">
