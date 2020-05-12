@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f0f9d890-cdf8-4d84-907a-e2c0d84695a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArchivosGruposControllerUpgrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArchivosGruposControllerUpgrade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/archivosGrupos/crear.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/archivosGrupos/crear.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/archivosGrupos/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/archivosGrupos/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/webUpgrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/webUpgrade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homeUpgrade.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homeUpgrade.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,7 +266,9 @@
       <workItem from="1588533351455" duration="6121000" />
       <workItem from="1588543818179" duration="1271000" />
       <workItem from="1588545779662" duration="2735000" />
-      <workItem from="1589178379191" duration="13355000" />
+      <workItem from="1589178379191" duration="13466000" />
+      <workItem from="1589260756719" duration="135000" />
+      <workItem from="1589285203782" duration="131000" />
     </task>
     <servers />
   </component>
@@ -282,10 +280,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587439616884" />
-    <state x="636" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1588545780085">
+    <state x="636" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1589260782269">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="636" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588545780085" />
+    <state x="636" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589260782269" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1589180864655">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

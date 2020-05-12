@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="card-body">
-                        @switch(Auth::user()->roles->first()->title)
+                        @switch(Auth::user()->name)
                             @case('Admin')
                             <div class="row">
                                 <div class="col-lg-4 col-6">
