@@ -44,6 +44,7 @@
                 </thead>
                 <tbody>
                     @foreach($users as $key => $user)
+                        @if(!count($user->roles->where('id','=',1)) || count(Auth::user()->roles->where('id','=',1)) )
                         <tr data-entry-id="{{ $user->id }}">
                             <td>
 
@@ -89,6 +90,7 @@
                             </td>
 
                         </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>
