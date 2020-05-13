@@ -10,8 +10,6 @@
             $hora='Buenas Noches';
         }
     @endphp
-@php
-@endphp
     <div class="content">
         <div class="row">
             <div class="col-lg-12 text-left">
@@ -22,8 +20,8 @@
                     </div>
 
                     <div class="card-body">
-                        @switch(Auth::user()->name)
-                            @case('Admin')
+                        @switch(count(Auth::user()->roles->where('id','=',1)))
+                            @case(1)
                             <div class="row">
                                 <div class="col-lg-4 col-6">
                                     <!-- small box -->

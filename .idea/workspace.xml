@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f9d890-cdf8-4d84-907a-e2c0d84695a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsuariosController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/users/crear.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/users/editar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/users/inicio.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/crear.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/crear.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/editar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/editar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/homeUpgrade.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homeUpgrade.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,7 +271,7 @@
       <workItem from="1589178379191" duration="13466000" />
       <workItem from="1589260756719" duration="135000" />
       <workItem from="1589285203782" duration="279000" />
-      <workItem from="1589344707084" duration="1398000" />
+      <workItem from="1589344707084" duration="1782000" />
     </task>
     <servers />
   </component>
