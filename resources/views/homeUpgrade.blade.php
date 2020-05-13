@@ -72,7 +72,7 @@
                                 <!-- ./col -->
                             </div>
                             @break
-                            @case('User')
+                            @default
                             <div class="row g-mb-20">
                                 <div class="col-12">
                                     <h5>Subir archivos</h5>

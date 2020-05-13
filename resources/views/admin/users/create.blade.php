@@ -5,7 +5,8 @@
     <div class="card-header">
         {{ trans('global.create') }} {{ trans('cruds.user.title_singular') }}
     </div>
-
+@php
+@endphp
     <div class="card-body">
         <form method="POST" action="{{ route("admin.users.store") }}" enctype="multipart/form-data">
             @csrf
@@ -41,7 +42,9 @@
                 </div>
                 <select class="form-control select2 {{ $errors->has('roles') ? 'is-invalid' : '' }}" name="roles[]" id="roles" multiple required>
                     @foreach($roles as $id => $roles)
+                        @if($id != 1)
                         <option value="{{ $id }}" {{ in_array($id, old('roles', [])) ? 'selected' : '' }}>{{ $roles }}</option>
+                        @endif
                     @endforeach
                 </select>
                 @if($errors->has('roles'))
