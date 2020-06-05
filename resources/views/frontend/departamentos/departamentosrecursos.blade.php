@@ -38,7 +38,6 @@
             </div>
             <div class="row g-mt-40 ">
                 <ul class="contenidoDescargable">
-
                 </ul>
             </div>
         </div>
@@ -81,7 +80,7 @@
                         $('.contenidoDescargable').empty();
                         for(let x = 0; x < data.length; x++){
                             var nuevoContenido = "<li>" +
-                                "                     <a class='media g-mb-15 listaDescarga' href='/storage/"+data[x].model_id+"/"+ data[x].file_name+"' download>" +
+                                "                     <a class='media g-mb-15 listaDescarga' don href='/storage/"+data[x].model_id+"/"+ data[x].file_name+"' download>" +
                                 "                       <h3 class='h5 d-inline-block  g-color-gray-dark-v3 mb-0'>"+data[x].created_at.split(' ')[0]+"<span class='mx-3'>-</span>"+data[x].name.split('_').slice(-1).pop()+" - Archivo tipo : <b>"+ data[x].file_name.split('.').slice(-1).pop() +"</b></h3>" +
                                 "                     </a>" +
                                 "                 </li>";
