@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\EquipoDirectivo;
 use App\EquipoDocente;
-use App\team;
+use App\Team;
 use App\Tutorium;
 use App\Descargar;
 use App\DescagarFamilium;
