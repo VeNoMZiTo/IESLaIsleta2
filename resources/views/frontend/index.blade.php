@@ -26,6 +26,7 @@
                         $dataIndex='rs-'.$contador;
                         $contador++;
                         @endphp
+{{--                        data-description='{!! $s->descripcion !!}'--}}
                     <li data-index="{{$dataIndex}}"
                         data-transition="parallaxvertical"
                         data-slotamount="default"
@@ -40,8 +41,7 @@
                         data-fsmasterspeed="1500"
                         data-fsslotamount="7"
                         data-saveperformance="off"
-                        data-title='{{$s->titulo}}'
-                        data-description='{!! $s->descripcion !!}'>
+                        data-title='{{$s->titulo}}'>
                         <img class="rev-slidebg" src="{{$s->foto->getUrl()}}" alt="Image description"
                              data-bgfit="cover"
                              data-bgrepeat="no-repeat"
@@ -69,29 +69,29 @@
                              data-paddingbottom="[0,0,0,0]"
                              data-paddingleft="[0,0,0,0]"></div>
 
-                        <!-- LAYER NR. 2 -->
-                        <div id="slide-1687-layer-1" class="tp-caption Newspaper-Title tp-resizeme" style="z-index: 6; min-width: 600px; max-width: 1200px; white-space: normal;"
-                             data-x="['left','left','left','left']"
-                             data-y="['top','top','top','top']"
-                             data-hoffset="['50','50','50','30']"
-                             data-voffset="['165','135','105','130']"
-                             data-fontsize="['35','30','30','30']"
-                             data-lineheight="['55','55','55','35']"
-                             data-width="['850','500','500','420']"
-                             data-height="none"
-                             data-whitespace="normal"
-                             data-type="text"
-                             data-responsive_offset="on"
-                             data-frames='[
-                         {"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},
-                         {"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}
-                       ]'
-                             data-textAlign="['left','left','left','left']"
-                             data-paddingtop="[0,0,0,0]"
-                             data-paddingright="[0,0,0,0]"
-                             data-paddingbottom="[10,10,10,10]"
-                             data-paddingleft="[0,0,0,0]">{!! $s->descripcion !!}
-                        </div>
+{{--                        <!-- LAYER NR. 2 -->--}}
+{{--                        <div id="slide-1687-layer-1" class="tp-caption Newspaper-Title tp-resizeme" style="z-index: 6; min-width: 600px; max-width: 1200px; white-space: normal;"--}}
+{{--                             data-x="['left','left','left','left']"--}}
+{{--                             data-y="['top','top','top','top']"--}}
+{{--                             data-hoffset="['50','50','50','30']"--}}
+{{--                             data-voffset="['165','135','105','130']"--}}
+{{--                             data-fontsize="['35','30','30','30']"--}}
+{{--                             data-lineheight="['55','55','55','35']"--}}
+{{--                             data-width="['850','500','500','420']"--}}
+{{--                             data-height="none"--}}
+{{--                             data-whitespace="normal"--}}
+{{--                             data-type="text"--}}
+{{--                             data-responsive_offset="on"--}}
+{{--                             data-frames='[--}}
+{{--                         {"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},--}}
+{{--                         {"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}--}}
+{{--                       ]'--}}
+{{--                             data-textAlign="['left','left','left','left']"--}}
+{{--                             data-paddingtop="[0,0,0,0]"--}}
+{{--                             data-paddingright="[0,0,0,0]"--}}
+{{--                             data-paddingbottom="[10,10,10,10]"--}}
+{{--                             data-paddingleft="[0,0,0,0]">{!! $s->descripcion !!}--}}
+{{--                        </div>--}}
 
                         <!-- LAYER NR. 3 -->
                         <div id="slide-1687-layer-2" class="tp-caption Newspaper-Subtitle tp-resizeme" style="z-index: 7; white-space: nowrap; text-transform: uppercase;"
