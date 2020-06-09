@@ -26,34 +26,31 @@ class ArchivosGrupo extends Model implements HasMedia
     ];
 
     protected $fillable = [
-        'team_id',
         'grupo_id',
+        'texto',
         'created_at',
         'updated_at',
         'deleted_at',
+        'team_id',
     ];
 
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')->width(50)->height(50);
-
     }
 
     public function grupo()
     {
         return $this->belongsTo(Grupo::class, 'grupo_id');
-
     }
 
     public function getArchivosAttribute()
     {
         return $this->getMedia('archivos');
-
     }
 
     public function team()
     {
         return $this->belongsTo(Team::class, 'team_id');
-
     }
 }

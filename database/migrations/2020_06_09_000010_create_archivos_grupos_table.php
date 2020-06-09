@@ -10,6 +10,7 @@ class CreateArchivosGruposTable extends Migration
     {
         Schema::create('archivos_grupos', function (Blueprint $table) {
             $table->increments('id');
+            $table->longText('texto')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

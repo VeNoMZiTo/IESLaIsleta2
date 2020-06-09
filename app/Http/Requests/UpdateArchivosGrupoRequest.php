@@ -14,7 +14,6 @@ class UpdateArchivosGrupoRequest extends FormRequest
         abort_if(Gate::denies('archivos_grupo_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
-
     }
 
     public function rules()
@@ -22,8 +21,8 @@ class UpdateArchivosGrupoRequest extends FormRequest
         return [
             'grupo_id' => [
                 'required',
-                'integer'],
+                'integer',
+            ],
         ];
-
     }
 }

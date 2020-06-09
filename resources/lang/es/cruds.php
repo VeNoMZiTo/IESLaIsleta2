@@ -397,6 +397,8 @@ return [
             'deleted_at_helper' => '',
             'team'              => 'Team',
             'team_helper'       => '',
+            'texto'             => 'Texto y enlaces',
+            'texto_helper'      => 'Aquí puede añadir enlaces, listas, . . .',
         ],
     ],
     'consejoEscolar'           => [

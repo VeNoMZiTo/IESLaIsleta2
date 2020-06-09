@@ -14,7 +14,6 @@ class MassDestroyArchivosGrupoRequest extends FormRequest
         abort_if(Gate::denies('archivos_grupo_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
-
     }
 
     public function rules()
@@ -23,6 +22,5 @@ class MassDestroyArchivosGrupoRequest extends FormRequest
             'ids'   => 'required|array',
             'ids.*' => 'exists:archivos_grupos,id',
         ];
-
     }
 }
