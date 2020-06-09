@@ -34,7 +34,6 @@ class GrupoController extends Controller
         $grupo = Grupo::create($request->all());
 
         return redirect()->route('admin.grupos.index');
-
     }
 
     public function edit(Grupo $grupo)
@@ -51,7 +50,6 @@ class GrupoController extends Controller
         $grupo->update($request->all());
 
         return redirect()->route('admin.grupos.index');
-
     }
 
     public function show(Grupo $grupo)
@@ -70,7 +68,6 @@ class GrupoController extends Controller
         $grupo->delete();
 
         return back();
-
     }
 
     public function massDestroy(MassDestroyGrupoRequest $request)
@@ -78,6 +75,5 @@ class GrupoController extends Controller
         Grupo::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
-
     }
 }

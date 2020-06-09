@@ -14,7 +14,6 @@ class StoreArchivosGrupoRequest extends FormRequest
         abort_if(Gate::denies('archivos_grupo_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
-
     }
 
     public function rules()
@@ -22,10 +21,11 @@ class StoreArchivosGrupoRequest extends FormRequest
         return [
             'grupo_id'   => [
                 'required',
-                'integer'],
+                'integer',
+            ],
             'archivos.*' => [
-                'required'],
+                'required',
+            ],
         ];
-
     }
 }

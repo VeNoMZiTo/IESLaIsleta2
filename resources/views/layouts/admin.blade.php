@@ -20,15 +20,10 @@
     <link href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
-    <link href="https://cdn.adrianrm.com/principal.css?v=1a02" rel="stylesheet"/>
-    <link href="/css/customadmin.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
-    <script src="https://cdn.adrianrm.com/headprincipal.js?v=1a02"></script>
     @yield('styles')
 </head>
 
-<body id="admin" class="sidebar-mini layout-fixed" style="height: auto;">
+<body class="sidebar-mini layout-fixed" style="height: auto;">
     <div class="wrapper">
         <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
             <!-- Left navbar links -->
@@ -157,6 +152,11 @@
         text: selectAllButtonTrans,
         exportOptions: {
           columns: ':visible'
+        },
+        action: function(e, dt) {
+          e.preventDefault()
+          dt.rows().deselect();
+          dt.rows({ search: 'applied' }).select();
         }
       },
       {
@@ -233,11 +233,6 @@
 
     </script>
     @yield('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-    <script src="https://cdn.adrianrm.com/principal.js?v=1a02"></script>
-    <script>
-        $("a.imagenTutorial").fancybox();
-    </script>
 </body>
 
 </html>

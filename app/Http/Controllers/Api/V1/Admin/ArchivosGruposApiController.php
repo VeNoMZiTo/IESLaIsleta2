@@ -21,7 +21,6 @@ class ArchivosGruposApiController extends Controller
         abort_if(Gate::denies('archivos_grupo_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return new ArchivosGrupoResource(ArchivosGrupo::with(['grupo', 'team'])->get());
-
     }
 
     public function store(StoreArchivosGrupoRequest $request)
@@ -35,7 +34,6 @@ class ArchivosGruposApiController extends Controller
         return (new ArchivosGrupoResource($archivosGrupo))
             ->response()
             ->setStatusCode(Response::HTTP_CREATED);
-
     }
 
     public function show(ArchivosGrupo $archivosGrupo)
@@ -43,7 +41,6 @@ class ArchivosGruposApiController extends Controller
         abort_if(Gate::denies('archivos_grupo_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return new ArchivosGrupoResource($archivosGrupo->load(['grupo', 'team']));
-
     }
 
     public function update(UpdateArchivosGrupoRequest $request, ArchivosGrupo $archivosGrupo)
@@ -54,7 +51,6 @@ class ArchivosGruposApiController extends Controller
             if (!$archivosGrupo->archivos || $request->input('archivos') !== $archivosGrupo->archivos->file_name) {
                 $archivosGrupo->addMedia(storage_path('tmp/uploads/' . $request->input('archivos')))->toMediaCollection('archivos');
             }
-
         } elseif ($archivosGrupo->archivos) {
             $archivosGrupo->archivos->delete();
         }
@@ -62,7 +58,6 @@ class ArchivosGruposApiController extends Controller
         return (new ArchivosGrupoResource($archivosGrupo))
             ->response()
             ->setStatusCode(Response::HTTP_ACCEPTED);
-
     }
 
     public function destroy(ArchivosGrupo $archivosGrupo)
@@ -72,7 +67,5 @@ class ArchivosGruposApiController extends Controller
         $archivosGrupo->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
-
     }
-
 }
