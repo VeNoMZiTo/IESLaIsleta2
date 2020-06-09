@@ -9,119 +9,119 @@
 @endsection
 
 @section('slider')
-{{--    <section class="s-slider">--}}
-{{--        <div id="rev_slider_486_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container u-shadow-v1-5"--}}
-{{--             data-alias="news-gallery36"--}}
-{{--             data-source="gallery">--}}
-{{--            <div id="rev_slider_486_1" class="rev_slider fullwidthabanner" style="display: none;"--}}
-{{--                 data-version="5.4.1">--}}
-{{--                <ul>--}}
-{{--                    @php--}}
-{{--                        $contador=1687;--}}
+    <section class="s-slider">
+        <div id="rev_slider_486_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container u-shadow-v1-5"
+             data-alias="news-gallery36"
+             data-source="gallery">
+            <div id="rev_slider_486_1" class="rev_slider fullwidthabanner" style="display: none;"
+                 data-version="5.4.1">
+                <ul>
+                    @php
+                        $contador=1687;
 
-{{--                    @endphp--}}
-{{--                    @foreach($slider as $s)--}}
-{{--                        @php--}}
-{{--                        $dataIndex='rs-'.$contador;--}}
-{{--                        $contador++;--}}
-{{--                        @endphp--}}
-{{--                    <li data-index="{{$dataIndex}}"--}}
-{{--                        data-transition="parallaxvertical"--}}
-{{--                        data-slotamount="default"--}}
-{{--                        data-hideafterloop="0"--}}
-{{--                        data-hideslideonmobile="off"--}}
-{{--                        data-easein="default"--}}
-{{--                        data-easeout="default"--}}
-{{--                        data-masterspeed="default"--}}
-{{--                        data-thumb="{{$s->foto->getUrl()}}"--}}
-{{--                        data-rotate="0"--}}
-{{--                        data-fstransition="fade"--}}
-{{--                        data-fsmasterspeed="1500"--}}
-{{--                        data-fsslotamount="7"--}}
-{{--                        data-saveperformance="off"--}}
-{{--                        data-title='{{$s->titulo}}'--}}
-{{--                        data-description='{!! $s->descripcion !!}'>--}}
-{{--                        <img class="rev-slidebg" src="{{$s->foto->getUrl()}}" alt="Image description"--}}
-{{--                             data-bgfit="cover"--}}
-{{--                             data-bgrepeat="no-repeat"--}}
-{{--                             data-bgparallax="10">--}}
+                    @endphp
+                    @foreach($slider as $s)
+                        @php
+                        $dataIndex='rs-'.$contador;
+                        $contador++;
+                        @endphp
+                    <li data-index="{{$dataIndex}}"
+                        data-transition="parallaxvertical"
+                        data-slotamount="default"
+                        data-hideafterloop="0"
+                        data-hideslideonmobile="off"
+                        data-easein="default"
+                        data-easeout="default"
+                        data-masterspeed="default"
+                        data-thumb="{{$s->foto->getUrl()}}"
+                        data-rotate="0"
+                        data-fstransition="fade"
+                        data-fsmasterspeed="1500"
+                        data-fsslotamount="7"
+                        data-saveperformance="off"
+                        data-title='{{$s->titulo}}'
+                        data-description='{!! $s->descripcion !!}'>
+                        <img class="rev-slidebg" src="{{$s->foto->getUrl()}}" alt="Image description"
+                             data-bgfit="cover"
+                             data-bgrepeat="no-repeat"
+                             data-bgparallax="10">
 
-{{--                        <!-- LAYER NR. 1 -->--}}
-{{--                        <div id="slide-1687-layer-3" class="tp-caption tp-shape tp-shapewrapper tp-resizeme" style="z-index: 5; background-color: rgba(0, 0, 0, .65);"--}}
-{{--                             data-x="['center','center','center','center']"--}}
-{{--                             data-y="['middle','middle','middle','middle']"--}}
-{{--                             data-hoffset="['0','0','0','0']"--}}
-{{--                             data-voffset="['0','0','0','0']"--}}
-{{--                             data-width="full"--}}
-{{--                             data-height="full"--}}
-{{--                             data-whitespace="normal"--}}
-{{--                             data-type="shape"--}}
-{{--                             data-basealign="slide"--}}
-{{--                             data-responsive_offset="on"--}}
-{{--                             data-frames='[--}}
-{{--                         {"from":"opacity:0;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},--}}
-{{--                         {"delay":"wait","speed":1000,"to":"opacity:0;","ease":"Power3.easeInOut"}--}}
-{{--                       ]'--}}
-{{--                             data-textAlign="['left','left','left','left']"--}}
-{{--                             data-paddingtop="[0,0,0,0]"--}}
-{{--                             data-paddingright="[0,0,0,0]"--}}
-{{--                             data-paddingbottom="[0,0,0,0]"--}}
-{{--                             data-paddingleft="[0,0,0,0]"></div>--}}
+                        <!-- LAYER NR. 1 -->
+                        <div id="slide-1687-layer-3" class="tp-caption tp-shape tp-shapewrapper tp-resizeme" style="z-index: 5; background-color: rgba(0, 0, 0, .65);"
+                             data-x="['center','center','center','center']"
+                             data-y="['middle','middle','middle','middle']"
+                             data-hoffset="['0','0','0','0']"
+                             data-voffset="['0','0','0','0']"
+                             data-width="full"
+                             data-height="full"
+                             data-whitespace="normal"
+                             data-type="shape"
+                             data-basealign="slide"
+                             data-responsive_offset="on"
+                             data-frames='[
+                         {"from":"opacity:0;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},
+                         {"delay":"wait","speed":1000,"to":"opacity:0;","ease":"Power3.easeInOut"}
+                       ]'
+                             data-textAlign="['left','left','left','left']"
+                             data-paddingtop="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]"
+                             data-paddingbottom="[0,0,0,0]"
+                             data-paddingleft="[0,0,0,0]"></div>
 
-{{--                        <!-- LAYER NR. 2 -->--}}
-{{--                        <div id="slide-1687-layer-1" class="tp-caption Newspaper-Title tp-resizeme" style="z-index: 6; min-width: 600px; max-width: 1200px; white-space: normal;"--}}
-{{--                             data-x="['left','left','left','left']"--}}
-{{--                             data-y="['top','top','top','top']"--}}
-{{--                             data-hoffset="['50','50','50','30']"--}}
-{{--                             data-voffset="['165','135','105','130']"--}}
-{{--                             data-fontsize="['35','30','30','30']"--}}
-{{--                             data-lineheight="['55','55','55','35']"--}}
-{{--                             data-width="['850','500','500','420']"--}}
-{{--                             data-height="none"--}}
-{{--                             data-whitespace="normal"--}}
-{{--                             data-type="text"--}}
-{{--                             data-responsive_offset="on"--}}
-{{--                             data-frames='[--}}
-{{--                         {"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},--}}
-{{--                         {"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}--}}
-{{--                       ]'--}}
-{{--                             data-textAlign="['left','left','left','left']"--}}
-{{--                             data-paddingtop="[0,0,0,0]"--}}
-{{--                             data-paddingright="[0,0,0,0]"--}}
-{{--                             data-paddingbottom="[10,10,10,10]"--}}
-{{--                             data-paddingleft="[0,0,0,0]">{!! $s->descripcion !!}--}}
-{{--                        </div>--}}
+                        <!-- LAYER NR. 2 -->
+                        <div id="slide-1687-layer-1" class="tp-caption Newspaper-Title tp-resizeme" style="z-index: 6; min-width: 600px; max-width: 1200px; white-space: normal;"
+                             data-x="['left','left','left','left']"
+                             data-y="['top','top','top','top']"
+                             data-hoffset="['50','50','50','30']"
+                             data-voffset="['165','135','105','130']"
+                             data-fontsize="['35','30','30','30']"
+                             data-lineheight="['55','55','55','35']"
+                             data-width="['850','500','500','420']"
+                             data-height="none"
+                             data-whitespace="normal"
+                             data-type="text"
+                             data-responsive_offset="on"
+                             data-frames='[
+                         {"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},
+                         {"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}
+                       ]'
+                             data-textAlign="['left','left','left','left']"
+                             data-paddingtop="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]"
+                             data-paddingbottom="[10,10,10,10]"
+                             data-paddingleft="[0,0,0,0]">{!! $s->descripcion !!}
+                        </div>
 
-{{--                        <!-- LAYER NR. 3 -->--}}
-{{--                        <div id="slide-1687-layer-2" class="tp-caption Newspaper-Subtitle tp-resizeme" style="z-index: 7; white-space: nowrap; text-transform: uppercase;"--}}
-{{--                             data-x="['left','left','left','left']"--}}
-{{--                             data-y="['top','top','top','top']"--}}
-{{--                             data-hoffset="['50','50','50','30']"--}}
-{{--                             data-voffset="['140','110','80','100']"--}}
-{{--                             data-width="none"--}}
-{{--                             data-height="none"--}}
-{{--                             data-whitespace="nowrap"--}}
-{{--                             data-type="text"--}}
-{{--                             data-responsive_offset="on"--}}
-{{--                             data-frames='[--}}
-{{--                         {"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},--}}
-{{--                         {"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}--}}
-{{--                       ]'--}}
-{{--                             data-textAlign="['left','left','left','left']"--}}
-{{--                             data-paddingtop="[0,0,0,0]"--}}
-{{--                             data-paddingright="[0,0,0,0]"--}}
-{{--                             data-paddingbottom="[0,0,0,0]"--}}
-{{--                             data-paddingleft="[0,0,0,0]">{{$s->titulo}}--}}
-{{--                        </div>--}}
-{{--                        <!-- LAYER NR. 4 -->--}}
-{{--                    </li>--}}
-{{--                    @endforeach--}}
-{{--                </ul>--}}
+                        <!-- LAYER NR. 3 -->
+                        <div id="slide-1687-layer-2" class="tp-caption Newspaper-Subtitle tp-resizeme" style="z-index: 7; white-space: nowrap; text-transform: uppercase;"
+                             data-x="['left','left','left','left']"
+                             data-y="['top','top','top','top']"
+                             data-hoffset="['50','50','50','30']"
+                             data-voffset="['140','110','80','100']"
+                             data-width="none"
+                             data-height="none"
+                             data-whitespace="nowrap"
+                             data-type="text"
+                             data-responsive_offset="on"
+                             data-frames='[
+                         {"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},
+                         {"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}
+                       ]'
+                             data-textAlign="['left','left','left','left']"
+                             data-paddingtop="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]"
+                             data-paddingbottom="[0,0,0,0]"
+                             data-paddingleft="[0,0,0,0]">{{$s->titulo}}
+                        </div>
+                        <!-- LAYER NR. 4 -->
+                    </li>
+                    @endforeach
+                </ul>
 
-{{--                <div class="tp-bannertimer tp-bottom" style="height: 5px; background-color: rgba(166, 216, 236, 1);"></div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </section>--}}
+                <div class="tp-bannertimer tp-bottom" style="height: 5px; background-color: rgba(166, 216, 236, 1);"></div>
+            </div>
+        </div>
+    </section>
 @endsection
 
 @section('content')
@@ -140,7 +140,7 @@
                             <!-- Article -->
                             <article class="g-brd-around g-brd-gray-light-v4 g-pa-5 u-shadow-v4" >
                                 <figure class="g-pos-rel">
-                                    <img class="img-fluid w-100 g-mb-10" src="{{$a->foto[0]->getUrl()}}" alt="">
+                                    <img class="img-fluid w-100 g-mb-10" src="{{count($a->foto) ? $a->foto[0]->getUrl() : '/img/fondos/placeholder.jpg'}}">
                                     <figcaption class="text-uppercase text-center g-line-height-1_2 g-bg-white-opacity-0_8 g-color-gray-dark-v2 g-pos-abs g-top-20 g-px-15 g-py-10">
                                         <strong class="d-block numero">{{substr($a->fecha,0,2)}}</strong>
                                         <hr class="g-brd-gray-dark-v2 my-1">
