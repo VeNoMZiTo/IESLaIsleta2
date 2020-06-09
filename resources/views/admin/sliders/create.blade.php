@@ -7,64 +7,44 @@
     </div>
 
     <div class="card-body">
-        <form action="{{ route("admin.sliders.store") }}" method="POST" enctype="multipart/form-data">
+        <form method="POST" action="{{ route("admin.sliders.store") }}" enctype="multipart/form-data">
             @csrf
-            <div class="form-group {{ $errors->has('titulo') ? 'has-error' : '' }}">
-                <label for="titulo">{{ trans('cruds.slider.fields.titulo') }}*</label>
-                <input type="text" id="titulo" name="titulo" class="form-control" value="{{ old('titulo', isset($slider) ? $slider->titulo : '') }}" required>
+            <div class="form-group">
+                <label class="required" for="titulo">{{ trans('cruds.slider.fields.titulo') }}</label>
+                <input class="form-control {{ $errors->has('titulo') ? 'is-invalid' : '' }}" type="text" name="titulo" id="titulo" value="{{ old('titulo', '') }}" required>
                 @if($errors->has('titulo'))
-                    <p class="help-block">
-                        {{ $errors->first('titulo') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('titulo') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.slider.fields.titulo_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.slider.fields.titulo_helper') }}</span>
             </div>
-            <div class="form-group {{ $errors->has('descripcion') ? 'has-error' : '' }}">
-                <label for="descripcion">{{ trans('cruds.slider.fields.descripcion') }}*</label>
-                <input type="text" id="descripcion" name="descripcion" class="form-control" value="{{ old('descripcion', isset($slider) ? $slider->descripcion : '') }}" required>
-                @if($errors->has('descripcion'))
-                    <p class="help-block">
-                        {{ $errors->first('descripcion') }}
-                    </p>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.slider.fields.descripcion_helper') }}
-                </p>
-            </div>
-            <div class="form-group {{ $errors->has('boton') ? 'has-error' : '' }}">
-                <label for="boton">{{ trans('cruds.slider.fields.boton') }}</label>
-                <input type="text" id="boton" name="boton" class="form-control" value="{{ old('boton', isset($slider) ? $slider->boton : '') }}">
-                @if($errors->has('boton'))
-                    <p class="help-block">
-                        {{ $errors->first('boton') }}
-                    </p>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.slider.fields.boton_helper') }}
-                </p>
-            </div>
-            <div class="form-group {{ $errors->has('foto') ? 'has-error' : '' }}">
-                <label for="foto">{{ trans('cruds.slider.fields.foto') }}*</label>
-                <div class="needsclick dropzone" id="foto-dropzone">
-
+            <div class="form-group">
+                <label class="required" for="foto">{{ trans('cruds.slider.fields.foto') }}</label>
+                <div class="needsclick dropzone {{ $errors->has('foto') ? 'is-invalid' : '' }}" id="foto-dropzone">
                 </div>
                 @if($errors->has('foto'))
-                    <p class="help-block">
-                        {{ $errors->first('foto') }}
-                    </p>
+                    <span class="text-danger">{{ $errors->first('foto') }}</span>
                 @endif
-                <p class="helper-block">
-                    {{ trans('cruds.slider.fields.foto_helper') }}
-                </p>
+                <span class="help-block">{{ trans('cruds.slider.fields.foto_helper') }}</span>
             </div>
-            <div>
-                <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
+            <div class="form-group">
+                <label for="descripcion">{{ trans('cruds.slider.fields.descripcion') }}</label>
+                <textarea class="form-control ckeditor {{ $errors->has('descripcion') ? 'is-invalid' : '' }}" name="descripcion" id="descripcion">{!! old('descripcion') !!}</textarea>
+                @if($errors->has('descripcion'))
+                    <span class="text-danger">{{ $errors->first('descripcion') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.slider.fields.descripcion_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger" type="submit">
+                    {{ trans('global.save') }}
+                </button>
             </div>
         </form>
     </div>
 </div>
+
+
+
 @endsection
 
 @section('scripts')
@@ -98,7 +78,7 @@
 @if(isset($slider) && $slider->foto)
       var file = {!! json_encode($slider->foto) !!}
           this.options.addedfile.call(this, file)
-      this.options.thumbnail.call(this, file, file.url)
+      this.options.thumbnail.call(this, file, '{{ $slider->foto->getUrl('thumb') }}')
       file.previewElement.classList.add('dz-complete')
       $('form').append('<input type="hidden" name="foto" value="' + file.file_name + '">')
       this.options.maxFiles = this.options.maxFiles - 1
@@ -122,4 +102,68 @@
     }
 }
 </script>
-@stop
+<script>
+    $(document).ready(function () {
+  function SimpleUploadAdapter(editor) {
+    editor.plugins.get('FileRepository').createUploadAdapter = function(loader) {
+      return {
+        upload: function() {
+          return loader.file
+            .then(function (file) {
+              return new Promise(function(resolve, reject) {
+                // Init request
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/admin/sliders/ckmedia', true);
+                xhr.setRequestHeader('x-csrf-token', window._token);
+                xhr.setRequestHeader('Accept', 'application/json');
+                xhr.responseType = 'json';
+
+                // Init listeners
+                var genericErrorText = `Couldn't upload file: ${ file.name }.`;
+                xhr.addEventListener('error', function() { reject(genericErrorText) });
+                xhr.addEventListener('abort', function() { reject() });
+                xhr.addEventListener('load', function() {
+                  var response = xhr.response;
+
+                  if (!response || xhr.status !== 201) {
+                    return reject(response && response.message ? `${genericErrorText}\n${xhr.status} ${response.message}` : `${genericErrorText}\n ${xhr.status} ${xhr.statusText}`);
+                  }
+
+                  $('form').append('<input type="hidden" name="ck-media[]" value="' + response.id + '">');
+
+                  resolve({ default: response.url });
+                });
+
+                if (xhr.upload) {
+                  xhr.upload.addEventListener('progress', function(e) {
+                    if (e.lengthComputable) {
+                      loader.uploadTotal = e.total;
+                      loader.uploaded = e.loaded;
+                    }
+                  });
+                }
+
+                // Send request
+                var data = new FormData();
+                data.append('upload', file);
+                data.append('crud_id', {{ $slider->id ?? 0 }});
+                xhr.send(data);
+              });
+            })
+        }
+      };
+    }
+  }
+
+  var allEditors = document.querySelectorAll('.ckeditor');
+  for (var i = 0; i < allEditors.length; ++i) {
+    ClassicEditor.create(
+      allEditors[i], {
+        extraPlugins: [SimpleUploadAdapter]
+      }
+    );
+  }
+});
+</script>
+
+@endsection

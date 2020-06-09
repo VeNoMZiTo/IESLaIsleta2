@@ -10,6 +10,7 @@ use App\Http\Requests\UpdateSliderRequest;
 use App\Slider;
 use Gate;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 
 class SliderController extends Controller
@@ -38,6 +39,10 @@ class SliderController extends Controller
 
         if ($request->input('foto', false)) {
             $slider->addMedia(storage_path('tmp/uploads/' . $request->input('foto')))->toMediaCollection('foto');
+        }
+
+        if ($media = $request->input('ck-media', false)) {
+            Media::whereIn('id', $media)->update(['model_id' => $slider->id]);
         }
 
         return redirect()->route('admin.sliders.index');
@@ -86,5 +91,17 @@ class SliderController extends Controller
         Slider::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function storeCKEditorImages(Request $request)
+    {
+        abort_if(Gate::denies('slider_create') && Gate::denies('slider_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $model         = new Slider();
+        $model->id     = $request->input('crud_id', 0);
+        $model->exists = true;
+        $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
+
+        return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }
 }
