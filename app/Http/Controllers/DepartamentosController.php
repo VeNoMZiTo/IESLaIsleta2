@@ -47,7 +47,7 @@ class DepartamentosController extends Controller
     public function getRecurso(Request $request)
     {
         try{
-            $Archivos = ArchivosGrupo::with('grupo')->get()->where('team_id','=',$request->input('departamento'))->where('grupo_id','=',$request->input('grupo'))->first()->media;
+            $Archivos = ArchivosGrupo::with('grupo')->get()->where('team_id','=',$request->input('departamento'))->where('grupo_id','=',$request->input('grupo'))->first();
             return $Archivos;
         }catch(\Exception $e){
             return 'FAIL';

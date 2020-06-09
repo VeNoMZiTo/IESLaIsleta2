@@ -4,12 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArchivosGruposTable extends Migration
+class CreateSlidersTable extends Migration
 {
     public function up()
     {
-        Schema::create('archivos_grupos', function (Blueprint $table) {
+        Schema::create('sliders', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('titulo');
+            $table->longText('descripcion')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

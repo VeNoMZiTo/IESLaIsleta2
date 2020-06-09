@@ -75,7 +75,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('roles', 'RolesController');
 
     // Users
-    Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
+    Route::delete('users/destroy', 'UsuariosController@massDestroy')->name('users.massDestroy');
     Route::resource('users', 'UsuariosController');
 
     // Sliders

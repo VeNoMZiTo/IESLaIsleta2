@@ -52,7 +52,7 @@
                     </a>
                 </div>
                 <div class='col-6 col-md-4'>
-                    <a class="d-inline-block u-block-hover--flip g-width-200 g-height-200 g-brd-around g-brd-gray-light-v4 g-bg-white g-px-15 g-py-30 g-ma-5 d-inline-flex align-items-center justify-content-center" href="https://www3.gobiernodecanarias.org/educacion/cau_ce/servicios/mis-servicios/acceso-ficheros-servidor-centro?codcentro=35003332#forward" target="_blank">
+                    <a class="d-inline-block u-block-hover--flip g-width-200 g-height-200 g-brd-around g-brd-gray-light-v4 g-bg-white g-px-15 g-py-30 g-ma-5 d-inline-flex align-items-center justify-content-center" href="/login">
                         <img class="u-block-hover__img u-block-hover__main--flip-vert" src="./img/newlogos/1x/logovert.jpg" alt="Zona Compartida">
 
                         <div class="u-block-hover__additional--flip-vert g-bg-primary g-color-white g-pa-10">

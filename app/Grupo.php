@@ -29,6 +29,5 @@ class Grupo extends Model
     public function team()
     {
         return $this->belongsTo(Team::class, 'team_id');
-
     }
 }

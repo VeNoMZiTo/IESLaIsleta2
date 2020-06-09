@@ -37,8 +37,16 @@
 
             </div>
             <div class="row g-mt-40 ">
-                <ul class="contenidoDescargable">
-                </ul>
+                <div class="col-md-6">
+                    <h2 class="text-center g-mb-30">Archivos para descargar</h2>
+                    <ul class="contenidoDescargable"></ul>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="text-center g-mb-30">Enlaces</h2>
+                    <div class="contenidoEnlace">
+
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -77,15 +85,16 @@
                 success: function(data){
                     console.info(data);
                     if(data != 'FAIL'){
-                        $('.contenidoDescargable').empty();
-                        for(let x = 0; x < data.length; x++){
+                        $('.contenidoDescargable, .contenidoEnlace').empty();
+                        for(let x = 0; x < data.media.length; x++){
                             var nuevoContenido = "<li>" +
-                                "                     <a class='media g-mb-15 listaDescarga' don href='/storage/"+data[x].model_id+"/"+ data[x].file_name+"' download>" +
-                                "                       <h3 class='h5 d-inline-block  g-color-gray-dark-v3 mb-0'>"+data[x].created_at.split(' ')[0]+"<span class='mx-3'>-</span>"+data[x].name.split('_').slice(-1).pop()+" - Archivo tipo : <b>"+ data[x].file_name.split('.').slice(-1).pop() +"</b></h3>" +
+                                "                     <a class='media g-mb-15 listaDescarga' href='/storage/"+data.media[x].model_id+"/"+ data.media[x].file_name+"' download>" +
+                                "                       <h3 class='h5 d-inline-block  g-color-gray-dark-v3 mb-0'>"+data.media[x].created_at.split(' ')[0]+"<span class='mx-3'>-</span>"+data.media[x].name.split('_').slice(-1).pop()+" - Archivo tipo : <b>"+ data.media[x].file_name.split('.').slice(-1).pop() +"</b></h3>" +
                                 "                     </a>" +
                                 "                 </li>";
                             $('.contenidoDescargable').append(nuevoContenido);
                         }
+                        $('.contenidoEnlace').append(data.texto);
                     }else{
                        console.info('FAIL');
                     }

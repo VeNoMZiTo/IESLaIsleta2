@@ -43,6 +43,14 @@
                             @endforeach
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.archivosGrupo.fields.texto') }}
+                        </th>
+                        <td>
+                            {!! $archivosGrupo->texto !!}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

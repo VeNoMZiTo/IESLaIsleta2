@@ -197,7 +197,24 @@ nav{
     padding: 0;
     margin: 0 auto;
 }
-
+#rev_slider_486_1_wrapper .tp-tab-desc *{
+    display: none;
+}
+#rev_slider_486_1_wrapper .tp-tab-desc *:first-child{
+    display: block;
+}
+#rev_slider_486_1_wrapper .tp-caption a{
+    font-weight: 700;
+    color: white;
+    text-decoration: underline;
+}
+#rev_slider_486_1_wrapper .tp-caption img, #rev_slider_486_1_wrapper .tp-caption figure, #rev_slider_486_1_wrapper .tp-caption table, #rev_slider_486_1_wrapper .tp-caption video{
+    display: none;
+}
+/*Logo*/
+#box-logotop{
+    text-decoration: none !important;
+}
 /*Footer*/
 .map{
     width: 100%;

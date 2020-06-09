@@ -81,12 +81,10 @@ return [
             'updated_at_helper'  => '',
             'deleted_at'         => 'Deleted at',
             'deleted_at_helper'  => '',
-            'descripcion'        => 'Descripción',
-            'descripcion_helper' => 'Descripción breve para el slider.',
-            'boton'              => 'Botón',
-            'boton_helper'       => 'Es la URL del botón del slider, si no se pone, no aparecera.',
             'foto'               => 'Foto',
             'foto_helper'        => '',
+            'descripcion'        => 'Descripción',
+            'descripcion_helper' => '',
         ],
     ],
     'noticium'                 => [
@@ -397,6 +395,8 @@ return [
             'deleted_at_helper' => '',
             'team'              => 'Team',
             'team_helper'       => '',
+            'texto'             => 'Texto y enlaces',
+            'texto_helper'      => 'Aquí puede añadir enlaces, listas, . . .',
         ],
     ],
     'consejoEscolar'           => [

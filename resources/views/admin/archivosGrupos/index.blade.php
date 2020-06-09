@@ -3,7 +3,7 @@
 @can('archivos_grupo_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.archivos-grupos.create") }}">
+            <a class="btn btn-success" href="{{ route('admin.archivos-grupos.create') }}">
                 {{ trans('global.add') }} {{ trans('cruds.archivosGrupo.title_singular') }}
             </a>
         </div>
@@ -125,14 +125,16 @@
 @endcan
 
   $.extend(true, $.fn.dataTable.defaults, {
+    orderCellsTop: true,
     order: [[ 1, 'desc' ]],
     pageLength: 10,
   });
-  $('.datatable-ArchivosGrupo:not(.ajaxTable)').DataTable({ buttons: dtButtons })
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
-        $($.fn.dataTable.tables(true)).DataTable()
-            .columns.adjust();
-    });
+  let table = $('.datatable-ArchivosGrupo:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
+      $($.fn.dataTable.tables(true)).DataTable()
+          .columns.adjust();
+  });
+  
 })
 
 </script>

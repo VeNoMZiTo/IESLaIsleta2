@@ -40,7 +40,7 @@ class UsuariosController extends Controller
         $user = User::create($request->all());
         $user->roles()->sync($request->input('roles', []));
 
-        return redirect()->route('admin.users.inicio');
+        return redirect()->route('admin.users.index');
 
     }
 
@@ -62,7 +62,7 @@ class UsuariosController extends Controller
         $user->update($request->all());
         $user->roles()->sync($request->input('roles', []));
 
-        return redirect()->route('admin.users.inicio');
+        return redirect()->route('admin.users.index');
 
     }
 

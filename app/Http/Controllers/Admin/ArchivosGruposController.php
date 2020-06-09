@@ -49,7 +49,6 @@ class ArchivosGruposController extends Controller
         }
 
         return redirect()->route('admin.archivos-grupos.index');
-
     }
 
     public function edit(ArchivosGrupo $archivosGrupo)
@@ -72,9 +71,7 @@ class ArchivosGruposController extends Controller
                 if (!in_array($media->file_name, $request->input('archivos', []))) {
                     $media->delete();
                 }
-
             }
-
         }
 
         $media = $archivosGrupo->archivos->pluck('file_name')->toArray();
@@ -83,11 +80,9 @@ class ArchivosGruposController extends Controller
             if (count($media) === 0 || !in_array($file, $media)) {
                 $archivosGrupo->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('archivos');
             }
-
         }
 
         return redirect()->route('admin.archivos-grupos.index');
-
     }
 
     public function show(ArchivosGrupo $archivosGrupo)
@@ -106,7 +101,6 @@ class ArchivosGruposController extends Controller
         $archivosGrupo->delete();
 
         return back();
-
     }
 
     public function massDestroy(MassDestroyArchivosGrupoRequest $request)
@@ -114,7 +108,6 @@ class ArchivosGruposController extends Controller
         ArchivosGrupo::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
-
     }
 
     public function storeCKEditorImages(Request $request)
@@ -124,10 +117,8 @@ class ArchivosGruposController extends Controller
         $model         = new ArchivosGrupo();
         $model->id     = $request->input('crud_id', 0);
         $model->exists = true;
-        $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media', 'public');
+        $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
-
     }
-
 }
