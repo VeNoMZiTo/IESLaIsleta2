@@ -179,7 +179,7 @@
                 <div class="col-12 col-lg-6 principal ">
 
                     @if(isset($noticias[0]))
-                    <img src="{{$noticias[0]->foto[0]->getUrl()}}" class="img-fluid u-shadow-v2 fotoprincipal">
+                    <img src="{{count($noticias[0]->foto) ? $noticias[0]->foto[0]->getUrl() : '/img/fondos/placeholder.jpg'}}" class="img-fluid u-shadow-v2 fotoprincipal">
                     <div class="overlay-f-principal"></div>
                     <div class=" boxprincipal g-pt-15--md">
                         <ul class="list-inline g-color-white g-font-weight-600 g-font-size-12">
@@ -248,7 +248,7 @@
                         @if(!$loop->first)
                         <div class="js-slide g-px-15 row fotos g-my-20">
                             <div class="col-12 col-lg-6">
-                                <img src="{{$n->foto[0]->getUrl()}}" class="img-fluid u-shadow-v2 rounded">
+                                <img src="{{count($n->foto) ? $n->foto[0]->getUrl() : '/img/fondos/placeholder.jpg'}}" class="img-fluid u-shadow-v2 rounded">
                             </div>
                             <div class="col-12 col-lg-6 ">
                                 <div class="g-pt-15 g-pt-0--lg">

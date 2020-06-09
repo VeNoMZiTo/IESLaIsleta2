@@ -1,11 +1,15 @@
 @extends('master')
 @php
     if(isset($noticia)){
-        $mediador=$noticia;
-        $image=$mediador->foto;
+        $mediador = $noticia;
+
     }else{
-        $mediador=$actividad;
-        $image=$mediador->foto;
+        $mediador = $actividad;
+    }
+    if(count($mediador->foto)){
+        $image = $mediador->foto;
+    }else{
+        $image = '/img/fondos/placeholder.jpg';
     }
 @endphp
 @section('title',$mediador->titulo)
@@ -14,22 +18,29 @@
     <meta property="og:url"           content="ies.adrianrm.com" />
     <meta property="og:title"         content="Ies La Isleta" />
     <meta property="og:description"   content="{{$mediador->titulo}}" />
-    <meta property="og:image"         content="{{$image[0]->getUrl()}}"/>
+    <meta property="og:image"         content="{{$image == '/img/fondos/placeholder.jpg' ? $image : $image[0]->getUrl()}}"/>
 @endsection
 @section('content')
-
 <section id='zona-noticia' class="container g-py-100 ">
     <div class="row g-mb-40">
         <!-- Carousel Images -->
         <div class="col-md-12 text-center g-mb-30">
             <div class="js-carousel text-center g-pb-30 shadow-img" data-infinite="true" data-arrows-classes="u-arrow-v1 g-absolute-centered--y g-width-35 g-height-40 g-font-size-18 g-color-gray g-bg-white g-mt-minus-10" data-arrow-left-classes="fa fa-angle-left g-left-0" data-arrow-right-classes="fa fa-angle-right g-right-0" style='height: 500px;'>
-                @foreach($image as $i)
-                <div class="js-slide">
-                    <a class="js-fancybox" href="javascript:;" data-fancybox="lightbox-gallery--07-1" data-src="{{$i->getUrl()}}" data-caption="{{$mediador->titulo}}" data-animate-in="bounceInDown" data-animate-out="bounceOutDown" data-speed="1000" data-overlay-blur-bg="true">
-                        <img class="img-fluid g-rounded-6 " src="{{$i->getUrl()}}" alt="" width="1110" style="height: 500px;">
-                    </a>
-                </div>
-                @endforeach
+                @if($image == '/img/fondos/placeholder.jpg')
+                    <div class="js-slide">
+                        <a class="js-fancybox" href="javascript:;" data-fancybox="lightbox-gallery--07-1" data-src="{{$image}}" data-caption="Foto provisional" data-animate-in="bounceInDown" data-animate-out="bounceOutDown" data-speed="1000" data-overlay-blur-bg="true">
+                            <img class="img-fluid g-rounded-6 " src="{{$image}}" alt="" width="1110" style="height: 500px;">
+                        </a>
+                    </div>
+                @else
+                    @foreach($image as $i)
+                    <div class="js-slide">
+                        <a class="js-fancybox" href="javascript:;" data-fancybox="lightbox-gallery--07-1" data-src="{{$i->getUrl()}}" data-caption="{{$mediador->titulo}}" data-animate-in="bounceInDown" data-animate-out="bounceOutDown" data-speed="1000" data-overlay-blur-bg="true">
+                            <img class="img-fluid g-rounded-6 " src="{{$i->getUrl()}}" alt="" width="1110" style="height: 500px;">
+                        </a>
+                    </div>
+                    @endforeach
+                @endif
             </div>
         </div>
         <!-- End Carousel Images -->
