@@ -40,8 +40,8 @@
                         data-fsmasterspeed="1500"
                         data-fsslotamount="7"
                         data-saveperformance="off"
-                        data-title="{{$s->titulo}}"
-                        data-description="{{$s->descripcion}}">
+                        data-title='{{$s->titulo}}'
+                        data-description='{!! $s->descripcion !!}'>
                         <img class="rev-slidebg" src="{{$s->foto->getUrl()}}" alt="Image description"
                              data-bgfit="cover"
                              data-bgrepeat="no-repeat"
@@ -90,7 +90,7 @@
                              data-paddingtop="[0,0,0,0]"
                              data-paddingright="[0,0,0,0]"
                              data-paddingbottom="[10,10,10,10]"
-                             data-paddingleft="[0,0,0,0]">{{$s->descripcion}}
+                             data-paddingleft="[0,0,0,0]">{!! $s->descripcion !!}
                         </div>
 
                         <!-- LAYER NR. 3 -->
@@ -532,8 +532,8 @@
             });
         }
         for(var x=0;x<$('.tp-tab').length;x++){
-            $('.tp-tab-title').eq(x).text($('.tp-revslider-slidesli').eq(x).attr('data-title'));
-            $('.tp-tab-desc').eq(x).text($('.tp-revslider-slidesli').eq(x).attr('data-description'));
+            $('.tp-tab-title').eq(x).html($('.tp-revslider-slidesli').eq(x).attr('data-title'));
+            $('.tp-tab-desc').eq(x).html($('.tp-revslider-slidesli').eq(x).attr('data-description'));
         }
         $('.s-slider').removeClass('s-slider');
     });
