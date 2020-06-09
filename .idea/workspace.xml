@@ -3,19 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f0f9d890-cdf8-4d84-907a-e2c0d84695a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArchivosGruposController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArchivosGruposController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArchivosGruposControllerUpgrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArchivosGruposControllerUpgrade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsuariosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsuariosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DepartamentosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DepartamentosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/archivosGrupos/crear.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/archivosGrupos/crear.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/archivosGrupos/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/archivosGrupos/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/consultas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/consultas.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/departamentos/departamentosrecursos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/departamentos/departamentosrecursos.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/adminUpgrade.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/adminUpgrade.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/webUpgrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/webUpgrade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +271,7 @@
       <workItem from="1589285203782" duration="279000" />
       <workItem from="1589344707084" duration="2065000" />
       <workItem from="1591350324745" duration="2157000" />
-      <workItem from="1591724495531" duration="2776000" />
+      <workItem from="1591724495531" duration="2888000" />
     </task>
     <servers />
   </component>

@@ -26,6 +26,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
     <script src="https://cdn.adrianrm.com/headprincipal.js?v=1a02"></script>
     @yield('styles')
+    <style>
+        .ck-balloon-panel{
+            z-index: 99999 !important;
+        }
+    </style>
 </head>
 
 <body id="admin" class="sidebar-mini layout-fixed" style="height: auto;">
