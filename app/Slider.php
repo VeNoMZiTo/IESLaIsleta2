@@ -25,12 +25,11 @@ class Slider extends Model implements HasMedia
     ];
 
     protected $fillable = [
-        'boton',
         'titulo',
+        'descripcion',
         'created_at',
         'updated_at',
         'deleted_at',
-        'descripcion',
     ];
 
     public function registerMediaConversions(Media $media = null)

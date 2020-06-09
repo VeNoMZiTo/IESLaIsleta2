@@ -3,7 +3,7 @@
 @can('slider_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.sliders.create") }}">
+            <a class="btn btn-success" href="{{ route('admin.sliders.create') }}">
                 {{ trans('global.add') }} {{ trans('cruds.slider.title_singular') }}
             </a>
         </div>
@@ -29,12 +29,6 @@
                             {{ trans('cruds.slider.fields.titulo') }}
                         </th>
                         <th>
-                            {{ trans('cruds.slider.fields.descripcion') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.slider.fields.boton') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.slider.fields.foto') }}
                         </th>
                         <th>
@@ -53,12 +47,6 @@
                             </td>
                             <td>
                                 {{ $slider->titulo ?? '' }}
-                            </td>
-                            <td>
-                                {{ $slider->descripcion ?? '' }}
-                            </td>
-                            <td>
-                                {{ $slider->boton ?? '' }}
                             </td>
                             <td>
                                 @if($slider->foto)
@@ -97,6 +85,9 @@
         </div>
     </div>
 </div>
+
+
+
 @endsection
 @section('scripts')
 @parent
@@ -134,14 +125,16 @@
 @endcan
 
   $.extend(true, $.fn.dataTable.defaults, {
+    orderCellsTop: true,
     order: [[ 1, 'asc' ]],
     pageLength: 25,
   });
-  $('.datatable-Slider:not(.ajaxTable)').DataTable({ buttons: dtButtons })
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
-        $($.fn.dataTable.tables(true)).DataTable()
-            .columns.adjust();
-    });
+  let table = $('.datatable-Slider:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
+      $($.fn.dataTable.tables(true)).DataTable()
+          .columns.adjust();
+  });
+  
 })
 
 </script>
