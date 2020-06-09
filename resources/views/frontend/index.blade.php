@@ -114,31 +114,6 @@
                              data-paddingbottom="[0,0,0,0]"
                              data-paddingleft="[0,0,0,0]">{{$s->titulo}}
                         </div>
-                        @if(!is_null($s->boton))
-                            <a id="slide-1687-layer-5" class="tp-caption Newspaper-Button rev-btn" href='{{$s->boton}}' style="z-index: 8;font-size:20px;border-radius:0.25rem; background:white; color:black; white-space: nowrap; text-transform: uppercase; outline: none; box-shadow: none; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; cursor: pointer;"
-                               data-x="['left','left','left','left']"
-                               data-y="['top','top','top','top']"
-                               data-hoffset="['53','53','53','30']"
-                               data-voffset="['300','331','301','245']"
-                               data-width="none"
-                               data-height="none"
-                               data-whitespace="nowrap"
-                               data-type="button"
-                               data-responsive_offset="on"
-                               data-responsive="off"
-                               data-frames='[
-                         {"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},
-                         {"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;","ease":"Power3.easeInOut"},
-                         {"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bg:rgba(29, 136, 115, 1.00);bc:rgba(29, 136, 115, 1.00);bw:1px 1px 1px 1px;"}
-                       ]'
-                               data-textAlign="['left','left','left','left']"
-                               data-paddingtop="[21,21,21,21]"
-                               data-paddingright="[44,44,44,44]"
-                               data-paddingbottom="[21,21,21,21]"
-                               data-paddingleft="[44,44,44,44]"><i class="fa fa-play"></i>
-                            </a>
-                        @else
-                        @endif
                         <!-- LAYER NR. 4 -->
                     </li>
                     @endforeach
