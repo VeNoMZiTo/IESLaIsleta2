@@ -390,26 +390,17 @@
 {{--                                                <!-- End Submenu -->--}}
 {{--                                            </li>--}}
 
-                                            <li class="hs-has-mega-menu nav-item g-mx-10--lg g-mx-20--xl g-mb-5 g-mb-0--lg" data-animation-in="fadeIn" data-animation-out="fadeOut" data-position="center">
+                                            <li class="hs-has-mega-menu nav-item position-relative g-mx-10--lg g-mx-20--xl g-mb-5 g-mb-0--lg" data-animation-in="fadeIn" data-animation-out="fadeOut" data-position="center">
                                                 <a id="mega-menu-label-1" class="nav-link g-font-size-16--lg g-font-size-15" href="#!" aria-haspopup="true" aria-expanded="false">
                                                     Departamentos
                                                 </a>
                                                 <div class="hs-mega-menu u-shadow-v11 MegaMenuDepartamentos" aria-labelledby="mega-menu-label-1">
                                                     <div class="row align-items-stretch mx-0">
-                                                        <div class="col-lg-6 px-0">
+                                                        <div class="col-12 px-0">
                                                             <ul class="list-unstyled">
-                                                                @foreach($DepartamentosGeneral[0] as $col)
+                                                                @foreach($DepartamentosGeneral as $d)
                                                                     <li>
-                                                                        <a class='a-link' href="/departamentos/{{$col['name']}}">{{$col['name']}}</a>
-                                                                    </li>
-                                                                @endforeach
-                                                            </ul>
-                                                        </div>
-                                                        <div class="col-lg-6 g-brd-left--lg g-brd-gray-light-v5 px-0">
-                                                            <ul class="list-unstyled">
-                                                                @foreach($DepartamentosGeneral[1] as $col)
-                                                                    <li>
-                                                                        <a class='a-link' href="/departamentos/{{$col['name']}}">{{$col['name']}}</a>
+                                                                        <a class='a-link' href="/departamentos/{{$d['name']}}">{{$d['name']}}</a>
                                                                     </li>
                                                                 @endforeach
                                                             </ul>
