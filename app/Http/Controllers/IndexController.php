@@ -26,15 +26,7 @@ class IndexController extends Controller
     public function __construct()
     {
         $Departamento = Team::all();
-        if(count($Departamento)%2!=0){
-            $contador=count($Departamento) - 1;
-        }else{
-            $contador= count($Departamento)/2;
-        }
-        view()->share('DepartamentosGeneral',[
-            '0'=>array_slice($Departamento->toArray(),0,$contador),
-            '1'=>array_slice($Departamento->toArray(),$contador,count($Departamento)),
-        ]);
+        view()->share('DepartamentosGeneral',$Departamento);
     }
     public function getIndex(){
         $slider = Slider::all();

@@ -802,14 +802,17 @@ tr.body *, tr.body{
     display:none;
 }
 .MegaMenuDepartamentos{
-    width: 50%;
+    min-width: 200px;
     max-width: 100%
 }
-
+.MegaMenuDepartamentos ul{
+    padding: 0.71429rem 0;
+}
 .MegaMenuDepartamentos ul li a {
     color: #777 !important;
     padding: 0.42857rem 1.78571rem !important;
     width: 100%;
+    font-size: 0.92857rem;
 }
 .a-link:hover{
     text-decoration: none;
