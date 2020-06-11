@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-9">
+                <div class="col-lg-9 cuboDesactivado">
                     <form class="g-mb-20">
                         <div class="row">
                             <div class="col-md-4">
@@ -181,126 +181,126 @@
             $('#datepickerInline').datepicker({
                 firstDay: 1
             });
-            // Variables del form
-            var vname = new RegExp(/^([a-zñáéíóú]+[\s]*)+$/);
-            var vcaract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
-            var vnumberform = new RegExp(/^[9|8|7|6]{1}([\d]{2}[-]*){3}[\d]{2}$/);
-            var ferror =['#e_name','#e_surname','#e_email','#e_phone','#e_message','#e_lopd'];
-            var nombre, apellidos, email, mensaje, telefono;
-            var tipo='';
-            console.log(tipo);
-            function valoresform(){
-                nombre = $('#nombre').val().toLowerCase().trim();
-                apellidos = $('#apellidos').val().toLowerCase().trim();
-                email = $('#email').val().trim();
-                mensaje = $('#mensaje').val().trim();
-                telefono = $('#telefono').val().trim();
-            }
-            // Validador
-            function validar(estado) {
-                if(estado=="#e_email"){
-                    if(vcaract.test(email)){
-                        return true;
-                    }
-                }else if(estado=="#e_message"){
-                    if(mensaje.length > 5){
-                        return true;
-                    }
-                }else if(estado=="#e_phone"){
-                    if(vnumberform.test(telefono)){
-                        return true;
-                    }
-                }else if(estado=='#e_name'){
-                    if(vname.test(nombre) && nombre.length > 2){
-                        return true;
-                    }
-                }else if(estado=='#e_surname'){
-                    if(vname.test(apellidos) && apellidos.length > 2){
-                        return true;
-                    }
-                }else if(estado=='#e_lopd'){
-                    if($('#lopd ').is(':checked')) {
-                        return true;
-                    }
-                }
-            }
-            //Enviar mensaje
+            {{--// Variables del form--}}
+            {{--var vname = new RegExp(/^([a-zñáéíóú]+[\s]*)+$/);--}}
+            {{--var vcaract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);--}}
+            {{--var vnumberform = new RegExp(/^[9|8|7|6]{1}([\d]{2}[-]*){3}[\d]{2}$/);--}}
+            {{--var ferror =['#e_name','#e_surname','#e_email','#e_phone','#e_message','#e_lopd'];--}}
+            {{--var nombre, apellidos, email, mensaje, telefono;--}}
+            {{--var tipo='';--}}
+            {{--console.log(tipo);--}}
+            {{--function valoresform(){--}}
+            {{--    nombre = $('#nombre').val().toLowerCase().trim();--}}
+            {{--    apellidos = $('#apellidos').val().toLowerCase().trim();--}}
+            {{--    email = $('#email').val().trim();--}}
+            {{--    mensaje = $('#mensaje').val().trim();--}}
+            {{--    telefono = $('#telefono').val().trim();--}}
+            {{--}--}}
+            {{--// Validador--}}
+            {{--function validar(estado) {--}}
+            {{--    if(estado=="#e_email"){--}}
+            {{--        if(vcaract.test(email)){--}}
+            {{--            return true;--}}
+            {{--        }--}}
+            {{--    }else if(estado=="#e_message"){--}}
+            {{--        if(mensaje.length > 5){--}}
+            {{--            return true;--}}
+            {{--        }--}}
+            {{--    }else if(estado=="#e_phone"){--}}
+            {{--        if(vnumberform.test(telefono)){--}}
+            {{--            return true;--}}
+            {{--        }--}}
+            {{--    }else if(estado=='#e_name'){--}}
+            {{--        if(vname.test(nombre) && nombre.length > 2){--}}
+            {{--            return true;--}}
+            {{--        }--}}
+            {{--    }else if(estado=='#e_surname'){--}}
+            {{--        if(vname.test(apellidos) && apellidos.length > 2){--}}
+            {{--            return true;--}}
+            {{--        }--}}
+            {{--    }else if(estado=='#e_lopd'){--}}
+            {{--        if($('#lopd ').is(':checked')) {--}}
+            {{--            return true;--}}
+            {{--        }--}}
+            {{--    }--}}
+            {{--}--}}
+            {{--//Enviar mensaje--}}
 
-            //Comprobador KEYDOWN
-            $('#lopd').click(function(){
-                if($(this).is(':checked')) {
-                    $('#e_lopd').hide();
-                }
-            });
-            $('#f-contact input, #f-contact textarea').keyup(function(e){
-                valoresform();
-                switch (e.target.id) {
-                    case 'nombre':
-                        if(validar('#e_name')) {
-                            $('#e_name').hide();
-                        }
-                        break;
-                    case 'apellidos':
-                        if(validar('#e_surname')) {
-                            $('#e_surname').hide();
-                        }
-                        break;
-                    case 'email':
-                        if(validar('#e_email')) {
-                            $('#e_email').hide();
-                        }
-                        break;
-                    case 'telefono':
-                        if(validar('#e_phone')) {
-                            $('#e_phone').hide();
-                        }
-                        break;
-                    case 'mensaje':
-                        if(validar('#e_message')) {
-                            $('#e_message').hide();
-                        }
-                        break;
-                    case 'lopd':
-                        if(validar('#e_lopd')) {
-                            $('#e_lopd').hide();
-                        }
-                        break;
-                }
-            });
-            $('#contactSubmit').on('click',function(){
-                valoresform();
-                if(validar('#e_name') && validar('#e_surname') && validar('#e_email') && validar('#e_message') && validar('#e_phone') && validar('#e_lopd')){
-                    $('.errores').hide();
-                    $.ajax({
-                        type: 'POST',
-                        url: '/mail/send-contact',
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                            nombre:nombre,
-                            apellidos:apellidos,
-                            email: email,
-                            telefono:telefono,
-                            mensaje: mensaje,
-                            tipo:tipo
-                        },
-                        success: function(data){
-                            if(data == 'OK'){
-                                $('.acierto').toggle();
-                            }else{
-                                $('.error').toggle()
-                            }
-                        }
-                    });
-                }else {
-                    for(var x = 0; x < ferror.length; x++) {
-                        if (!validar(ferror[x])) {
-                            $(ferror[x]).show();
-                        } else {
-                            $(ferror[x]).hide();
-                        }
-                    }
-                }
-            });
+            {{--//Comprobador KEYDOWN--}}
+            {{--$('#lopd').click(function(){--}}
+            {{--    if($(this).is(':checked')) {--}}
+            {{--        $('#e_lopd').hide();--}}
+            {{--    }--}}
+            {{--});--}}
+            {{--$('#f-contact input, #f-contact textarea').keyup(function(e){--}}
+            {{--    valoresform();--}}
+            {{--    switch (e.target.id) {--}}
+            {{--        case 'nombre':--}}
+            {{--            if(validar('#e_name')) {--}}
+            {{--                $('#e_name').hide();--}}
+            {{--            }--}}
+            {{--            break;--}}
+            {{--        case 'apellidos':--}}
+            {{--            if(validar('#e_surname')) {--}}
+            {{--                $('#e_surname').hide();--}}
+            {{--            }--}}
+            {{--            break;--}}
+            {{--        case 'email':--}}
+            {{--            if(validar('#e_email')) {--}}
+            {{--                $('#e_email').hide();--}}
+            {{--            }--}}
+            {{--            break;--}}
+            {{--        case 'telefono':--}}
+            {{--            if(validar('#e_phone')) {--}}
+            {{--                $('#e_phone').hide();--}}
+            {{--            }--}}
+            {{--            break;--}}
+            {{--        case 'mensaje':--}}
+            {{--            if(validar('#e_message')) {--}}
+            {{--                $('#e_message').hide();--}}
+            {{--            }--}}
+            {{--            break;--}}
+            {{--        case 'lopd':--}}
+            {{--            if(validar('#e_lopd')) {--}}
+            {{--                $('#e_lopd').hide();--}}
+            {{--            }--}}
+            {{--            break;--}}
+            {{--    }--}}
+            {{--});--}}
+            {{--$('#contactSubmit').on('click',function(){--}}
+            {{--    valoresform();--}}
+            {{--    if(validar('#e_name') && validar('#e_surname') && validar('#e_email') && validar('#e_message') && validar('#e_phone') && validar('#e_lopd')){--}}
+            {{--        $('.errores').hide();--}}
+            {{--        $.ajax({--}}
+            {{--            type: 'POST',--}}
+            {{--            url: '/mail/send-contact',--}}
+            {{--            data: {--}}
+            {{--                "_token": "{{ csrf_token() }}",--}}
+            {{--                nombre:nombre,--}}
+            {{--                apellidos:apellidos,--}}
+            {{--                email: email,--}}
+            {{--                telefono:telefono,--}}
+            {{--                mensaje: mensaje,--}}
+            {{--                tipo:tipo--}}
+            {{--            },--}}
+            {{--            success: function(data){--}}
+            {{--                if(data == 'OK'){--}}
+            {{--                    $('.acierto').toggle();--}}
+            {{--                }else{--}}
+            {{--                    $('.error').toggle()--}}
+            {{--                }--}}
+            {{--            }--}}
+            {{--        });--}}
+            {{--    }else {--}}
+            {{--        for(var x = 0; x < ferror.length; x++) {--}}
+            {{--            if (!validar(ferror[x])) {--}}
+            {{--                $(ferror[x]).show();--}}
+            {{--            } else {--}}
+            {{--                $(ferror[x]).hide();--}}
+            {{--            }--}}
+            {{--        }--}}
+            {{--    }--}}
+            {{--});--}}
         });
     </script>
 @endsection
