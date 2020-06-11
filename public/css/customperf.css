@@ -1008,7 +1008,10 @@ tr.body *, tr.body{
     margin-right: 1rem;
     color: #1d8873;
 }
-
+/*Ckeditor*/
+.ckeditor ul li, .ckeditor p{
+    font-size: 16px;
+}
 @media only screen and (max-width: 1600px) and (min-width: 1200px){
     #actividades{
         width: 100%;
