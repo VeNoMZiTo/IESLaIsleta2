@@ -13,13 +13,15 @@
                     <div class="d-inline-block g-width-70 g-height-2 g-bg-primary mb-4"></div>
                 </div>
                 <p class="lead g-px-200--lg g-color-gray-dark-v3">
-                    {{$juntaDelegados->subtitulo ?? 'La Junta de delegad@s y subdelegad@s de centro es el <b>órgano de participación democrática</b> del alumnado por excelencia y por ley, después de la asamblea de clase.'}}
+                    {!! $juntaDelegados->subtitulo ?? 'La Junta de delegad@s y subdelegad@s de centro es el <b>órgano de participación democrática</b> del alumnado por excelencia y por ley, después de la asamblea de clase.'!!}
                 </p>
             </div>
             <div class="row">
                 <div class="col-lg-6 g-mb-50 g-mb-0--lg">
                     @if($juntaDelegados && $juntaDelegados->texto)
-                        {!! $juntaDelegados->texto !!}
+                        <div class="ckeditor">
+                            {!! $juntaDelegados->texto !!}
+                        </div>
                     @else
                         <p class="g-mb-30 g-color-gray-dark-v3 g-font-size-16 text-justify">
                             L@s delegad@s y subdelegad@s, como representantes de sus compañer@s:
