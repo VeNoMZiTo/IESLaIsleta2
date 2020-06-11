@@ -814,6 +814,7 @@ tr.body *, tr.body{
 .MegaMenuDepartamentos ul li a {
     color: #777 !important;
     padding: 0.42857rem 1.78571rem !important;
+    display: block;
     width: 100%;
     font-size: 0.92857rem;
 }
@@ -1182,6 +1183,31 @@ tr.body *, tr.body{
 
 }
 @media only screen and (max-width: 992px){
+    #navBar::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.9);
+        opacity: 0;
+        transition: .3s all;
+    }
+    #navBar.show::after{
+        opacity: 1;
+    }
+    .navbar .u-main-nav-v5 .nav-item.hs-has-sub-menu > a::after, .navbar .u-main-nav-v5 .nav-item.hs-has-mega-menu > a::after, .navbar .u-main-nav-v5 .nav-item.dropdown > a::after {
+        right: 15px;
+        font-size: 16px;
+    }
+    #navBar ul{
+        position: relative;
+        z-index: 100;
+    }
+    .hs-menu-initialized.hs-menu-horizontal .hs-mega-menu.hs-position-center{
+        transform: none;
+    }
     .zona-logos-responsive{
         display: block;
     }
