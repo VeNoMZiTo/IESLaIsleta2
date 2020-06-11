@@ -211,6 +211,9 @@ nav{
 #rev_slider_486_1_wrapper .tp-caption img, #rev_slider_486_1_wrapper .tp-caption figure, #rev_slider_486_1_wrapper .tp-caption table, #rev_slider_486_1_wrapper .tp-caption video{
     display: none;
 }
+#rev_slider_486_1_wrapper .tp-caption a{
+    text-decoration: none !important;
+}
 /*Logo*/
 #box-logotop{
     text-decoration: none !important;
@@ -871,6 +874,29 @@ tr.body *, tr.body{
     text-decoration: inherit !important;
 }
 /*Cita previa*/
+.cuboDesactivado::after{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,.8);
+    z-index: 9;
+}
+.cuboDesactivado::before{
+    content: '¡Este servicio aún no esta disponible!';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+}
 .selectCita{
     width: 100%;
     margin-bottom: 20px;

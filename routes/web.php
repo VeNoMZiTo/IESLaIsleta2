@@ -36,7 +36,7 @@ Route::get('/tutorias', 'TablasController@getTutoria');
 Route::get('/secretaria-informacion', 'IndexController@getSecretariaInformacion');
 Route::get('/impresos', 'IndexController@getImpreso');
 Route::get('/certificados', 'IndexController@getDepartamentos');
-Route::post('mail/send-contact', 'MailController@sendCertificado');
+Route::post('mail/enviar-certificado', 'MailController@enviarCertificado');
 
 /*Cita Previa de Tarde*/
 Route::get('/cita-previa-tarde', 'IndexController@getDepartamentos');

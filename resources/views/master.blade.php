@@ -472,6 +472,9 @@
                                                     <li>
                                                         <a href="/pdf/visita-padres.pdf">Calendario de visitas</a>
                                                     </li>
+                                                    <li>
+                                                        <a href="/cita-previa-tarde">Cita previa de tarde</a>
+                                                    </li>
                                                     <li class="dropdown-item hs-has-sub-menu">
                                                         <a id="nav-link-2" class="nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-2">APP Pincel Alumnado y Familias
                                                         </a>
@@ -699,7 +702,7 @@
             <!-- Copyright Footer -->
             <footer class=" g-color-white-opacity-0_8 text-center g-py-20 adr">
                 <div class="container">
-                    <small class="g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">@php echo date('Y');@endphp © Todos los Derechos Reservados - <strong><a href="https://adrianrm.com/" target="_blank" style="color:inherit; text-decoration: none !important;">Dimension TEI</a></strong>
+                    <small class="g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">@php echo date('Y');@endphp © Todos los Derechos Reservados - <strong><a href="https://dimensiontei.com/" target="_blank" rel="noreferrer" style="color:inherit; text-decoration: none !important;">Dimension TEI</a></strong>
                     </small>
                 </div>
             </footer>

@@ -50,6 +50,10 @@
                                 <input id='email' name="email" class="form-control g-color-black u-shadow-v1-3 g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover g-brd-primary--focus rounded-3 g-py-13 g-px-15" type="email" placeholder="">
                                 <small id="e_email" class="errores"><strong>* </strong>Dirección de correo no válido</small>
                             </div>
+                            <div class="col-md-12 form-group g-mb-20">
+                                <label for='observaciones' class="g-color-gray-dark-v2 g-font-size-13">Observaciones</label>
+                                <textarea id='observaciones' name="observaciones" class="form-control g-color-black u-shadow-v1-3 g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover g-brd-primary--focus rounded-3 g-py-13 g-px-15" placeholder=". . ." rows="6"></textarea>
+                            </div>
                             <div class="col-12">
                                 <div class="form-group row g-mb-25">
                                     <label for='certificado' class="col-sm-4 col-form-label g-pb-10 d-flex align-items-center">Selecione un tipo de certificado</label>
@@ -147,8 +151,8 @@
             var vname = new RegExp(/^([a-zñáéíóú]+[\s]*)+$/);
             var vcaract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
             var vnumberform = new RegExp(/^[9|8|7|6]{1}([\d]{2}[-]*){3}[\d]{2}$/);
-            var ferror =['#e_name','#e_surname','#e_email','#e_phone','#e_lopd','#e_certificado'];
-            var nombre, apellidos, email, telefono, dni, certificado;
+            var ferror =['#e_name','#e_surname','#e_observaciones','#e_email','#e_phone','#e_lopd','#e_certificado'];
+            var nombre, apellidos, observaciones, email, telefono, dni, certificado;
 
             function validarDni(dni) {
                 var numero;
@@ -176,6 +180,7 @@
             function valoresform(){
                 nombre = $('#nombre').val().toLowerCase().trim();
                 apellidos = $('#apellidos').val().toLowerCase().trim();
+                observaciones = $('#observaciones').val().toLowerCase().trim();
                 email = $('#email').val().trim();
                 telefono = $('#telefono').val().trim();
                 dni = $('#dni').val().trim();
@@ -193,6 +198,10 @@
                     }
                 }else if(estado=='#e_name'){
                     if(vname.test(nombre) && nombre.length > 2){
+                        return true;
+                    }
+                }else if(estado=='#e_observaciones'){
+                    if(vname.test(observaciones) && texto.length > 2){
                         return true;
                     }
                 }else if(estado=='#e_surname'){
@@ -233,6 +242,11 @@
                             $('#e_surname').hide();
                         }
                         break;
+                    case 'observaciones':
+                        if(validar('#e_observaciones')) {
+                            $('#e_text').hide();
+                        }
+                        break;
                     case 'email':
                         if(validar('#e_email')) {
                             $('#e_email').hide();
@@ -261,17 +275,19 @@
                     $('.errores').hide();
                     $.ajax({
                         type: 'POST',
-                        url: '/mail/send-contact',
+                        url: 'mail/enviar-certificado',
                         data: {
                             "_token": "{{ csrf_token() }}",
                             nombre:nombre,
                             apellidos:apellidos,
+                            observaciones:observaciones,
                             email: email,
                             telefono:telefono,
                             dni:dni,
                             certificado:certificado
                         },
                         success: function(data){
+                            console.info(data);
                             if(data == 'OK'){
                                 $('.acierto').toggle();
                                 $('#contactSubmit').attr({'id':' '});
