@@ -177,7 +177,6 @@
             </div>
             <div class="row blog-row">
                 <div class="col-12 col-lg-6 principal ">
-
                     @if(isset($noticias[0]))
                     <img src="{{count($noticias[0]->foto) ? $noticias[0]->foto[0]->getUrl() : '/img/fondos/placeholder.jpg'}}" class="img-fluid u-shadow-v2 fotoprincipal">
                     <div class="overlay-f-principal"></div>
