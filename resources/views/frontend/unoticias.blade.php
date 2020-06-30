@@ -1,10 +1,6 @@
 @extends('master')
 @php
-    if(count($noticia)){
-        $mediador = $noticia;
-    }else{
-        $mediador = $actividad;
-    }
+    $mediador = $articulo;
     if(count($mediador->foto)){
         $image = $mediador->foto;
     }else{
