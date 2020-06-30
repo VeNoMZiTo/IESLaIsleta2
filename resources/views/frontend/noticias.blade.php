@@ -22,14 +22,14 @@
                         </div>
                     </div>
 
-                    <img class="img-fluid w-100 g-mb-25 shadow-img" src="{{$n->foto[0]->getUrl()}}" alt="">
+                    <img class="img-fluid w-100 g-mb-25 shadow-img" src="{{count($noticias[0]->foto) ? $noticias[0]->foto[0]->getUrl() : '/img/fondos/placeholder.jpg'}}" alt="">
                     <h2 class="h4 g-color-black g-font-weight-600 mb-3">
-                        <a class="u-link-v5 g-color-black g-color-primary--hover" href="/noticia/{{$n->id}}-{{$n->titulo}}">{{$n->titulo}}</a>
+                        <a class="u-link-v5 g-color-black g-color-primary--hover" href="/noticia/{{$n->id}}-noticias">{{$n->titulo}}</a>
                     </h2>
                     <div class="g-color-gray-dark-v4 g-line-height-1_8 text-justify noticias-descripcion">
                         {!! $n->descripcion !!}
                     </div>
-                    <a class="g-font-size-13" href="/noticia/{{$n->id}}-{{$n->titulo}}">Leer más...</a>
+                    <a class="g-font-size-13" href="/noticia/{{$n->id}}-noticias">Leer más...</a>
                 </div>
 
                 <ul class="d-flex justify-content-end list-inline g-brd-y g-brd-gray-light-v3 g-font-size-13 g-py-13 mb-0">
