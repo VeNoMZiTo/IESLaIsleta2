@@ -1,8 +1,7 @@
 @extends('master')
 @php
-    if(isset($noticia)){
+    if(count($noticia)){
         $mediador = $noticia;
-
     }else{
         $mediador = $actividad;
     }
