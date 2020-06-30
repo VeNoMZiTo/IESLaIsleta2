@@ -43,13 +43,13 @@ class IndexController extends Controller
     public function getNoticia(Request $request, $id){
         $noticia = Noticium::find($id);
         return view('frontend.unoticias',array(
-            'noticia' => $noticia
+            'articulo' => $noticia
         ));
     }
     public function getActividad(Request $request, $id){
         $actividad = Actividade::find($id);
         return view('frontend.unoticias',array(
-            'actividad' => $actividad
+            'articulo' => $actividad
         ));
     }
     public function getRepertorioNoticias(){
