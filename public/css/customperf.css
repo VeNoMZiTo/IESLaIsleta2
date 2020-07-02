@@ -869,6 +869,7 @@ tr.body *, tr.body{
 }
 .cs-options ul{
     display:flex;
+    flex-wrap: wrap;
 }
 .listaDescarga{
     color: inherit;

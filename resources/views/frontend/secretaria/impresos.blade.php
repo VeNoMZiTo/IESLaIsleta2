@@ -13,11 +13,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 g-mb-50 g-mb-0--lg">
-                    <img class="img-fluid u-shadow-v1-5 rounded h-100 object-fit-cover" src="/img/fotos-centro/biblioteca.jpg" alt="IES La Isleta Centro">
-                </div>
-
-                <div class="col-lg-6">
+                <div class="col-12">
                     <header class="u-heading-v2-3--bottom g-brd-primary g-mb-20">
                         <h2 class="h3 u-heading-v2__title">Descargar Impresos</h2>
                     </header>
