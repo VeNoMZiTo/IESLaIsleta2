@@ -366,7 +366,7 @@
                 </a>
             </li>
             <li class="list-inline-item g-mb-10">
-                <a class="u-tags-v1 g-color-pink g-brd-around g-brd-gray-light-v3 g-brd-pink--hover g-bg-pink--hover g-color-white--hover g-rounded-50 g-py-4 g-px-15" href="#">
+                <a class="u-tags-v1 g-color-pink g-brd-around g-brd-gray-light-v3 g-brd-pink--hover g-bg-pink--hover g-color-white--hover g-rounded-50 g-py-4 g-px-15" href="mailto:info@ieslaisleta.net">
                     <i class="fa fa-envelope mr-1"></i>
                     Correo
                 </a>

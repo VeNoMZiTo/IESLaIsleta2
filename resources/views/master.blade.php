@@ -186,7 +186,7 @@
                                     <a href='/consultas' class="d-flex align-items-center justify-content-center h-100 w-100">
                                         <span class="icon fa fa-wpforms g-valign-middle g-font-size-18 g-mr-5"></span>
                                         <div class="text-right text-sm-left g-pa-10--lg">
-                                            <strong><span class="text-uppercase g-font-size-12">Buzón de Sugerencias</span></strong>
+                                            <strong><span class="text-uppercase g-font-size-12">Consultas</span></strong>
                                         </div>
                                         <span class="circle"></span>
                                     </a>
@@ -601,7 +601,7 @@
                                     </li>
                                     <li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">
                                         <h4 class="h6 g-pr-20 mb-0">
-                                            <a class=" g-color-white g-color-white--hover" href="/consultas">Buzón de Sugerencias</a>
+                                            <a class=" g-color-white g-color-white--hover" href="/consultas">Consultas</a>
                                             <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
                                         </h4>
                                     </li>
