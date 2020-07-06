@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f0f9d890-cdf8-4d84-907a-e2c0d84695a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/noticias.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/noticias.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +278,7 @@
       <workItem from="1593508753499" duration="1545000" />
       <workItem from="1593512606346" duration="77000" />
       <workItem from="1593712676190" duration="2476000" />
-      <workItem from="1594059887944" duration="232000" />
+      <workItem from="1594059887944" duration="491000" />
     </task>
     <servers />
   </component>
