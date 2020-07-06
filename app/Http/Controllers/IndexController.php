@@ -31,7 +31,7 @@ class IndexController extends Controller
     public function getIndex(){
         $slider = Slider::all();
         $actividades=Actividade::all()->take(4);
-        $noticias = Noticium::orderBy('id', 'desc')->take(4)->get();
+        $noticias = Noticium::orderBy('id', 'desc')->take(6)->get();
         return view('frontend.index',array(
             'slider' => $slider,
             'actividades'=> $actividades,
@@ -53,7 +53,7 @@ class IndexController extends Controller
         ));
     }
     public function getRepertorioNoticias(){
-        $noticias = Noticium::all();
+        $noticias = Noticium::orderBy('id', 'DESC')->get();
         return view('frontend.noticias',array(
             'noticias' => $noticias
         ));
