@@ -22,7 +22,7 @@
                         </div>
                     </div>
 
-                    <img class="img-fluid w-100 g-mb-25 shadow-img" src="{{count($noticias[0]->foto) ? $noticias[0]->foto[0]->getUrl() : '/img/fondos/placeholder.jpg'}}" alt="">
+                    <img class="img-fluid w-100 g-mb-25 shadow-img" src="{{count($n->foto) ? $n->foto[0]->getUrl() : '/img/fondos/placeholder.jpg'}}" alt="">
                     <h2 class="h4 g-color-black g-font-weight-600 mb-3">
                         <a class="u-link-v5 g-color-black g-color-primary--hover" href="/noticia/{{$n->id}}-noticias">{{$n->titulo}}</a>
                     </h2>
