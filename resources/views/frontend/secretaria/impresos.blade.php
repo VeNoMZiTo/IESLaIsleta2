@@ -23,10 +23,10 @@
                     <div class="row">
                         @foreach($impreso as $i)
                         <div class='col-md-6 g-mb-30'>
-                            <a class='media g-mb-15 cartaDescarga' href='{{$i->archivo->first()->getUrl()}}' download>
+                            <a class='media g-mb-15 cartaDescarga' href='{{$i->archivo->getUrl()}}' download>
                                 <div class='d-flex align-self-center mr-3'>
                                 @php
-                                    $tipo = explode('.',$i->archivo->first()->file_name);
+                                    $tipo = explode('.',$i->archivo->file_name);
                                     $tipo = $tipo[count($tipo) - 1];
                                     switch ($tipo){
                                         case 'jpg':

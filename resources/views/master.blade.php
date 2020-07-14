@@ -763,7 +763,9 @@
 @show
 
 <!-- JS Plugins Init. -->
-<script>(function(d, s, id) {
+<script>
+    (function(d, s, id) {
+        console.info('Esto es una prueba de consola');
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;

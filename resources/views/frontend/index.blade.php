@@ -150,7 +150,7 @@
                                 <div class="g-pa-20">
                                     <div class="u-heading-v2-6--bottom g-brd-primary g-mb-20">
                                         <h4 class="h4 u-heading-v2__title g-font-weight-300 g-mb-0">
-                                            <a class="u-link-v5 g-color-main g-color-primary--hover actividades-titulo" href="/actividad/{{$a->id}}-actividades">{{$a->titulo}}</a>
+                                            <a class="u-link-v5 g-color-main g-color-primary--hover actividades-titulo" href="/actividad/{{$a->id}}/{{trim(preg_replace('/\s+/', '-', $a->titulo))}}">{{$a->titulo}}</a>
                                         </h4>
                                     </div>
 
@@ -191,9 +191,9 @@
                             </li>
                         </ul>
                         <h2 class="h2 g-color-black g-font-weight-600 mb-4">
-                            <a class="u-link-v5 g-color-white g-color-primary--hover" href="/noticia/{{$noticias[0]->id}}-noticias">{{$noticias[0]->titulo}}</a>
+                            <a class="u-link-v5 g-color-white g-color-primary--hover" href="/noticia/{{$noticias[0]->id}}-{{trim(preg_replace('/\s+/', '-', $noticias[0]->titulo))}}">{{$noticias[0]->titulo}}</a>
                         </h2>
-                        <a href="/noticia/{{$noticias[0]->id}}-noticias" class="btn g-bg-primary g-brd-primary--hover g-color-white btn-lg">Leer más</a>
+                        <a href="/noticia/{{$noticias[0]->id}}/{{trim(preg_replace('/\s+/', '-', $noticias[0]->titulo))}}" class="btn g-bg-primary g-brd-primary--hover g-color-white btn-lg">Leer más</a>
                     </div>
                     <hr class='p-0 my-1 redes-principal'/>
                     <ul class="list-inline mb-0 redes-principal">
@@ -257,7 +257,7 @@
                                         <li class="list-inline-item">{{$n->fecha}}</li>
                                     </ul>
                                     <h4 class="h6 g-color-black g-font-weight-600 mb-4">
-                                        <a class="u-link-v5 g-color-black g-color-primary--hover" href="/noticia/{{$n->id}}-noticias">{{$n->titulo}}</a>
+                                        <a class="u-link-v5 g-color-black g-color-primary--hover" href="/noticia/{{$n->id}}/{{trim(preg_replace('/\s+/', '-', $n->titulo))}}">{{$n->titulo}}</a>
                                     </h4>
                                     <div class="noticias-descripcion">
                                         {!! $n->descripcion !!}
