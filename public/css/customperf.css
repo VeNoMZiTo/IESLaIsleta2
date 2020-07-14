@@ -400,6 +400,9 @@ nav{
     white-space:nowrap;
     text-overflow: ellipsis;
 }
+#actividades .actividades-titulo{
+    font-weight: bold;
+}
 .actividades-descripcion *, .noticias-descripcion *{
     display: none;
 }
@@ -411,7 +414,7 @@ nav{
     text-align: justify;
 }
 
-.js-slide h4 a, #blog-noticias .noticias-descripcion> p:first-of-type, .actividades-titulo{
+.js-slide h4 a, #blog-noticias .noticias-descripcion > p:first-of-type, .actividades-titulo{
     -webkit-line-clamp: 2;
 }
 .actividades-descripcion> p:first-of-type{

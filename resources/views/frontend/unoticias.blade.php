@@ -11,11 +11,12 @@
 @section('meta')
 <!-- Facebook-->
     <meta property="og:url"           content="ies.adrianrm.com" />
-    <meta property="og:title"         content="Ies La Isleta" />
+    <meta property="og:title"         content="IES La Isleta" />
     <meta property="og:description"   content="{{$mediador->titulo}}" />
     <meta property="og:image"         content="{{$image == '/img/fondos/placeholder.jpg' ? $image : $image[0]->getUrl()}}"/>
 @endsection
 @section('content')
+
 <section id='zona-noticia' class="container g-py-100 ">
     <div class="row g-mb-40">
         <!-- Carousel Images -->
@@ -110,6 +111,7 @@
                 </ul>
         </div>
     </div>
+
     <div id="modal-compartir" class="text-left g-max-width-600 g-bg-white g-overflow-y-auto g-pa-20" style="display: none;">
         <button type="button" class="close" onclick="Custombox.modal.close();">
             <i class="hs-icon hs-icon-close"></i>
@@ -119,8 +121,8 @@
             <h4 class="g-font-weight-200">{{$mediador->titulo}}</h4>
         </div>
         <ul class="u-list-inline">
-            <li class="list-inline-item g-mb-10">
-                <a class="u-tags-v1 g-color-facebook g-brd-around g-brd-gray-light-v3 g-brd-facebook--hover g-bg-blue-opacity-0_1 g-bg-facebook--hover g-color-white--hover g-rounded-50 g-py-4 g-px-15" href="#">
+            <li class="list-inline-item g-mb-10 fb-share-button" data-href="{{Request::url()}}" data-layout="button" data-size="small">
+                <a target='_blank' class="fb-xfbml-parse-ignore u-tags-v1 g-color-facebook g-brd-around g-brd-gray-light-v3 g-brd-facebook--hover g-bg-blue-opacity-0_1 g-bg-facebook--hover g-color-white--hover g-rounded-50 g-py-4 g-px-15" href="https://www.facebook.com/sharer/sharer.php?u={{Request::url()}}">
                     <i class="fa fa-facebook mr-1"></i>
                     Facebook
                 </a>

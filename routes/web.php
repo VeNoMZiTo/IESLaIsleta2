@@ -46,8 +46,8 @@ Route::get('/nodisponible', 'IndexController@getDepartamentos');
 Route::get('/consultas', 'IndexController@getDepartamentos');
 Route::get('/pincel-ekade', 'IndexController@getDepartamentos');
 Route::get('/noticias', 'IndexController@getRepertorioNoticias');
-Route::get('/noticia/{id}-noticias', 'IndexController@getNoticia');
-Route::get('/actividad/{id}-actividades', 'IndexController@getActividad');
+Route::get('/noticia/{id}/{noticias}', 'IndexController@getNoticia');
+Route::get('/actividad/{id}/{actividad}', 'IndexController@getActividad');
 
 /*Correos del Apartado de Buzón de Sugerencias*/
 Route::post('mail/send-contact', 'MailController@sendContact');
