@@ -40,14 +40,14 @@ class IndexController extends Controller
 
         ));
     }
-    public function getNoticia(Request $request, $id){
-        $noticia = Noticium::find($id);
+    public function getNoticia(Request $request, $id, $noticias){
+        $noticia = Noticium::where('id',$id)->first();
         return view('frontend.unoticias',array(
             'articulo' => $noticia
         ));
     }
     public function getActividad(Request $request, $id){
-        $actividad = Actividade::find($id);
+        $actividad = Actividade::where('id',$id)->first();
         return view('frontend.unoticias',array(
             'articulo' => $actividad
         ));
