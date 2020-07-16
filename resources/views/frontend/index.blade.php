@@ -191,7 +191,7 @@
                             </li>
                         </ul>
                         <h2 class="h2 g-color-black g-font-weight-600 mb-4">
-                            <a class="u-link-v5 g-color-white g-color-primary--hover" href="/noticia/{{$noticias[0]->id}}-{{trim(preg_replace('/\s+/', '-', $noticias[0]->titulo))}}">{{$noticias[0]->titulo}}</a>
+                            <a class="u-link-v5 g-color-white g-color-primary--hover" href="/noticia/{{$noticias[0]->id}}/{{trim(preg_replace('/\s+/', '-', $noticias[0]->titulo))}}">{{$noticias[0]->titulo}}</a>
                         </h2>
                         <a href="/noticia/{{$noticias[0]->id}}/{{trim(preg_replace('/\s+/', '-', $noticias[0]->titulo))}}" class="btn g-bg-primary g-brd-primary--hover g-color-white btn-lg">Leer más</a>
                     </div>
