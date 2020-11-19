@@ -96,6 +96,9 @@
                                     <div class="media-body align-self-center">
                                         <h3 class="h4 g-color-black">Observación</h3>
                                         <p class="g-color-gray-dark-v3 mb-0 text-justify">
+                                            <b>Solo se atenderá</b> en ventanilla a quien solicite <b>cita previa</b>.
+                                        </p>
+                                        <p class="g-color-gray-dark-v3 mb-0 text-justify">
                                             Para recoger cualquier certificado será imprescindible presentar el <b class="tooltipster g-cursor-info" title="Documento Nacional de Identidad">D.N.I.</b> pasadas 48 horas desde la solucitud online.<br>
                                             En caso de que lo recoja otra persona, deberá presentar autorización y fotocopia del <b class="tooltipster g-cursor-info" title="Documento Nacional de Identidad">D.N.I.</b> solicitante así como el <b class="tooltipster g-cursor-info" title="Documento Nacional de Identidad">D.N.I.</b> propio.
                                         </p>

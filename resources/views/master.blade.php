@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/css/custom-2.css">
     @section('css')
     @show
-    <link rel="stylesheet" href="/css/customperf.css">
+    <link rel="stylesheet" href="/css/customperf.css?v=1a02">
     <style>
         .g-height-60{
             height: 60px;
@@ -359,6 +359,9 @@
                                                         <a href="/oferta-educativa">Oferta educativa</a>
                                                     </li>
                                                     <li>
+                                                        <a href="/redes-y-proyectos">Redes y proyectos</a>
+                                                    </li>
+                                                    <li>
                                                         <a href="/calendario-escolar">Calendario escolar</a>
                                                     </li>
                                                     <li>
@@ -369,7 +372,7 @@
                                                 <!-- End Submenu -->
                                             </li>
                                             <li class="nav-item g-mx-10--lg g-mx-20--xl g-mb-5 g-mb-0--lg">
-                                                <a href="/profesorado" class="nav-link g-font-size-16--lg g-font-size-15" >Profesorado
+                                                <a href="/profesorado" class="nav-link g-font-size-16--lg g-font-size-15" >Zona profesorado
                                                 </a>
                                                 <!-- Submenu -->
                                                 <!-- End Submenu -->
@@ -419,9 +422,7 @@
                                                     <li>
                                                         <a href="/pdf/horario-grupos-ies-la-isleta-2019-2020.pdf">Horario de grupos</a>
                                                     </li>
-                                                    <li>
-                                                        <a href="/redes-y-proyectos">Redes y proyectos</a>
-                                                    </li>
+
                                                     <li class="dropdown-item hs-has-sub-menu">
                                                         <a id="nav-link-2-alumnos" class="nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu-2-alumnos">APP Pincel Alumnado y Familias
                                                         </a>
