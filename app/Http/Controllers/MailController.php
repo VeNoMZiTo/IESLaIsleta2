@@ -36,22 +36,22 @@ class MailController extends Controller
     }
     public function enviarCertificado(Request $request)
     {
-        $objDemo = new \stdClass();
-        $objDemo->nombre = $request->input('nombre');
-        $objDemo->apellidos = $request->input('apellidos');
-        $objDemo->telefono = $request->input('telefono');
-        $objDemo->texto = $request->input('observaciones');
-        $objDemo->dni = $request->input('dni');
-        $objDemo->email = $request->input('email');
-        $objDemo->certificado = $request->input('certificado');
-        $objDemo->asunto = "Solicitud de Certificado";
-        $objDemo->vista = 'email.certificado';
+        $objDemo                = new \stdClass();
+        $objDemo->nombre        = $request->input('nombre');
+        $objDemo->apellidos     = $request->input('apellidos');
+        $objDemo->telefono      = $request->input('telefono');
+        $objDemo->observaciones = $request->input('observaciones');
+        $objDemo->dni           = $request->input('dni');
+        $objDemo->email         = $request->input('email');
+        $objDemo->certificado   = $request->input('certificado');
+        $objDemo->asunto        = "Solicitud de Certificado";
+        $objDemo->vista         = 'email.certificado';
         try{
             Mail::to('administracion@ieslaisleta.net')
                 ->send(new SendEmail($objDemo));
             return 'OK';
         }catch(\Exception $e){
-            return 'FAIL';
+            return $e;
         }
 
     }

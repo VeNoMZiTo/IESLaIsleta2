@@ -257,7 +257,10 @@ nav{
 /*Actividades*/
 
 #actividades{
-    width: 75%;
+    width: 100%;
+}
+#actividades  .slick-slide{
+    margin: 0 20px;
 }
 #actividades .news article{
     background:white;
@@ -270,7 +273,7 @@ nav{
     object-position:center;
 }
 #actividades .news{
-    max-width: 500px;
+    /*max-width: 500px;*/
 }
 #s-actividad{
     background:#f4f4f4;

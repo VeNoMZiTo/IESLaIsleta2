@@ -131,39 +131,69 @@
                 <h2 class="text-uppercase h3 u-heading-v3__title g-brd-primary">De especial interés</h2>
             </div>
             <div class="justify-content-center d-flex">
-                    <div id="actividades" class="row justify-content-center">
-                        @foreach($actividades as $a)
-                            @php
-                            $mes=['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-                            @endphp
-                        <div class="col-12 col-lg-6 col-xl-3 g-mb-15 news">
-                            <!-- Article -->
-                            <article class="g-brd-around g-brd-gray-light-v4 g-pa-5 u-shadow-v4" >
-                                <figure class="g-pos-rel">
-                                    <img class="img-fluid w-100 g-mb-10" src="{{count($a->foto) ? $a->foto[0]->getUrl() : '/img/fondos/placeholder.jpg'}}">
-                                    <figcaption class="text-uppercase text-center g-line-height-1_2 g-bg-white-opacity-0_8 g-color-gray-dark-v2 g-pos-abs g-top-20 g-px-15 g-py-10">
-                                        <strong class="d-block numero">{{substr($a->fecha,0,2)}}</strong>
-                                        <hr class="g-brd-gray-dark-v2 my-1">
-                                        <small class="d-block mes">{{$mes[intval(substr($a->fecha,3,2))]}}</small>
-                                    </figcaption>
-                                </figure>
-                                <div class="g-pa-20">
-                                    <div class="u-heading-v2-6--bottom g-brd-primary g-mb-20">
-                                        <h4 class="h4 u-heading-v2__title g-font-weight-300 g-mb-0">
-                                            <a class="u-link-v5 g-color-main g-color-primary--hover actividades-titulo" href="/actividad/{{$a->id}}/{{trim(preg_replace('/\s+/', '-', $a->titulo))}}">{{$a->titulo}}</a>
-                                        </h4>
-                                    </div>
+                <div id="actividades" class="row justify-content-center">
+                    <div class="js-carousel w-100"
+                             data-infinite="true"
+                             data-slides-show="5"
+                             data-slides-scroll="5"
+                             data-autoplay="true"
+                             data-pauseOnHover="true"
+                             data-responsive='[{
+                            "breakpoint": 1200,
+                            "settings": {
+                            "slidesToShow": 3,
+                            "slidesToScroll": 1
+                            }
+                            }, {
+                            "breakpoint": 992,
+                            "settings": {
+                            "slidesToShow": 2,
+                            "slidesToScroll": 1
+                            }
+                            }, {
+                            "breakpoint": 768,
+                            "settings": {
+                            "slidesToShow": 1,
+                            "slidesToScroll": 1
+                            }
+                            }, {
+                            "breakpoint": 576,
+                            "settings": {
+                            "slidesToShow": 1,
+                            "slidesToScroll": 1
+                            }
+                            }]'>
+                            @foreach($actividades as $a)
+                                @php
+                                    $mes=['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+                                @endphp
+                                <div class="js-slide news">
+                                    <article class="g-brd-around g-brd-gray-light-v4 g-pa-5" >
+                                        <figure class="g-pos-rel">
+                                            <img class="img-fluid w-100 g-mb-10" src="{{count($a->foto) ? $a->foto[0]->getUrl() : '/img/fondos/placeholder.jpg'}}">
+                                            <figcaption class="text-uppercase text-center g-line-height-1_2 g-bg-white-opacity-0_8 g-color-gray-dark-v2 g-pos-abs g-top-20 g-px-15 g-py-10">
+                                                <strong class="d-block numero">{{substr($a->fecha,0,2)}}</strong>
+                                                <hr class="g-brd-gray-dark-v2 my-1">
+                                                <small class="d-block mes">{{$mes[intval(substr($a->fecha,3,2))]}}</small>
+                                            </figcaption>
+                                        </figure>
+                                        <div class="g-pa-20">
+                                            <div class="u-heading-v2-6--bottom g-brd-primary g-mb-20">
+                                                <h4 class="h4 u-heading-v2__title g-font-weight-300 g-mb-0">
+                                                    <a class="u-link-v5 g-color-main g-color-primary--hover actividades-titulo" href="/actividad/{{$a->id}}/{{trim(preg_replace('/\s+/', '-', $a->titulo))}}">{{$a->titulo}}</a>
+                                                </h4>
+                                            </div>
 
-                                    <div class="g-font-size-15 actividades-descripcion">
-                                        {!! $a->descripcion !!}
-                                    </div>
+                                            <div class="g-font-size-15 actividades-descripcion">
+                                                {!! $a->descripcion !!}
+                                            </div>
+                                        </div>
+                                    </article>
                                 </div>
-                            </article>
-                            <!-- End Article -->
-                        </div>
-                        @endforeach
+                            @endforeach
                     </div>
                 </div>
+            </div>
         </div>
     </section>
     <section id="news" class="g-bg-gray-light-v5 g-pb-40 u-shadow-v1-5">
@@ -176,7 +206,7 @@
                 </div>
             </div>
             <div class="row blog-row">
-                <div class="col-12 col-lg-6 principal ">
+                <div class="col-12 col-lg-6 principal">
                     @if(isset($noticias[0]))
                     <img src="{{count($noticias[0]->foto) ? $noticias[0]->foto[0]->getUrl() : '/img/fondos/placeholder.jpg'}}" class="img-fluid u-shadow-v2 fotoprincipal">
                     <div class="overlay-f-principal"></div>

@@ -29,15 +29,13 @@ class IndexController extends Controller
         view()->share('DepartamentosGeneral',$Departamento);
     }
     public function getIndex(){
-        $slider = Slider::all();
-        $actividades=Actividade::all()->take(4);
-        $noticias = Noticium::orderBy('id', 'desc')->take(6)->get();
+        $slider     = Slider::all();
+        $actividades= Actividade::all()->take(5);
+        $noticias   = Noticium::orderBy('id', 'desc')->take(8)->get();
         return view('frontend.index',array(
-            'slider' => $slider,
-            'actividades'=> $actividades,
-            'noticias'=>$noticias,
-            'mierda'=>Grupo::all()
-
+            'slider'        => $slider,
+            'actividades'   => $actividades,
+            'noticias'      =>$noticias,
         ));
     }
     public function getNoticia(Request $request, $id, $noticias){
