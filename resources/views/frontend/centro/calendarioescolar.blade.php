@@ -33,7 +33,7 @@ $Primero=$Segundo=$Tercero=['',''];
                 </div>
 
                 <div class="col-12 col-xl-8 g-order-2 g-order-1--xl">
-                    <h2 class="h3 g-color-gray-dark-v2 g-font-weight-700 mb-4 text-center">2019 - 2020</h2>
+                    <h2 class="h3 g-color-gray-dark-v2 g-font-weight-700 mb-4 text-center">2020 - 2021</h2>
                     <div class="leyenda row">
                         <div class="cajacubo col-6 col-sm-4 col-md-2">
                             <div class="cubo festivo"></div> Días no lectivos

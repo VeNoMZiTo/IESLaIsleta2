@@ -30,7 +30,7 @@ class TablasController extends Controller
         ));
     }
     public function getEqDocente(){
-        $docente = EquipoDocente::all();
+        $docente = EquipoDocente::orderBy('departamento')->get();
 //        $departamentos= EquipoDocente::with('departamento')->get();
         $descargar = Descargar::all()->first();
         return view('frontend.centro.eqdocente',array(
