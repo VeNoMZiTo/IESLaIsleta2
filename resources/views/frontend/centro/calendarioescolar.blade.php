@@ -400,9 +400,9 @@ $Primero=$Segundo=$Tercero=['',''];
     <script>
 
         $(function() {
-            var currentYear = new Date('8/1/2019').getFullYear();
-            var endyear = new Date('12/31/2019');
-            var nextyear = new Date('06/31/2020');
+            var currentYear = new Date('8/1/2020').getFullYear();
+            var endyear = new Date('12/31/2020');
+            var nextyear = new Date('06/31/2021');
             console.log(currentYear);
 
             $('.calendar').calendar({
@@ -432,7 +432,7 @@ $Primero=$Segundo=$Tercero=['',''];
                         @php
                         $fecha=explode("-",$a->fecha);
                         @endphp
-                        @if($fecha[2]=='2019')
+                        @if($fecha[2]=='2020')
                             {
                                 nombre:'{{$a->tipo}}',
                                 tema:'{{$a->tema}}',
@@ -540,7 +540,7 @@ $Primero=$Segundo=$Tercero=['',''];
             });
             $('.prev.disabled, .next.disabled, .year-neighbor2, .year-neighbor').remove();
             $('.calendar2019 .months-container').append($('.calendar2020 .months-container').html());
-            $('.year-title').html('2019 - 2020');
+            $('.year-title').html('2020 - 2021');
             $('.calendar2').remove();
             // initialization of tooltipster
             $('.tooltipster').tooltipster({
