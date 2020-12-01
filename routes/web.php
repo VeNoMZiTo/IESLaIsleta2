@@ -1,6 +1,7 @@
 <?php
 
-Route::get('/', 'IndexController@getIndex');
+Route::get('/', 'IndexController@getIndex')->name('inicio');
+Route::get('/inicio-contacto', 'IndexController@getIndex')->name('inicio-contacto');
 /*Centro*/
 Route::get('/presentacion', 'IndexController@getDepartamentos');
 Route::get('/equipo-directivo', 'TablasController@getEqDirectivo');

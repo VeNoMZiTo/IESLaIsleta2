@@ -1,6 +1,7 @@
 <?php
 
-Route::get('/', 'IndexController@getIndex');
+Route::get('/', 'IndexController@getIndex')->name('inicio');
+Route::get('/inicio-contacto', 'IndexController@getIndex')->name('inicio-contacto');
 /*Centro*/
 Route::get('/presentacion', 'IndexController@getDepartamentos');
 Route::get('/equipo-directivo', 'TablasController@getEqDirectivo');
@@ -36,7 +37,7 @@ Route::get('/tutorias', 'TablasController@getTutoria');
 Route::get('/secretaria-informacion', 'IndexController@getSecretariaInformacion');
 Route::get('/impresos', 'IndexController@getImpreso');
 Route::get('/certificados', 'IndexController@getDepartamentos');
-Route::post('mail/send-contact', 'MailController@sendCertificado');
+Route::post('mail/enviar-certificado', 'MailController@enviarCertificado');
 
 /*Cita Previa de Tarde*/
 Route::get('/cita-previa-tarde', 'IndexController@getDepartamentos');
@@ -46,8 +47,8 @@ Route::get('/nodisponible', 'IndexController@getDepartamentos');
 Route::get('/consultas', 'IndexController@getDepartamentos');
 Route::get('/pincel-ekade', 'IndexController@getDepartamentos');
 Route::get('/noticias', 'IndexController@getRepertorioNoticias');
-Route::get('/noticia/{id}-{titulo}', 'IndexController@getNoticia');
-Route::get('/actividad/{id}-{titulo}', 'IndexController@getActividad');
+Route::get('/noticia/{id}/{noticias}', 'IndexController@getNoticia');
+Route::get('/actividad/{id}/{actividad}', 'IndexController@getActividad');
 
 /*Correos del Apartado de Buzón de Sugerencias*/
 Route::post('mail/send-contact', 'MailController@sendContact');

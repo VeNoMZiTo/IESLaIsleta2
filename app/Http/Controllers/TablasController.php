@@ -39,7 +39,7 @@ class TablasController extends Controller
         ));
     }
     public function getTutoria(){
-        $tutoria = Tutorium::all();
+        $tutoria = Tutorium::orderBy('nivel','DESC')->orderBy('grupo')->get();
         $descargar = DescagarFamilium::all()->first();
         return view('frontend.familia.tutorias',array(
             'tutoria' => $tutoria,

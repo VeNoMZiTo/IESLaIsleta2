@@ -441,36 +441,12 @@ $Primero=$Segundo=$Tercero=['',''];
                             },
                         @endif
                     @endforeach
-                    {
-                        nombre: 'Festivo',
-                        tema:'Día no lectivo',
-                        startDate: new Date(currentYear, 8, 9),
-                        endDate: new Date(currentYear, 8, 9)
-                    },
-                    {
-                        nombre: 'Festivo',
-                        tema:'Día no lectivo',
-                        startDate: new Date(currentYear, 11, 6),
-                        endDate: new Date(currentYear, 11, 6)
-                    },
-                    {
-                        nombre: 'Festivo',
-                        tema:'Día no lectivo',
-                        startDate: new Date(currentYear, 11, 9),
-                        endDate: new Date(currentYear, 11, 9)
-                    },
-                    {
-                        nombre: 'Festivo',
-                        tema:'Día no lectivo',
-                        startDate: new Date(currentYear, 11, 23),
-                        endDate: new Date(currentYear, 11, 31)
-                    }
                 ]
 
             });
-            var currentNextYear =new Date('01/01/2020').getFullYear();
+            var currentNextYear =new Date('01/01/2021').getFullYear();
             $('.calendar2').calendar({
-                startYear:'2020',
+                startYear:'2021',
                 minDate: new Date('01/01/2020'),
                 maxDate: new Date(nextyear),
                 language:'es',
@@ -506,36 +482,6 @@ $Primero=$Segundo=$Tercero=['',''];
                         },
                     @endif
                     @endforeach
-                    {
-                        nombre: 'Festivo',
-                        tema:'Día no lectivo',
-                        startDate: new Date(currentNextYear, 0, 1),
-                        endDate: new Date(currentNextYear, 0, 7)
-                    },
-                    {
-                        nombre: 'Festivo',
-                        tema:'Día no lectivo',
-                        startDate: new Date(currentNextYear, 1, 25),
-                        endDate: new Date(currentNextYear, 1, 25)
-                    },
-                    {
-                        nombre: 'Festivo',
-                        tema:'Día no lectivo',
-                        startDate: new Date(currentNextYear, 3, 6),
-                        endDate: new Date(currentNextYear, 3, 10)
-                    },
-                    {
-                        nombre: 'Festivo',
-                        tema:'Día no lectivo',
-                        startDate: new Date(currentNextYear, 4, 1),
-                        endDate: new Date(currentNextYear, 4, 1)
-                    },
-                    {
-                        nombre: 'Festivo',
-                        tema:'Día no lectivo',
-                        startDate: new Date(currentNextYear, 5, 24),
-                        endDate: new Date(currentNextYear, 5, 24)
-                    }
                 ]
             });
             $('.prev.disabled, .next.disabled, .year-neighbor2, .year-neighbor').remove();

@@ -3,10 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="f0f9d890-cdf8-4d84-907a-e2c0d84695a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/customperf.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/customperf.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TablasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TablasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/pdf/prueba.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/pdf/visita-padres.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/centro/calendarioescolar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/centro/calendarioescolar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/secretaria/certificados.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/secretaria/certificados.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/adminUpgrade.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/adminUpgrade.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/webUpgrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/webUpgrade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,7 +292,10 @@
       <workItem from="1594906168317" duration="841000" />
       <workItem from="1596114214837" duration="3000" />
       <workItem from="1605781992256" duration="2847000" />
-      <workItem from="1605786645770" duration="1970000" />
+      <workItem from="1605786645770" duration="2828000" />
+      <workItem from="1605863849344" duration="2113000" />
+      <workItem from="1606115313229" duration="3000" />
+      <workItem from="1606813290656" duration="162000" />
     </task>
     <servers />
   </component>
@@ -295,17 +303,9 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="636" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1596114214704">
+    <state x="636" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1606115313768">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="636" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596114214704" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1593714815367">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1593714815367" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1589187459012">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589187459012" />
+    <state x="636" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606115313768" />
   </component>
 </project>

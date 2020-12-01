@@ -174,7 +174,7 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-sm-4 col-md-3 g-hidden-sm-down g-brd-right--md g-brd-gray-light-v4 topnavbarbox h-100">
-                                    <a id="acontact" href="#iniciocontact" class="d-flex align-items-center justify-content-center h-100 w-100">
+                                    <a id="acontact" href="{{Request::is('/') || Request::is('inicio-contacto') ? '#iniciocontacto' : route('inicio-contacto')}}" class="d-flex align-items-center justify-content-center h-100 w-100">
                                         <span class="fa fa-address-book g-valign-middle g-font-size-18 g-mr-5"></span>
                                         <div class="g-pa-10--lg">
                                             <strong><span class="text-uppercase g-font-size-12">Contacto</span></strong>
@@ -420,7 +420,7 @@
                                                         <a href="/junta-de-delegados">Junta de delegados</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/pdf/horario-grupos-ies-la-isleta-2019-2020.pdf">Horario de grupos</a>
+                                                        <a href="/pdf/horario-grupos-ies-la-isleta-2020-2021.pdf">Horario de grupos</a>
                                                     </li>
 
                                                     <li class="dropdown-item hs-has-sub-menu">
@@ -471,7 +471,7 @@
                                                         <a href="/tutorias">Tutorías</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/pdf/visita-padres.pdf">Calendario de visitas</a>
+                                                        <a href="/pdf/visita-padres-ies-la-isleta-2020-2021.pdf">Calendario de visitas</a>
                                                     </li>
                                                     <li>
                                                         <a href="/cita-previa-tarde">Cita previa de tarde</a>
@@ -820,47 +820,42 @@
                 scrollTop: $("#news").offset().top - sheigth
             }, 1500);
         }
-        function scrollcontact(){
-            $('html, body').animate({
-                scrollTop: $("#iniciocontact").offset().top - sheigth
-            }, 1500);
-        }
         if ( $("#news").length > 0  ) {
         }else{
             $('#anews').attr({'href':'/noticias'});
         }
-        if ( $("#iniciocontact").length > 0 ) {
-        }else{
-            $('#acontact').attr({'href':'/'});
-        }
         $("#anews").click(function () {
             scrollnews();
         });
+        /* Script para el redireccionamiento de contacto*/
+        function scrollcontact(){
+            $('html, body').animate({
+                scrollTop: $("#iniciocontacto").offset().top - sheigth
+            }, 1500);
+        }
         $("#acontact").click(function () {
             scrollcontact();
         });
-        // initialization of tabs
+        @if(Request::is('inicio-contacto'))
+            $('#acontact').click();
+        @endif
+
         $.HSCore.components.HSTabs.init('[role="tablist"]');
 
-        // initialization of header's height equal offset
         $.HSCore.helpers.HSHeightCalc.init();
 
-        // initialization carousel
         $.HSCore.components.HSCarousel.init('.js-carousel');
+
         $('.js-carousel').slick('setOption', {
             'pauseOnHover':true
         }, true);
 
-        // initialization of scroll animation
         $.HSCore.components.HSOnScrollAnimation.init('[data-animation]');
 
-        // initialization of popups
         $.HSCore.components.HSModalWindow.init('[data-modal-target]');
 
-        // initialization of video on background
         $.HSCore.helpers.HSBgVideo.init('.js-bg-video');
 
-        // initialization of popups with media
         $.HSCore.components.HSPopup.init('.js-fancybox-media', {
             helpers: {
                 media: {},
@@ -872,9 +867,7 @@
             }
         });
 
-        // initialization of go to
         $.HSCore.components.HSGoTo.init('.js-go-to');
-
     });
 
     $(window).on('load', function () {

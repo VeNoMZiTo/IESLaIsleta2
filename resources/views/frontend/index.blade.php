@@ -316,8 +316,7 @@
         </div>
     </section>
 
-    <div id="iniciocontact" class="shortcode-html ">
-        <!-- Contact Info -->
+    <div id="iniciocontacto">
         <div class="g-bg-black-opacity-0_9 g-color-white text-center g-py-50 footer-1 u-shadow-v1-5" >
             <div class="container">
 
@@ -346,13 +345,9 @@
                 </address>
             </div>
         </div>
-        <!-- End Contact Info -->
-        <!-- Google Map -->
         <div class="map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3517.9103710796107!2d-15.422621871163937!3d28.14921659375105!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6b0970ce7d71a8eb!2sIES+La+Isleta!5e0!3m2!1ses!2ses!4v1560123502071!5m2!1ses!2ses" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe></iframe>
         </div>
-        <!-- End Google Map -->
-        <!-- Social Links -->
         <ul class="row no-gutters list-inline g-mb-0">
             <li class="col list-inline-item g-mr-0">
                 <a class="d-block g-color-white-opacity-0_8 g-bg-twitter g-color-white--hover g-opacity-1--hover g-font-size-16 text-center g-transition-0_2 g-pa-15" href="https://twitter.com/IESLaIsleta" target="_blank">
